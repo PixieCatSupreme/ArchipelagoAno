@@ -131,7 +131,7 @@ class AnodyneGameWorld(World):
 
         for region_name, events in Events.events_by_region.items():
             for event_name in events:
-                if include_big_keys != BigKeyShuffle.option_vanilla and event_name in Events.big_key_events:
+                if include_big_keys != BigKeyShuffle.option_vanilla and event_name in Items.big_keys:
                     continue
 
                 requirements: list[str] = Events.events_by_region[region_name][event_name]
@@ -183,7 +183,7 @@ class AnodyneGameWorld(World):
         key_shuffle: KeyShuffle = self.options.key_shuffle
 
         start_broom: StartBroom = self.options.start_broom
-        start_broom_item: str = ""
+        start_broom_item: List[str] = []
 
         health_cicada_shuffle = self.options.health_cicada_shuffle
         big_key_shuffle = self.options.big_key_shuffle
@@ -191,17 +191,8 @@ class AnodyneGameWorld(World):
         placed_items = 0
         location_count = len(Constants.location_name_to_id)
 
-        # TODO: Jump is not actually in the item pool atm, in the list to keep ids correct for game
         excluded_items: set[str] = {
-            "Jump shoes",
-            "Key",
-            "Key (Apartment)",
-            "Key (Bedroom)",
-            "Key (Circus)",
-            "Key (Crowd)",
-            "Key (Hotel)",
-            "Key (Red Cave)",
-            "Key (Street)",
+            *Items.small_key_item_count.keys(),
             "Health Cicada"
         }
 
@@ -210,10 +201,9 @@ class AnodyneGameWorld(World):
                 for location in Locations.vanilla_key_locations[region]:
                     placed_items += 1
                     self.multiworld.get_location(location, self.player).place_locked_item(
-                        self.create_item(f"Key ({region})"))
+                        self.create_item(f"Small Key ({region})"))
         elif key_shuffle != KeyShuffle.option_unlocked:
-            for key_item in Items.key_item_count:
-                key_count: int = Items.key_item_count[key_item]
+            for key_item, key_count in Items.small_key_item_count.items():
                 placed_items += key_count
 
                 for _ in range(key_count):
@@ -225,17 +215,17 @@ class AnodyneGameWorld(World):
                     non_local_item_pool.add(key_item)
 
         if start_broom == StartBroom.option_normal:
-            start_broom_item = "Broom"
+            start_broom_item = ["Broom"]
         elif start_broom == StartBroom.option_wide:
-            start_broom_item = "Wide upgrade"
+            start_broom_item = ["Broom", "Widen"]
         elif start_broom == StartBroom.option_long:
-            start_broom_item = "Long upgrade"
+            start_broom_item = ["Broom", "Extend"]
         elif start_broom == StartBroom.option_swap:
-            start_broom_item = "Swap upgrade"
+            start_broom_item = ["Swap"]
 
-        if start_broom_item != "":
-            self.multiworld.push_precollected(self.create_item(start_broom_item))
-            excluded_items.add(start_broom_item)
+        for broom_item in start_broom_item:
+            self.multiworld.push_precollected(self.create_item(broom_item))
+            excluded_items.add(broom_item)
 
         if health_cicada_shuffle == HealthCicadaShuffle.option_vanilla:
             location_count -= len(Locations.health_cicada_locations)
@@ -271,6 +261,9 @@ class AnodyneGameWorld(World):
                 item_pool.append(self.create_item(name))
 
         if placed_items < location_count:
+            # TODO: Prioritize extending the item pool using available secret items (just the golden poop and heart when
+            # postgame is disabled, and all of them if enabled). After that, if there's any space left, fill it with
+            # some other generic filler item.
             item_pool.extend(self.create_filler() for _ in range(location_count - placed_items))
 
         self.multiworld.itempool += item_pool
@@ -279,7 +272,8 @@ class AnodyneGameWorld(World):
         self.options.non_local_items.value |= non_local_item_pool
 
     def get_filler_item_name(self) -> str:
-        return "Key"
+        # TODO: See TODO in create_items.
+        return self.random.choice(Items.filler_items)
 
     def create_event(self, region: Region, event_name: str, access_rule: Callable[[CollectionState], bool]) -> None:
         loc = AnodyneLocation(self.player, event_name, None, region)

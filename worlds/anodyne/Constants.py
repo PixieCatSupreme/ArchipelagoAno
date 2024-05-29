@@ -3,7 +3,7 @@ import logging
 from typing import Callable, NamedTuple
 from BaseClasses import MultiWorld, CollectionState
 
-from .Data import Items, Locations, Regions
+from .Data import Items, Locations, Regions, Events
 from .Options import KeyShuffle
 
 id_offset: int = 20130204
@@ -34,19 +34,17 @@ def count_cards(state: CollectionState, player: int) -> int:
 
 
 def count_keys(state: CollectionState, player: int, map_name: str) -> int:
-    key_name: str = f"Key ({map_name})"
+    key_name: str = f"Small Key ({map_name})"
 
     if key_name not in Items.all_items:
+        logging.warning(f"Item {key_name} does not exist")
         return 0
     else:
         return state.count(key_name, player)
 
 
 def check_access(state: CollectionState, player: int, rule: str, map_name: str) -> bool:
-    if rule == "Combat":
-        logging.debug(f"Combat check in {map_name} ({player})")
-        return state.has_any(items=["Broom", "Wide upgrade", "Long upgrade"], player=player)
-    elif rule.startswith("Cards:"):
+    if rule.startswith("Cards:"):
         count = int(rule[6:])
         logging.debug(f"Card {count} check in {map_name} ({player})")
         return count >= count_cards(state, player)
@@ -61,4 +59,6 @@ def check_access(state: CollectionState, player: int, rule: str, map_name: str) 
         return count_keys(state, player, map_name) >= count
     else:
         logging.debug(f"Item {rule} check in {map_name} ({player})")
+        if rule not in Items.all_items and rule not in Events.all_events:
+            logging.warning(f"Rule {rule} does not exist")
         return state.has(item=rule, player=player)

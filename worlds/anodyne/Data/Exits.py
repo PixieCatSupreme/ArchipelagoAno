@@ -26,8 +26,8 @@ exits_by_region = {
     },
     "Apartment floor 2 top left": {
         "Apartment floor 2 top left to Apartment floor 1 top left": [
-            ["Apartment floor 2 top left", "Apartment floor 1 top left", ["Combat"]],
-            ["Apartment floor 1 top left", "Apartment floor 2 top left", ["Combat"]]
+            ["Apartment floor 2 top left", "Apartment floor 1 top left", ["Broom"]],
+            ["Apartment floor 1 top left", "Apartment floor 2 top left", ["Broom"]]
         ]
     },
     "Beach": {
@@ -36,7 +36,7 @@ exits_by_region = {
             ["Fields", "Beach", []]
         ],
         "Beach to Red Sea exit": [
-            ["Beach", "Red Sea", ["Combat"]],
+            ["Beach", "Red Sea", ["Broom"]],
             ["Red Sea", "Beach", []]
         ]
     },
@@ -46,18 +46,18 @@ exits_by_region = {
             ["Overworld", "Bedroom", []]
         ],
         "Bedroom to Overworld post windmill exit": [
-            ["Bedroom", "Overworld post windmill", ["Windmill activated", "Combat", "Keys:3"]],
-            ["Overworld post windmill", "Bedroom", ["Windmill activated", "Combat", "Keys:3"]]
+            ["Bedroom", "Overworld post windmill", ["Windmill activated", "Broom", "Keys:3"]],
+            ["Overworld post windmill", "Bedroom", ["Windmill activated", "Broom", "Keys:3"]]
         ]
     },
     "Bedroom drawer": {
         "Bedroom drawer to Drawer exit": [
-            ["Bedroom drawer", "Drawer", ["Swap upgrade", "Swap unlocked"]],
-            ["Drawer", "Bedroom drawer", ["Swap upgrade", "Swap unlocked"]]
+            ["Bedroom drawer", "Drawer", ["Swap"]],
+            ["Drawer", "Bedroom drawer", ["Swap"]]
         ],
         "Bedroom drawer to Overworld exit": [
-             ["Bedroom drawer", "Overworld", ["Swap upgrade", "Swap unlocked"]],
-             ["Overworld", "Bedroom drawer", ["Swap upgrade", "Swap unlocked"]]
+             ["Bedroom drawer", "Overworld", ["Swap"]],
+             ["Overworld", "Bedroom drawer", ["Swap"]]
          ]
     },
     "Blank start": {
@@ -67,8 +67,8 @@ exits_by_region = {
     },
     "Blank windmill": {
         "Blank windmill to Windmill exit": [
-            ["Blank windmill", "Windmill", ["Swap upgrade", "Swap unlocked"]],
-            ["Windmill", "Blank windmill", ["Swap upgrade", "Swap unlocked"]]
+            ["Blank windmill", "Windmill", ["Swap"]],
+            ["Windmill", "Blank windmill", ["Swap"]]
         ],
         "Blank windmill to Drawer dark exit": [
             ["Blank windmill", "Drawer dark", ["Cards:47"]],
@@ -139,20 +139,20 @@ exits_by_region = {
     },
     "Fields": {
         "Fields to Overworld exit": [
-            ["Fields", "Overworld", ["Green key"]],
-            ["Overworld", "Fields", ["Green key"]]
+            ["Fields", "Overworld", ["Green Key"]],
+            ["Overworld", "Fields", ["Green Key"]]
         ],
         "Fields to Forest exit": [
             ["Fields", "Forest", ["Goldman moved"]],
             ["Forest", "Fields", []]
          ],
         "Fields to Terminal exit": [
-             ["Fields", "Terminal", ["Red key", "Jump shoes"]],
-             ["Terminal", "Fields", ["Red key", "Jump shoes"]]
+             ["Fields", "Terminal", ["Red Key", "Jump Shoes"]],
+             ["Terminal", "Fields", ["Red Key", "Jump Shoes"]]
          ],
         "Fields to Windmill exit": [
-             ["Fields", "Windmill", ["Green key", "Red key", "Blue key"]],
-             ["Windmill", "Fields", ["Green key", "Red key", "Blue key"]]
+             ["Fields", "Windmill", ["Green Key", "Red Key", "Blue Key"]],
+             ["Windmill", "Fields", ["Green Key", "Red Key", "Blue Key"]]
          ]
     },
     "Go bottom": {
@@ -161,8 +161,8 @@ exits_by_region = {
              ["Terminal", "Go bottom", ["Cards:36"]]
          ],
         "Go bottom to Go top exit": [
-             ["Go bottom", "Go top", ["Swap upgrade"]],
-             ["Go top", "Go bottom", ["Swap upgrade"]]
+             ["Go bottom", "Go top", ["Swap"]],
+             ["Go top", "Go bottom", ["Swap"]]
          ]
     },
     "Go top": {
@@ -183,8 +183,8 @@ exits_by_region = {
     },
     "Hotel floor 4": {
         "Hotel floor 4 to Hotel floor 3": [
-            ["Hotel floor 4", "Hotel floor 3", ["Combat", "Jump shoes"]],
-            ["Hotel floor 3", "Hotel floor 4", ["Combat", "Jump shoes"]]
+            ["Hotel floor 4", "Hotel floor 3", ["Broom", "Jump Shoes"]],
+            ["Hotel floor 3", "Hotel floor 4", ["Broom", "Jump Shoes"]]
         ]
     },
     "Hotel floor 3": {
@@ -268,13 +268,13 @@ exits_by_region = {
     },
     "Street": {
         "Street to Overworld exit": [
-             ["Street", "Overworld", ["Combat", "Keys:1"]],
+             ["Street", "Overworld", ["Broom", "Keys:1"]],
          ]
     },
     "Suburb": {
         "Suburb to Suburb card house": [
-            ["Suburb", "Suburb card house", ["Combat"]],
-            ["Suburb card house", "Suburb", ["Combat"]]
+            ["Suburb", "Suburb card house", ["Broom"]],
+            ["Suburb card house", "Suburb", ["Broom"]]
         ]
     }
 }

@@ -55,17 +55,17 @@ all_regions = [
 ]
 
 dungeon_areas = {
-    "Bedroom": ["Bedroom"],
+    "Temple of the Seeing One": ["Bedroom"],
     "Red Cave": ["Red Cave top",
                  "Red Cave left",
                  "Red Cave center",
                  "Red Cave right",
                  "Red Cave bottom",
                  "Red Cave Isaac"],
-    "Crowd": ["Crowd floor 1",
-              "Crowd floor 2",
-              "Crowd floor 3",
-              "Crowd jump challenge"],
+    "Mountain Cavern": ["Crowd floor 1",
+                        "Crowd floor 2",
+                        "Crowd floor 3",
+                        "Crowd jump challenge"],
     "Hotel": ["Hotel roof",
               "Hotel floor 4",
               "Hotel floor 3",
@@ -78,6 +78,7 @@ dungeon_areas = {
                   "Apartment floor 2 top left",
                   "Apartment floor 3"],
     "Circus": ["Circus"],
+    "Street": ["Street"],
 }
 
 dungeon_area_to_dungeon = {name: dungeon for dungeon, names in dungeon_areas.items() for name in names}

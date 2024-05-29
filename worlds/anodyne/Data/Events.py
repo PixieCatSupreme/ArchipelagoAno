@@ -1,67 +1,59 @@
 events_by_region = {
     "Bedroom": {
-        "Defeat Seer": ["Combat", "Keys:2"],
-        "Green key": ["Defeat Seer"]
+        "Defeat Seer": ["Broom", "Keys:2"],
+        "Green Key": ["Defeat Seer"]
     },
     "Crowd floor 1": {
-        "Defeat The Wall": ["Combat", "Jump shoes", "Break the Film"],
-        "Blue key": ["Defeat The Wall"]
+        "Defeat The Wall": ["Broom", "Jump Shoes", "Break the Film"],
+        "Blue Key": ["Defeat The Wall"]
     },
     "Crowd floor 3": {
-        "Break the Film": ["Combat", "Keys:3"],
+        "Break the Film": ["Broom", "Keys:3"],
     },
     "Fields": {
         "Goldman moved": [],
     },
     "Windmill": {
-        "Windmill activated": ["Green key", "Red key", "Blue key"],
+        "Windmill activated": ["Green Key", "Red Key", "Blue Key"],
     },
     "Hotel floor 1": {
-        "Defeat Manager": ["Keys:6", "Combat"],
+        "Defeat Manager": ["Keys:6", "Broom"],
     },
     "Circus": {
-        "Defeat Servants": ["Keys:3", "Combat", "Jump shoes"],
+        "Defeat Servants": ["Keys:3", "Broom", "Jump Shoes"],
     },
     "Apartment floor 3": {
-        "Defeat Watcher": ["Combat", "Keys:4"],
+        "Defeat Watcher": ["Broom", "Keys:4"],
     },
     "Terminal": {
-        "Defeat Sage": ["Combat", "Cards:36"],
+        "Defeat Sage": ["Broom", "Cards:36"],
     },
     "Go top": {
         "Defeat Briar": ["Happy completed"],
-        "Swap unlocked": ["Defeat Briar"],
     },
     "Nexus top": {
         "Open 49 card gate": ["Cards:49"],
     },
     "Red Cave center": {
-        "Center left tentacle hit": ["Combat"],
-        "Center right tentacle hit": ["Combat"],
+        "Center left tentacle hit": ["Broom"],
+        "Center right tentacle hit": ["Broom"],
     },
     "Red Cave left": {
-        "Left tentacle hit": ["Combat", "Keys:6"],
+        "Left tentacle hit": ["Broom", "Keys:6"],
     },
     "Red Cave right": {
-        "Right tentacle hit": ["Combat", "Keys:6"],
+        "Right tentacle hit": ["Broom", "Keys:6"],
     },
     "Red Cave top": {
-        "Defeat Rogue": ["Combat"],
-        "Red key": ["Defeat Rogue"]
+        "Defeat Rogue": ["Broom"],
+        "Red Key": ["Defeat Rogue"]
     },
     "Blue": {
-        "Blue completed": ["Jump shoes"],
+        "Blue completed": ["Jump Shoes"],
     },
     "Happy": {
         "Happy completed": ["Blue completed"],
     },
-    "Cliff": {
-        "Jump shoes": [],
-    }
 }
 
-big_key_events = [
-    "Green key",
-    "Red key",
-    "Blue key"
-]
+all_events = [event_name for events in events_by_region.values() for event_name in events.keys()]

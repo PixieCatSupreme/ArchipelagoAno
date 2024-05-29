@@ -1,6 +1,6 @@
 from BaseClasses import Region, Location, Item, ItemClassification, CollectionState
 from worlds.AutoWorld import WebWorld, World
-from typing import List, Callable
+from typing import List, Callable, Dict
 
 from . import Constants
 
@@ -55,6 +55,8 @@ class AnodyneGameWorld(World):
         include_health_cicadas = self.options.health_cicada_shuffle
         include_big_keys = self.options.big_key_shuffle
 
+        all_regions: Dict[str, Region] = {}
+
         for region_name in Regions.all_regions:
             region = Region(region_name, self.player, self.multiworld)
             if region_name in Locations.locations_by_region:
@@ -78,56 +80,60 @@ class AnodyneGameWorld(World):
                             for item in reqs)
                     )))(requirements, region.name)
 
-            self.multiworld.regions.append(region)
+            all_regions[region_name] = region
 
-        for region in self.multiworld.get_regions(self.player):
-            if region.name in Exits.exits_by_region:
-                for exit_name in Exits.exits_by_region[region.name]:
-                    for i, exit_vals in enumerate(Exits.exits_by_region[region.name][exit_name]):
-                        exit1: str = exit_vals[0]
-                        exit2: str = exit_vals[1]
+        for region_name, exits in Exits.exits_by_region.items():
+            for exit_name in exits:
+                for i, exit_vals in enumerate(Exits.exits_by_region[region_name][exit_name]):
+                    exit1: str = exit_vals[0]
+                    exit2: str = exit_vals[1]
 
-                        requirements: list[str] = exit_vals[2]
+                    requirements: list[str] = exit_vals[2]
 
-                        r1 = self.multiworld.get_region(exit1, self.player)
-                        r2 = self.multiworld.get_region(exit2, self.player)
+                    r1 = all_regions[exit1]
+                    r2 = all_regions[exit2]
 
-                        e = r1.create_exit(f"{exit_name} {str(i + 1)}")
-                        e.connect(r2)
-                        e.access_rule = (lambda reqs, name: (lambda state: (
-                            all(Constants.check_access(state, self.player, item, name)
-                                for item in reqs))))(requirements, region.name)
-
-            if region.name in Regions.regions_with_nexus_gate:
-                gate_name = f"{region.name} Nexus Gate"
-                event_name = f"{gate_name} unlocked"
-
-                nexus_region = self.multiworld.get_region("Nexus bottom", self.player)
-
-                self.create_event(region, event_name, lambda state: True)
-
-                e1 = region.create_exit(f"{gate_name} exit 1")
-                e1.connect(nexus_region)
-                e1.access_rule = ((lambda req, name: (lambda state: (
-                    Constants.check_access(state, self.player, req, name))))
-                                  (event_name, region.name))
-
-                e2 = nexus_region.create_exit(f"{gate_name} exit 2")
-                e2.connect(region)
-                e2.access_rule = ((lambda req, name: (lambda state: (
-                    Constants.check_access(state, self.player, req, name))))
-                                  (event_name, region.name))
-
-            if region.name in Events.events_by_region:
-                for event_name in Events.events_by_region[region.name]:
-                    if include_big_keys != BigKeyShuffle.option_vanilla and event_name in Events.big_key_events:
-                        continue
-
-                    requirements: list[str] = Events.events_by_region[region.name][event_name]
-                    self.create_event(region, event_name, (lambda reqs, name: (lambda state: (
+                    e = r1.create_exit(f"{exit_name} {str(i + 1)}")
+                    e.connect(r2)
+                    e.access_rule = (lambda reqs, name: (lambda state: (
                         all(Constants.check_access(state, self.player, item, name)
-                            for item in reqs)
-                    )))(requirements, region.name))
+                            for item in reqs))))(requirements, region_name)
+
+        for region_name in Regions.regions_with_nexus_gate:
+            gate_name = f"{region_name} Nexus Gate"
+            event_name = f"{gate_name} unlocked"
+
+            nexus_region = all_regions["Nexus bottom"]
+            region = all_regions[region_name]
+
+            self.create_event(region, event_name, lambda state: True)
+
+            e1 = region.create_exit(f"{gate_name} exit 1")
+            e1.connect(nexus_region)
+            e1.access_rule = ((lambda req, name: (lambda state: (
+                Constants.check_access(state, self.player, req, name))))
+                              (event_name, region.name))
+
+            e2 = nexus_region.create_exit(f"{gate_name} exit 2")
+            e2.connect(region)
+            e2.access_rule = ((lambda req, name: (lambda state: (
+                Constants.check_access(state, self.player, req, name))))
+                              (event_name, region.name))
+
+        for region_name, events in Events.events_by_region.items():
+            for event_name in events:
+                if include_big_keys != BigKeyShuffle.option_vanilla and event_name in Events.big_key_events:
+                    continue
+
+                requirements: list[str] = Events.events_by_region[region_name][event_name]
+                self.create_event(all_regions[region_name], event_name, (lambda reqs, name: (lambda state: (
+                    all(Constants.check_access(state, self.player, item, name)
+                        for item in reqs)
+                )))(requirements, region_name))
+
+        self.multiworld.regions += all_regions.values()
+
+        # TODO: Debug-guard this/
         from Utils import visualize_regions
 
         visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")

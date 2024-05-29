@@ -87,7 +87,7 @@ class AnodyneGameOptions(PerGameCommonOptions):
     big_key_shuffle: BigKeyShuffle
     start_broom: StartBroom
     nexus_gates_open: NexusGatesOpen
-    randomNexusGateOpenCount: RandomNexusGateOpenCount
+    random_nexus_gate_open_count: RandomNexusGateOpenCount
     victory_condition: VictoryCondition
     green_cube_chest: IncludeGreenCubeChest
     death_link: DeathLink

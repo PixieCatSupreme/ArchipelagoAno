@@ -44,21 +44,21 @@ def count_keys(state: CollectionState, player: int, map_name: str) -> int:
 
 def check_access(state: CollectionState, player: int, rule: str, map_name: str) -> bool:
     if rule == "Combat":
-        logging.info(f"Combat check in {map_name} ({player})")
+        logging.debug(f"Combat check in {map_name} ({player})")
         return state.has_any(items=["Broom", "Wide upgrade", "Long upgrade"], player=player)
     elif rule.startswith("Cards:"):
         count = int(rule[6:])
-        logging.info(f"Card {count} check in {map_name} ({player})")
+        logging.debug(f"Card {count} check in {map_name} ({player})")
         return count >= count_cards(state, player)
     elif rule.startswith("Keys:"):
         if state.multiworld.worlds[player].options.key_shuffle == KeyShuffle.option_unlocked:
-            logging.info(f"Gates are unlocked ({player})")
+            logging.debug(f"Gates are unlocked ({player})")
             return True
 
         count = int(rule[5:])
         map_name = Regions.dungeon_area_to_dungeon.get(map_name, map_name)
-        logging.info(f"Key {count} check in {map_name} having {count_keys(state,player,map_name)} ({player})")
+        logging.debug(f"Key {count} check in {map_name} having {count_keys(state,player,map_name)} ({player})")
         return count_keys(state, player, map_name) >= count
     else:
-        logging.info(f"Item {rule} check in {map_name} ({player})")
+        logging.debug(f"Item {rule} check in {map_name} ({player})")
         return state.has(item=rule, player=player)

@@ -149,14 +149,14 @@ class AnodyneGameWorld(World):
 
     def set_rules(self) -> None:
         green_cube_chest = bool(self.options.green_cube_chest)
-        nexus_gate_open = self.options.nexus_gates_open
 
         victory_condition: VictoryCondition = self.options.victory_condition
 
         requirements: list[str] = []
 
         if not green_cube_chest:
-            self.multiworld.exclude_locations[self.player].value.add("Green cube chest")
+            # TODO: Probably just fully remove this location when the option is off.
+            self.options.exclude_locations.value.add("Green cube chest")
 
         if victory_condition == VictoryCondition.option_all_bosses:
             requirements.append("Defeat Seer")
@@ -176,7 +176,7 @@ class AnodyneGameWorld(World):
         )
 
     def create_items(self) -> None:
-        item_pool: List[AnodyneItem] = []
+        item_pool: List[Item] = []
         local_item_pool: set[str] = set()
         non_local_item_pool: set[str] = set()
 

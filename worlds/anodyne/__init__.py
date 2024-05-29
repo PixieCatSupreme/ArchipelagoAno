@@ -6,7 +6,7 @@ from . import Constants
 
 from .Data import Items, Locations, Regions, Exits, Events
 from .Options import AnodyneGameOptions, IncludeGreenCubeChest, KeyShuffle, StartBroom, \
-    VictoryCondition  # , VictoryCondition
+    VictoryCondition, BigKeyShuffle, HealthCicadaShuffle
 
 
 class AnodyneLocation(Location):
@@ -59,11 +59,11 @@ class AnodyneGameWorld(World):
             region = Region(region_name, self.player, self.multiworld)
             if region_name in Locations.locations_by_region:
                 for location_name in Locations.locations_by_region[region_name]:
-                    if (include_health_cicadas.current_key == "vanilla"
+                    if (include_health_cicadas == HealthCicadaShuffle.option_vanilla
                             and location_name in Locations.health_cicada_locations):
                         continue
 
-                    if (include_big_keys.current_key == "vanilla"
+                    if (include_big_keys == BigKeyShuffle.option_vanilla
                             and location_name in Locations.big_key_locations):
                         continue
 
@@ -120,7 +120,7 @@ class AnodyneGameWorld(World):
 
             if region.name in Events.events_by_region:
                 for event_name in Events.events_by_region[region.name]:
-                    if include_big_keys.current_key != "vanilla" and event_name in Events.big_key_events:
+                    if include_big_keys != BigKeyShuffle.option_vanilla and event_name in Events.big_key_events:
                         continue
 
                     requirements: list[str] = Events.events_by_region[region.name][event_name]
@@ -170,7 +170,7 @@ class AnodyneGameWorld(World):
         for region_name in self.gates_unlocked:
             self.unlock_event(f"{region_name} Nexus Gate unlocked")
 
-        if victory_condition.current_key == "all_bosses":
+        if victory_condition == VictoryCondition.option_all_bosses:
             requirements.append("Defeat Seer")
             requirements.append("Defeat Rogue")
             requirements.append("Defeat The Wall")
@@ -179,7 +179,7 @@ class AnodyneGameWorld(World):
             requirements.append("Defeat Watcher")
             requirements.append("Defeat Sage")
             requirements.append("Defeat Briar")
-        elif victory_condition.current_key == "all_cards":
+        elif victory_condition == VictoryCondition.option_all_cards:
             requirements.append("Cards:49")
             requirements.append("Open 49 card gate")
 
@@ -217,13 +217,13 @@ class AnodyneGameWorld(World):
             "Health Cicada"
         }
 
-        if key_shuffle.current_key == "vanilla":
+        if key_shuffle == KeyShuffle.option_vanilla:
             for region in Locations.vanilla_key_locations:
                 for location in Locations.vanilla_key_locations[region]:
                     placed_items += 1
                     self.multiworld.get_location(location, self.player).place_locked_item(
                         self.create_item(f"Key ({region})"))
-        elif key_shuffle.current_key != "unlocked":
+        elif key_shuffle != KeyShuffle.option_unlocked:
             for key_item in Items.key_item_count:
                 key_count: int = Items.key_item_count[key_item]
                 placed_items += key_count
@@ -231,50 +231,50 @@ class AnodyneGameWorld(World):
                 for _ in range(key_count):
                     item_pool.append(self.create_item(key_item))
 
-                if key_shuffle.current_key == "own_world":
+                if key_shuffle == KeyShuffle.option_own_world:
                     local_item_pool.add(key_item)
-                elif key_shuffle.current_key == "different_world":
+                elif key_shuffle == KeyShuffle.option_different_world:
                     non_local_item_pool.add(key_item)
 
-        if start_broom.current_key == "normal":
+        if start_broom == StartBroom.option_normal:
             start_broom_item = "Broom"
-        elif start_broom.current_key == "wide":
+        elif start_broom == StartBroom.option_wide:
             start_broom_item = "Wide upgrade"
-        elif start_broom.current_key == "long":
+        elif start_broom == StartBroom.option_long:
             start_broom_item = "Long upgrade"
-        elif start_broom.current_key == "swapper":
+        elif start_broom == StartBroom.option_swap:
             start_broom_item = "Swap upgrade"
 
         if start_broom_item != "":
             self.multiworld.push_precollected(self.create_item(start_broom_item))
             excluded_items.add(start_broom_item)
 
-        if health_cicada_shuffle.current_key == "vanilla":
-            location_count - len(Locations.health_cicada_locations)
+        if health_cicada_shuffle == HealthCicadaShuffle.option_vanilla:
+            location_count -= len(Locations.health_cicada_locations)
         else:
             placed_items += len(Locations.health_cicada_locations)
             item_name = "Health Cicada"
 
-            if key_shuffle.current_key == "own_world":
+            if health_cicada_shuffle == HealthCicadaShuffle.option_own_world:
                 local_item_pool.add(item_name)
-            elif key_shuffle.current_key == "different_world":
+            elif health_cicada_shuffle == HealthCicadaShuffle.option_different_world:
                 non_local_item_pool.add(item_name)
 
             for _ in Locations.health_cicada_locations:
                 item_pool.append(self.create_item(item_name))
 
-        if big_key_shuffle.current_key == "vanilla":
+        if big_key_shuffle == BigKeyShuffle.option_vanilla:
             location_count - len(Locations.big_key_locations)
             excluded_items.update(Items.big_keys)
-        elif big_key_shuffle.current_key != "unlocked":
+        elif big_key_shuffle != BigKeyShuffle.option_unlocked:
             placed_items += len(Items.big_keys)
 
             for big_key in Items.big_keys:
                 item_pool.append(self.create_item(big_key))
 
-                if key_shuffle.current_key == "own_world":
+                if big_key_shuffle == BigKeyShuffle.option_own_world:
                     local_item_pool.add(big_key)
-                elif key_shuffle.current_key == "different_world":
+                elif big_key_shuffle == BigKeyShuffle.option_different_world:
                     non_local_item_pool.add(big_key)
 
         for name in Items.all_items:
@@ -309,8 +309,8 @@ class AnodyneGameWorld(World):
 
     def fill_slot_data(self):
         return {
-            "death_link": self.options.death_link.value == 1,
-            "unlock_gates": self.options.key_shuffle.value == 1,
-            "unlock_big_gates": self.options.big_key_shuffle.value == 1,
-            "nexus_gates_unlocked": self.gates_unlocked
+            "death_link": bool(self.options.death_link.value),
+            "unlock_gates": self.options.key_shuffle == KeyShuffle.option_unlocked,
+            "unlock_big_gates": self.options.big_key_shuffle == BigKeyShuffle.option_unlocked,
+            "nexus_gates_unlocked": self.gates_unlocked,
         }

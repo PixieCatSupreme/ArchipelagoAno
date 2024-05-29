@@ -1,9 +1,10 @@
 import logging
 
-from typing import Callable, Dict, NamedTuple
+from typing import Callable, NamedTuple
 from BaseClasses import MultiWorld, CollectionState
 
 from .Data import Items, Locations, Regions
+from .Options import KeyShuffle
 
 id_offset: int = 20130204
 
@@ -50,7 +51,7 @@ def check_access(state: CollectionState, player: int, rule: str, map_name: str) 
         logging.info(f"Card {count} check in {map_name} ({player})")
         return count >= count_cards(state, player)
     elif rule.startswith("Keys:"):
-        if state.multiworld.worlds[player].options.key_shuffle == "unlocked":
+        if state.multiworld.worlds[player].options.key_shuffle == KeyShuffle.option_unlocked:
             logging.info(f"Gates are unlocked ({player})")
             return True
 

@@ -4,14 +4,8 @@ events_by_region = {
         "Green Key": ["Defeat Seer"]
     },
     "Crowd floor 1": {
-        "Defeat The Wall": ["Broom", "Jump Shoes", "Break the Film"],
+        "Defeat The Wall": ["Broom", "Jump Shoes"],
         "Blue Key": ["Defeat The Wall"]
-    },
-    "Crowd floor 3": {
-        "Break the Film": ["Broom", "Keys:3"],
-    },
-    "Fields": {
-        "Goldman moved": [],
     },
     "Windmill": {
         "Windmill activated": ["Green Key", "Red Key", "Blue Key"],

@@ -109,22 +109,20 @@ class AnodyneGameWorld(World):
 
             all_regions[region_name] = region
 
-        for region_name, exits in Exits.exits_by_region.items():
-            for exit_name in exits:
-                for i, exit_vals in enumerate(Exits.exits_by_region[region_name][exit_name]):
-                    exit1: str = exit_vals[0]
-                    exit2: str = exit_vals[1]
+        for exit_vals in Exits.all_exits:
+            exit1: str = exit_vals[0]
+            exit2: str = exit_vals[1]
 
-                    requirements: list[str] = exit_vals[2]
+            requirements: list[str] = exit_vals[2]
 
-                    r1 = all_regions[exit1]
-                    r2 = all_regions[exit2]
+            r1 = all_regions[exit1]
+            r2 = all_regions[exit2]
 
-                    e = r1.create_exit(f"{exit_name} {str(i + 1)}")
-                    e.connect(r2)
-                    e.access_rule = (lambda reqs, name: (lambda state: (
-                        all(Constants.check_access(state, self.player, item, name)
-                            for item in reqs))))(requirements, region_name)
+            e = r1.create_exit(f"{exit1} to {exit2} exit")
+            e.connect(r2)
+            e.access_rule = (lambda reqs, name: (lambda state: (
+                all(Constants.check_access(state, self.player, item, name)
+                    for item in reqs))))(requirements, exit1)
 
         for region_name in self.gates_unlocked:
             all_regions["Nexus bottom"].create_exit(f"{region_name} Nexus Gate").connect(all_regions[region_name])
@@ -142,7 +140,7 @@ class AnodyneGameWorld(World):
 
         self.multiworld.regions += all_regions.values()
 
-        # TODO: Debug-guard this/
+        # TODO: Debug-guard this.
         from Utils import visualize_regions
 
         visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")

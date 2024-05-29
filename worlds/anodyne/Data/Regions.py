@@ -50,6 +50,7 @@ all_regions = [
     "Space",
     "Street",
     "Terminal",
+    "Windmill entrance",
     "Windmill",
     "Boss Rush"
 ]
@@ -104,7 +105,7 @@ regions_with_nexus_gate = [
     "Suburb",
     "Space",
     "Terminal",
-    "Windmill"
+    "Windmill entrance",
 ]
 
 early_nexus_gates = [

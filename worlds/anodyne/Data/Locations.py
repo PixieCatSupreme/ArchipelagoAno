@@ -61,7 +61,7 @@ all_locations = {
     "Carved Rock card chest": [],
     "Miao card chest": ["Broom"],
     "Mitra card chest": ["Broom"],
-    "Goldman card chest": ["Goldman moved", "Broom"],
+    "Goldman card chest": ["Broom"],
     "Rank card chest": ["Swap"],
     # Hidden path
     "Spam Can chest": ["Swap"],
@@ -143,7 +143,7 @@ all_locations = {
     "Green key item": ["Defeat Seer"],
     "Red key item": ["Defeat Rogue"],
     "Blue key item": ["Defeat The Wall"],
-    "Fields - Mitra Trade": ["Goldman moved"],
+    "Fields - Mitra Trade": [],
 }
 
 locations_by_region = {

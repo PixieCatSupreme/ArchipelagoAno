@@ -178,6 +178,11 @@ class AnodyneWorld(World):
             for statue in Items.statue_items:
                 self.proxy_rules[statue] = ["Windmill activated"]
 
+        if self.options.red_cave_shuffle == RedCaveShuffle.option_vanilla:
+            self.proxy_rules["RedCave:Left"] = ["Center left tentacle hit"]
+            self.proxy_rules["RedCave:Right"] = ["Center right tentacle hit"]
+            self.proxy_rules["RedCave:Top"] = ["Left tentacle hit", "Right tentacle hit"]
+
         victory_condition: VictoryCondition = self.options.victory_condition
         requirements: list[str] = []
 

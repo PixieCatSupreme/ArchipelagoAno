@@ -1,4 +1,7 @@
+import logging
+
 from BaseClasses import Region, Location, Item, ItemClassification, CollectionState
+from Fill import fill_restrictive, FillError
 from worlds.AutoWorld import WebWorld, World
 from typing import List, Callable, Dict
 
@@ -39,6 +42,7 @@ class AnodyneWorld(World):
 
     gates_unlocked: list[str] = []
     location_count: int = 0
+    dungeon_items: Dict[str, List[Item]] = {}
 
     def generate_early(self):
         nexus_gate_open = self.options.nexus_gates_open
@@ -195,6 +199,14 @@ class AnodyneWorld(World):
                     self.multiworld.get_location(location.name, self.player).place_locked_item(
                         self.create_item(item_name))
                     placed_items += 1
+        elif small_key_shuffle == SmallKeyShuffle.option_original_dungeon:
+            for dungeon in Regions.dungeon_areas.keys():
+                small_key_name = f"Small Key ({dungeon})"
+                items = self.dungeon_items.setdefault(dungeon, [])
+
+                for _ in range(Items.small_key_item_count[small_key_name]):
+                    items.append(self.create_item(small_key_name))
+                    placed_items += 1
         elif small_key_shuffle != SmallKeyShuffle.option_unlocked:
             for key_item, key_count in Items.small_key_item_count.items():
                 placed_items += key_count
@@ -274,6 +286,44 @@ class AnodyneWorld(World):
         item = self.create_item(name)
         item.classification = ItemClassification.progression
         return item
+
+    def pre_fill(self):
+        for dungeon, confined_dungeon_items in self.dungeon_items.items():
+            if len(confined_dungeon_items) == 0:
+                continue
+
+            collection_state = self.multiworld.get_all_state(False)
+            for other_dungeon, other_dungeon_items in self.dungeon_items.items():
+                if other_dungeon == dungeon:
+                    continue
+
+                for other_dungeon_item in other_dungeon_items:
+                    collection_state.collect(other_dungeon_item)
+
+            dungeon_location_names = [location.name
+                                      for region_name in Regions.dungeon_areas[dungeon]
+                                      for location in Locations.locations_by_region.get(region_name, [])]
+
+            if dungeon == "Street" and self.options.small_key_shuffle == SmallKeyShuffle.option_original_dungeon and\
+                    self.options.nexus_gates_open == NexusGatesOpen.option_street_only and\
+                    self.options.start_broom == StartBroom.option_none:
+                # This is a degenerate case; we need to prevent pre-fill from putting the Street small key in the Broom
+                # chest because if it does, there are no reachable locations at the start of the game.
+                dungeon_location_names.remove("Street - Broom Chest")
+
+            dungeon_locations = [location for location in self.multiworld.get_locations(self.player)
+                                 if location.name in dungeon_location_names]
+
+            for attempts_remaining in range(2, -1, -1):
+                self.random.shuffle(dungeon_locations)
+                try:
+                    fill_restrictive(self.multiworld, collection_state, dungeon_locations, confined_dungeon_items,
+                                     single_player_placement=True, lock=True, allow_excluded=True)
+                    break
+                except FillError as exc:
+                    if attempts_remaining == 0:
+                        raise exc
+                    logging.debug(f"Failed to shuffle dungeon items for player {self.player}. Retrying...")
 
     def fill_slot_data(self):
         return {

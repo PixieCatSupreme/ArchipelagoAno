@@ -9,10 +9,11 @@ class SmallKeyShuffle(Choice):
     display_name = "Shuffle small keys"
     option_vanilla = 0
     option_unlocked = 1
+    option_original_dungeon = 2
     option_own_world = 3
     option_any_world = 4
     option_different_world = 5
-    default = 0
+    default = 2
 
 
 class BigKeyShuffle(Choice):

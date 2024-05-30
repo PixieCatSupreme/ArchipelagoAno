@@ -139,7 +139,7 @@ all_locations: List[LocationData] = [
     LocationData("Heart chest", "Space"),
     # 3307AA58-CCF1-FB0D-1450-5AF0A0C458F7
     LocationData("Street small key chest 1", "Street", ["Broom"], small_key=True),
-    LocationData("Broom chest", "Street"),
+    LocationData("Street - Broom Chest", "Street"),
     LocationData("Follower card chest", "Street", ["Swap"]),
     LocationData("Sage card chest", "Terminal"),
     LocationData("Windmill card chest", "Windmill", []),

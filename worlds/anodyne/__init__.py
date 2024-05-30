@@ -122,6 +122,9 @@ class AnodyneWorld(World):
                     if not include_postgame and location.postgame():
                         continue
 
+                    if not self.options.forest_bunny_chest and location.name == "Deep Forest - Bunny Chest":
+                        continue
+
                     location_id = Constants.location_name_to_id[location.name]
 
                     new_location = AnodyneLocation(self.player, location.name, location_id, region)
@@ -171,10 +174,6 @@ class AnodyneWorld(World):
         visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
 
     def set_rules(self) -> None:
-        if self.options.postgame_mode != PostgameMode.option_disabled and not self.options.forest_bunny_chest:
-            # TODO: Probably just fully remove this location when the option is off.
-            self.options.exclude_locations.value.add("Deep Forest - Bunny Chest")
-
         if not self.options.split_windmill:
             for statue in Items.statue_items:
                 self.proxy_rules[statue] = ["Windmill activated"]
@@ -409,4 +408,5 @@ class AnodyneWorld(World):
             "split_windmill": bool(self.options.split_windmill),
             "postgame_mode": int(self.options.postgame_mode),
             "victory_condition": int(self.options.victory_condition),
+            "forest_bunny_chest": bool(self.options.forest_bunny_chest.value),
         }

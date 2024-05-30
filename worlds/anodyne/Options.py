@@ -1,12 +1,11 @@
 from dataclasses import dataclass
-from typing import Dict
 
 from Options import Choice, DeathLink, PerGameCommonOptions, StartInventoryPool, Toggle, Range
 from .Data import Regions
 
 
-class KeyShuffle(Choice):
-    """Select how the keys will be handled."""
+class SmallKeyShuffle(Choice):
+    """Select how the small keys will be handled."""
     display_name = "Shuffle small keys"
     option_vanilla = 0
     option_unlocked = 1
@@ -14,6 +13,7 @@ class KeyShuffle(Choice):
     option_any_world = 4
     option_different_world = 5
     default = 0
+
 
 class BigKeyShuffle(Choice):
     """Select how the big keys will be randomized."""
@@ -82,7 +82,7 @@ class IncludeGreenCubeChest(Toggle):
 
 @dataclass
 class AnodyneGameOptions(PerGameCommonOptions):
-    key_shuffle: KeyShuffle
+    small_key_shuffle: SmallKeyShuffle
     health_cicada_shuffle: HealthCicadaShuffle
     big_key_shuffle: BigKeyShuffle
     start_broom: StartBroom

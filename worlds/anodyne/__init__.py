@@ -402,9 +402,11 @@ class AnodyneWorld(World):
         return {
             "death_link": bool(self.options.death_link.value),
             "unlock_gates": self.options.small_key_shuffle == SmallKeyShuffle.option_unlocked,
-            "unlock_big_gates": self.options.big_key_shuffle == BigKeyShuffle.option_unlocked,
+            "shuffle_big_gates": int(self.options.big_key_shuffle),
+            "vanilla_health_cicadas": self.options.health_cicada_shuffle == HealthCicadaShuffle.option_vanilla,
             "nexus_gates_unlocked": self.gates_unlocked,
             "vanilla_red_cave": self.options.red_cave_shuffle == RedCaveShuffle.option_vanilla,
             "split_windmill": bool(self.options.split_windmill),
             "postgame_mode": int(self.options.postgame_mode),
+            "victory_condition": int(self.options.victory_condition),
         }

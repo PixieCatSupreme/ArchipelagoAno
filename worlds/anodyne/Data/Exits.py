@@ -1,7 +1,7 @@
 all_exits = [
     ["Menu", "Blank start", []],
     ["Apartment floor 1", "Suburb", []],
-    ["Suburb", "Apartment floor 1", []],
+    ["Suburb", "Apartment floor 1", ["Jump Shoes"]],
     ["Apartment floor 1", "Apartment floor 2", []],
     ["Apartment floor 2", "Apartment floor 1", []],
     ["Apartment floor 1", "Apartment floor 2 top left", ["Keys:Apartment:4"]],

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from Options import Choice, DeathLink, PerGameCommonOptions, StartInventoryPool, Toggle, Range
+from Options import Choice, DeathLink, PerGameCommonOptions, StartInventoryPool, Toggle, Range, OptionSet
 from .Data import Regions
 
 
@@ -82,6 +82,15 @@ class RandomNexusGateOpenCount(Range):
     default = 4
 
 
+class CustomNexusGatesOpen(OptionSet):
+    """
+    Specify specific Nexus Gates to open from the start.
+    If set, this will override the value of nexus_gates_open.
+    Note that the Street Nexus Gate will always be open.
+    """
+    valid_keys = Regions.regions_with_nexus_gate
+
+
 class VictoryCondition(Choice):
     """
     Select the end goal of your game.
@@ -116,6 +125,7 @@ class AnodyneGameOptions(PerGameCommonOptions):
     start_broom: StartBroom
     nexus_gates_open: NexusGatesOpen
     random_nexus_gate_open_count: RandomNexusGateOpenCount
+    custom_nexus_gates_open: CustomNexusGatesOpen
     victory_condition: VictoryCondition
     enable_postgame: EnablePostgame
     green_cube_chest: IncludeGreenCubeChest

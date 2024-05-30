@@ -52,7 +52,9 @@ class AnodyneWorld(World):
         nexus_gate_open = self.options.nexus_gates_open
 
         # Street is always unlocked
-        if nexus_gate_open == NexusGatesOpen.option_street_and_fields:
+        if len(self.options.custom_nexus_gates_open.value) > 0:
+            self.gates_unlocked.extend(self.options.custom_nexus_gates_open.value)
+        elif nexus_gate_open == NexusGatesOpen.option_street_and_fields:
             self.gates_unlocked.append("Fields")
         elif nexus_gate_open == NexusGatesOpen.option_early:
             for region_name in Regions.early_nexus_gates:

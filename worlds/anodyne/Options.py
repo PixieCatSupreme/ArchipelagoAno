@@ -5,8 +5,16 @@ from .Data import Regions
 
 
 class SmallKeyShuffle(Choice):
-    """Select how the small keys will be handled."""
-    display_name = "Shuffle small keys"
+    """
+    Select how the small keys will be handled.
+    [Vanilla] The small keys will be placed in the vanilla locations.
+    [Unlocked] The key-locked gates in each dungeon will open automatically.
+    [Original Dungeon] The small keys will be shuffled within their own dungeons.
+    [Own World] The small keys will be shuffled within your own world.
+    [Any World] The small keys will be shuffled throughout the entire multiworld.
+    [Different World] The small keys will specifically be shuffled into other players' worlds.
+    """
+    display_name = "Shuffle Small Keys"
     option_vanilla = 0
     option_unlocked = 1
     option_original_dungeon = 2
@@ -17,24 +25,37 @@ class SmallKeyShuffle(Choice):
 
 
 class BigKeyShuffle(Choice):
-    """Select how the big keys will be randomized."""
-    display_name = "Include Big Keys"
+    """
+    Select how the big keys will be randomized.
+    [Vanilla] The big keys will be placed in the vanilla locations.
+    [Unlocked] The big key gates will open automatically.
+    [Own World] The big keys will be shuffled within your own world.
+    [Any World] The big keys will be shuffled throughout the entire multiworld.
+    [Different World] The big keys will specifically be shuffled into other players' worlds.
+    """
+    display_name = "Shuffle Big Keys"
     option_vanilla = 0
     option_unlocked = 1
     option_own_world = 3
     option_any_world = 4
     option_different_world = 5
-    default = 0
+    default = 4
 
 
 class HealthCicadaShuffle(Choice):
-    """Select how the health cicadas will be randomized."""
-    display_name = "Include Health Cicadas"
+    """
+    Select how the health cicadas will be randomized.
+    [Vanilla] The health cicadas will not be locations.
+    [Own World] Health cicadas will be locations, and the items will be shuffled within your world.
+    [Any World] The health cicadas will be shuffled throughout the entire multiworld.
+    [Different World] The health cicadas will specifically be shuffled into other players' worlds.
+    """
+    display_name = "Shuffle Health Cicadas"
     option_vanilla = 0
     option_own_world = 1
     option_any_world = 2
     option_different_world = 3
-    default = 0
+    default = 2
 
 
 class RedCaveShuffle(Choice):
@@ -73,7 +94,7 @@ class StartBroom(Choice):
 
 class NexusGatesOpen(Choice):
     """Select which Nexus Gates are open from the start. Street is always open."""
-    display_name = "Nexus Gates opened"
+    display_name = "Open Nexus Gates"
     option_street_only = 0
     option_street_and_fields = 1
     option_early = 2
@@ -83,9 +104,10 @@ class NexusGatesOpen(Choice):
 
 
 class RandomNexusGateOpenCount(Range):
-    """The amount of random Nexus Gates to be opened from the start. Only has an effect if Nexus Gates is set to
-    random."""
-    display_name = "Random Nexus Gates open count"
+    """
+    The amount of random Nexus Gates to be opened from the start. Only has an effect if Nexus Gates is set to random.
+    """
+    display_name = "Random Open Nexus Gates Count"
     range_start = 1
     range_end = len(Regions.regions_with_nexus_gate)
     default = 4
@@ -129,9 +151,9 @@ class PostgameMode(Choice):
     default = 0
 
 
-class IncludeGreenCubeChest(Toggle):
+class IncludeForestBunnyChest(Toggle):
     """Include the chest that forces you to wait almost 2 hours to access it."""
-    display_name = "Include green cube chest"
+    display_name = "Include Forest Bunny Chest"
 
 
 @dataclass
@@ -147,6 +169,6 @@ class AnodyneGameOptions(PerGameCommonOptions):
     custom_nexus_gates_open: CustomNexusGatesOpen
     victory_condition: VictoryCondition
     postgame_mode: PostgameMode
-    green_cube_chest: IncludeGreenCubeChest
+    forest_bunny_chest: IncludeForestBunnyChest
     death_link: DeathLink
     start_inventory_from_pool: StartInventoryPool

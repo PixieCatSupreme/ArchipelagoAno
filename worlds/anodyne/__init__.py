@@ -8,8 +8,8 @@ from typing import List, Callable, Dict
 from . import Constants
 
 from .Data import Items, Locations, Regions, Exits, Events
-from .Options import AnodyneGameOptions, IncludeGreenCubeChest, SmallKeyShuffle, StartBroom, \
-    VictoryCondition, BigKeyShuffle, HealthCicadaShuffle, NexusGatesOpen, RedCaveShuffle, PostgameMode
+from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle,\
+    HealthCicadaShuffle, NexusGatesOpen, RedCaveShuffle, PostgameMode
 
 
 class AnodyneLocation(Location):
@@ -170,7 +170,7 @@ class AnodyneWorld(World):
         visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
 
     def set_rules(self) -> None:
-        if self.options.postgame_mode != PostgameMode.option_disabled and not self.options.green_cube_chest:
+        if self.options.postgame_mode != PostgameMode.option_disabled and not self.options.forest_bunny_chest:
             # TODO: Probably just fully remove this location when the option is off.
             self.options.exclude_locations.value.add("Deep Forest - Bunny Chest")
 

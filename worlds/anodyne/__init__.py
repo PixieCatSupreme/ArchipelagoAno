@@ -86,10 +86,14 @@ class AnodyneWorld(World):
     def create_regions(self) -> None:
         include_health_cicadas = self.options.health_cicada_shuffle
         include_big_keys = self.options.big_key_shuffle
+        include_postgame = self.options.enable_postgame
 
         all_regions: Dict[str, Region] = {}
 
         for region_name in Regions.all_regions:
+            if not include_postgame and region_name in Regions.postgame_regions:
+                continue
+
             region = Region(region_name, self.player, self.multiworld)
             if region_name in Locations.locations_by_region:
                 for location in Locations.locations_by_region[region_name]:
@@ -98,6 +102,9 @@ class AnodyneWorld(World):
 
                     if include_big_keys in [BigKeyShuffle.option_vanilla, BigKeyShuffle.option_unlocked]\
                             and location.big_key:
+                        continue
+
+                    if not include_postgame and location.postgame():
                         continue
 
                     location_id = Constants.location_name_to_id[location.name]
@@ -114,6 +121,9 @@ class AnodyneWorld(World):
             exit1: str = exit_vals[0]
             exit2: str = exit_vals[1]
 
+            if not include_postgame and (exit1 in Regions.postgame_regions or exit2 in Regions.postgame_regions):
+                continue
+
             requirements: list[str] = exit_vals[2]
 
             r1 = all_regions[exit1]
@@ -127,6 +137,9 @@ class AnodyneWorld(World):
             all_regions["Nexus bottom"].create_exit(f"{region_name} Nexus Gate").connect(all_regions[region_name])
 
         for region_name, events in Events.events_by_region.items():
+            if not include_postgame and region_name in Regions.postgame_regions:
+                continue
+
             for event_name in events:
                 if include_big_keys != BigKeyShuffle.option_vanilla and event_name in Items.big_keys:
                     continue
@@ -143,15 +156,12 @@ class AnodyneWorld(World):
         visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
 
     def set_rules(self) -> None:
-        green_cube_chest = bool(self.options.green_cube_chest)
-
-        victory_condition: VictoryCondition = self.options.victory_condition
-
-        requirements: list[str] = []
-
-        if not green_cube_chest:
+        if self.options.enable_postgame and not self.options.green_cube_chest:
             # TODO: Probably just fully remove this location when the option is off.
             self.options.exclude_locations.value.add("Green cube chest")
+
+        victory_condition: VictoryCondition = self.options.victory_condition
+        requirements: list[str] = []
 
         if victory_condition == VictoryCondition.option_all_bosses:
             requirements.append("Defeat Seer")
@@ -163,6 +173,9 @@ class AnodyneWorld(World):
             requirements.append("Defeat Sage")
             requirements.append("Defeat Briar")
         elif victory_condition == VictoryCondition.option_all_cards:
+            if not self.options.enable_postgame:
+                raise Exception("Postgame must be enabled in order to use the All Cards victory condition.")
+
             requirements.append("Cards:49")
             requirements.append("Open 49 card gate")
 
@@ -255,6 +268,9 @@ class AnodyneWorld(World):
                     local_item_pool.add(big_key)
                 elif big_key_shuffle == BigKeyShuffle.option_different_world:
                     non_local_item_pool.add(big_key)
+
+        if not self.options.enable_postgame:
+            excluded_items.update(Items.postgame_cards)
 
         for name in Items.all_items:
             if name not in excluded_items:

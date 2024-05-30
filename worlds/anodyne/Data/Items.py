@@ -56,6 +56,21 @@ cards = [
     "Card (Null)",
 ]
 
+postgame_cards = [
+    "Card (Young)",
+    "Card (Carved Rock)",
+    "Card (City Man)",
+    "Card (Intra)",
+    "Card (Torch)",
+    "Card (Triangle NPC)",
+    "Card (Killer)",
+    "Card (Broom)",
+    "Card (Rank)",
+    "Card (Follower)",
+    "Card (Rock Creature)",
+    "Card (Null)",
+]
+
 secret_items = [
     "Golden Poop",
     "Spam Can",

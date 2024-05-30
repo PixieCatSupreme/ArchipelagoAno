@@ -69,11 +69,23 @@ class RandomNexusGateOpenCount(Range):
 
 
 class VictoryCondition(Choice):
-    """Select the end goal of your game."""
-    display_name = "Victory condition"
+    """
+    Select the end goal of your game.
+    All Bosses: Defeat all bosses, ending with Briar.
+    All Cards: Open the 49 card gate in the top section of the Nexus. Postgame must be enabled for this.
+    """
+    display_name = "Victory Condition"
     option_all_bosses = 0
     option_all_cards = 1
     default = 0
+
+
+class EnablePostgame(Toggle):
+    """
+    If true, Swap will be usable outside of GO in specific areas near postgame content.
+    If false, Swap is only used to access the top half of GO, and all postgame areas will be removed from logic.
+    """
+    display_name = "Enable Postgame"
 
 
 class IncludeGreenCubeChest(Toggle):
@@ -90,6 +102,7 @@ class AnodyneGameOptions(PerGameCommonOptions):
     nexus_gates_open: NexusGatesOpen
     random_nexus_gate_open_count: RandomNexusGateOpenCount
     victory_condition: VictoryCondition
+    enable_postgame: EnablePostgame
     green_cube_chest: IncludeGreenCubeChest
     death_link: DeathLink
     start_inventory_from_pool: StartInventoryPool

@@ -1,5 +1,7 @@
 from typing import NamedTuple, List, Dict
 
+from . import Regions
+
 
 class LocationData(NamedTuple):
     name: str
@@ -8,6 +10,9 @@ class LocationData(NamedTuple):
     health_cicada: bool = False
     small_key: bool = False
     big_key: bool = False
+
+    def postgame(self):
+        return "Swap" in self.reqs or self.region_name in Regions.postgame_regions
 
 
 all_locations: List[LocationData] = [

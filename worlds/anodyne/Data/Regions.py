@@ -117,3 +117,12 @@ early_nexus_gates = [
     "Red Sea"
 ]
 
+postgame_regions = [
+    "Blank windmill",
+    "Blank ending",
+    "Debug",
+    "Drawer",
+    "Drawer dark",
+    "Boss Rush",
+    "Nexus top",
+]

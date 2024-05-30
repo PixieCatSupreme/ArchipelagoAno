@@ -194,14 +194,10 @@ class AnodyneWorld(World):
         victory_condition: VictoryCondition = self.options.victory_condition
         requirements: list[str] = []
 
+        self.proxy_rules["Briar access"] = []
         if victory_condition == VictoryCondition.option_all_bosses:
-            requirements.append("Defeat Seer")
-            requirements.append("Defeat Rogue")
-            requirements.append("Defeat The Wall")
-            requirements.append("Defeat Manager")
-            requirements.append("Defeat Servants")
-            requirements.append("Defeat Watcher")
-            requirements.append("Defeat Sage")
+            self.proxy_rules["Briar access"] = ["Defeat Seer", "Defeat Rogue", "Defeat The Wall", "Defeat Manager",
+                                                "Defeat Servants", "Defeat Watcher", "Defeat Sage"]
             requirements.append("Defeat Briar")
         elif victory_condition == VictoryCondition.option_all_cards:
             if self.options.postgame_mode == PostgameMode.option_disabled:

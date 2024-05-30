@@ -3,7 +3,7 @@ from . import AnodyneTestBase
 
 class TestProgressiveRedCave(AnodyneTestBase):
     options = {
-        "red_cave_shuffle": "progressive",
+        "red_cave_access": "progressive",
         "nexus_gates_open": "early",
     }
 
@@ -44,7 +44,7 @@ class TestProgressiveRedCave(AnodyneTestBase):
 
 class TestVanillaRedCave(AnodyneTestBase):
     options = {
-        "red_cave_shuffle": "vanilla",
+        "red_cave_access": "vanilla",
         "nexus_gates_open": "early",
         "small_key_shuffle": "any_world",
     }

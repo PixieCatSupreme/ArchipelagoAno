@@ -9,7 +9,7 @@ from . import Constants
 
 from .Data import Items, Locations, Regions, Exits, Events
 from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle,\
-    HealthCicadaShuffle, NexusGatesOpen, RedCaveShuffle, PostgameMode
+    HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode
 
 
 class AnodyneLocation(Location):
@@ -113,7 +113,7 @@ class AnodyneWorld(World):
                             and location.big_key:
                         continue
 
-                    if self.options.red_cave_shuffle == RedCaveShuffle.option_vanilla and location.tentacle:
+                    if self.options.red_cave_access == RedCaveAccess.option_vanilla and location.tentacle:
                         continue
 
                     if not self.options.split_windmill and location.name == "Windmill - Activation":
@@ -178,7 +178,7 @@ class AnodyneWorld(World):
             for statue in Items.statue_items:
                 self.proxy_rules[statue] = ["Windmill activated"]
 
-        if self.options.red_cave_shuffle == RedCaveShuffle.option_vanilla:
+        if self.options.red_cave_access == RedCaveAccess.option_vanilla:
             self.proxy_rules["RedCave:Left"] = ["Center left tentacle hit"]
             self.proxy_rules["RedCave:Right"] = ["Center right tentacle hit"]
             self.proxy_rules["RedCave:Top"] = ["Left tentacle hit", "Right tentacle hit"]
@@ -302,11 +302,11 @@ class AnodyneWorld(World):
                 elif big_key_shuffle == BigKeyShuffle.option_different_world:
                     non_local_item_pool.add(big_key)
 
-        if self.options.red_cave_shuffle != RedCaveShuffle.option_vanilla:
+        if self.options.red_cave_access != RedCaveAccess.option_vanilla:
             placed_items += 3
 
             pool: List[Item] = item_pool
-            if self.options.red_cave_shuffle == RedCaveShuffle.option_original_dungeon:
+            if self.options.red_cave_access == RedCaveAccess.option_original_dungeon:
                 pool = self.dungeon_items.setdefault("Red Cave", [])
 
             for _ in range(3):
@@ -404,7 +404,7 @@ class AnodyneWorld(World):
             "shuffle_big_gates": int(self.options.big_key_shuffle),
             "vanilla_health_cicadas": self.options.health_cicada_shuffle == HealthCicadaShuffle.option_vanilla,
             "nexus_gates_unlocked": self.gates_unlocked,
-            "vanilla_red_cave": self.options.red_cave_shuffle == RedCaveShuffle.option_vanilla,
+            "vanilla_red_cave": self.options.red_cave_access == RedCaveAccess.option_vanilla,
             "split_windmill": bool(self.options.split_windmill),
             "postgame_mode": int(self.options.postgame_mode),
             "victory_condition": int(self.options.victory_condition),

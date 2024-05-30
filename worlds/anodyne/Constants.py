@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING, List
 from BaseClasses import CollectionState
 
 from .Data import Items, Locations, Events
-from .Options import SmallKeyShuffle, BigKeyShuffle, RedCaveShuffle
+from .Options import SmallKeyShuffle, BigKeyShuffle
 
 if TYPE_CHECKING:
     from . import AnodyneWorld

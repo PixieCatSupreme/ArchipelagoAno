@@ -158,3 +158,7 @@ trap_items = [
 filler_items = [
     *secret_items,
 ]
+
+item_groups = {
+    "Cards": cards
+}

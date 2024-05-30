@@ -172,7 +172,7 @@ class AnodyneWorld(World):
     def set_rules(self) -> None:
         if self.options.postgame_mode != PostgameMode.option_disabled and not self.options.green_cube_chest:
             # TODO: Probably just fully remove this location when the option is off.
-            self.options.exclude_locations.value.add("Green cube chest")
+            self.options.exclude_locations.value.add("Deep Forest - Bunny Chest")
 
         if not self.options.split_windmill:
             for statue in Items.statue_items:

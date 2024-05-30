@@ -8,6 +8,7 @@ all_regions = [
     "Beach",
     "Bedroom",
     "Bedroom drawer",
+    "Bedroom exit",
     "Blank start",
     "Blank windmill",
     "Blank ending",
@@ -56,7 +57,7 @@ all_regions = [
 ]
 
 dungeon_areas = {
-    "Temple of the Seeing One": ["Bedroom"],
+    "Temple of the Seeing One": ["Bedroom", "Bedroom exit"],
     "Red Cave": ["Red Cave top",
                  "Red Cave left",
                  "Red Cave center",
@@ -88,7 +89,7 @@ dungeon_area_to_dungeon = {name: dungeon for dungeon, names in dungeon_areas.ite
 regions_with_nexus_gate = [
     "Apartment floor 1",
     "Beach",
-    "Bedroom",
+    "Bedroom exit",
     "Blue",
     "Cell",
     "Circus",

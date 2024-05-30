@@ -1,7 +1,7 @@
 events_by_region = {
-    "Bedroom": {
-        "Defeat Seer": ["Broom", "Keys:Temple of the Seeing One:2"],
-        "Green Key": ["Defeat Seer"]
+    "Bedroom exit": {
+        "Defeat Seer": ["Broom"],
+        "Green Key": []
     },
     "Crowd floor 1": {
         "Defeat The Wall": ["Broom", "Jump Shoes"],

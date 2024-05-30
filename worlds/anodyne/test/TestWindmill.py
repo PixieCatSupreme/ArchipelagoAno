@@ -5,7 +5,7 @@ class TestVanillaWindmill(AnodyneTestBase):
     options = {
         "split_windmill": "false",
         "big_key_shuffle": "any_world",
-        "custom_nexus_gates_open": ["Windmill entrance", "Red Cave top", "Crowd floor 1", "Bedroom"],
+        "custom_nexus_gates_open": ["Windmill entrance", "Red Cave top", "Crowd floor 1", "Bedroom exit"],
     }
 
     def test_requirement(self):
@@ -29,7 +29,7 @@ class TestSplitWindmill(AnodyneTestBase):
     options = {
         "split_windmill": "true",
         "big_key_shuffle": "any_world",
-        "custom_nexus_gates_open": ["Windmill entrance", "Red Cave top", "Crowd floor 1", "Bedroom"],
+        "custom_nexus_gates_open": ["Windmill entrance", "Red Cave top", "Crowd floor 1", "Bedroom exit"],
     }
 
     def test_requirement(self):

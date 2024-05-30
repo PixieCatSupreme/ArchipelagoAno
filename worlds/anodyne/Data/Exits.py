@@ -16,8 +16,11 @@ all_exits = [
     ["Red Sea", "Beach", []],
     ["Bedroom", "Overworld", []],
     ["Overworld", "Bedroom", []],
-    ["Bedroom", "Overworld post windmill", ["Temple of the Seeing One Statue", "Broom", "Keys:Temple of the Seeing One:3"]],
-    ["Overworld post windmill", "Bedroom", ["Temple of the Seeing One Statue", "Broom", "Keys:Temple of the Seeing One:3"]],
+    ["Bedroom", "Bedroom exit", ["Broom", "Keys:Temple of the Seeing One:2"]],
+    # You can always use return to entrance to get to the start from the exit
+    ["Bedroom exit", "Bedroom", []],
+    ["Bedroom exit", "Overworld post windmill", ["Temple of the Seeing One Statue", "Keys:Temple of the Seeing One:3"]],
+    ["Overworld post windmill", "Bedroom exit", ["Temple of the Seeing One Statue", "Keys:Temple of the Seeing One:3"]],
     ["Bedroom drawer", "Drawer", ["Swap:2"]],
     ["Drawer", "Bedroom drawer", ["Swap:2"]],
     ["Bedroom drawer", "Overworld", ["Swap:2"]],

@@ -10,6 +10,7 @@ class LocationData(NamedTuple):
     health_cicada: bool = False
     small_key: bool = False
     big_key: bool = False
+    tentacle: bool = False
 
     def postgame(self):
         return "Swap" in self.reqs or self.region_name in Regions.postgame_regions
@@ -164,6 +165,10 @@ all_locations: List[LocationData] = [
     LocationData("Green key item", "Bedroom", ["Defeat Seer"], big_key=True),
     LocationData("Red key item", "Red cave top", ["Defeat Rogue"], big_key=True),
     LocationData("Blue key item", "Crowd floor 1", ["Defeat The Wall"], big_key=True),
+    LocationData("Red Cave - Middle Cave Left Tentacle", "Red Cave center", ["Broom"], tentacle=True),
+    LocationData("Red Cave - Middle Cave Right Tentacle", "Red Cave center", ["Broom"], tentacle=True),
+    LocationData("Red Cave - Left Cave Tentacle", "Red Cave left", ["Broom", "Keys:Red Cave:6"], tentacle=True),
+    LocationData("Red Cave - Right Cave Tentacle", "Red Cave right", ["Broom", "Keys:Red Cave:6"], tentacle=True),
 ]
 
 locations_by_name: Dict[str, LocationData] = {location.name: location for location in all_locations}

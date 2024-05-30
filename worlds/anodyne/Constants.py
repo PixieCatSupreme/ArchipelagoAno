@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING, List
 from BaseClasses import CollectionState
 
 from .Data import Items, Locations, Events
-from .Options import SmallKeyShuffle, BigKeyShuffle
+from .Options import SmallKeyShuffle, BigKeyShuffle, RedCaveShuffle
 
 if TYPE_CHECKING:
     from . import AnodyneWorld
@@ -54,6 +54,24 @@ def check_access(state: CollectionState, world: "AnodyneWorld", rule: str, map_n
         return obtained_count >= count
     elif world.options.big_key_shuffle == BigKeyShuffle.option_unlocked and rule in Items.big_keys:
         return True
+    elif rule.startswith("RedCave:"):
+        side = rule[8:]
+
+        if world.options.red_cave_shuffle == RedCaveShuffle.option_vanilla:
+            if side == "Left":
+                return state.has("Center left tentacle hit", world.player)
+            elif side == "Right":
+                return state.has("Center right tentacle hit", world.player)
+            elif side == "Top":
+                return state.has("Left tentacle hit", world.player) and state.has("Right tentacle hit", world.player)
+        else:
+            needed_caves = 1
+            if side == "Right":
+                needed_caves = 2
+            elif side == "Top":
+                needed_caves = 3
+
+            return state.has("Progressive Red Cave", world.player, needed_caves)
     else:
         logging.debug(f"Item {rule} check in {map_name} ({world.player})")
         if rule not in Items.all_items and rule not in Events.all_events:

@@ -121,6 +121,7 @@ all_items = [
     "Health Cicada",
     "Cardboard Box",
     "Biking Shoes",
+    "Progressive Red Cave",
 ]
 
 progression_items = [
@@ -132,6 +133,7 @@ progression_items = [
     *big_keys,
     "Cardboard Box",
     "Biking Shoes",
+    "Progressive Red Cave",
 ]
 
 useful_items = [

@@ -9,7 +9,7 @@ from . import Constants
 
 from .Data import Items, Locations, Regions, Exits, Events
 from .Options import AnodyneGameOptions, IncludeGreenCubeChest, SmallKeyShuffle, StartBroom, \
-    VictoryCondition, BigKeyShuffle, HealthCicadaShuffle, NexusGatesOpen
+    VictoryCondition, BigKeyShuffle, HealthCicadaShuffle, NexusGatesOpen, RedCaveShuffle
 
 
 class AnodyneLocation(Location):
@@ -106,6 +106,9 @@ class AnodyneWorld(World):
 
                     if include_big_keys in [BigKeyShuffle.option_vanilla, BigKeyShuffle.option_unlocked]\
                             and location.big_key:
+                        continue
+
+                    if self.options.red_cave_shuffle == RedCaveShuffle.option_vanilla and location.tentacle:
                         continue
 
                     if not include_postgame and location.postgame():
@@ -206,6 +209,7 @@ class AnodyneWorld(World):
             "Health Cicada",
             *Items.filler_items,
             *Items.trap_items,
+            "Progressive Red Cave",
         }
 
         if small_key_shuffle == SmallKeyShuffle.option_vanilla:
@@ -272,6 +276,16 @@ class AnodyneWorld(World):
                     local_item_pool.add(big_key)
                 elif big_key_shuffle == BigKeyShuffle.option_different_world:
                     non_local_item_pool.add(big_key)
+
+        if self.options.red_cave_shuffle != RedCaveShuffle.option_vanilla:
+            placed_items += 3
+
+            pool: List[Item] = item_pool
+            if self.options.red_cave_shuffle == RedCaveShuffle.option_original_dungeon:
+                pool = self.dungeon_items.setdefault("Red Cave", [])
+
+            for _ in range(3):
+                pool.append(self.create_item("Progressive Red Cave"))
 
         if not self.options.enable_postgame:
             excluded_items.update(Items.postgame_cards)
@@ -351,4 +365,5 @@ class AnodyneWorld(World):
             "unlock_gates": self.options.small_key_shuffle == SmallKeyShuffle.option_unlocked,
             "unlock_big_gates": self.options.big_key_shuffle == BigKeyShuffle.option_unlocked,
             "nexus_gates_unlocked": self.gates_unlocked,
+            "vanilla_red_cave": self.options.red_cave_shuffle == RedCaveShuffle.option_vanilla,
         }

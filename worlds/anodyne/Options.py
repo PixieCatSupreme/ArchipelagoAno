@@ -37,6 +37,20 @@ class HealthCicadaShuffle(Choice):
     default = 0
 
 
+class RedCaveShuffle(Choice):
+    """
+    Select how progression through the Red Cave dungeon should be handled.
+    [Progressive] Three Progressive Red Cave items will be added to the pool, and each will open the next section of the dungeon, in the following order: left, right, top.
+    [Original Dungeon] Same as above, but the progression items will be restricted to the original dungeon.
+    [Vanilla] The Red Cave will open up the same way it does in vanilla. The red tentacles will not be location checks.
+    """
+    display_name = "Red Cave Shuffle"
+    option_progressive = 0
+    option_original_dungeon = 1
+    option_vanilla = 2
+    default = 0
+
+
 class StartBroom(Choice):
     """Select which broom to start with."""
     display_name = "Starting Broom"
@@ -98,6 +112,7 @@ class AnodyneGameOptions(PerGameCommonOptions):
     small_key_shuffle: SmallKeyShuffle
     health_cicada_shuffle: HealthCicadaShuffle
     big_key_shuffle: BigKeyShuffle
+    red_cave_shuffle: RedCaveShuffle
     start_broom: StartBroom
     nexus_gates_open: NexusGatesOpen
     random_nexus_gate_open_count: RandomNexusGateOpenCount

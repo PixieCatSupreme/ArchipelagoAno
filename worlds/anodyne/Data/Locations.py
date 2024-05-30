@@ -13,7 +13,7 @@ class LocationData(NamedTuple):
     tentacle: bool = False
 
     def postgame(self):
-        return "Swap" in self.reqs or self.region_name in Regions.postgame_regions
+        return "Swap:2" in self.reqs or self.region_name in Regions.postgame_regions
 
 
 all_locations: List[LocationData] = [
@@ -29,8 +29,8 @@ all_locations: List[LocationData] = [
     LocationData("Apartment small key chest 4", "Apartment floor 3", ["Broom"], small_key=True),
     LocationData("Watcher card chest", "Apartment floor 3", ["Defeat Watcher"]),
     LocationData("Fisherman card chest", "Beach"),
-    LocationData("Cat Statue chest", "Beach", ["Swap"]),
-    LocationData("Blue cube chest", "Beach", ["Swap"]),
+    LocationData("Cat Statue chest", "Beach", ["Swap:2"]),
+    LocationData("Blue cube chest", "Beach", ["Swap:2"]),
     # 40DE36CF-9238-F8B0-7A57-C6C8CA465CC2
     LocationData("Bedroom small key chest 1", "Bedroom", small_key=True),
     LocationData("Shieldy card chest", "Bedroom", ["Broom", "Keys:Temple of the Seeing One:2"]),
@@ -43,7 +43,7 @@ all_locations: List[LocationData] = [
     LocationData("Bedroom small key chest 3", "Bedroom", ["Broom"], small_key=True),
     LocationData("Broom card chest", "Blank windmill"),
     LocationData("Chaser card chest", "Cell", ["Jump Shoes"]),
-    LocationData("Torch card chest", "Cell", ["Swap", "Broom", "Jump Shoes"]),
+    LocationData("Torch card chest", "Cell", ["Swap:2", "Broom", "Jump Shoes"]),
     # 75C2D434-4AE8-BCD0-DBEB-8E6CDA67BF45
     LocationData("Circus small key chest 1", "Circus", ["Broom", "Jump Shoes"], small_key=True),
     LocationData("Contorts card chest", "Circus", ["Broom", "Jump Shoes"]),
@@ -75,26 +75,26 @@ all_locations: List[LocationData] = [
     LocationData("Melos chest", "Debug"),
     LocationData("Black cube chest", "Debug"),
     LocationData("White cube chest", "Debug", ["Jump Shoes"]),
-    LocationData("Young card chest", "Drawer", ["Swap"]),
+    LocationData("Young card chest", "Drawer", ["Swap:2"]),
     LocationData("Carved Rock card chest", "Drawer"),
     LocationData("Miao card chest", "Fields", ["Broom"]),
     LocationData("Mitra card chest", "Fields", ["Broom"]),
     LocationData("Goldman card chest", "Fields", ["Broom"]),
-    LocationData("Rank card chest", "Fields", ["Swap"]),
+    LocationData("Rank card chest", "Fields", ["Swap:2"]),
     LocationData("Fields - Cardboard Box", "Fields"),
     LocationData("Fields - Shopkeeper Trade", "Fields", ["Cardboard Box"]),
     LocationData("Fields - Mitra Trade", "Fields", ["Biking Shoes"]),
     # Hidden path
-    LocationData("Spam Can chest", "Fields", ["Swap"]),
+    LocationData("Spam Can chest", "Fields", ["Swap:2"]),
     # Hidden path
-    LocationData("Glitch chest", "Fields", ["Swap"]),
+    LocationData("Glitch chest", "Fields", ["Swap:2"]),
     # Hidden path
-    LocationData("Electric Monster chest", "Fields", ["Swap"]),
+    LocationData("Electric Monster chest", "Fields", ["Swap:2"]),
     LocationData("Mushroom card chest", "Forest", ["Broom"]),
     # This is the one that takes 2 hours
-    LocationData("Green cube chest", "Forest", ["Swap"]),
+    LocationData("Green cube chest", "Forest", ["Swap:2"]),
     LocationData("Swap chest", "Go bottom"),
-    LocationData("Red cube chest", "Go bottom", ["Swap"]),
+    LocationData("Red cube chest", "Go bottom", ["Swap:2"]),
     # 6C8870D4-7600-6FFD-B425-2D951E65E160
     LocationData("Hotel small key chest 1", "Hotel floor 4", ["Broom", "Jump Shoes"], small_key=True),
     LocationData("Dust maid card chest", "Hotel floor 4", ["Broom", "Jump Shoes", "Keys:Hotel:1"]),
@@ -113,8 +113,8 @@ all_locations: List[LocationData] = [
     # 9D6FDA36-0CC6-BACC-3844-AEFB6C5C6290
     LocationData("Hotel small key chest 7", "Hotel floor 2", ["Jump Shoes"], small_key=True),
     LocationData("Manager card chest", "Hotel floor 1", ["Defeat Manager"]),
-    LocationData("City man card chest", "Hotel roof", ["Swap"]),
-    LocationData("Null card chest", "Nexus top", ["Swap"]),
+    LocationData("City man card chest", "Hotel roof", ["Swap:2"]),
+    LocationData("Null card chest", "Nexus top", ["Swap:2"]),
     LocationData("Edward card chest", "Overworld"),
     LocationData("Annoyer card chest", "Overworld post windmill"),
     LocationData("Slasher card chest", "Red Cave top", ["Broom"]),
@@ -135,18 +135,18 @@ all_locations: List[LocationData] = [
     LocationData("Widen upgrade chest", "Red Cave bottom"),
     LocationData("Golden poop chest", "Red Cave Isaac", ["Broom"]),
     LocationData("Walker card chest", "Red Sea"),
-    LocationData("Rock creature card chest", "Red Sea", ["Swap"]),
+    LocationData("Rock creature card chest", "Red Sea", ["Swap:2"]),
     LocationData("Suburbian card chest", "Suburb card house"),
-    LocationData("Killer card chest", "Suburb", ["Broom", "Swap"]),
+    LocationData("Killer card chest", "Suburb", ["Broom", "Swap:2"]),
     LocationData("Blue Cube King card chest", "Space"),
     LocationData("Orange Cube King card chest", "Space"),
-    LocationData("Triangle NPC card chest", "Space", ["Broom", "Swap"]),
+    LocationData("Triangle NPC card chest", "Space", ["Broom", "Swap:2"]),
     # Wiggle glitch available
     LocationData("Heart chest", "Space"),
     # 3307AA58-CCF1-FB0D-1450-5AF0A0C458F7
     LocationData("Street small key chest 1", "Street", ["Broom"], small_key=True),
     LocationData("Street - Broom Chest", "Street"),
-    LocationData("Follower card chest", "Street", ["Swap"]),
+    LocationData("Follower card chest", "Street", ["Swap:2"]),
     LocationData("Sage card chest", "Terminal"),
     LocationData("Windmill card chest", "Windmill", []),
     LocationData("Windmill - Activation", "Windmill", []),

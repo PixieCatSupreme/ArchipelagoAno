@@ -66,6 +66,9 @@ def check_access(state: CollectionState, world: "AnodyneWorld", rule: str, map_n
             needed_caves = 3
 
         return state.has("Progressive Red Cave", world.player, needed_caves)
+    elif rule.startswith("Swap:"):
+        count = int(rule[5:])
+        return state.has("Progressive Swap", world.player, count)
     else:
         logging.debug(f"Item {rule} check in {map_name} ({world.player})")
         if rule not in Items.all_items and rule not in Events.all_events:

@@ -129,6 +129,7 @@ all_items = [
     "Biking Shoes",
     "Progressive Red Cave",
     *statue_items,
+    "Progressive Swap",
 ]
 
 progression_items = [
@@ -142,6 +143,7 @@ progression_items = [
     "Biking Shoes",
     "Progressive Red Cave",
     *statue_items,
+    "Progressive Swap",
 ]
 
 useful_items = [

@@ -112,12 +112,21 @@ class VictoryCondition(Choice):
     default = 0
 
 
-class EnablePostgame(Toggle):
+class PostgameMode(Choice):
     """
-    If true, Swap will be usable outside of GO in specific areas near postgame content.
-    If false, Swap is only used to access the top half of GO, and all postgame areas will be removed from logic.
+    Determines how the Swap upgrade behaves.
+    Note that even when "Expanded Swap" is available, Swap will not work in almost every room the way it does in the base game. It will be limited to rooms near postgame content, so that you can reach those checks/areas without breaking the rest of the game's logic.
+    [Disabled] Swap is only used to access the top half of GO, and all postgame areas will be removed from logic.
+    [Vanilla] Expanded Swap unlocks upon defeating Briar.
+    [Unlocked] Expanded Swap is automatically available upon receiving the Swap item.
+    [Progressive] The first Progressive Swap will behave like pre-Briar Swap, and the second is the Expanded Swap.
     """
-    display_name = "Enable Postgame"
+    display_name = "Postgame Mode"
+    option_disabled = 0
+    option_vanilla = 1
+    option_unlocked = 2
+    option_progressive = 3
+    default = 0
 
 
 class IncludeGreenCubeChest(Toggle):
@@ -137,7 +146,7 @@ class AnodyneGameOptions(PerGameCommonOptions):
     random_nexus_gate_open_count: RandomNexusGateOpenCount
     custom_nexus_gates_open: CustomNexusGatesOpen
     victory_condition: VictoryCondition
-    enable_postgame: EnablePostgame
+    postgame_mode: PostgameMode
     green_cube_chest: IncludeGreenCubeChest
     death_link: DeathLink
     start_inventory_from_pool: StartInventoryPool

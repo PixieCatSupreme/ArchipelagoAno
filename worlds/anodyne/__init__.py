@@ -9,7 +9,7 @@ from . import Constants
 
 from .Data import Items, Locations, Regions, Exits, Events
 from .Options import AnodyneGameOptions, IncludeGreenCubeChest, SmallKeyShuffle, StartBroom, \
-    VictoryCondition, BigKeyShuffle, HealthCicadaShuffle, NexusGatesOpen, RedCaveShuffle
+    VictoryCondition, BigKeyShuffle, HealthCicadaShuffle, NexusGatesOpen, RedCaveShuffle, PostgameMode
 
 
 class AnodyneLocation(Location):
@@ -94,7 +94,7 @@ class AnodyneWorld(World):
     def create_regions(self) -> None:
         include_health_cicadas = self.options.health_cicada_shuffle
         include_big_keys = self.options.big_key_shuffle
-        include_postgame = self.options.enable_postgame
+        include_postgame: bool = (self.options.postgame_mode != PostgameMode.option_disabled)
 
         all_regions: Dict[str, Region] = {}
 
@@ -170,7 +170,7 @@ class AnodyneWorld(World):
         visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
 
     def set_rules(self) -> None:
-        if self.options.enable_postgame and not self.options.green_cube_chest:
+        if self.options.postgame_mode != PostgameMode.option_disabled and not self.options.green_cube_chest:
             # TODO: Probably just fully remove this location when the option is off.
             self.options.exclude_locations.value.add("Green cube chest")
 
@@ -182,6 +182,14 @@ class AnodyneWorld(World):
             self.proxy_rules["RedCave:Left"] = ["Center left tentacle hit"]
             self.proxy_rules["RedCave:Right"] = ["Center right tentacle hit"]
             self.proxy_rules["RedCave:Top"] = ["Left tentacle hit", "Right tentacle hit"]
+
+        if self.options.postgame_mode != PostgameMode.option_progressive:
+            self.proxy_rules["Swap:1"] = ["Swap"]
+
+            if self.options.postgame_mode == PostgameMode.option_vanilla:
+                self.proxy_rules["Swap:2"] = ["Swap", "Defeat Briar"]
+            elif self.options.postgame_mode == PostgameMode.option_unlocked:
+                self.proxy_rules["Swap:2"] = ["Swap"]
 
         victory_condition: VictoryCondition = self.options.victory_condition
         requirements: list[str] = []
@@ -196,7 +204,7 @@ class AnodyneWorld(World):
             requirements.append("Defeat Sage")
             requirements.append("Defeat Briar")
         elif victory_condition == VictoryCondition.option_all_cards:
-            if not self.options.enable_postgame:
+            if self.options.postgame_mode == PostgameMode.option_disabled:
                 raise Exception("Postgame must be enabled in order to use the All Cards victory condition.")
 
             requirements.append("Cards:49")
@@ -226,6 +234,7 @@ class AnodyneWorld(World):
             *Items.filler_items,
             *Items.trap_items,
             "Progressive Red Cave",
+            "Progressive Swap",
         }
 
         if small_key_shuffle == SmallKeyShuffle.option_vanilla:
@@ -263,7 +272,11 @@ class AnodyneWorld(World):
         elif start_broom == StartBroom.option_long:
             start_broom_item = ["Broom", "Extend"]
         elif start_broom == StartBroom.option_swap:
-            start_broom_item = ["Swap"]
+            if self.options.postgame_mode == PostgameMode.option_progressive:
+                # This is kind of an odd combination of options tbh.
+                start_broom_item = ["Progressive Swap"]
+            else:
+                start_broom_item = ["Swap"]
 
         for broom_item in start_broom_item:
             self.multiworld.push_precollected(self.create_item(broom_item))
@@ -306,8 +319,18 @@ class AnodyneWorld(World):
         if not self.options.split_windmill:
             excluded_items.update(Items.statue_items)
 
-        if not self.options.enable_postgame:
+        if self.options.postgame_mode == PostgameMode.option_disabled:
             excluded_items.update(Items.postgame_cards)
+
+        if self.options.postgame_mode == PostgameMode.option_progressive:
+            item_pool.append(self.create_item("Progressive Swap"))
+            placed_items += 1
+
+            if start_broom != StartBroom.option_swap:
+                item_pool.append(self.create_item("Progressive Swap"))
+                placed_items += 1
+
+            excluded_items.add("Swap")
 
         for name in Items.all_items:
             if name not in excluded_items:
@@ -386,4 +409,5 @@ class AnodyneWorld(World):
             "nexus_gates_unlocked": self.gates_unlocked,
             "vanilla_red_cave": self.options.red_cave_shuffle == RedCaveShuffle.option_vanilla,
             "split_windmill": bool(self.options.split_windmill),
+            "postgame_mode": int(self.options.postgame_mode),
         }

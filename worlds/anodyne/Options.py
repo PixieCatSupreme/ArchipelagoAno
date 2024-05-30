@@ -51,6 +51,15 @@ class RedCaveShuffle(Choice):
     default = 0
 
 
+class SplitWindmill(Toggle):
+    """
+    Select how the Windmill behaves.
+    [Off] The Windmill behaves as it does in vanilla. Turning it on moves the three statues blocking access to the lategame dungeons.
+    [On] The Windmill doesn't do anything special, and instead becomes a location. Three items are added to the pool, one for each dungeon statue.
+    """
+    display_name = "Split Windmill"
+
+
 class StartBroom(Choice):
     """Select which broom to start with."""
     display_name = "Starting Broom"
@@ -122,6 +131,7 @@ class AnodyneGameOptions(PerGameCommonOptions):
     health_cicada_shuffle: HealthCicadaShuffle
     big_key_shuffle: BigKeyShuffle
     red_cave_shuffle: RedCaveShuffle
+    split_windmill: SplitWindmill
     start_broom: StartBroom
     nexus_gates_open: NexusGatesOpen
     random_nexus_gate_open_count: RandomNexusGateOpenCount

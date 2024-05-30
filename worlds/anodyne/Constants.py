@@ -35,7 +35,9 @@ def count_keys(state: CollectionState, world: "AnodyneWorld", map_name: str) -> 
 
 
 def check_access(state: CollectionState, world: "AnodyneWorld", rule: str, map_name: str) -> bool:
-    if rule.startswith("Cards:"):
+    if rule in world.proxy_rules:
+        return all(check_access(state, world, subrule, map_name) for subrule in world.proxy_rules[rule])
+    elif rule.startswith("Cards:"):
         count = int(rule[6:])
         logging.debug(f"Card {count} check in {map_name} ({world.player})")
         return count_cards(state, world) >= count

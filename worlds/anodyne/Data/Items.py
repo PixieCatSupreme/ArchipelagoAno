@@ -104,6 +104,12 @@ big_keys = [
     "Blue Key",
 ]
 
+statue_items = [
+    "Temple of the Seeing One Statue",
+    "Red Cave Statue",
+    "Mountain Cavern Statue",
+]
+
 # This array must maintain a consistent order because the IDs are generated from it.
 all_items = [
     "Broom",
@@ -122,6 +128,7 @@ all_items = [
     "Cardboard Box",
     "Biking Shoes",
     "Progressive Red Cave",
+    *statue_items,
 ]
 
 progression_items = [
@@ -134,6 +141,7 @@ progression_items = [
     "Cardboard Box",
     "Biking Shoes",
     "Progressive Red Cave",
+    *statue_items,
 ]
 
 useful_items = [

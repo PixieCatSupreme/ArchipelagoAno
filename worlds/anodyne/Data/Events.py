@@ -8,7 +8,7 @@ events_by_region = {
         "Blue Key": ["Defeat The Wall"]
     },
     "Windmill": {
-        "Windmill activated": ["Green Key", "Red Key", "Blue Key"],
+        "Windmill activated": [],
     },
     "Hotel floor 1": {
         "Defeat Manager": ["Keys:Hotel:6", "Broom"],

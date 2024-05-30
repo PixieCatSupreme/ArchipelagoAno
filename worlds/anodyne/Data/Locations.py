@@ -37,8 +37,8 @@ all_locations: List[LocationData] = [
     LocationData("Slime card chest", "Bedroom", ["Broom"]),
     LocationData("Seer card chest", "Bedroom", ["Defeat Seer"]),
     # D41F2750-E3C7-BBB4-D650-FAFC190EBD32
-    LocationData("Bedroom small key chest 2", "Bedroom", ["Windmill activated"], small_key=True),
-    LocationData("Pew Laser card chest", "Bedroom", ["Windmill activated"]),
+    LocationData("Bedroom small key chest 2", "Bedroom", ["Temple of the Seeing One Statue"], small_key=True),
+    LocationData("Pew Laser card chest", "Bedroom", ["Temple of the Seeing One Statue"]),
     # 401939A4-41BA-E07E-3BA2-DC22513DCC5C
     LocationData("Bedroom small key chest 3", "Bedroom", ["Broom"], small_key=True),
     LocationData("Broom card chest", "Blank windmill"),

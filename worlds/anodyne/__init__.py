@@ -43,11 +43,13 @@ class AnodyneWorld(World):
     gates_unlocked: list[str] = []
     location_count: int = 0
     dungeon_items: Dict[str, List[Item]] = {}
+    proxy_rules: Dict[str, List[str]] = {}
 
     def generate_early(self):
         self.gates_unlocked.clear()
         self.location_count = 0
         self.dungeon_items.clear()
+        self.proxy_rules.clear()
 
         nexus_gate_open = self.options.nexus_gates_open
 
@@ -113,6 +115,9 @@ class AnodyneWorld(World):
                     if self.options.red_cave_shuffle == RedCaveShuffle.option_vanilla and location.tentacle:
                         continue
 
+                    if not self.options.split_windmill and location.name == "Windmill - Activation":
+                        continue
+
                     if not include_postgame and location.postgame():
                         continue
 
@@ -168,6 +173,10 @@ class AnodyneWorld(World):
         if self.options.enable_postgame and not self.options.green_cube_chest:
             # TODO: Probably just fully remove this location when the option is off.
             self.options.exclude_locations.value.add("Green cube chest")
+
+        if not self.options.split_windmill:
+            for statue in Items.statue_items:
+                self.proxy_rules[statue] = ["Windmill activated"]
 
         victory_condition: VictoryCondition = self.options.victory_condition
         requirements: list[str] = []
@@ -289,6 +298,9 @@ class AnodyneWorld(World):
             for _ in range(3):
                 pool.append(self.create_item("Progressive Red Cave"))
 
+        if not self.options.split_windmill:
+            excluded_items.update(Items.statue_items)
+
         if not self.options.enable_postgame:
             excluded_items.update(Items.postgame_cards)
 
@@ -368,4 +380,5 @@ class AnodyneWorld(World):
             "unlock_big_gates": self.options.big_key_shuffle == BigKeyShuffle.option_unlocked,
             "nexus_gates_unlocked": self.gates_unlocked,
             "vanilla_red_cave": self.options.red_cave_shuffle == RedCaveShuffle.option_vanilla,
+            "split_windmill": bool(self.options.split_windmill),
         }

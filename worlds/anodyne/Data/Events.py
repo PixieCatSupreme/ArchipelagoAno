@@ -1,6 +1,6 @@
 events_by_region = {
     "Bedroom": {
-        "Defeat Seer": ["Broom", "Keys:2"],
+        "Defeat Seer": ["Broom", "Keys:Temple of the Seeing One:2"],
         "Green Key": ["Defeat Seer"]
     },
     "Crowd floor 1": {
@@ -11,13 +11,13 @@ events_by_region = {
         "Windmill activated": ["Green Key", "Red Key", "Blue Key"],
     },
     "Hotel floor 1": {
-        "Defeat Manager": ["Keys:6", "Broom"],
+        "Defeat Manager": ["Keys:Hotel:6", "Broom"],
     },
     "Circus": {
-        "Defeat Servants": ["Keys:3", "Broom", "Jump Shoes"],
+        "Defeat Servants": ["Keys:Circus:3", "Broom", "Jump Shoes"],
     },
     "Apartment floor 3": {
-        "Defeat Watcher": ["Broom", "Keys:4"],
+        "Defeat Watcher": ["Broom", "Keys:Apartment:4"],
     },
     "Terminal": {
         "Defeat Sage": ["Broom", "Cards:36"],
@@ -33,10 +33,10 @@ events_by_region = {
         "Center right tentacle hit": ["Broom"],
     },
     "Red Cave left": {
-        "Left tentacle hit": ["Broom", "Keys:6"],
+        "Left tentacle hit": ["Broom", "Keys:Red Cave:6"],
     },
     "Red Cave right": {
-        "Right tentacle hit": ["Broom", "Keys:6"],
+        "Right tentacle hit": ["Broom", "Keys:Red Cave:6"],
     },
     "Red Cave top": {
         "Defeat Rogue": ["Broom"],

@@ -21,7 +21,7 @@ class AnodyneWebWorld(WebWorld):
     theme = "dirt"
 
 
-class AnodyneGameWorld(World):
+class AnodyneWorld(World):
     """
     Anodyne is a unique Zelda-like game, influenced by games such as Yume Nikki and Link's Awakening. 
     In Anodyne, you'll visit areas urban, natural, and bizarre, fighting your way through dungeons 
@@ -38,6 +38,7 @@ class AnodyneGameWorld(World):
     location_name_to_id = Constants.location_name_to_id
 
     gates_unlocked: list[str] = []
+    location_count: int = 0
 
     def generate_early(self):
         nexus_gate_open = self.options.nexus_gates_open
@@ -87,25 +88,21 @@ class AnodyneGameWorld(World):
         for region_name in Regions.all_regions:
             region = Region(region_name, self.player, self.multiworld)
             if region_name in Locations.locations_by_region:
-                for location_name in Locations.locations_by_region[region_name]:
-                    if (include_health_cicadas == HealthCicadaShuffle.option_vanilla
-                            and location_name in Locations.health_cicada_locations):
+                for location in Locations.locations_by_region[region_name]:
+                    if include_health_cicadas == HealthCicadaShuffle.option_vanilla and location.health_cicada:
                         continue
 
-                    if (include_big_keys == BigKeyShuffle.option_vanilla
-                            and location_name in Locations.big_key_locations):
+                    if include_big_keys in [BigKeyShuffle.option_vanilla, BigKeyShuffle.option_unlocked]\
+                            and location.big_key:
                         continue
 
-                    location_id = Constants.location_name_to_id[location_name]
-                    requirements: list[str] = Locations.all_locations[location_name]
+                    location_id = Constants.location_name_to_id[location.name]
 
-                    region.add_locations({location_name: location_id})
+                    new_location = AnodyneLocation(self.player, location.name, location_id, region)
+                    new_location.access_rule = Constants.get_access_rule(location.reqs, region_name, self)
+                    region.locations.append(new_location)
 
-                    location = self.get_location(location_name)
-                    location.access_rule = (lambda reqs, name: (lambda state: (
-                        all(Constants.check_access(state, self.player, item, name)
-                            for item in reqs)
-                    )))(requirements, region.name)
+                    self.location_count += 1
 
             all_regions[region_name] = region
 
@@ -120,9 +117,7 @@ class AnodyneGameWorld(World):
 
             e = r1.create_exit(f"{exit1} to {exit2} exit")
             e.connect(r2)
-            e.access_rule = (lambda reqs, name: (lambda state: (
-                all(Constants.check_access(state, self.player, item, name)
-                    for item in reqs))))(requirements, exit1)
+            e.access_rule = Constants.get_access_rule(requirements, exit1, self)
 
         for region_name in self.gates_unlocked:
             all_regions["Nexus bottom"].create_exit(f"{region_name} Nexus Gate").connect(all_regions[region_name])
@@ -133,10 +128,8 @@ class AnodyneGameWorld(World):
                     continue
 
                 requirements: list[str] = Events.events_by_region[region_name][event_name]
-                self.create_event(all_regions[region_name], event_name, (lambda reqs, name: (lambda state: (
-                    all(Constants.check_access(state, self.player, item, name)
-                        for item in reqs)
-                )))(requirements, region_name))
+                self.create_event(all_regions[region_name], event_name, Constants.get_access_rule(requirements,
+                                                                                                  region_name, self))
 
         self.multiworld.regions += all_regions.values()
 
@@ -169,9 +162,7 @@ class AnodyneGameWorld(World):
             requirements.append("Cards:49")
             requirements.append("Open 49 card gate")
 
-        self.multiworld.completion_condition[self.player] = lambda state: (
-            all(Constants.check_access(state, self.player, item, "Event") for item in requirements)
-        )
+        self.multiworld.completion_condition[self.player] = Constants.get_access_rule(requirements, "Event", self)
 
     def create_items(self) -> None:
         item_pool: List[Item] = []
@@ -187,19 +178,23 @@ class AnodyneGameWorld(World):
         big_key_shuffle = self.options.big_key_shuffle
 
         placed_items = 0
-        location_count = len(Constants.location_name_to_id)
 
         excluded_items: set[str] = {
             *Items.small_key_item_count.keys(),
-            "Health Cicada"
+            *Items.big_keys,
+            "Health Cicada",
+            *Items.filler_items,
+            *Items.trap_items,
         }
 
         if key_shuffle == KeyShuffle.option_vanilla:
-            for region in Locations.vanilla_key_locations:
-                for location in Locations.vanilla_key_locations[region]:
+            for location in Locations.all_locations:
+                if location.small_key:
+                    dungeon = Regions.dungeon_area_to_dungeon[location.region_name]
+                    item_name = f"Small Key ({dungeon})"
+                    self.multiworld.get_location(location.name, self.player).place_locked_item(
+                        self.create_item(item_name))
                     placed_items += 1
-                    self.multiworld.get_location(location, self.player).place_locked_item(
-                        self.create_item(f"Small Key ({region})"))
         elif key_shuffle != KeyShuffle.option_unlocked:
             for key_item, key_count in Items.small_key_item_count.items():
                 placed_items += key_count
@@ -225,10 +220,9 @@ class AnodyneGameWorld(World):
             self.multiworld.push_precollected(self.create_item(broom_item))
             excluded_items.add(broom_item)
 
-        if health_cicada_shuffle == HealthCicadaShuffle.option_vanilla:
-            location_count -= len(Locations.health_cicada_locations)
-        else:
-            placed_items += len(Locations.health_cicada_locations)
+        if health_cicada_shuffle != HealthCicadaShuffle.option_vanilla:
+            health_cicada_amount = len([location for location in Locations.all_locations if location.health_cicada])
+            placed_items += health_cicada_amount
             item_name = "Health Cicada"
 
             if health_cicada_shuffle == HealthCicadaShuffle.option_own_world:
@@ -236,13 +230,10 @@ class AnodyneGameWorld(World):
             elif health_cicada_shuffle == HealthCicadaShuffle.option_different_world:
                 non_local_item_pool.add(item_name)
 
-            for _ in Locations.health_cicada_locations:
+            for _ in range(health_cicada_amount):
                 item_pool.append(self.create_item(item_name))
 
-        if big_key_shuffle == BigKeyShuffle.option_vanilla:
-            location_count - len(Locations.big_key_locations)
-            excluded_items.update(Items.big_keys)
-        elif big_key_shuffle != BigKeyShuffle.option_unlocked:
+        if big_key_shuffle not in [BigKeyShuffle.option_vanilla, BigKeyShuffle.option_unlocked]:
             placed_items += len(Items.big_keys)
 
             for big_key in Items.big_keys:
@@ -258,11 +249,11 @@ class AnodyneGameWorld(World):
                 placed_items += 1
                 item_pool.append(self.create_item(name))
 
-        if placed_items < location_count:
+        if placed_items < self.location_count:
             # TODO: Prioritize extending the item pool using available secret items (just the golden poop and heart when
             # postgame is disabled, and all of them if enabled). After that, if there's any space left, fill it with
             # some other generic filler item.
-            item_pool.extend(self.create_filler() for _ in range(location_count - placed_items))
+            item_pool.extend(self.create_filler() for _ in range(self.location_count - placed_items))
 
         self.multiworld.itempool += item_pool
 

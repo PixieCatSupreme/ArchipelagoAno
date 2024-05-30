@@ -104,6 +104,8 @@ all_items = [
     *small_key_item_count.keys(),
     *big_keys,
     "Health Cicada",
+    "Cardboard Box",
+    "Biking Shoes",
 ]
 
 progression_items = [
@@ -113,6 +115,8 @@ progression_items = [
     *cards,
     *small_key_item_count.keys(),
     *big_keys,
+    "Cardboard Box",
+    "Biking Shoes",
 ]
 
 useful_items = [

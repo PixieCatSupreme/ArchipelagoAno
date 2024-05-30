@@ -45,6 +45,10 @@ class AnodyneWorld(World):
     dungeon_items: Dict[str, List[Item]] = {}
 
     def generate_early(self):
+        self.gates_unlocked.clear()
+        self.location_count = 0
+        self.dungeon_items.clear()
+
         nexus_gate_open = self.options.nexus_gates_open
 
         # Street is always unlocked

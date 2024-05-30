@@ -214,12 +214,9 @@ class AnodyneWorld(World):
         non_local_item_pool: set[str] = set()
 
         small_key_shuffle: SmallKeyShuffle = self.options.small_key_shuffle
-
-        start_broom: StartBroom = self.options.start_broom
-        start_broom_item: List[str] = []
-
         health_cicada_shuffle = self.options.health_cicada_shuffle
         big_key_shuffle = self.options.big_key_shuffle
+        start_broom: StartBroom = self.options.start_broom
 
         placed_items = 0
 
@@ -261,22 +258,23 @@ class AnodyneWorld(World):
                 elif small_key_shuffle == SmallKeyShuffle.option_different_world:
                     non_local_item_pool.add(key_item)
 
+        start_broom_item: str = ""
         if start_broom == StartBroom.option_normal:
-            start_broom_item = ["Broom"]
+            start_broom_item = "Broom"
         elif start_broom == StartBroom.option_wide:
-            start_broom_item = ["Broom", "Widen"]
+            start_broom_item = "Widen"
         elif start_broom == StartBroom.option_long:
-            start_broom_item = ["Broom", "Extend"]
+            start_broom_item = "Extend"
         elif start_broom == StartBroom.option_swap:
             if self.options.postgame_mode == PostgameMode.option_progressive:
                 # This is kind of an odd combination of options tbh.
-                start_broom_item = ["Progressive Swap"]
+                start_broom_item = "Progressive Swap"
             else:
-                start_broom_item = ["Swap"]
+                start_broom_item = "Swap"
 
-        for broom_item in start_broom_item:
-            self.multiworld.push_precollected(self.create_item(broom_item))
-            excluded_items.add(broom_item)
+        if start_broom_item != "":
+            self.multiworld.push_precollected(self.create_item(start_broom_item))
+            excluded_items.add(start_broom_item)
 
         if health_cicada_shuffle != HealthCicadaShuffle.option_vanilla:
             health_cicada_amount = len([location for location in Locations.all_locations if location.health_cicada])

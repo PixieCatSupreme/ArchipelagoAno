@@ -1,26 +1,26 @@
 events_by_region = {
     "Bedroom exit": {
-        "Defeat Seer": ["Broom"],
+        "Defeat Seer": ["Combat"],
         "Green Key": []
     },
     "Crowd floor 1": {
-        "Defeat The Wall": ["Broom", "Jump Shoes"],
+        "Defeat The Wall": ["Combat", "Jump Shoes"],
         "Blue Key": ["Defeat The Wall"]
     },
     "Windmill": {
         "Windmill activated": [],
     },
     "Hotel floor 1": {
-        "Defeat Manager": ["Keys:Hotel:6", "Broom"],
+        "Defeat Manager": ["Keys:Hotel:6", "Combat"],
     },
     "Circus": {
-        "Defeat Servants": ["Keys:Circus:3", "Broom", "Jump Shoes"],
+        "Defeat Servants": ["Keys:Circus:3", "Combat", "Jump Shoes"],
     },
     "Apartment floor 3": {
-        "Defeat Watcher": ["Broom", "Keys:Apartment:4"],
+        "Defeat Watcher": ["Combat", "Keys:Apartment:4"],
     },
     "Terminal": {
-        "Defeat Sage": ["Broom", "Cards:36"],
+        "Defeat Sage": ["Combat", "Cards:36"],
     },
     "Go top": {
         "Defeat Briar": ["Happy completed", "Briar access"],
@@ -29,17 +29,17 @@ events_by_region = {
         "Open 49 card gate": ["Cards:49"],
     },
     "Red Cave center": {
-        "Center left tentacle hit": ["Broom"],
-        "Center right tentacle hit": ["Broom"],
+        "Center left tentacle hit": ["Combat"],
+        "Center right tentacle hit": ["Combat"],
     },
     "Red Cave left": {
-        "Left tentacle hit": ["Broom", "Keys:Red Cave:6"],
+        "Left tentacle hit": ["Combat", "Keys:Red Cave:6"],
     },
     "Red Cave right": {
-        "Right tentacle hit": ["Broom", "Keys:Red Cave:6"],
+        "Right tentacle hit": ["Combat", "Keys:Red Cave:6"],
     },
     "Red Cave top": {
-        "Defeat Rogue": ["Broom"],
+        "Defeat Rogue": ["Combat"],
         "Red Key": ["Defeat Rogue"]
     },
     "Blue": {

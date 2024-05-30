@@ -8,15 +8,15 @@ all_exits = [
     ["Apartment floor 2 top left", "Apartment floor 1", ["Keys:Apartment:4"]],
     ["Apartment floor 2", "Apartment floor 3", ["Keys:Apartment:3"]],
     ["Apartment floor 3", "Apartment floor 2", ["Keys:Apartment:3"]],
-    ["Apartment floor 2 top left", "Apartment floor 1 top left", ["Broom"]],
-    ["Apartment floor 1 top left", "Apartment floor 2 top left", ["Broom"]],
+    ["Apartment floor 2 top left", "Apartment floor 1 top left", ["Combat"]],
+    ["Apartment floor 1 top left", "Apartment floor 2 top left", ["Combat"]],
     ["Beach", "Fields", []],
     ["Fields", "Beach", []],
-    ["Beach", "Red Sea", ["Broom"]],
+    ["Beach", "Red Sea", ["Combat"]],
     ["Red Sea", "Beach", []],
     ["Bedroom", "Overworld", []],
     ["Overworld", "Bedroom", []],
-    ["Bedroom", "Bedroom exit", ["Broom", "Keys:Temple of the Seeing One:2"]],
+    ["Bedroom", "Bedroom exit", ["Combat", "Keys:Temple of the Seeing One:2"]],
     # You can always use return to entrance to get to the start from the exit
     ["Bedroom exit", "Bedroom", []],
     ["Bedroom exit", "Overworld post windmill", ["Temple of the Seeing One Statue", "Keys:Temple of the Seeing One:3"]],
@@ -48,7 +48,7 @@ all_exits = [
     ["Cliff post windmill", "Crowd floor 1", ["Mountain Cavern Statue"]],
     # Technically this entrance works from floor 2, but only if you've used *this* entrance before, which is
     # logically the same as only this entrance existing.
-    ["Crowd floor 3", "Crowd floor 1", ["Broom", "Keys:Mountain Cavern:3"]],
+    ["Crowd floor 3", "Crowd floor 1", ["Combat", "Keys:Mountain Cavern:3"]],
     ["Crowd floor 2", "Crowd floor 3", []],
     ["Crowd floor 3", "Crowd floor 2", []],
     # Essentially one way, because the reverse direction is blocked by a gate the first time
@@ -77,8 +77,8 @@ all_exits = [
     ["Space", "Hotel roof", []],
     ["Hotel roof", "Hotel floor 4", []],
     ["Hotel floor 4", "Hotel roof", []],
-    ["Hotel floor 4", "Hotel floor 3", ["Broom", "Jump Shoes"]],
-    ["Hotel floor 3", "Hotel floor 4", ["Broom", "Jump Shoes"]],
+    ["Hotel floor 4", "Hotel floor 3", ["Combat", "Jump Shoes"]],
+    ["Hotel floor 3", "Hotel floor 4", ["Combat", "Jump Shoes"]],
     ["Hotel floor 3", "Hotel floor 2", ["Keys:Hotel:3"]],
     ["Hotel floor 2", "Hotel floor 3", []],
     # Door requires key and has key behind it
@@ -108,7 +108,7 @@ all_exits = [
     # Hidden path
     ["Red Cave Isaac", "Red Sea", []],
     ["Red Sea", "Red Cave Isaac", []],
-    ["Street", "Overworld", ["Broom", "Keys:Street:1"]],
-    ["Suburb", "Suburb card house", ["Broom"]],
-    ["Suburb card house", "Suburb", ["Broom"]],
+    ["Street", "Overworld", ["Combat", "Keys:Street:1"]],
+    ["Suburb", "Suburb card house", ["Combat"]],
+    ["Suburb card house", "Suburb", ["Combat"]],
 ]

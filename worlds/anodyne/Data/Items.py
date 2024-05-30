@@ -134,6 +134,8 @@ all_items = [
 
 progression_items = [
     "Broom",
+    "Widen",
+    "Extend",
     "Swap",
     "Jump Shoes",
     *cards,
@@ -147,8 +149,6 @@ progression_items = [
 ]
 
 useful_items = [
-    "Widen",
-    "Extend",
     "Health Cicada",
 ]
 

@@ -407,4 +407,5 @@ class AnodyneWorld(World):
             "postgame_mode": int(self.options.postgame_mode),
             "victory_condition": int(self.options.victory_condition),
             "forest_bunny_chest": bool(self.options.forest_bunny_chest.value),
+            "seed": self.random.randint(0, 1000000),
         }

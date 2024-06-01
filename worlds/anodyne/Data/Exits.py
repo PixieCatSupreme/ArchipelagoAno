@@ -69,7 +69,7 @@ all_exits = [
     ["Windmill", "Windmill entrance", ["Red Key", "Blue Key"]],
     ["Go bottom", "Terminal", ["Cards:36"]],
     ["Terminal", "Go bottom", ["Cards:36"]],
-    ["Go bottom", "Go top", ["Swap:1"]],
+    ["Go bottom", "Go top", ["Swap:1", "Defeat Servants", "Defeat Watcher", "Defeat Manager"]],
     ["Go top", "Go bottom", ["Swap:1"]],
     ["Go top", "Happy", ["Blue completed"]],
     ["Happy", "Go top", ["Blue completed"]],

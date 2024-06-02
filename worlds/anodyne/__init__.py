@@ -156,6 +156,10 @@ class AnodyneWorld(World):
             e.access_rule = Constants.get_access_rule(requirements, exit1, self)
 
         for region_name in self.gates_unlocked:
+            if region_name not in all_regions:
+                # Some Nexus gates are useless.
+                continue
+
             all_regions["Nexus bottom"].create_exit(f"{region_name} Nexus Gate").connect(all_regions[region_name])
 
         for region_name, events in Events.events_by_region.items():

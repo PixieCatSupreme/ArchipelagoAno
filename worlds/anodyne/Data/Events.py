@@ -23,7 +23,7 @@ events_by_region = {
         "Defeat Sage": ["Combat", "Cards:36"],
     },
     "Go top": {
-        "Defeat Briar": ["Jump Shoes"],
+        "Defeat Briar": ["Jump Shoes", "Combat"],
     },
     "Nexus top": {
         "Open 49 card gate": ["Cards:49"],

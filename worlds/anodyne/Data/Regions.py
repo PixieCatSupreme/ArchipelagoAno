@@ -102,7 +102,7 @@ regions_with_nexus_gate = [
     "Forest",
     "Go bottom",
     "Happy",
-    "Hotel floor 1",
+    "Hotel",  # No region, because getting here from Nexus is useless (blocked by a gate)
     "Overworld",
     "Red Cave top",
     "Red Sea",

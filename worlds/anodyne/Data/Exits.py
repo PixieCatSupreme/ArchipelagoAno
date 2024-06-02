@@ -55,7 +55,7 @@ all_exits = [
     ["Crowd floor 2", "Crowd floor 3", []],
     ["Crowd floor 3", "Crowd floor 2", []],
     # Essentially one way, because the reverse direction is blocked by a gate the first time
-    ["Crowd floor 1", "Crowd floor 2", []],
+    ["Crowd floor 1", "Crowd floor 2", ["Combat", "Jump Shoes"]],
     ["Debug", "Nexus top", []],
     ["Nexus top", "Debug", []],
     ["Drawer dark", "Nexus top", []],

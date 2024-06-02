@@ -57,7 +57,7 @@ class TestUnlockedPostgame(AnodyneTestBase):
 class TestProgressivePostgame(AnodyneTestBase):
     options = {
         "victory_condition": "all_cards",
-        "custom_nexus_gates_open": ["Windmill entrance", "Go bottom", "Hotel floor 1", "Apartment floor 1", "Circus"],
+        "custom_nexus_gates_open": ["Windmill entrance", "Go bottom", "Hotel", "Apartment floor 1", "Circus"],
         "postgame_mode": "progressive",
         "big_key_shuffle": "unlocked",
         "small_key_shuffle": "unlocked",

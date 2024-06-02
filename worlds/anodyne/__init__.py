@@ -125,6 +125,10 @@ class AnodyneWorld(World):
                     if not self.options.forest_bunny_chest and location.name == "Deep Forest - Bunny Chest":
                         continue
 
+                    if self.options.victory_condition == VictoryCondition.option_defeat_briar\
+                            and location.name == "GO - Defeat Briar":
+                        continue
+
                     location_id = Constants.location_name_to_id[location.name]
 
                     new_location = AnodyneLocation(self.player, location.name, location_id, region)

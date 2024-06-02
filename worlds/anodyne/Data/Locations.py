@@ -174,6 +174,7 @@ all_locations: List[LocationData] = [
     LocationData("Red Cave - Middle Cave Right Tentacle", "Red Cave center", ["Combat"], tentacle=True),
     LocationData("Red Cave - Left Cave Tentacle", "Red Cave left", ["Combat", "Keys:Red Cave:6"], tentacle=True),
     LocationData("Red Cave - Right Cave Tentacle", "Red Cave right", ["Combat", "Keys:Red Cave:6"], tentacle=True),
+    LocationData("GO - Defeat Briar", "Go top", ["Combat", "Jump Shoes"]),
 ]
 
 locations_by_name: Dict[str, LocationData] = {location.name: location for location in all_locations}

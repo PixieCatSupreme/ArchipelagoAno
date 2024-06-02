@@ -71,8 +71,9 @@ all_exits = [
     ["Terminal", "Go bottom", ["Cards:36"]],
     ["Go bottom", "Go top", ["Swap:1", "Defeat Servants", "Defeat Watcher", "Defeat Manager"]],
     ["Go top", "Go bottom", ["Swap:1"]],
-    ["Go top", "Happy", ["Blue completed"]],
-    ["Happy", "Go top", ["Blue completed"]],
+    # Requires beating Blue, which requires Jump Shoes.
+    # Treated as one-way because you can't unlock the door from the Happy side.
+    ["Go top", "Happy", ["Jump Shoes"]],
     ["Hotel roof", "Space", []],
     ["Space", "Hotel roof", []],
     ["Hotel roof", "Hotel floor 4", []],

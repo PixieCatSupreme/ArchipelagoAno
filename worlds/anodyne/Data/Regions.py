@@ -121,6 +121,12 @@ early_nexus_gates = [
     "Red Sea"
 ]
 
+endgame_nexus_gates = [
+    "Blue",
+    "Go bottom",
+    "Happy",
+]
+
 postgame_regions = [
     "Blank windmill",
     "Blank ending",

@@ -93,13 +93,21 @@ class StartBroom(Choice):
 
 
 class NexusGatesOpen(Choice):
-    """Select which Nexus Gates are open from the start. Street is always open."""
+    """
+    Select which Nexus Gates are open from the start. Street is always open.
+    [Street Only] Only the Street gate is open.
+    [Street and Fields] The Street and Fields gates are open.
+    [Early] The gates for pre-dungeon areas near Fields are also open.
+    [Random Count] A number of random gates will be open. The number is specified in another option.
+    [Random Pre-Endgame] Same as above, but the GO, Blue, and Happy gates are excluded.
+    """
     display_name = "Open Nexus Gates"
     option_street_only = 0
     option_street_and_fields = 1
     option_early = 2
     option_all = 3
     option_random_count = 4
+    option_random_pre_endgame = 5
     default = 1
 
 

@@ -41,7 +41,7 @@ class AnodyneWorld(World):
     location_name_to_id = Constants.location_name_to_id
     item_name_groups = Items.item_groups
 
-    gates_unlocked: list[str] = []
+    gates_unlocked: List[str] = []
     location_count: int = 0
     dungeon_items: Dict[str, List[Item]] = {}
     proxy_rules: Dict[str, List[str]] = {}
@@ -65,20 +65,18 @@ class AnodyneWorld(World):
         elif nexus_gate_open == NexusGatesOpen.option_all:
             for region_name in Regions.regions_with_nexus_gate:
                 self.gates_unlocked.append(region_name)
-        elif nexus_gate_open == NexusGatesOpen.option_random_count:
+        elif nexus_gate_open in [NexusGatesOpen.option_random_count, NexusGatesOpen.option_random_pre_endgame]:
             random_nexus_gate_count = int(self.options.random_nexus_gate_open_count)
 
-            if random_nexus_gate_count == Regions.regions_with_nexus_gate:
-                for region_name in Regions.regions_with_nexus_gate:
-                    self.gates_unlocked.append(region_name)
-            else:
-                unused_gates = Regions.regions_with_nexus_gate.copy()
-                for _ in range(random_nexus_gate_count):
-                    gate_index = self.random.randint(0, len(unused_gates) - 1)
-                    gate_name = unused_gates[gate_index]
+            available_gates = Regions.regions_with_nexus_gate.copy()
+            if nexus_gate_open == NexusGatesOpen.option_random_pre_endgame:
+                for gate in Regions.endgame_nexus_gates:
+                    available_gates.remove(gate)
 
-                    self.gates_unlocked.append(gate_name)
-                    unused_gates.remove(gate_name)
+            if random_nexus_gate_count > len(available_gates):
+                logging.warning(f"Player {self.player} requested more random Nexus gates than are available.")
+
+            self.gates_unlocked = self.random.sample(available_gates, random_nexus_gate_count)
 
     def create_item(self, name: str) -> Item:
         if name in Items.progression_items:

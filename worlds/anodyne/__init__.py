@@ -3,7 +3,7 @@ import logging
 from BaseClasses import Region, Location, Item, ItemClassification, CollectionState
 from Fill import fill_restrictive, FillError
 from worlds.AutoWorld import WebWorld, World
-from typing import List, Callable, Dict
+from typing import List, Callable, Dict, Any
 
 from . import Constants
 
@@ -55,7 +55,10 @@ class AnodyneWorld(World):
         nexus_gate_open = self.options.nexus_gates_open
 
         # Street is always unlocked
-        if len(self.options.custom_nexus_gates_open.value) > 0:
+        if hasattr(self.multiworld, "re_gen_passthrough") and "Anodyne" in self.multiworld.re_gen_passthrough:
+            # Universal tracker; ignored during normal gen.
+            self.gates_unlocked = self.multiworld.re_gen_passthrough["Anodyne"]["nexus_gates_unlocked"]
+        elif len(self.options.custom_nexus_gates_open.value) > 0:
             self.gates_unlocked.extend(self.options.custom_nexus_gates_open.value)
         elif nexus_gate_open == NexusGatesOpen.option_street_and_fields:
             self.gates_unlocked.append("Fields")
@@ -408,3 +411,9 @@ class AnodyneWorld(World):
             "forest_bunny_chest": bool(self.options.forest_bunny_chest.value),
             "seed": self.random.randint(0, 1000000),
         }
+
+    # for the universal tracker, doesn't get called in standard gen
+    @staticmethod
+    def interpret_slot_data(slot_data: Dict[str, Any]) -> Dict[str, Any]:
+        # returning slot_data so it regens, giving it back in multiworld.re_gen_passthrough
+        return slot_data

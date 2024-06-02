@@ -3,7 +3,7 @@ from . import AnodyneTestBase
 
 class TestDisabledPostgame(AnodyneTestBase):
     options = {
-        "victory_condition": "all_bosses",
+        "victory_condition": "defeat_briar",
         "custom_nexus_gates_open": ["Windmill entrance"],
         "postgame_mode": "disabled",
         "big_key_shuffle": "unlocked",

@@ -23,7 +23,7 @@ events_by_region = {
         "Defeat Sage": ["Combat", "Cards:36"],
     },
     "Go top": {
-        "Defeat Briar": ["Happy completed", "Briar access"],
+        "Defeat Briar": ["Happy completed"],
     },
     "Nexus top": {
         "Open 49 card gate": ["Cards:49"],

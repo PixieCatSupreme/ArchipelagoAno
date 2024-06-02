@@ -125,11 +125,11 @@ class CustomNexusGatesOpen(OptionSet):
 class VictoryCondition(Choice):
     """
     Select the end goal of your game.
-    All Bosses: Defeat all bosses, ending with Briar.
-    All Cards: Open the 49 card gate in the top section of the Nexus. Postgame must be enabled for this.
+    [Defeat Briar] Reach the credits screen after defeating the Briar.
+    [All Cards] Open the 49 card gate in the top section of the Nexus. Postgame must be enabled for this.
     """
     display_name = "Victory Condition"
-    option_all_bosses = 0
+    option_defeat_briar = 0
     option_all_cards = 1
     default = 0
 

@@ -15,6 +15,9 @@ all_regions = [
     "Blue",
     "Cell",
     "Circus",
+    "Circus 2",
+    "Circus 3",
+    "Circus 4",
     "Cliff",
     "Cliff post windmill",
     "Crowd floor 1",
@@ -79,7 +82,7 @@ dungeon_areas = {
                   "Apartment floor 2",
                   "Apartment floor 2 top left",
                   "Apartment floor 3"],
-    "Circus": ["Circus"],
+    "Circus": ["Circus", "Circus 2", "Circus 3", "Circus 4"],
     "Street": ["Street"],
 }
 

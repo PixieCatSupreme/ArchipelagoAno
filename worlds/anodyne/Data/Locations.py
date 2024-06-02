@@ -50,15 +50,15 @@ all_locations: List[LocationData] = [
     # 75C2D434-4AE8-BCD0-DBEB-8E6CDA67BF45
     LocationData("Circus - Rat Maze Chest", "Circus", ["Combat", "Jump Shoes"], small_key=True),
     LocationData("Circus - Clowns Chest", "Circus", ["Combat", "Jump Shoes"]),
-    LocationData("Circus - Fire Pillar Chest", "Circus", ["Combat", "Jump Shoes"]),
+    LocationData("Circus - Fire Pillar Chest", "Circus 2", ["Combat", "Jump Shoes"]),
     # 69E8FBD6-2DA3-D25E-446F-6A59AC3E9FC2
     LocationData("Circus - Arthur Chest", "Circus", ["Combat", "Jump Shoes"], small_key=True),
     # 6A95EB2F-75FD-8649-5E07-3ED37C69A9FB
-    LocationData("Circus - Javiera Chest", "Circus", ["Combat", "Jump Shoes"], small_key=True),
+    LocationData("Circus - Javiera Chest", "Circus 2", ["Combat", "Jump Shoes"], small_key=True),
     # A2479A02-9B0D-751F-71A4-DB15C4982DF5
-    LocationData("Circus - Lion Chest", "Circus", ["Combat", "Jump Shoes"], small_key=True),
-    LocationData("Circus - Double Clowns Chest", "Circus", ["Combat", "Jump Shoes"]),
-    LocationData("Circus - Boss Chest", "Circus", ["Defeat Servants", "Combat", "Jump Shoes"]),
+    LocationData("Circus - Lion Chest", "Circus 3", ["Combat", "Jump Shoes"], small_key=True),
+    LocationData("Circus - Double Clowns Chest", "Circus 4", ["Combat", "Jump Shoes", "Keys:Circus:4"]),
+    LocationData("Circus - Boss Chest", "Circus 4", ["Defeat Servants", "Combat", "Jump Shoes"]),
     LocationData("Cliffs - Upper Chest", "Cliff post windmill"),
     LocationData("Cliffs - Lower Chest", "Cliff post windmill"),
     LocationData("Mountain Cavern - 2F Crowded Ledge Chest", "Crowd floor 2", ["Combat", "Jump Shoes"]),
@@ -161,7 +161,7 @@ all_locations: List[LocationData] = [
     LocationData("Temple of the Seeing One - Health Cicada", "Bedroom exit", ["Combat"], health_cicada=True),
     # Has to be frame 4
     LocationData("Cell - Health Cicada", "Cell", ["Cards:24"], health_cicada=True),
-    LocationData("Circus - Health Cicada", "Circus", ["Defeat Servants"], health_cicada=True),
+    LocationData("Circus - Health Cicada", "Circus 4", ["Defeat Servants"], health_cicada=True),
     LocationData("Mountain Cavern - Health Cicada", "Crowd floor 1", ["Defeat The Wall"], health_cicada=True),
     LocationData("Hotel - Health Cicada", "Hotel floor 1", ["Defeat Manager"], health_cicada=True),
     LocationData("Overworld - Health Cicada", "Overworld", ["Combat", "Cards:4"], health_cicada=True),

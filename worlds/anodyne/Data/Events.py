@@ -13,8 +13,8 @@ events_by_region = {
     "Hotel floor 1": {
         "Defeat Manager": ["Keys:Hotel:6", "Combat"],
     },
-    "Circus": {
-        "Defeat Servants": ["Keys:Circus:3", "Combat", "Jump Shoes"],
+    "Circus 4": {
+        "Defeat Servants": ["Combat", "Jump Shoes"],
     },
     "Apartment floor 3": {
         "Defeat Watcher": ["Combat", "Keys:Apartment:4"],

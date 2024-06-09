@@ -94,7 +94,8 @@ all_locations: List[LocationData] = [
     # Hidden path
     LocationData("Fields - Secluded Glen Chest", "Fields", ["Swap:2"]),
     # Hidden path
-    LocationData("Fields - Near Terminal Secret Chest", "Fields", ["Swap:2"]),
+    # Logically, this is in Terminal, because it is separated from the rest of Fields in the same way Terminal is.
+    LocationData("Fields - Near Terminal Secret Chest", "Terminal", ["Swap:2"]),
     LocationData("Deep Forest - Inlet Chest", "Forest", ["Combat"]),
     # This is the one that takes 2 hours
     LocationData("Deep Forest - Bunny Chest", "Forest", ["Swap:2"]),

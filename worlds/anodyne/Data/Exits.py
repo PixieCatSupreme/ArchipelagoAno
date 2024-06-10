@@ -71,8 +71,8 @@ all_exits = [
     ["Windmill entrance", "Fields", ["Green Key"]],
     ["Windmill entrance", "Windmill", ["Red Key", "Blue Key"]],
     ["Windmill", "Windmill entrance", ["Red Key", "Blue Key"]],
-    ["Go bottom", "Terminal", ["Cards:36"]],
-    ["Terminal", "Go bottom", ["Cards:36"]],
+    ["Go bottom", "Terminal", ["Endgame Access"]],
+    ["Terminal", "Go bottom", ["Endgame Access"]],
     ["Go bottom", "Go top", ["Swap:1", "Defeat Servants", "Defeat Watcher", "Defeat Manager"]],
     ["Go top", "Go bottom", ["Swap:1"]],
     # Requires beating Blue, which requires Jump Shoes.

@@ -142,6 +142,18 @@ class VictoryCondition(Choice):
     default = 0
 
 
+class EndgameCardRequirement(Range):
+    """
+    Choose how many cards are required to open the big card gate in Terminal that leads to the endgame areas.
+    In vanilla, this is the 36 card gate.
+    Postgame must be enabled to choose a number above 37.
+    """
+    display_name = "Endgame Card Requirement"
+    range_start = 0
+    range_end = 49
+    default = 36
+
+
 class PostgameMode(Choice):
     """
     Determines how the Swap upgrade behaves.
@@ -176,6 +188,7 @@ class AnodyneGameOptions(PerGameCommonOptions):
     random_nexus_gate_open_count: RandomNexusGateOpenCount
     custom_nexus_gates_open: CustomNexusGatesOpen
     victory_condition: VictoryCondition
+    endgame_card_requirement: EndgameCardRequirement
     postgame_mode: PostgameMode
     forest_bunny_chest: IncludeForestBunnyChest
     death_link: DeathLink

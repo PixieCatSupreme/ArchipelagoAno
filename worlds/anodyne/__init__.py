@@ -196,6 +196,11 @@ class AnodyneWorld(World):
             elif self.options.postgame_mode == PostgameMode.option_unlocked:
                 self.proxy_rules["Swap:2"] = ["Swap"]
 
+        if self.options.postgame_mode == PostgameMode.option_disabled and self.options.endgame_card_requirement > 37:
+            raise Exception("Postgame must be enabled in order to choose an endgame card requirement over 37.")
+
+        self.proxy_rules["Endgame Access"] = [f"Cards:{self.options.endgame_card_requirement}"]
+
         victory_condition: VictoryCondition = self.options.victory_condition
         requirements: list[str] = []
 
@@ -409,6 +414,7 @@ class AnodyneWorld(World):
             "postgame_mode": int(self.options.postgame_mode),
             "victory_condition": int(self.options.victory_condition),
             "forest_bunny_chest": bool(self.options.forest_bunny_chest.value),
+            "endgame_card_requirement": int(self.options.endgame_card_requirement),
             "seed": self.random.randint(0, 1000000),
         }
 

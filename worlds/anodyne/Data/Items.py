@@ -88,6 +88,11 @@ secret_items = [
     "Golden Broom",
 ]
 
+early_secret_items = [
+    "Golden Poop",
+    "Heart",
+]
+
 small_key_item_count = {
     "Small Key (Apartment)": 4,
     "Small Key (Temple of the Seeing One)": 3,
@@ -110,6 +115,10 @@ statue_items = [
     "Mountain Cavern Statue",
 ]
 
+non_secret_filler_items = [
+    "Heal",
+]
+
 # This array must maintain a consistent order because the IDs are generated from it.
 all_items = [
     "Broom",
@@ -130,6 +139,7 @@ all_items = [
     "Progressive Red Cave",
     *statue_items,
     "Progressive Swap",
+    "Heal",
 ]
 
 progression_items = [
@@ -157,6 +167,7 @@ trap_items = [
 
 filler_items = [
     *secret_items,
+    *non_secret_filler_items,
 ]
 
 item_groups = {

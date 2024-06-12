@@ -338,10 +338,21 @@ class AnodyneWorld(World):
                 placed_items += 1
                 item_pool.append(self.create_item(name))
 
+        # If we have space for filler, prioritize adding in the ??? items that would be in-logic.
         if placed_items < self.location_count:
-            # TODO: Prioritize extending the item pool using available secret items (just the golden poop and heart when
-            # postgame is disabled, and all of them if enabled). After that, if there's any space left, fill it with
-            # some other generic filler item.
+            secret_items = Items.early_secret_items if self.options.postgame_mode == PostgameMode.option_disabled else\
+                Items.secret_items
+
+            if len(secret_items) <= (self.location_count - placed_items):
+                new_items = secret_items
+            else:
+                new_items = self.random.sample(secret_items, self.location_count - placed_items)
+
+            item_pool.extend(self.create_item(name) for name in new_items)
+            placed_items += len(new_items)
+
+        # If there's any space left after that, fill the slots with random filler.
+        if placed_items < self.location_count:
             item_pool.extend(self.create_filler() for _ in range(self.location_count - placed_items))
 
         self.multiworld.itempool += item_pool
@@ -350,8 +361,7 @@ class AnodyneWorld(World):
         self.options.non_local_items.value |= non_local_item_pool
 
     def get_filler_item_name(self) -> str:
-        # TODO: See TODO in create_items.
-        return self.random.choice(Items.filler_items)
+        return self.random.choice(Items.non_secret_filler_items)
 
     def create_event(self, region: Region, event_name: str, access_rule: Callable[[CollectionState], bool]) -> None:
         loc = AnodyneLocation(self.player, event_name, None, region)

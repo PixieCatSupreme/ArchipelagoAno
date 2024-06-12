@@ -127,6 +127,7 @@ class CustomNexusGatesOpen(OptionSet):
     If set, this will override the value of nexus_gates_open.
     Note that the Street Nexus Gate will always be open.
     """
+    display_name = "Custom Open Nexus Gates"
     valid_keys = Regions.regions_with_nexus_gate
 
 

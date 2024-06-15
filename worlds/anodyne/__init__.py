@@ -3,13 +3,13 @@ import logging
 from BaseClasses import Region, Location, Item, ItemClassification, CollectionState
 from Fill import fill_restrictive, FillError
 from worlds.AutoWorld import WebWorld, World
-from typing import List, Callable, Dict, Any
+from typing import List, Callable, Dict, Any, Set
 
 from . import Constants
 
 from .Data import Items, Locations, Regions, Exits, Events
-from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle,\
-    HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode
+from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle, \
+    HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle
 
 
 class AnodyneLocation(Location):
@@ -40,17 +40,20 @@ class AnodyneWorld(World):
     item_name_to_id = Constants.item_name_to_id
     location_name_to_id = Constants.location_name_to_id
     item_name_groups = Items.item_groups
+    location_name_groups = Locations.location_groups
 
     gates_unlocked: List[str] = []
     location_count: int = 0
     dungeon_items: Dict[str, List[Item]] = {}
     proxy_rules: Dict[str, List[str]] = {}
+    shuffled_gates: Set[str] = set()
 
     def generate_early(self):
         self.gates_unlocked.clear()
         self.location_count = 0
         self.dungeon_items.clear()
         self.proxy_rules.clear()
+        self.shuffled_gates.clear()
 
         nexus_gate_open = self.options.nexus_gates_open
 
@@ -80,6 +83,12 @@ class AnodyneWorld(World):
                 logging.warning(f"Player {self.player} requested more random Nexus gates than are available.")
 
             self.gates_unlocked = self.random.sample(available_gates, random_nexus_gate_count)
+
+        if self.options.nexus_gate_shuffle != NexusGateShuffle.option_off:
+            self.shuffled_gates = set(Regions.regions_with_nexus_gate) - set(self.gates_unlocked)
+
+            if self.options.nexus_gate_shuffle == NexusGateShuffle.option_all_except_endgame:
+                self.shuffled_gates -= set(Regions.endgame_nexus_gates)
 
     def create_item(self, name: str) -> Item:
         if name in Items.progression_items:
@@ -130,6 +139,9 @@ class AnodyneWorld(World):
                             and location.name == "GO - Defeat Briar":
                         continue
 
+                    if location.nexus_gate and location.region_name not in self.shuffled_gates:
+                        continue
+
                     location_id = Constants.location_name_to_id[location.name]
 
                     new_location = AnodyneLocation(self.player, location.name, location_id, region)
@@ -158,6 +170,13 @@ class AnodyneWorld(World):
 
         for region_name in self.gates_unlocked:
             all_regions["Nexus bottom"].create_exit(f"{region_name} Nexus Gate").connect(all_regions[region_name])
+
+        if self.options.nexus_gate_shuffle != NexusGateShuffle.option_off:
+            for item_name, region_name in Items.nexus_gate_items.items():
+                if region_name in self.shuffled_gates:
+                    e = all_regions["Nexus bottom"].create_exit(f"{region_name} Nexus Gate")
+                    e.connect(all_regions[region_name])
+                    e.access_rule = Constants.get_access_rule([item_name], "Nexus bottom", self)
 
         for region_name, events in Events.events_by_region.items():
             if not include_postgame and region_name in Regions.postgame_regions:
@@ -235,6 +254,7 @@ class AnodyneWorld(World):
             *Items.trap_items,
             "Progressive Red Cave",
             "Progressive Swap",
+            *Items.nexus_gate_items.keys(),
         }
 
         if small_key_shuffle == SmallKeyShuffle.option_vanilla:
@@ -332,6 +352,12 @@ class AnodyneWorld(World):
                 placed_items += 1
 
             excluded_items.add("Swap")
+
+        if self.options.nexus_gate_shuffle != NexusGateShuffle.option_off:
+            nexus_gate_items = [item_name for item_name, region in Items.nexus_gate_items.items()
+                                if region in self.shuffled_gates]
+            item_pool.extend(self.create_item(item_name) for item_name in nexus_gate_items)
+            placed_items += len(nexus_gate_items)
 
         for name in Items.all_items:
             if name not in excluded_items:

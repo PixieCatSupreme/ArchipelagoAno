@@ -11,6 +11,7 @@ class LocationData(NamedTuple):
     small_key: bool = False
     big_key: bool = False
     tentacle: bool = False
+    nexus_gate: bool = False
 
     def postgame(self):
         return "Swap:2" in self.reqs or self.region_name in Regions.postgame_regions
@@ -176,6 +177,26 @@ all_locations: List[LocationData] = [
     LocationData("Red Cave - Left Cave Tentacle", "Red Cave left", ["Combat", "Keys:Red Cave:6"], tentacle=True),
     LocationData("Red Cave - Right Cave Tentacle", "Red Cave right", ["Combat", "Keys:Red Cave:6"], tentacle=True),
     LocationData("GO - Defeat Briar", "Go top", ["Combat", "Jump Shoes"]),
+    LocationData("Apartment - Warp Pad", "Apartment floor 1", nexus_gate=True),
+    LocationData("Beach - Warp Pad", "Beach", nexus_gate=True),
+    LocationData("Temple of the Seeing One - Warp Pad", "Bedroom exit", nexus_gate=True),
+    LocationData("Blue - Warp Pad", "Blue", nexus_gate=True),
+    LocationData("Cell - Warp Pad", "Cell", nexus_gate=True),
+    LocationData("Cliffs - Warp Pad", "Cliff", nexus_gate=True),
+    LocationData("Circus - Warp Pad", "Circus", nexus_gate=True),
+    LocationData("Mountain Cavern - Warp Pad", "Crowd floor 1", nexus_gate=True),
+    LocationData("Fields - Warp Pad", "Fields", nexus_gate=True),
+    LocationData("Deep Forest - Warp Pad", "Forest", nexus_gate=True),
+    LocationData("GO - Warp Pad", "Go bottom", nexus_gate=True),
+    LocationData("Happy - Warp Pad", "Happy", nexus_gate=True),
+    LocationData("Hotel - Warp Pad", "Hotel floor 4", nexus_gate=True),
+    LocationData("Overworld - Warp Pad", "Overworld", nexus_gate=True),
+    LocationData("Red Cave - Warp Pad", "Red Cave top", ["Defeat Rogue"], nexus_gate=True),
+    LocationData("Red Sea - Warp Pad", "Red Sea", nexus_gate=True),
+    LocationData("Young Town - Warp Pad", "Suburb", nexus_gate=True),
+    LocationData("Space - Warp Pad", "Space", nexus_gate=True),
+    LocationData("Terminal - Warp Pad", "Terminal", nexus_gate=True),
+    LocationData("Windmill - Warp Pad", "Windmill entrance", nexus_gate=True),
 ]
 
 locations_by_name: Dict[str, LocationData] = {location.name: location for location in all_locations}
@@ -189,3 +210,7 @@ def build_locations_by_region_dict():
 
 
 locations_by_region: Dict[str, List[LocationData]] = build_locations_by_region_dict()
+
+location_groups = {
+    "Warp Pads": [location.name for location in all_locations if location.nexus_gate],
+}

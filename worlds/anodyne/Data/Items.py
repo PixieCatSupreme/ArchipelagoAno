@@ -119,6 +119,29 @@ non_secret_filler_items = [
     "Heal",
 ]
 
+nexus_gate_items = {
+    "Nexus Gate (Apartment)": "Apartment floor 1",
+    "Nexus Gate (Beach)": "Beach",
+    "Nexus Gate (Temple of the Seeing One)": "Bedroom exit",
+    "Nexus Gate (Blue)": "Blue",
+    "Nexus Gate (Cell)": "Cell",
+    "Nexus Gate (Circus)": "Circus",
+    "Nexus Gate (Cliffs)": "Cliff",
+    "Nexus Gate (Mountain Cavern)": "Crowd floor 1",
+    "Nexus Gate (Fields)": "Fields",
+    "Nexus Gate (Deep Forest)": "Forest",
+    "Nexus Gate (GO)": "Go bottom",
+    "Nexus Gate (Happy)": "Happy",
+    "Nexus Gate (Hotel)": "Hotel floor 4",
+    "Nexus Gate (Overworld)": "Overworld",
+    "Nexus Gate (Red Cave)": "Red Cave top",
+    "Nexus Gate (Red Sea)": "Red Sea",
+    "Nexus Gate (Young Town)": "Suburb",
+    "Nexus Gate (Space)": "Space",
+    "Nexus Gate (Terminal)": "Terminal",
+    "Nexus Gate (Windmill)": "Windmill entrance",
+}
+
 # This array must maintain a consistent order because the IDs are generated from it.
 all_items = [
     "Broom",
@@ -140,6 +163,7 @@ all_items = [
     *statue_items,
     "Progressive Swap",
     "Heal",
+    *nexus_gate_items.keys(),
 ]
 
 progression_items = [
@@ -156,6 +180,7 @@ progression_items = [
     "Progressive Red Cave",
     *statue_items,
     "Progressive Swap",
+    *nexus_gate_items.keys(),
 ]
 
 useful_items = [
@@ -171,5 +196,6 @@ filler_items = [
 ]
 
 item_groups = {
-    "Cards": cards
+    "Cards": cards,
+    "Nexus Gates": nexus_gate_items.keys(),
 }

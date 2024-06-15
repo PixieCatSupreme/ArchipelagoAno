@@ -131,6 +131,22 @@ class CustomNexusGatesOpen(OptionSet):
     valid_keys = Regions.regions_with_nexus_gate
 
 
+class NexusGateShuffle(Choice):
+    """
+    Determines how nexus gates and warp pads work.
+    If enabled, nexus gates will become items, and warp pads will become locations.
+    Nexus gates that are pre-opened are excluded from this.
+    The "All Except Endgame" option excludes the GO, Blue, and Happy gates / pads.
+    """
+    display_name = "Shuffle Nexus Gates"
+    option_off = 0
+    option_all_except_endgame = 1
+    option_all = 2
+    default = 0
+    alias_false = 0
+    alias_true = 1
+
+
 class VictoryCondition(Choice):
     """
     Select the end goal of your game.
@@ -188,6 +204,7 @@ class AnodyneGameOptions(PerGameCommonOptions):
     nexus_gates_open: NexusGatesOpen
     random_nexus_gate_open_count: RandomNexusGateOpenCount
     custom_nexus_gates_open: CustomNexusGatesOpen
+    nexus_gate_shuffle: NexusGateShuffle
     victory_condition: VictoryCondition
     endgame_card_requirement: EndgameCardRequirement
     postgame_mode: PostgameMode

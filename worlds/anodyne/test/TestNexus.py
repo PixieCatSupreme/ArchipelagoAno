@@ -75,3 +75,14 @@ class TestCustomNexusGates3(AnodyneTestBase):
         self.assertTrue(self.can_reach_region("Hotel roof"))
         self.assertFalse(self.can_reach_region("Hotel floor 1"))
         self.assertTrue(self.can_reach_region("Street"))
+
+
+class TestShuffledNexusGates(AnodyneTestBase):
+    options = {
+        "nexus_gate_shuffle": "all_except_endgame",
+    }
+
+    def test_requirement(self):
+        with self.assertRaises(Exception):
+            self.can_reach_location("GO - Warp Pad")
+        self.assertTrue(self.can_reach_location("Cliffs - Warp Pad"))

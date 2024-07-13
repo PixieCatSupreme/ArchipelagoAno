@@ -119,8 +119,7 @@ class AnodyneWorld(World):
                     if include_health_cicadas == HealthCicadaShuffle.option_vanilla and location.health_cicada:
                         continue
 
-                    if include_big_keys in [BigKeyShuffle.option_vanilla, BigKeyShuffle.option_unlocked]\
-                            and location.big_key:
+                    if include_big_keys == BigKeyShuffle.option_vanilla and location.big_key:
                         continue
 
                     if self.options.red_cave_access == RedCaveAccess.option_vanilla and location.tentacle:

@@ -448,6 +448,7 @@ class AnodyneWorld(World):
             "vanilla_red_cave": self.options.red_cave_access == RedCaveAccess.option_vanilla,
             "split_windmill": bool(self.options.split_windmill),
             "postgame_mode": int(self.options.postgame_mode),
+            "nexus_gate_shuffle": int(self.options.nexus_gate_shuffle),
             "victory_condition": int(self.options.victory_condition),
             "forest_bunny_chest": bool(self.options.forest_bunny_chest.value),
             "endgame_card_requirement": int(self.options.endgame_card_requirement),

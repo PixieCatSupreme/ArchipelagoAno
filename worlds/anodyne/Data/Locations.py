@@ -17,6 +17,7 @@ class LocationData(NamedTuple):
         return "Swap:2" in self.reqs or self.region_name in Regions.postgame_regions
 
 
+# This array must maintain a consistent order because the IDs are generated from it.
 all_locations: List[LocationData] = [
     # 0AC41F72-EE1D-0D32-8F5D-8F25796B6396
     LocationData("Apartment - 1F Ledge Chest", "Apartment floor 1", ["Combat", "Jump Shoes"], small_key=True),

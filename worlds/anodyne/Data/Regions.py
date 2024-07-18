@@ -128,6 +128,7 @@ endgame_nexus_gates = [
 ]
 
 postgame_regions = [
+    "Bedroom drawer",
     "Blank windmill",
     "Blank ending",
     "Debug",

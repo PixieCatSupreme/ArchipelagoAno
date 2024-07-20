@@ -1,6 +1,6 @@
 import logging
 
-from BaseClasses import Region, Location, Item, ItemClassification, CollectionState
+from BaseClasses import Region, Location, Item, ItemClassification, CollectionState, Tutorial
 from Fill import fill_restrictive, FillError
 from worlds.AutoWorld import WebWorld, World
 from typing import List, Callable, Dict, Any, Set
@@ -22,6 +22,14 @@ class AnodyneItem(Item):
 
 class AnodyneWebWorld(WebWorld):
     theme = "dirt"
+    tutorials = [Tutorial(
+        "Multiworld Setup Guide",
+        "A guide to playing Anodyne with Archipelago.",
+        "English",
+        "setup_en.md",
+        "setup/en",
+        ["PixieCatSupreme", "SephDB", "hatkirby"]
+    )]
 
 
 class AnodyneWorld(World):
@@ -31,6 +39,8 @@ class AnodyneWorld(World):
     and areas in Young's subconscious.
     """
     game = "Anodyne"  # name of the game/world
+    web = AnodyneWebWorld()
+
     options_dataclass = AnodyneGameOptions
     options: AnodyneGameOptions
     topology_present = False  # show path to required location checks in spoiler

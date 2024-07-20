@@ -3,7 +3,7 @@ from . import AnodyneTestBase
 
 class TestCustomNexusGates1(AnodyneTestBase):
     options = {
-        "custom_nexus_gates_open": ["Red Cave top"],
+        "custom_nexus_gates_open": ["Red Cave exit"],
         "big_key_shuffle": "any_world",
     }
 
@@ -15,6 +15,7 @@ class TestCustomNexusGates1(AnodyneTestBase):
         self.assertFalse(self.can_reach_region("Cell"))
         self.assertFalse(self.can_reach_region("Circus"))
         self.assertTrue(self.can_reach_region("Fields"))
+        self.assertTrue(self.can_reach_region("Red Cave exit"))
         self.assertTrue(self.can_reach_region("Red Cave top"))
         self.assertFalse(self.can_reach_region("Red Cave left"))
         self.assertFalse(self.can_reach_region("Red Cave right"))

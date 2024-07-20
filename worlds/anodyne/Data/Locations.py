@@ -72,7 +72,7 @@ all_locations: List[LocationData] = [
     LocationData("Mountain Cavern - 2F Frogs and Dog Chest", "Crowd floor 2", ["Combat", "Jump Shoes"], small_key=True),
     LocationData("Mountain Cavern - 3F Roller Chest", "Crowd floor 3",
                  ["Combat", "Jump Shoes", "Keys:Mountain Cavern:3"]),
-    LocationData("Mountain Cavern - Boss Chest", "Crowd floor 1", ["Defeat The Wall"]),
+    LocationData("Mountain Cavern - Boss Chest", "Crowd exit", []),
     LocationData("Mountain Cavern - Extend Upgrade Chest", "Crowd jump challenge", ["Jump Shoes"]),
     # 868736EF-EC8B-74C9-ACAB-B7BC56A44394
     LocationData("Mountain Cavern - 2F Frogs and Rotators Chest", "Crowd floor 2", ["Combat", "Jump Shoes"],
@@ -131,7 +131,7 @@ all_locations: List[LocationData] = [
     # AE87F1D5-57E0-1749-7E1E-1D0BCC1BCAB4
     LocationData("Red Cave - Middle Cave Left Chest", "Red Cave center", ["Combat"], small_key=True),
     LocationData("Red Cave - Middle Cave Middle Chest", "Red Cave center", ["Keys:Red Cave:6"]),
-    LocationData("Red Cave - Boss Chest", "Red Cave top", ["Defeat Rogue"]),
+    LocationData("Red Cave - Boss Chest", "Red Cave exit", []),
     # 4A9DC50D-8739-9AD8-2CB1-82ECE29D3B6F
     LocationData("Red Cave - Left Cave Rapids Chest", "Red Cave left", ["Combat"], small_key=True),
     # A7672339-F3FB-C49E-33CE-42A49D7E4533
@@ -171,8 +171,8 @@ all_locations: List[LocationData] = [
     LocationData("Red Cave - Health Cicada", "Red Cave top", ["Defeat Rogue"], health_cicada=True),
     LocationData("Young Town - Health Cicada", "Suburb", ["Combat"], health_cicada=True),
     LocationData("Temple of the Seeing One - Green Key", "Bedroom exit", [], big_key=True),
-    LocationData("Red Cave - Red Key", "Red Cave top", ["Defeat Rogue"], big_key=True),
-    LocationData("Mountain Cavern - Blue Key", "Crowd floor 1", ["Defeat The Wall"], big_key=True),
+    LocationData("Red Cave - Red Key", "Red Cave exit", [], big_key=True),
+    LocationData("Mountain Cavern - Blue Key", "Crowd exit", [], big_key=True),
     LocationData("Red Cave - Middle Cave Left Tentacle", "Red Cave center", ["Combat"], tentacle=True),
     LocationData("Red Cave - Middle Cave Right Tentacle", "Red Cave center", ["Combat"], tentacle=True),
     LocationData("Red Cave - Left Cave Tentacle", "Red Cave left", ["Combat", "Keys:Red Cave:6"], tentacle=True),

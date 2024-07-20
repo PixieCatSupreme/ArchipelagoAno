@@ -38,8 +38,8 @@ all_exits = [
     ["Circus", "Circus 2", ["Keys:Circus:1", "Combat", "Jump Shoes"]],
     ["Circus 2", "Circus 3", ["Keys:Circus:2"]],
     ["Circus 3", "Circus 4", ["Keys:Circus:3"]],
-    ["Cell", "Red Cave top", ["Red Cave Statue"]],
-    ["Red Cave top", "Cell", ["Red Cave Statue"]],
+    ["Cell", "Red Cave exit", ["Red Cave Statue"]],
+    ["Red Cave exit", "Cell", ["Red Cave Statue"]],
     ["Cliff", "Forest", []],
     ["Forest", "Cliff", []],
     ["Cliff", "Crowd floor 2", []],
@@ -48,15 +48,18 @@ all_exits = [
     ["Crowd jump challenge", "Cliff", []],
     ["Cliff post windmill", "Space", []],
     ["Space", "Cliff post windmill", []],
-    ["Crowd floor 1", "Cliff post windmill", ["Mountain Cavern Statue"]],
-    ["Cliff post windmill", "Crowd floor 1", ["Mountain Cavern Statue"]],
+    ["Crowd floor 1", "Crowd exit", ["Defeat The Wall"]],
+    ["Crowd exit", "Crowd floor 1", ["Combat"]],
+    ["Crowd exit", "Cliff post windmill", ["Mountain Cavern Statue"]],
+    ["Cliff post windmill", "Crowd exit", ["Mountain Cavern Statue"]],
     # Technically this entrance works from floor 2, but only if you've used *this* entrance before, which is
     # logically the same as only this entrance existing.
     ["Crowd floor 3", "Crowd floor 1", ["Combat", "Keys:Mountain Cavern:3"]],
     ["Crowd floor 2", "Crowd floor 3", []],
     ["Crowd floor 3", "Crowd floor 2", []],
-    # Essentially one way, because the reverse direction is blocked by a gate the first time
-    ["Crowd floor 1", "Crowd floor 2", ["Combat", "Jump Shoes"]],
+    # Return to entrance
+    ["Crowd floor 1", "Crowd floor 2", []],
+    ["Crowd exit", "Crowd floor 2", []],
     ["Debug", "Nexus top", []],
     ["Nexus top", "Debug", []],
     ["Drawer dark", "Nexus top", []],
@@ -111,6 +114,9 @@ all_exits = [
     ["Red Sea", "Red Cave top", ["RedCave:Top"]],
     ["Red Cave bottom", "Red Sea", []],
     ["Red Sea", "Red Cave bottom", []],
+    ["Red Cave top", "Red Cave exit", ["Defeat Rogue"]],
+    # Return to entrance
+    ["Red Cave exit", "Red Cave top", []],
     # Hidden path
     ["Red Cave Isaac", "Red Sea", []],
     ["Red Sea", "Red Cave Isaac", []],

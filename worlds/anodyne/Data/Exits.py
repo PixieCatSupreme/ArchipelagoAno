@@ -88,7 +88,7 @@ all_exits = [
     ["Hotel floor 4", "Hotel roof", []],
     ["Hotel floor 4", "Hotel floor 3", ["Combat", "Jump Shoes"]],
     ["Hotel floor 3", "Hotel floor 4", ["Combat", "Jump Shoes"]],
-    ["Hotel floor 3", "Hotel floor 2", ["Keys:Hotel:3"]],
+    ["Hotel floor 3", "Hotel floor 2", ["Keys:Hotel:4"]],
     ["Hotel floor 2", "Hotel floor 3", []],
     # Door requires key and has key behind it
     ["Hotel floor 3", "Hotel floor 2 right", ["Keys:Hotel:6"]],

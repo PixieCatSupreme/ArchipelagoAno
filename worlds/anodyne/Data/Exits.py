@@ -79,9 +79,9 @@ all_exits = [
     ["Go bottom", "Go top", ["Swap:1", "Defeat Servants", "Defeat Watcher", "Defeat Manager"]],
     ["Go top", "Go bottom", ["Swap:1"]],
     # Requires beating Blue, which requires Jump Shoes.
-    # Treated as one-way because you can't unlock the door from the Happy side.
-    # You CAN clip through it though... add the connection or patch it on the client side?
     ["Go top", "Happy", ["Jump Shoes"]],
+    # You can clip through the happy blocker.
+    ["Happy", "Go top", []],
     ["Hotel roof", "Space", []],
     ["Space", "Hotel roof", []],
     ["Hotel roof", "Hotel floor 4", ["Jump Shoes"]],

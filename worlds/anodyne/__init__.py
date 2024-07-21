@@ -201,10 +201,10 @@ class AnodyneWorld(World):
 
         self.multiworld.regions += all_regions.values()
 
-        # TODO: Debug-guard this.
-        from Utils import visualize_regions
+        if Constants.debug_mode:
+            from Utils import visualize_regions
 
-        visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
+            visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
 
     def set_rules(self) -> None:
         if not self.options.split_windmill:

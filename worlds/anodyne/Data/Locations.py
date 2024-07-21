@@ -36,7 +36,7 @@ all_locations: List[LocationData] = [
     # 40DE36CF-9238-F8B0-7A57-C6C8CA465CC2
     LocationData("Temple of the Seeing One - Entrance Chest", "Bedroom", small_key=True),
     LocationData("Temple of the Seeing One - Shieldy Room Chest", "Bedroom",
-                 ["Combat", "Keys:Temple of the Seeing One:2"]),
+                 ["Combat", "Keys:Temple of the Seeing One:3"]),
     LocationData("Temple of the Seeing One - Rock-Surrounded Chest", "Bedroom", ["Combat"]),
     LocationData("Temple of the Seeing One - Boss Chest", "Bedroom exit", []),
     # D41F2750-E3C7-BBB4-D650-FAFC190EBD32

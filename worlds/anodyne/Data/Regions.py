@@ -141,3 +141,9 @@ postgame_regions = [
     "Boss Rush",
     "Nexus top",
 ]
+
+post_temple_boss_regions = [
+    "Bedroom exit",
+    "Suburb",
+    "Apartment floor 1",
+]

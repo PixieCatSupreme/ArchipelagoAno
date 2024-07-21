@@ -16,7 +16,7 @@ all_exits = [
     ["Red Sea", "Beach", []],
     ["Bedroom", "Overworld", []],
     ["Overworld", "Bedroom", []],
-    ["Bedroom", "Bedroom exit", ["Combat", "Keys:Temple of the Seeing One:2"]],
+    ["Bedroom", "Bedroom exit", ["Combat", "Temple Boss Access"]],
     # You can always use return to entrance to get to the start from the exit
     ["Bedroom exit", "Bedroom", []],
     ["Bedroom exit", "Overworld post windmill", ["Temple of the Seeing One Statue", "Keys:Temple of the Seeing One:3"]],

@@ -229,6 +229,14 @@ class AnodyneWorld(World):
 
         self.proxy_rules["Endgame Access"] = [f"Cards:{self.options.endgame_card_requirement}"]
 
+        if self.options.nexus_gate_shuffle or\
+                any(region in self.gates_unlocked for region in Regions.post_temple_boss_regions):
+            # There is one keyblock in Temple of the Seeing One that has conditional logic based on whether it is
+            # possible for the player to access the exit of the dungeon early.
+            self.proxy_rules["Temple Boss Access"] = ["Keys:Temple of the Seeing One:3"]
+        else:
+            self.proxy_rules["Temple Boss Access"] = ["Keys:Temple of the Seeing One:2"]
+
         victory_condition: VictoryCondition = self.options.victory_condition
         requirements: list[str] = []
 

@@ -78,8 +78,8 @@ all_exits = [
     ["Terminal", "Go bottom", ["Endgame Access"]],
     ["Go bottom", "Go top", ["Swap:1", "Defeat Servants", "Defeat Watcher", "Defeat Manager"]],
     ["Go top", "Go bottom", ["Swap:1"]],
-    # Requires beating Blue, which requires Jump Shoes.
-    ["Go top", "Happy", ["Jump Shoes"]],
+    # Requires beating Blue, which requires Jump Shoes and Combat.
+    ["Go top", "Happy", ["Jump Shoes", "Combat"]],
     # You can clip through the happy blocker.
     ["Happy", "Go top", []],
     ["Hotel roof", "Space", []],

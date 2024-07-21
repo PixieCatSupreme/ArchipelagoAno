@@ -63,7 +63,8 @@ all_locations: List[LocationData] = [
     LocationData("Circus - Boss Chest", "Circus 4", ["Defeat Servants", "Combat", "Jump Shoes"]),
     LocationData("Cliffs - Upper Chest", "Cliff post windmill"),
     LocationData("Cliffs - Lower Chest", "Cliff post windmill"),
-    LocationData("Mountain Cavern - 2F Crowded Ledge Chest", "Crowd floor 2", ["Combat", "Jump Shoes"]),
+    LocationData("Mountain Cavern - 2F Crowded Ledge Chest", "Crowd floor 2",
+                 ["Combat", "Jump Shoes", "Keys:Mountain Cavern:4"]),
     # BE2FB96B-1D5F-FCD1-3F58-D158DB982C21
     LocationData("Mountain Cavern - 2F Four Enemies Chest", "Crowd floor 2", ["Combat"], small_key=True),
     # 5743A883-D209-2518-70D7-869D14925B77
@@ -71,7 +72,7 @@ all_locations: List[LocationData] = [
     # 21EE2D01-54FB-F145-9464-4C2CC8725EB3
     LocationData("Mountain Cavern - 2F Frogs and Dog Chest", "Crowd floor 2", ["Combat", "Jump Shoes"], small_key=True),
     LocationData("Mountain Cavern - 3F Roller Chest", "Crowd floor 3",
-                 ["Combat", "Jump Shoes", "Keys:Mountain Cavern:3"]),
+                 ["Combat", "Jump Shoes", "Keys:Mountain Cavern:4"]),
     LocationData("Mountain Cavern - Boss Chest", "Crowd exit", []),
     LocationData("Mountain Cavern - Extend Upgrade Chest", "Crowd jump challenge", ["Jump Shoes"]),
     # 868736EF-EC8B-74C9-ACAB-B7BC56A44394

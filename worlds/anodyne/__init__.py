@@ -52,18 +52,18 @@ class AnodyneWorld(World):
     item_name_groups = Items.item_groups
     location_name_groups = Locations.location_groups
 
-    gates_unlocked: List[str] = []
-    location_count: int = 0
-    dungeon_items: Dict[str, List[Item]] = {}
-    proxy_rules: Dict[str, List[str]] = {}
-    shuffled_gates: Set[str] = set()
+    gates_unlocked: List[str]
+    location_count: int
+    dungeon_items: Dict[str, List[Item]]
+    proxy_rules: Dict[str, List[str]]
+    shuffled_gates: Set[str]
 
     def generate_early(self):
-        self.gates_unlocked.clear()
+        self.gates_unlocked = []
         self.location_count = 0
-        self.dungeon_items.clear()
-        self.proxy_rules.clear()
-        self.shuffled_gates.clear()
+        self.dungeon_items = dict()
+        self.proxy_rules = dict()
+        self.shuffled_gates = set()
 
         nexus_gate_open = self.options.nexus_gates_open
 

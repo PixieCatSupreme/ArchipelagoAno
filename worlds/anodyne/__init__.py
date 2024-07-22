@@ -70,7 +70,16 @@ class AnodyneWorld(World):
         # Street is always unlocked
         if hasattr(self.multiworld, "re_gen_passthrough") and "Anodyne" in self.multiworld.re_gen_passthrough:
             # Universal tracker; ignored during normal gen.
-            self.gates_unlocked = self.multiworld.re_gen_passthrough["Anodyne"]["nexus_gates_unlocked"]
+            slot_data = self.multiworld.re_gen_passthrough["Anodyne"]
+
+            self.gates_unlocked = slot_data["nexus_gates_unlocked"]
+            self.options.big_key_shuffle.value = slot_data["shuffle_big_gates"]
+            self.options.split_windmill.value = slot_data["split_windmill"]
+            self.options.postgame_mode.value = slot_data["postgame_mode"]
+            self.options.nexus_gate_shuffle.value = slot_data["nexus_gate_shuffle"]
+            self.options.victory_condition.value = slot_data["victory_condition"]
+            self.options.forest_bunny_chest.value = slot_data.get("forest_bunny_chest", False)
+            self.options.endgame_card_requirement.value = slot_data["endgame_card_requirement"]
         elif len(self.options.custom_nexus_gates_open.value) > 0:
             self.gates_unlocked.extend(self.options.custom_nexus_gates_open.value)
         elif nexus_gate_open == NexusGatesOpen.option_street_and_fields:

@@ -74,7 +74,7 @@ all_locations: List[LocationData] = [
     LocationData("Mountain Cavern - 3F Roller Chest", "Crowd floor 3",
                  ["Combat", "Jump Shoes", "Keys:Mountain Cavern:4"]),
     LocationData("Mountain Cavern - Boss Chest", "Crowd exit", []),
-    LocationData("Mountain Cavern - Extend Upgrade Chest", "Crowd jump challenge", ["Jump Shoes"]),
+    LocationData("Mountain Cavern - Extend Upgrade Chest", "Crowd jump challenge", ["Combat", "Jump Shoes"]),
     # 868736EF-EC8B-74C9-ACAB-B7BC56A44394
     LocationData("Mountain Cavern - 2F Frogs and Rotators Chest", "Crowd floor 2", ["Combat", "Jump Shoes"],
                  small_key=True),

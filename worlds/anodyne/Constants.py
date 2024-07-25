@@ -54,6 +54,12 @@ def check_access(state: CollectionState, world: "AnodyneWorld", rule: str, map_n
 
         count = int(values[2])
         dungeon_name = values[1]
+
+        if world.options.small_key_shuffle == SmallKeyShuffle.option_vanilla and dungeon_name == "Hotel":
+            # The vanilla key placements in Hotel are not quite strict enough for our key logic, but they do work as
+            # long as you assume the player already has Combat and Jump Shoes, which must be true anyway.
+            return True
+
         obtained_count = count_keys(state, world, dungeon_name)
 
         logging.debug(f"Key {count} check in {map_name} having {obtained_count} ({world.player})")

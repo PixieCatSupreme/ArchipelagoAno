@@ -1,6 +1,12 @@
 from . import AnodyneTestBase
 
 
+class TestVanillaSmallKeys(AnodyneTestBase):
+    options = {
+        "small_key_shuffle": "vanilla",
+    }
+
+
 class TestBedroomKeysWithoutEarlyAccess(AnodyneTestBase):
     options = {
         "split_windmill": "true",

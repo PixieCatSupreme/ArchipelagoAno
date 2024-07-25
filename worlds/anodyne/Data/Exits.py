@@ -86,7 +86,7 @@ all_exits = [
     ["Space", "Hotel roof", []],
     ["Hotel roof", "Hotel floor 4", ["Jump Shoes"]],
     ["Hotel floor 4", "Hotel roof", ["Jump Shoes"]],
-    ["Hotel floor 4", "Hotel floor 3", ["Combat", "Jump Shoes"]],
+    ["Hotel floor 4", "Hotel floor 3", ["Combat", "Jump Shoes", "Keys:Hotel:1"]],
     ["Hotel floor 3", "Hotel floor 4", ["Combat", "Jump Shoes"]],
     ["Hotel floor 3", "Hotel floor 2", ["Keys:Hotel:4"]],
     ["Hotel floor 2", "Hotel floor 3", []],

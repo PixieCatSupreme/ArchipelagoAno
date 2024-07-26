@@ -19,8 +19,10 @@ all_exits = [
     ["Bedroom", "Bedroom exit", ["Combat", "Temple Boss Access"]],
     # You can always use return to entrance to get to the start from the exit
     ["Bedroom exit", "Bedroom", []],
-    ["Bedroom exit", "Overworld post windmill", ["Temple of the Seeing One Statue", "Keys:Temple of the Seeing One:3"]],
-    ["Overworld post windmill", "Bedroom exit", ["Temple of the Seeing One Statue", "Keys:Temple of the Seeing One:3"]],
+    ["Bedroom exit", "Overworld post windmill", ["Temple of the Seeing One Statue", "Keys:Temple of the Seeing One:3",
+                                                 "Combat"]],
+    ["Overworld post windmill", "Bedroom exit", ["Temple of the Seeing One Statue", "Keys:Temple of the Seeing One:3",
+                                                 "Combat"]],
     ["Bedroom drawer", "Drawer", ["Swap:2"]],
     ["Drawer", "Bedroom drawer", ["Swap:2"]],
     ["Bedroom drawer", "Overworld", ["Swap:2"]],

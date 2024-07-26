@@ -161,7 +161,7 @@ all_locations: List[LocationData] = [
     LocationData("Windmill - Activation", "Windmill", []),
     LocationData("Boss Rush - Reward Chest", "Boss Rush", ["Combat"]),
     LocationData("Apartment - Health Cicada", "Apartment floor 3", ["Defeat Watcher"], health_cicada=True),
-    LocationData("Beach - Health Cicada", "Beach", ["Cards:8"], health_cicada=True),
+    LocationData("Beach - Health Cicada", "Beach", ["Cards:8", "Combat"], health_cicada=True),
     LocationData("Temple of the Seeing One - Health Cicada", "Bedroom exit", ["Combat"], health_cicada=True),
     # Has to be frame 4
     LocationData("Cell - Health Cicada", "Cell", ["Cards:24"], health_cicada=True),

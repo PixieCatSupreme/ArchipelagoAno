@@ -468,6 +468,7 @@ class AnodyneWorld(World):
         return {
             "death_link": bool(self.options.death_link.value),
             "unlock_gates": self.options.small_key_shuffle == SmallKeyShuffle.option_unlocked,
+            "shuffle_small_keys": int(self.options.small_key_shuffle),
             "shuffle_big_gates": int(self.options.big_key_shuffle),
             "vanilla_health_cicadas": self.options.health_cicada_shuffle == HealthCicadaShuffle.option_vanilla,
             "nexus_gates_unlocked": self.gates_unlocked,

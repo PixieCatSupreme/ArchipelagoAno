@@ -142,6 +142,11 @@ nexus_gate_items = {
     "Nexus Gate (Windmill)": "Windmill entrance",
 }
 
+trap_items = [
+    "Person Trap",
+    "Gas Trap"
+]
+
 # This array must maintain a consistent order because the IDs are generated from it.
 all_items = [
     "Broom",
@@ -164,6 +169,7 @@ all_items = [
     "Progressive Swap",
     "Heal",
     *nexus_gate_items.keys(),
+    *trap_items
 ]
 
 progression_items = [
@@ -185,9 +191,6 @@ progression_items = [
 
 useful_items = [
     "Health Cicada",
-]
-
-trap_items = [
 ]
 
 filler_items = [

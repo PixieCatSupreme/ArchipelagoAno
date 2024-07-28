@@ -9,7 +9,7 @@ from . import Constants
 
 from .Data import Items, Locations, Regions, Exits, Events
 from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle, \
-    HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle
+    HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapsMode
 
 
 class AnodyneLocation(Location):
@@ -390,15 +390,25 @@ class AnodyneWorld(World):
                 placed_items += 1
                 item_pool.append(self.create_item(name))
 
-        # If we have space for filler, prioritize adding in the ??? items that would be in-logic.
+        # If we have space for filler, prioritize adding in the ??? items that would be in-logic. Also add traps,
+        # if enabled.
         if placed_items < self.location_count:
-            secret_items = Items.early_secret_items if self.options.postgame_mode == PostgameMode.option_disabled else\
-                Items.secret_items
+            new_items = []
 
-            if len(secret_items) <= (self.location_count - placed_items):
-                new_items = secret_items
+            remaining_items = self.location_count - placed_items
+            num_traps = int(self.get_trap_percentage() * remaining_items)
+            remaining_items -= num_traps
+
+            for i in range(num_traps):
+                new_items.append(self.random.choice(Items.trap_items))
+
+            secret_items = Items.early_secret_items if self.options.postgame_mode == PostgameMode.option_disabled\
+                else Items.secret_items
+
+            if len(secret_items) <= remaining_items:
+                new_items.extend(secret_items)
             else:
-                new_items = self.random.sample(secret_items, self.location_count - placed_items)
+                new_items.extend(self.random.sample(secret_items, remaining_items))
 
             item_pool.extend(self.create_item(name) for name in new_items)
             placed_items += len(new_items)
@@ -411,6 +421,19 @@ class AnodyneWorld(World):
 
         self.options.local_items.value |= local_item_pool
         self.options.non_local_items.value |= non_local_item_pool
+
+    def get_trap_percentage(self) -> float:
+        traps_mode = self.options.traps_mode
+        if traps_mode == TrapsMode.option_none:
+            return 0.0
+        elif traps_mode == TrapsMode.option_low:
+            return 0.1
+        elif traps_mode == TrapsMode.option_normal:
+            return 0.25
+        elif traps_mode == TrapsMode.option_many:
+            return 0.5
+        elif traps_mode == TrapsMode.option_chaos:
+            return 1.0
 
     def get_filler_item_name(self) -> str:
         return self.random.choice(Items.non_secret_filler_items)

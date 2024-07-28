@@ -193,6 +193,23 @@ class IncludeForestBunnyChest(Toggle):
     display_name = "Include Forest Bunny Chest"
 
 
+class TrapsMode(Choice):
+    """
+    Determines how many traps will be generated.
+    [None] No traps will be added to the pool.
+    [Normal] A regular amount of traps will be added to the pool.
+    [Many] A big portion of the filler items will be traps.
+    [Chaos] All filler items are traps.
+    """
+    display_name = "Traps Enabled"
+    option_none = 0
+    option_low = 1
+    option_normal = 2
+    option_many = 3
+    option_chaos = 4
+    default = 1
+
+
 @dataclass
 class AnodyneGameOptions(PerGameCommonOptions):
     small_key_shuffle: SmallKeyShuffle
@@ -209,5 +226,6 @@ class AnodyneGameOptions(PerGameCommonOptions):
     endgame_card_requirement: EndgameCardRequirement
     postgame_mode: PostgameMode
     forest_bunny_chest: IncludeForestBunnyChest
+    traps_mode : TrapsMode
     death_link: DeathLink
     start_inventory_from_pool: StartInventoryPool

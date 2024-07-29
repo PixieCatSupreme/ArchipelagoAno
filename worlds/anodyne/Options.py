@@ -210,6 +210,17 @@ class TrapsMode(Choice):
     default = 1
 
 
+class PlayerSprite(Choice):
+    """
+    Sets the player sprite.
+    """
+    display_name = "Player Sprite"
+    option_young = 0
+    option_jplayer = 1
+    option_nova = 2
+    default = 0
+
+
 @dataclass
 class AnodyneGameOptions(PerGameCommonOptions):
     small_key_shuffle: SmallKeyShuffle
@@ -226,6 +237,7 @@ class AnodyneGameOptions(PerGameCommonOptions):
     endgame_card_requirement: EndgameCardRequirement
     postgame_mode: PostgameMode
     forest_bunny_chest: IncludeForestBunnyChest
-    traps_mode : TrapsMode
+    traps_mode: TrapsMode
     death_link: DeathLink
     start_inventory_from_pool: StartInventoryPool
+    player_sprite: PlayerSprite

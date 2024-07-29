@@ -502,7 +502,8 @@ class AnodyneWorld(World):
             "victory_condition": int(self.options.victory_condition),
             "forest_bunny_chest": bool(self.options.forest_bunny_chest.value),
             "endgame_card_requirement": int(self.options.endgame_card_requirement),
-            "seed": self.random.randint(0, 1000000),
+            "player_sprite": int(self.options.player_sprite),
+            "seed": self.random.randint(0, 1000000)
         }
 
     # for the universal tracker, doesn't get called in standard gen

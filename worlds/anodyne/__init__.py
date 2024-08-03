@@ -225,6 +225,11 @@ class AnodyneWorld(World):
             self.proxy_rules["RedCave:Right"] = ["Center right tentacle hit"]
             self.proxy_rules["RedCave:Top"] = ["Left tentacle hit", "Right tentacle hit"]
 
+        if self.options.randomize_color_puzzle:
+            self.proxy_rules["GO Color Puzzle"] = ["Defeat Servants", "Defeat Watcher", "Defeat Manager"]
+        else:
+            self.proxy_rules["GO Color Puzzle"] = []
+
         if self.options.postgame_mode != PostgameMode.option_progressive:
             self.proxy_rules["Swap:1"] = ["Swap"]
 
@@ -503,6 +508,7 @@ class AnodyneWorld(World):
             "forest_bunny_chest": bool(self.options.forest_bunny_chest.value),
             "endgame_card_requirement": int(self.options.endgame_card_requirement),
             "player_sprite": int(self.options.player_sprite),
+            "randomize_color_puzzle": bool(self.options.randomize_color_puzzle),
             "seed": self.random.randint(0, 1000000)
         }
 

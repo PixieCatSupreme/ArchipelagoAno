@@ -31,7 +31,7 @@ all_locations: List[LocationData] = [
     LocationData("Apartment - 3F Gauntlet Chest", "Apartment floor 3", ["Combat"], small_key=True),
     LocationData("Apartment - Boss Chest", "Apartment floor 3", ["Defeat Watcher"]),
     LocationData("Beach - Dock Chest", "Beach"),
-    LocationData("Beach - Secret Chest", "Beach", ["Swap:2"]),
+    LocationData("Beach - Secret Chest", "Beach", ["Swap:2", "Cards:8", "Combat"]),
     LocationData("Beach - Out-of-bounds Chest", "Beach", ["Swap:2"]),
     # 40DE36CF-9238-F8B0-7A57-C6C8CA465CC2
     LocationData("Temple of the Seeing One - Entrance Chest", "Bedroom", small_key=True),

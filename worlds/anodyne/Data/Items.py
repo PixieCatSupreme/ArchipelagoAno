@@ -168,7 +168,7 @@ all_items = [
     "Progressive Red Cave",
     *statue_items,
     "Progressive Swap",
-    "Heal",
+    *non_secret_filler_items,
     *nexus_gate_items.keys(),
     *trap_items
 ]

@@ -78,8 +78,8 @@ all_exits = [
     ["Windmill", "Windmill entrance", ["Red Key", "Blue Key"]],
     ["Go bottom", "Terminal", ["Endgame Access"]],
     ["Terminal", "Go bottom", ["Endgame Access"]],
-    ["Go bottom", "Go top", ["Swap:1", "Defeat Servants", "Defeat Watcher", "Defeat Manager"]],
-    ["Go top", "Go bottom", ["Swap:1"]],
+    # Reverse isn't possible without cheats because of the blocks
+    ["Go bottom", "Go top", ["Swap:1", "GO Color Puzzle"]],
     # Requires beating Blue, which requires Jump Shoes and Combat.
     ["Go top", "Happy", ["Jump Shoes", "Combat"]],
     # You can clip through the happy blocker.

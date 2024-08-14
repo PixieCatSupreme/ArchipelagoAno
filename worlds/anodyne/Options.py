@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
 from Options import Choice, DeathLink, PerGameCommonOptions, StartInventoryPool, Toggle, Range, OptionSet, TextChoice
+    DefaultOnToggle
 from .Data import Regions
 
 
@@ -171,6 +172,14 @@ class EndgameCardRequirement(Range):
     default = 36
 
 
+class RandomizeColorPuzzle(DefaultOnToggle):
+    """
+    If enabled, the GO color block puzzle is randomized, and the player needs to beat each of the late game bosses to find the correct solution.
+    If disabled, the vanilla solution is used, and the dungeons are not logically required to beat the game.
+    """
+    display_name = "Randomize GO Color Puzzle"
+
+
 class PostgameMode(Choice):
     """
     Determines how the Swap upgrade behaves.
@@ -249,6 +258,7 @@ class AnodyneGameOptions(PerGameCommonOptions):
     custom_nexus_gates_open: CustomNexusGatesOpen
     victory_condition: VictoryCondition
     endgame_card_requirement: EndgameCardRequirement
+    randomize_color_puzzle: RandomizeColorPuzzle
     postgame_mode: PostgameMode
     forest_bunny_chest: IncludeForestBunnyChest
     match_different_world_item: MatchDifferentWorldItem

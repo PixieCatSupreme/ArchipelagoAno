@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from Options import Choice, DeathLink, PerGameCommonOptions, StartInventoryPool, Toggle, Range, OptionSet
+from Options import Choice, DeathLink, PerGameCommonOptions, StartInventoryPool, Toggle, Range, OptionSet, TextChoice
 from .Data import Regions
 
 
@@ -193,24 +193,38 @@ class IncludeForestBunnyChest(Toggle):
     display_name = "Include Forest Bunny Chest"
 
 
-class TrapsMode(Choice):
+class MatchDifferentWorldItem(Choice):
+    """Determines how external items look in your game.
+    [Disabled] Items from other worlds always look like AP items, split into important and filler.
+    [Match] Try to match items from others worlds with fitting sprites.
+    [Match Extra] Match item sprites with extra sprites that are normally not in the game.
     """
-    Determines how many traps will be generated.
-    [None] No traps will be added to the pool.
-    [Normal] A regular amount of traps will be added to the pool.
-    [Many] A big portion of the filler items will be traps.
-    [Chaos] All filler items are traps.
+    display_name = "Match Different World Items"
+    option_disabled = 0
+    option_match = 1
+    option_match_extra = 2
+    default = 2
+
+
+class HideTrapItems(Choice):
+    """Determines how external trap items look in your game.
+    [Visible] Trap items, from both your world and others, always look like a trap AP item.
+    [Disguised] Freestanding trap items will disguise themselves as other items to trick you.
     """
-    display_name = "Traps Enabled"
-    option_none = 0
-    option_low = 1
-    option_normal = 2
-    option_many = 3
-    option_chaos = 4
+    display_name = "Trap Item Mode"
+    option_visible = 0
+    option_disguised = 1
     default = 1
 
 
-class PlayerSprite(Choice):
+class TrapPercentage(Range):
+    """Determines how many traps will be generated."""
+    display_name = "Traps Percentage"
+    range_end = 100
+    default = 25
+
+
+class PlayerSprite(TextChoice):
     """
     Sets the player sprite.
     """
@@ -237,7 +251,9 @@ class AnodyneGameOptions(PerGameCommonOptions):
     endgame_card_requirement: EndgameCardRequirement
     postgame_mode: PostgameMode
     forest_bunny_chest: IncludeForestBunnyChest
-    traps_mode: TrapsMode
+    match_different_world_item: MatchDifferentWorldItem
+    hide_trap_items: HideTrapItems
+    traps_percentage: TrapPercentage
     death_link: DeathLink
     start_inventory_from_pool: StartInventoryPool
     player_sprite: PlayerSprite

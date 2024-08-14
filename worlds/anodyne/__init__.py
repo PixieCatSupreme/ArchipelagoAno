@@ -9,7 +9,7 @@ from . import Constants
 
 from .Data import Items, Locations, Regions, Exits, Events
 from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle, \
-    HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapsMode
+    HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage
 
 
 class AnodyneLocation(Location):
@@ -396,7 +396,7 @@ class AnodyneWorld(World):
             new_items = []
 
             remaining_items = self.location_count - placed_items
-            num_traps = int(self.get_trap_percentage() * remaining_items)
+            num_traps = int(self.options.traps_percentage / 100 * remaining_items)
             remaining_items -= num_traps
 
             for i in range(num_traps):
@@ -421,19 +421,6 @@ class AnodyneWorld(World):
 
         self.options.local_items.value |= local_item_pool
         self.options.non_local_items.value |= non_local_item_pool
-
-    def get_trap_percentage(self) -> float:
-        traps_mode = self.options.traps_mode
-        if traps_mode == TrapsMode.option_none:
-            return 0.0
-        elif traps_mode == TrapsMode.option_low:
-            return 0.1
-        elif traps_mode == TrapsMode.option_normal:
-            return 0.25
-        elif traps_mode == TrapsMode.option_many:
-            return 0.5
-        elif traps_mode == TrapsMode.option_chaos:
-            return 1.0
 
     def get_filler_item_name(self) -> str:
         return self.random.choice(Items.non_secret_filler_items)
@@ -502,7 +489,9 @@ class AnodyneWorld(World):
             "victory_condition": int(self.options.victory_condition),
             "forest_bunny_chest": bool(self.options.forest_bunny_chest.value),
             "endgame_card_requirement": int(self.options.endgame_card_requirement),
-            "player_sprite": int(self.options.player_sprite),
+            "match_different_world_item": int(self.options.match_different_world_item),
+            "hide_trap_items": bool(self.options.hide_trap_items),
+            "player_sprite_name": str(self.options.player_sprite.value),
             "seed": self.random.randint(0, 1000000)
         }
 

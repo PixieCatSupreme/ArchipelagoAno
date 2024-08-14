@@ -117,6 +117,7 @@ statue_items = [
 
 non_secret_filler_items = [
     "Heal",
+    "Big Heal"
 ]
 
 nexus_gate_items = {

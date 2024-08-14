@@ -496,7 +496,7 @@ class AnodyneWorld(World):
             "endgame_card_requirement": int(self.options.endgame_card_requirement),
             "match_different_world_item": int(self.options.match_different_world_item),
             "hide_trap_items": bool(self.options.hide_trap_items),
-            "player_sprite_name": str(self.options.player_sprite.value),
+            "player_sprite_name": str(self.options.player_sprite.current_key),
             "seed": self.random.randint(0, 1000000)
         }
 

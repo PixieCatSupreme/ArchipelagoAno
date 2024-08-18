@@ -5,11 +5,24 @@ from Options import (Choice, DeathLink, PerGameCommonOptions, StartInventoryPool
 from .Data import Regions
 
 
-class SmallKeyShuffle(Choice):
+class SmallKeyMode(Choice):
     """
     Select how the small keys will be handled.
-    [Vanilla] The small keys will be placed in the vanilla locations.
     [Unlocked] The key-locked gates in each dungeon will open automatically.
+    [Small Keys] Small keys act like they do in the original game. Each opens one gate.
+    [Key Rings] Only one key ring item is required to open every key-locked gate in a dungeon.
+    """
+    display_name = "Small Key Mode"
+    option_unlocked = 0
+    option_small_keys = 1
+    option_key_rings = 2
+    default = 1
+
+
+class SmallKeyShuffle(Choice):
+    """
+    Select how the small keys or key rings will be randomized. Does nothing when small key mode is set to unlocked.
+    [Vanilla] The small keys will be placed in the vanilla locations.
     [Original Dungeon] The small keys will be shuffled within their own dungeons.
     [Own World] The small keys will be shuffled within your own world.
     [Any World] The small keys will be shuffled throughout the entire multiworld.
@@ -17,7 +30,6 @@ class SmallKeyShuffle(Choice):
     """
     display_name = "Shuffle Small Keys"
     option_vanilla = 0
-    option_unlocked = 1
     option_original_dungeon = 2
     option_own_world = 3
     option_any_world = 4
@@ -246,6 +258,7 @@ class PlayerSprite(TextChoice):
 
 @dataclass
 class AnodyneGameOptions(PerGameCommonOptions):
+    small_key_mode: SmallKeyMode
     small_key_shuffle: SmallKeyShuffle
     health_cicada_shuffle: HealthCicadaShuffle
     big_key_shuffle: BigKeyShuffle

@@ -9,7 +9,7 @@ from . import Constants
 
 from .Data import Items, Locations, Regions, Exits, Events
 from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle, \
-    HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage
+    HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode
 
 
 class AnodyneLocation(Location):
@@ -270,6 +270,7 @@ class AnodyneWorld(World):
         local_item_pool: set[str] = set()
         non_local_item_pool: set[str] = set()
 
+        small_key_mode: SmallKeyMode = self.options.small_key_mode
         small_key_shuffle: SmallKeyShuffle = self.options.small_key_shuffle
         health_cicada_shuffle = self.options.health_cicada_shuffle
         big_key_shuffle = self.options.big_key_shuffle
@@ -304,12 +305,23 @@ class AnodyneWorld(World):
                 for _ in range(Items.small_key_item_count[small_key_name]):
                     items.append(self.create_item(small_key_name))
                     placed_items += 1
-        elif small_key_shuffle != SmallKeyShuffle.option_unlocked:
+
+        if small_key_mode == SmallKeyMode.option_small_keys:
             for key_item, key_count in Items.small_key_item_count.items():
                 placed_items += key_count
 
                 for _ in range(key_count):
                     item_pool.append(self.create_item(key_item))
+
+                if small_key_shuffle == SmallKeyShuffle.option_own_world:
+                    local_item_pool.add(key_item)
+                elif small_key_shuffle == SmallKeyShuffle.option_different_world:
+                    non_local_item_pool.add(key_item)
+        elif small_key_mode == SmallKeyMode.option_key_rings:
+            for key_item in Items.key_rings:
+                placed_items += 1
+
+                item_pool.append(self.create_item(key_item))
 
                 if small_key_shuffle == SmallKeyShuffle.option_own_world:
                     local_item_pool.add(key_item)
@@ -482,7 +494,8 @@ class AnodyneWorld(World):
     def fill_slot_data(self):
         return {
             "death_link": bool(self.options.death_link.value),
-            "unlock_gates": self.options.small_key_shuffle == SmallKeyShuffle.option_unlocked,
+            "unlock_gates": self.options.small_key_mode == SmallKeyMode.option_unlocked,
+            "small_key_mode": int(self.options.small_key_mode),
             "shuffle_small_keys": int(self.options.small_key_shuffle),
             "shuffle_big_gates": int(self.options.big_key_shuffle),
             "vanilla_health_cicadas": self.options.health_cicada_shuffle == HealthCicadaShuffle.option_vanilla,

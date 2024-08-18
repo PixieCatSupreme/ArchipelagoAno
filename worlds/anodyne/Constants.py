@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING, List
 from BaseClasses import CollectionState
 
 from .Data import Items, Locations, Events
-from .Options import SmallKeyShuffle, BigKeyShuffle
+from .Options import SmallKeyShuffle, BigKeyShuffle, SmallKeyMode
 
 if TYPE_CHECKING:
     from . import AnodyneWorld
@@ -46,7 +46,7 @@ def check_access(state: CollectionState, world: "AnodyneWorld", rule: str, map_n
         logging.debug(f"Card {count} check in {map_name} ({world.player})")
         return count_cards(state, world) >= count
     elif rule.startswith("Keys:"):
-        if world.options.small_key_shuffle == SmallKeyShuffle.option_unlocked:
+        if world.options.small_key_mode == SmallKeyMode.option_unlocked:
             logging.debug(f"Gates are unlocked ({world.player})")
             return True
 
@@ -55,15 +55,21 @@ def check_access(state: CollectionState, world: "AnodyneWorld", rule: str, map_n
         count = int(values[2])
         dungeon_name = values[1]
 
-        if world.options.small_key_shuffle == SmallKeyShuffle.option_vanilla and dungeon_name == "Hotel":
+        if world.options.small_key_mode != SmallKeyMode.option_unlocked and dungeon_name == "Hotel":
             # The vanilla key placements in Hotel are not quite strict enough for our key logic, but they do work as
             # long as you assume the player already has Combat and Jump Shoes, which must be true anyway.
             return True
 
-        obtained_count = count_keys(state, world, dungeon_name)
+        if world.options.small_key_mode == SmallKeyMode.option_key_rings:
+            has_ring = state.has(f"Key Ring ({dungeon_name})", world.player)
 
-        logging.debug(f"Key {count} check in {map_name} having {obtained_count} ({world.player})")
-        return obtained_count >= count
+            logging.debug(f"Key Ring check in {map_name} has ring {has_ring} ({world.player})")
+            return has_ring
+        else:
+            obtained_count = count_keys(state, world, dungeon_name)
+
+            logging.debug(f"Key {count} check in {map_name} having {obtained_count} ({world.player})")
+            return obtained_count >= count
     elif world.options.big_key_shuffle == BigKeyShuffle.option_unlocked and rule in Items.big_keys:
         return True
     elif rule.startswith("RedCave:"):

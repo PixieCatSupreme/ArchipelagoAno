@@ -9,7 +9,8 @@ from . import Constants
 
 from .Data import Items, Locations, Regions, Exits, Events
 from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle, \
-    HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode
+    HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode, \
+    Dustsanity
 
 
 class AnodyneLocation(Location):
@@ -125,6 +126,7 @@ class AnodyneWorld(World):
         include_health_cicadas = self.options.health_cicada_shuffle
         include_big_keys = self.options.big_key_shuffle
         include_postgame: bool = (self.options.postgame_mode != PostgameMode.option_disabled)
+        dustsanity: bool = bool(self.options.dustsanity.value)
 
         all_regions: Dict[str, Region] = {}
 
@@ -158,6 +160,9 @@ class AnodyneWorld(World):
                         continue
 
                     if location.nexus_gate and location.region_name not in self.shuffled_gates:
+                        continue
+
+                    if not dustsanity and location.dust:
                         continue
 
                     location_id = Constants.location_name_to_id[location.name]

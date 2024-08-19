@@ -12,6 +12,7 @@ class LocationData(NamedTuple):
     big_key: bool = False
     tentacle: bool = False
     nexus_gate: bool = False
+    dust: bool = False
 
     def postgame(self):
         return "Swap:2" in self.reqs or self.region_name in Regions.postgame_regions
@@ -199,6 +200,8 @@ all_locations: List[LocationData] = [
     LocationData("Space - Warp Pad", "Space", nexus_gate=True),
     LocationData("Terminal - Warp Pad", "Terminal", nexus_gate=True),
     LocationData("Windmill - Warp Pad", "Windmill entrance", nexus_gate=True),
+    LocationData("Street - After Bridge Dust 1", "Street", ["Keys:Street:1", "Combat"], dust=True),
+    LocationData("Street - After Bridge Dust 2", "Street", ["Keys:Street:1", "Combat"], dust=True),
 ]
 
 locations_by_name: Dict[str, LocationData] = {location.name: location for location in all_locations}

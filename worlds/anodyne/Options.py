@@ -71,6 +71,15 @@ class HealthCicadaShuffle(Choice):
     default = 2
 
 
+class Dustsanity(Toggle):
+    """
+    Select if picking up dust counts as a check.
+    [Off] Dust behaves as in the normal game.
+    [On] Picking up dust counts as a check the first time it gets picked up by a broom. Dust will appear gold if it has yet to be picked up.
+    """
+    display_name = "Dustsanity"
+
+
 class RedCaveAccess(Choice):
     """
     Select how progression through the Red Cave dungeon should be handled.
@@ -262,6 +271,7 @@ class AnodyneGameOptions(PerGameCommonOptions):
     small_key_shuffle: SmallKeyShuffle
     health_cicada_shuffle: HealthCicadaShuffle
     big_key_shuffle: BigKeyShuffle
+    dustsanity: Dustsanity
     red_cave_access: RedCaveAccess
     split_windmill: SplitWindmill
     start_broom: StartBroom

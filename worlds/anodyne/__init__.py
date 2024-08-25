@@ -105,6 +105,10 @@ class AnodyneWorld(World):
 
             self.gates_unlocked = self.random.sample(available_gates, random_nexus_gate_count)
 
+        if self.options.small_key_mode == SmallKeyMode.option_key_rings and self.options.small_key_shuffle == SmallKeyShuffle.option_vanilla:
+            logging.warning(f"Player {self.player} requested vanilla small keys with key rings on, changing to small key original dungeon")
+            self.options.small_key_shuffle = SmallKeyShuffle.option_original_dungeon
+
         if self.options.nexus_gate_shuffle != NexusGateShuffle.option_off:
             self.shuffled_gates = set(Regions.regions_with_nexus_gate) - set(self.gates_unlocked)
 
@@ -298,44 +302,47 @@ class AnodyneWorld(World):
             *Items.nexus_gate_items.keys(),
         }
 
-        if small_key_shuffle == SmallKeyShuffle.option_vanilla:
-            for location in Locations.all_locations:
-                if location.small_key:
-                    dungeon = Regions.dungeon_area_to_dungeon[location.region_name]
-                    item_name = f"Small Key ({dungeon})"
-                    self.multiworld.get_location(location.name, self.player).place_locked_item(
-                        self.create_item(item_name))
-                    placed_items += 1
-        elif small_key_shuffle == SmallKeyShuffle.option_original_dungeon:
-            for dungeon in Regions.dungeon_areas.keys():
-                small_key_name = f"Small Key ({dungeon})"
-                items = self.dungeon_items.setdefault(dungeon, [])
-
-                for _ in range(Items.small_key_item_count[small_key_name]):
-                    items.append(self.create_item(small_key_name))
-                    placed_items += 1
-
         if small_key_mode == SmallKeyMode.option_small_keys:
-            for key_item, key_count in Items.small_key_item_count.items():
-                placed_items += key_count
+            if small_key_shuffle == SmallKeyShuffle.option_vanilla:
+                for location in Locations.all_locations:
+                    if location.small_key:
+                        dungeon = Regions.dungeon_area_to_dungeon[location.region_name]
+                        item_name = f"Small Key ({dungeon})"
+                        self.multiworld.get_location(location.name, self.player).place_locked_item(
+                            self.create_item(item_name))
+                        placed_items += 1
+            elif small_key_shuffle == SmallKeyShuffle.option_original_dungeon:
+                for dungeon in Regions.dungeon_areas.keys():
+                    small_key_name = f"Small Key ({dungeon})"
+                    items = self.dungeon_items.setdefault(dungeon, [])
 
-                for _ in range(key_count):
-                    item_pool.append(self.create_item(key_item))
+                    for _ in range(Items.small_key_item_count[small_key_name]):
+                        items.append(self.create_item(small_key_name))
+                        placed_items += 1
+            else:
+                for key_item, key_count in Items.small_key_item_count.items():
+                    placed_items += key_count
 
-                if small_key_shuffle == SmallKeyShuffle.option_own_world:
-                    local_item_pool.add(key_item)
-                elif small_key_shuffle == SmallKeyShuffle.option_different_world:
-                    non_local_item_pool.add(key_item)
+                    for _ in range(key_count):
+                        item_pool.append(self.create_item(key_item))
+
+                    if small_key_shuffle == SmallKeyShuffle.option_own_world:
+                        local_item_pool.add(key_item)
+                    elif small_key_shuffle == SmallKeyShuffle.option_different_world:
+                        non_local_item_pool.add(key_item)
         elif small_key_mode == SmallKeyMode.option_key_rings:
             for key_item in Items.key_rings:
                 placed_items += 1
-
-                item_pool.append(self.create_item(key_item))
+                item = self.create_item(key_item)
 
                 if small_key_shuffle == SmallKeyShuffle.option_own_world:
                     local_item_pool.add(key_item)
+                    item_pool.append(item)
                 elif small_key_shuffle == SmallKeyShuffle.option_different_world:
                     non_local_item_pool.add(key_item)
+                    item_pool.append(item)
+                elif small_key_shuffle == SmallKeyShuffle.option_original_dungeon:
+                    self.dungeon_items.setdefault(key_item[len("Key Ring ("):-1],[]).append(item)
 
         start_broom_item: str = ""
         if start_broom == StartBroom.option_normal:

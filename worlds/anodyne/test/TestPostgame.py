@@ -60,7 +60,7 @@ class TestProgressivePostgame(AnodyneTestBase):
         "custom_nexus_gates_open": ["Windmill entrance", "Go bottom", "Hotel floor 4", "Apartment floor 1", "Circus"],
         "postgame_mode": "progressive",
         "big_key_shuffle": "unlocked",
-        "small_key_shuffle": "unlocked",
+        "small_key_mode": "unlocked",
     }
 
     def test_requirement(self):

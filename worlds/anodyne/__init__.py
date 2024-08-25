@@ -156,15 +156,18 @@ class AnodyneWorld(World):
                     if not self.options.forest_bunny_chest and location.name == "Deep Forest - Bunny Chest":
                         continue
 
-                    if self.options.victory_condition == VictoryCondition.option_defeat_briar\
+                    if self.options.victory_condition == VictoryCondition.option_defeat_briar \
                             and location.name == "GO - Defeat Briar":
                         continue
 
                     if location.nexus_gate and location.region_name not in self.shuffled_gates:
                         continue
 
-                    if not dustsanity and location.dust:
-                        continue
+                    if location.dust:
+                        if dustsanity:
+                            location.reqs.append("Combat")
+                        else:
+                            continue
 
                     location_id = Constants.location_name_to_id[location.name]
 
@@ -249,7 +252,7 @@ class AnodyneWorld(World):
 
         self.proxy_rules["Endgame Access"] = [f"Cards:{self.options.endgame_card_requirement}"]
 
-        if self.options.nexus_gate_shuffle or\
+        if self.options.nexus_gate_shuffle or \
                 any(region in self.gates_unlocked for region in Regions.post_temple_boss_regions):
             # There is one keyblock in Temple of the Seeing One that has conditional logic based on whether it is
             # possible for the player to access the exit of the dungeon early.
@@ -425,7 +428,7 @@ class AnodyneWorld(World):
             for i in range(num_traps):
                 new_items.append(self.random.choice(Items.trap_items))
 
-            secret_items = Items.early_secret_items if self.options.postgame_mode == PostgameMode.option_disabled\
+            secret_items = Items.early_secret_items if self.options.postgame_mode == PostgameMode.option_disabled \
                 else Items.secret_items
 
             if len(secret_items) <= remaining_items:
@@ -476,8 +479,8 @@ class AnodyneWorld(World):
                                       for region_name in Regions.dungeon_areas[dungeon]
                                       for location in Locations.locations_by_region.get(region_name, [])]
 
-            if dungeon == "Street" and self.options.small_key_shuffle == SmallKeyShuffle.option_original_dungeon and\
-                    self.options.nexus_gates_open == NexusGatesOpen.option_street_only and\
+            if dungeon == "Street" and self.options.small_key_shuffle == SmallKeyShuffle.option_original_dungeon and \
+                    self.options.nexus_gates_open == NexusGatesOpen.option_street_only and \
                     self.options.start_broom == StartBroom.option_none:
                 # This is a degenerate case; we need to prevent pre-fill from putting the Street small key in the Broom
                 # chest because if it does, there are no reachable locations at the start of the game.

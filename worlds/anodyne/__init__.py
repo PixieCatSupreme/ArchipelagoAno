@@ -293,6 +293,7 @@ class AnodyneWorld(World):
 
         excluded_items: set[str] = {
             *Items.small_key_item_count.keys(),
+            *Items.key_rings,
             *Items.big_keys,
             "Health Cicada",
             *Items.filler_items,

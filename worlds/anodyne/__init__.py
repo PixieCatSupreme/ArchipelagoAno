@@ -81,6 +81,7 @@ class AnodyneWorld(World):
             self.options.victory_condition.value = slot_data["victory_condition"]
             self.options.forest_bunny_chest.value = slot_data.get("forest_bunny_chest", False)
             self.options.endgame_card_requirement.value = slot_data["endgame_card_requirement"]
+            self.options.dustsanity.value = 0 if str(slot_data.get("dust_sanity_base","Disabled")) == "Disabled" else 1
         elif len(self.options.custom_nexus_gates_open.value) > 0:
             self.gates_unlocked.extend(self.options.custom_nexus_gates_open.value)
         elif nexus_gate_open == NexusGatesOpen.option_street_and_fields:
@@ -515,6 +516,7 @@ class AnodyneWorld(World):
             "match_different_world_item": int(self.options.match_different_world_item),
             "hide_trap_items": bool(self.options.hide_trap_items),
             "player_sprite_name": str(self.options.player_sprite.current_key),
+            "dust_sanity_base": self.location_name_to_id[next(l for l in Locations.all_locations if l.dust).name] if self.options.dustsanity else "Disabled",
             "seed": self.random.randint(0, 1000000)
         }
 

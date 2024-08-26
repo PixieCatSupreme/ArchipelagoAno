@@ -29,6 +29,7 @@ all_regions = [
     "Drawer",
     "Drawer dark",
     "Fields",
+    "Fields Lake",
     "Forest",
     "Go bottom",
     "Go top",
@@ -54,6 +55,7 @@ all_regions = [
     "Suburb",
     "Suburb card house",
     "Space",
+    "Space Gauntlet",
     "Street",
     "Terminal",
     "Windmill entrance",
@@ -140,6 +142,7 @@ postgame_regions = [
     "Drawer dark",
     "Boss Rush",
     "Nexus top",
+    "Space Gauntlet"
 ]
 
 post_temple_boss_regions = [

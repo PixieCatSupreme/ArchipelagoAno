@@ -142,6 +142,8 @@ class AnodyneWorld(World):
             region = Region(region_name, self.player, self.multiworld)
             if region_name in Locations.locations_by_region:
                 for location in Locations.locations_by_region[region_name]:
+                    reqs: list[str] = location.reqs.copy()
+
                     if include_health_cicadas == HealthCicadaShuffle.option_vanilla and location.health_cicada:
                         continue
 
@@ -169,14 +171,14 @@ class AnodyneWorld(World):
 
                     if location.dust:
                         if dustsanity:
-                            location.reqs.append("Combat")
+                            reqs.append("Combat")
                         else:
                             continue
 
                     location_id = Constants.location_name_to_id[location.name]
 
                     new_location = AnodyneLocation(self.player, location.name, location_id, region)
-                    new_location.access_rule = Constants.get_access_rule(location.reqs, region_name, self)
+                    new_location.access_rule = Constants.get_access_rule(reqs, region_name, self)
                     region.locations.append(new_location)
 
                     self.location_count += 1

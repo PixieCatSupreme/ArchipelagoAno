@@ -32,7 +32,7 @@ all_locations: List[LocationData] = [
     LocationData("Apartment - 3F Gauntlet Chest", "Apartment floor 3", ["Combat"], small_key=True),
     LocationData("Apartment - Boss Chest", "Apartment floor 3", ["Defeat Watcher"]),
     LocationData("Beach - Dock Chest", "Beach"),
-    LocationData("Beach - Secret Chest", "Beach", ["Swap:2", "Cards:8", "Combat"]),
+    LocationData("Beach - Secret Chest", "Beach Gauntlet", ["Swap:2"]),
     LocationData("Beach - Out-of-bounds Chest", "Beach", ["Swap:2"]),
     # 40DE36CF-9238-F8B0-7A57-C6C8CA465CC2
     LocationData("Temple of the Seeing One - Entrance Chest", "Bedroom", small_key=True),
@@ -163,16 +163,16 @@ all_locations: List[LocationData] = [
     LocationData("Boss Rush - Reward Chest", "Boss Rush", ["Combat"]),
     # Health Cicadas
     LocationData("Apartment - Health Cicada", "Apartment floor 3", ["Defeat Watcher"], health_cicada=True),
-    LocationData("Beach - Health Cicada", "Beach", ["Cards:8", "Combat"], health_cicada=True),
+    LocationData("Beach - Health Cicada", "Beach Gauntlet", [], health_cicada=True),
     LocationData("Temple of the Seeing One - Health Cicada", "Bedroom exit", ["Combat"], health_cicada=True),
     # Has to be frame 4
     LocationData("Cell - Health Cicada", "Cell", ["Cards:24"], health_cicada=True),
     LocationData("Circus - Health Cicada", "Circus 4", ["Defeat Servants"], health_cicada=True),
     LocationData("Mountain Cavern - Health Cicada", "Crowd floor 1", ["Defeat The Wall"], health_cicada=True),
     LocationData("Hotel - Health Cicada", "Hotel floor 1", ["Defeat Manager"], health_cicada=True),
-    LocationData("Overworld - Health Cicada", "Overworld", ["Combat", "Cards:4"], health_cicada=True),
+    LocationData("Overworld - Health Cicada", "Overworld Gauntlet", [], health_cicada=True),
     LocationData("Red Cave - Health Cicada", "Red Cave top", ["Defeat Rogue"], health_cicada=True),
-    LocationData("Young Town - Health Cicada", "Suburb", ["Combat", "Cards:16"], health_cicada=True),
+    LocationData("Young Town - Health Cicada", "Suburb", ["Cards:16"], health_cicada=True),
     LocationData("Temple of the Seeing One - Green Key", "Bedroom exit", [], big_key=True),
     LocationData("Red Cave - Red Key", "Red Cave exit", [], big_key=True),
     LocationData("Mountain Cavern - Blue Key", "Crowd exit", [], big_key=True),

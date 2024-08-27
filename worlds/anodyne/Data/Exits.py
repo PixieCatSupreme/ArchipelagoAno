@@ -14,6 +14,7 @@ all_exits = [
     ["Fields", "Beach", []],
     ["Beach", "Red Sea", ["Combat"]],
     ["Red Sea", "Beach", []],
+    ["Beach", "Beach Gauntlet", ["Combat","Cards:8"]],
     ["Bedroom", "Overworld", []],
     ["Overworld", "Bedroom", []],
     ["Bedroom", "Bedroom exit", ["Combat", "Temple Boss Access"]],
@@ -26,7 +27,8 @@ all_exits = [
     ["Bedroom drawer", "Drawer", ["Swap:2"]],
     ["Drawer", "Bedroom drawer", ["Swap:2"]],
     ["Bedroom drawer", "Overworld", ["Swap:2"]],
-    ["Overworld", "Bedroom drawer", ["Swap:2", "Cards:4", "Combat"]],
+    ["Overworld Gauntlet", "Bedroom drawer", ["Swap:2", "Combat"]],
+    ["Overworld", "Overworld Gauntlet", ["Cards:4", "Combat"]],
     ["Blank start", "Nexus bottom", []],
     # The secret windmill doesn't require any keys.
     ["Blank windmill", "Fields", ["Swap:2"]],

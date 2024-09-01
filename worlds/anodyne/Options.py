@@ -1,7 +1,7 @@
 import typing
 from dataclasses import dataclass
 from enum import Enum, IntEnum
-from typing import Type
+from typing import Type, List
 
 from Options import (Choice, DeathLink, PerGameCommonOptions, StartInventoryPool, Toggle, Range, OptionSet, TextChoice,
                      DefaultOnToggle)
@@ -264,7 +264,7 @@ class GateRequirements:
         default = 1
 
 
-gatereq_classes: list[Type[GateRequirements]] = []
+gatereq_classes: List[Type[GateRequirements]] = []
 
 
 def gate_req(gate_type: GateType, cards: int = 1):

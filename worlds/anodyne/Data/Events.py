@@ -1,3 +1,5 @@
+from worlds.anodyne.Options import EndgameRequirement, PostgameEnd
+
 events_by_region = {
     "Bedroom exit": {
         "Defeat Seer": ["Combat"],
@@ -20,13 +22,13 @@ events_by_region = {
         "Defeat Watcher": ["Combat", "Keys:Apartment:4"],
     },
     "Terminal": {
-        "Defeat Sage": ["Combat", "Cards:36"],
+        "Defeat Sage": ["Combat", EndgameRequirement.typename()],
     },
     "Go top": {
         "Defeat Briar": ["Jump Shoes", "Combat"],
     },
     "Nexus top": {
-        "Open 49 card gate": ["Cards:49"],
+        "Open final gate": [PostgameEnd.typename()],
     },
     "Red Cave center": {
         "Center left tentacle hit": ["Combat"],

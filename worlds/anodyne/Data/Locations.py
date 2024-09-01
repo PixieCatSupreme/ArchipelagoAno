@@ -1,6 +1,7 @@
 from typing import NamedTuple, List, Dict
 
 from . import Regions
+from ..Options import CellGate, SuburbGate, FieldsGate
 
 
 class LocationData(NamedTuple):
@@ -166,13 +167,13 @@ all_locations: List[LocationData] = [
     LocationData("Beach - Health Cicada", "Beach Gauntlet", [], health_cicada=True),
     LocationData("Temple of the Seeing One - Health Cicada", "Bedroom exit", ["Combat"], health_cicada=True),
     # Has to be frame 4
-    LocationData("Cell - Health Cicada", "Cell", ["Cards:24"], health_cicada=True),
+    LocationData("Cell - Health Cicada", "Cell", [CellGate.typename()], health_cicada=True),
     LocationData("Circus - Health Cicada", "Circus 4", ["Defeat Servants"], health_cicada=True),
     LocationData("Mountain Cavern - Health Cicada", "Crowd floor 1", ["Defeat The Wall"], health_cicada=True),
     LocationData("Hotel - Health Cicada", "Hotel floor 1", ["Defeat Manager"], health_cicada=True),
     LocationData("Overworld - Health Cicada", "Overworld Gauntlet", [], health_cicada=True),
     LocationData("Red Cave - Health Cicada", "Red Cave top", ["Defeat Rogue"], health_cicada=True),
-    LocationData("Young Town - Health Cicada", "Suburb", ["Cards:16"], health_cicada=True),
+    LocationData("Young Town - Health Cicada", "Suburb", [SuburbGate.typename()], health_cicada=True),
     LocationData("Temple of the Seeing One - Green Key", "Bedroom exit", [], big_key=True),
     LocationData("Red Cave - Red Key", "Red Cave exit", [], big_key=True),
     LocationData("Mountain Cavern - Blue Key", "Crowd exit", [], big_key=True),
@@ -287,7 +288,7 @@ all_locations: List[LocationData] = [
     LocationData("Fields - Before Annoyer Maze Dust", "Fields", dust=True),
     LocationData("Fields - Mitra House Dust", "Fields", dust=True),
     LocationData("Fields - Near Red Gate Dust", "Fields", dust=True),
-    LocationData("Fields - After Red Gate Dust", "Fields", ["Red Key"], dust=True),
+    LocationData("Fields - After Red Gate Dust", "Fields", [FieldsGate.typename()], dust=True),
     LocationData("Fields - Near Terminal Dust", "Fields Lake", ["Jump Shoes"], dust=True),
     LocationData("Fields - North West of Lake Dust", "Fields Lake", ["Jump Shoes"], dust=True),
     LocationData("Fields - Near Beach Dust", "Fields Lake", dust=True),

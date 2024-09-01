@@ -1,4 +1,5 @@
 import logging
+import typing
 
 from BaseClasses import Region, Location, Item, ItemClassification, CollectionState, Tutorial
 from Fill import fill_restrictive, FillError
@@ -10,7 +11,7 @@ from . import Constants
 from .Data import Items, Locations, Regions, Exits, Events
 from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle, \
     HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode, \
-    Dustsanity
+    Dustsanity, GateType
 
 
 class AnodyneLocation(Location):
@@ -80,7 +81,20 @@ class AnodyneWorld(World):
             self.options.nexus_gate_shuffle.value = slot_data["nexus_gate_shuffle"]
             self.options.victory_condition.value = slot_data["victory_condition"]
             self.options.forest_bunny_chest.value = slot_data.get("forest_bunny_chest", False)
-            self.options.endgame_card_requirement.value = slot_data["endgame_card_requirement"]
+            if "endgame_card_requirement" in slot_data:
+                Options.EndgameRequirement.cardoption(self.options).value = slot_data["endgame_card_requirement"]
+
+            for c in Options.gatereq_classes:
+                option_name:str = slot_data.get(c.typename(), c.shorthand(self.options))
+                type_option = c.typeoption(self.options)
+                if option_name.startswith("cards"):
+                    type_option.value = GateType.CARDS
+                    c.cardoption(self.options).value = int(option_name[len("cards_"):])
+                elif option_name.startswith("bosses"):
+                    type_option.value = GateType.BOSSES
+                    c.bossoption(self.options).value = int(option_name[len("bosses_"):])
+                else:
+                    type_option.value = type_option.from_text(option_name).value
             self.options.dustsanity.value = 0 if str(slot_data.get("dust_sanity_base","Disabled")) == "Disabled" else 1
         elif len(self.options.custom_nexus_gates_open.value) > 0:
             self.gates_unlocked.extend(self.options.custom_nexus_gates_open.value)
@@ -230,6 +244,21 @@ class AnodyneWorld(World):
 
             visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
 
+    def create_gate_proxy_rule(self, cls: typing.Type[Options.GateRequirements]):
+        rules = []
+
+        gatetype = cls.typeoption(self.options)
+        if gatetype == GateType.CARDS:
+            rules = [f"Cards:{cls.cardoption(self.options)}"]
+        elif gatetype == GateType.BOSSES:
+            rules = [f"Bosses:{cls.bossoption(self.options)}"]
+        elif gatetype == GateType.UNLOCKED:
+            pass
+        else:
+            rules = [f"{GateType(gatetype).name.title()} Key"]
+
+        self.proxy_rules[cls.typename()] = rules
+
     def set_rules(self) -> None:
         if not self.options.split_windmill:
             for statue in Items.statue_items:
@@ -253,10 +282,10 @@ class AnodyneWorld(World):
             elif self.options.postgame_mode == PostgameMode.option_unlocked:
                 self.proxy_rules["Swap:2"] = ["Swap"]
 
-        if self.options.postgame_mode == PostgameMode.option_disabled and self.options.endgame_card_requirement > 37:
-            raise Exception("Postgame must be enabled in order to choose an endgame card requirement over 37.")
+        self.proxy_rules["Endgame Access"] = [Options.EndgameRequirement.typename()]
 
-        self.proxy_rules["Endgame Access"] = [f"Cards:{self.options.endgame_card_requirement}"]
+        for cls in Options.gatereq_classes:
+            self.create_gate_proxy_rule(cls)
 
         if self.options.nexus_gate_shuffle or \
                 any(region in self.gates_unlocked for region in Regions.post_temple_boss_regions):
@@ -271,12 +300,11 @@ class AnodyneWorld(World):
 
         if victory_condition == VictoryCondition.option_defeat_briar:
             requirements.append("Defeat Briar")
-        elif victory_condition == VictoryCondition.option_all_cards:
+        elif victory_condition == VictoryCondition.option_final_gate:
             if self.options.postgame_mode == PostgameMode.option_disabled:
                 raise Exception("Postgame must be enabled in order to use the All Cards victory condition.")
 
-            requirements.append("Cards:49")
-            requirements.append("Open 49 card gate")
+            requirements.append("Open final gate")
 
         self.multiworld.completion_condition[self.player] = Constants.get_access_rule(requirements, "Event", self)
 
@@ -525,12 +553,12 @@ class AnodyneWorld(World):
             "nexus_gate_shuffle": int(self.options.nexus_gate_shuffle),
             "victory_condition": int(self.options.victory_condition),
             "forest_bunny_chest": bool(self.options.forest_bunny_chest.value),
-            "endgame_card_requirement": int(self.options.endgame_card_requirement),
             "match_different_world_item": int(self.options.match_different_world_item),
             "hide_trap_items": bool(self.options.hide_trap_items),
             "player_sprite_name": str(self.options.player_sprite.current_key),
             "dust_sanity_base": self.location_name_to_id[next(l for l in Locations.all_locations if l.dust).name] if self.options.dustsanity else "Disabled",
-            "seed": self.random.randint(0, 1000000)
+            "seed": self.random.randint(0, 1000000),
+            **{c.typename():c.shorthand(self.options) for c in Options.gatereq_classes}
         }
 
     # for the universal tracker, doesn't get called in standard gen

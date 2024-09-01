@@ -1,4 +1,7 @@
+import typing
 from dataclasses import dataclass
+from enum import Enum, IntEnum
+from typing import Type
 
 from Options import (Choice, DeathLink, PerGameCommonOptions, StartInventoryPool, Toggle, Range, OptionSet, TextChoice,
                      DefaultOnToggle)
@@ -173,24 +176,177 @@ class VictoryCondition(Choice):
     """
     Select the end goal of your game.
     [Defeat Briar] Reach the credits screen after defeating the Briar.
-    [All Cards] Open the 49 card gate in the top section of the Nexus. Postgame must be enabled for this.
+    [Final Gate] Open the final gate in the top section of the Nexus and interact with the console beyond it. Postgame must be enabled for this.
     """
     display_name = "Victory Condition"
     option_defeat_briar = 0
-    option_all_cards = 1
+    option_final_gate = 1
     default = 0
 
 
-class EndgameCardRequirement(Range):
-    """
-    Choose how many cards are required to open the big card gate in Terminal that leads to the endgame areas.
-    In vanilla, this is the 36 card gate.
-    Postgame must be enabled to choose a number above 37.
-    """
-    display_name = "Endgame Card Requirement"
-    range_start = 0
-    range_end = 49
-    default = 36
+class GateType(IntEnum):
+    UNLOCKED = 0
+    CARDS = 1
+    GREEN = 2
+    RED = 3
+    BLUE = 4
+    BOSSES = 5
+
+
+class GateRequirements:
+    name: str
+
+    @classmethod
+    def typename(cls):
+        return cls.name.lower().replace(' ', '_') + '_gate'
+
+    @classmethod
+    def cardname(cls):
+        return cls.typename() + '_cards'
+
+    @classmethod
+    def bossname(cls):
+        return cls.typename() + '_bosses'
+
+    @classmethod
+    def typeoption(cls, options: 'AnodyneGameOptions'):
+        return typing.cast(cls.Gate, options.__getattribute__(cls.typename()))
+
+    @classmethod
+    def cardoption(cls, options: 'AnodyneGameOptions'):
+        return typing.cast(cls.GateCardReq, options.__getattribute__(cls.cardname()))
+
+    @classmethod
+    def bossoption(cls, options: 'AnodyneGameOptions'):
+        return typing.cast(cls.GateBossReq, options.__getattribute__(cls.bossname()))
+
+    @classmethod
+    def shorthand(cls, options: 'AnodyneGameOptions'):
+        t = cls.typeoption(options)
+        if t == GateType.CARDS:
+            num = cls.cardoption(options)
+            return f"cards_{num}"
+        elif t == GateType.BOSSES:
+            num = cls.bossoption(options)
+            return f"bosses_{num}"
+        return t.current_key
+
+    class Gate(Choice):
+        """
+        Select the type of the {0} gate. Note that the big key requirements will cause the gate to unlock if the Big Key Shuffle is set to unlocked.
+        [Unlocked] This gate starts unlocked.
+        [Cards] This gate opens with a number of cards specified in the {0} gate card requirement option.
+        [Green Key] This gate opens with the green key.
+        [Red Key] This gate opens with the red key.
+        [Blue Key] This gate opens with the blue key.
+        [Bosses] This gate has a configurable amount of bosses required to be defeated, specified in the {0} gate boss requirement option.
+        """
+        option_unlocked = GateType.UNLOCKED
+        option_cards = GateType.CARDS
+        option_green_key = GateType.GREEN
+        option_red_key = GateType.RED
+        option_blue_key = GateType.BLUE
+        option_bosses = GateType.BOSSES
+
+    class GateCardReq(Range):
+        """
+        Choose how many cards are required to open the {0} gate. Postgame must be enabled to choose a number above 37 for all but the nexus and final gates.
+        """
+        range_start = 1
+        range_end = 49
+
+    class GateBossReq(Range):
+        """
+        Choose how many bosses are required to open the {0} gate. Boss rush kills don't count for this.
+        """
+        range_start = 1
+        range_end = 8
+        default = 1
+
+
+gatereq_classes: list[Type[GateRequirements]] = []
+
+
+def gate_req(gate_type: GateType, cards: int = 1):
+    def decorator(cls: Type[GateRequirements]):
+        cls.Gate = type("Gate", (cls.Gate,), {"__doc__": cls.Gate.__doc__.format(cls.name), "default": int(gate_type)})
+        cls.GateCardReq = type("GateCardReq", (cls.GateCardReq,),
+                               {"__doc__": cls.GateCardReq.__doc__.format(cls.name), "default": cards})
+        cls.GateBossReq = type("GateBossReq", (cls.GateBossReq,), {"__doc__": cls.GateBossReq.__doc__.format(cls.name)})
+        gatereq_classes.append(cls)
+        return cls
+
+    return decorator
+
+
+def add_options(cls: Type[PerGameCommonOptions]):
+    for c in gatereq_classes:
+        cls.__annotations__.update({
+            c.typename(): c.Gate,
+            c.cardname(): c.GateCardReq,
+            c.bossname(): c.GateBossReq
+        })
+    return cls
+
+
+@gate_req(GateType.CARDS, 4)
+class OverworldGauntletGate(GateRequirements):
+    name = "Overworld Gauntlet"
+
+
+@gate_req(GateType.GREEN)
+class OverworldFieldsGate(GateRequirements):
+    name = "Overworld Fields"
+
+
+@gate_req(GateType.RED)
+class FieldsGate(GateRequirements):
+    name = "Fields Terminal"
+
+
+@gate_req(GateType.CARDS, 8)
+class BeachGauntletGate(GateRequirements):
+    name = "Beach Gauntlet"
+
+
+@gate_req(GateType.GREEN)
+class WindmillEntranceGate(GateRequirements):
+    name = "Windmill Entrance"
+
+
+@gate_req(GateType.RED)
+class WindmillMiddleGate(GateRequirements):
+    name = "Windmill Middle"
+
+
+@gate_req(GateType.BLUE)
+class WindmillTopGate(GateRequirements):
+    name = "Windmill Top"
+
+
+@gate_req(GateType.CARDS, 16)
+class SuburbGate(GateRequirements):
+    name = "Suburb"
+
+
+@gate_req(GateType.CARDS, 24)
+class CellGate(GateRequirements):
+    name = "Cell"
+
+
+@gate_req(GateType.CARDS, 36)
+class EndgameRequirement(GateRequirements):
+    name = "Terminal Endgame"
+
+
+@gate_req(GateType.CARDS, 47)
+class PostgameBlank(GateRequirements):
+    name = "Blank Postgame"
+
+
+@gate_req(GateType.CARDS, 49)
+class PostgameEnd(GateRequirements):
+    name = "Nexus North Final"
 
 
 class RandomizeColorPuzzle(DefaultOnToggle):
@@ -266,6 +422,7 @@ class PlayerSprite(TextChoice):
 
 
 @dataclass
+@add_options
 class AnodyneGameOptions(PerGameCommonOptions):
     small_key_mode: SmallKeyMode
     small_key_shuffle: SmallKeyShuffle
@@ -280,7 +437,6 @@ class AnodyneGameOptions(PerGameCommonOptions):
     random_nexus_gate_open_count: RandomNexusGateOpenCount
     custom_nexus_gates_open: CustomNexusGatesOpen
     victory_condition: VictoryCondition
-    endgame_card_requirement: EndgameCardRequirement
     randomize_color_puzzle: RandomizeColorPuzzle
     postgame_mode: PostgameMode
     forest_bunny_chest: IncludeForestBunnyChest

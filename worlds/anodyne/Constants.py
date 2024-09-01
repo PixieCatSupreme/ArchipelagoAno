@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING, List
 from BaseClasses import CollectionState
 
 from .Data import Items, Locations, Events
-from .Options import SmallKeyShuffle, BigKeyShuffle, SmallKeyMode
+from .Options import BigKeyShuffle, SmallKeyMode
 
 if TYPE_CHECKING:
     from . import AnodyneWorld
@@ -45,6 +45,10 @@ def check_access(state: CollectionState, world: "AnodyneWorld", rule: str, map_n
         count = int(rule[6:])
         logging.debug(f"Card {count} check in {map_name} ({world.player})")
         return count_cards(state, world) >= count
+    elif rule.startswith("Bosses:"):
+        count = int(rule[len("Bosses:"):])
+        logging.debug(f"Bosses {count} check in {map_name} ({world.player})")
+        return state.count_from_list([f"Defeat {c}" for c in ["Seer","The Wall","Rogue","Watcher","Servants","Manager","Sage","Briar"]],world.player) >= count
     elif rule.startswith("Keys:"):
         if world.options.small_key_mode == SmallKeyMode.option_unlocked:
             logging.debug(f"Gates are unlocked ({world.player})")

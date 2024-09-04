@@ -1,7 +1,7 @@
 from typing import NamedTuple, List, Dict
 
 from . import Regions
-from ..Options import CellGate, SuburbGate, FieldsGate
+from ..Options import CellGate, SuburbGate
 
 
 class LocationData(NamedTuple):
@@ -15,8 +15,8 @@ class LocationData(NamedTuple):
     nexus_gate: bool = False
     dust: bool = False
 
-    def postgame(self):
-        return "Swap:2" in self.reqs or self.region_name in Regions.postgame_regions
+    def postgame(self,secret_paths:bool):
+        return ("SwapOrSecret" in self.reqs and not secret_paths) or "Swap:2" in self.reqs or self.region_name in Regions.postgame_regions or (not secret_paths and self.region_name in Regions.postgame_without_secret_paths)
 
 
 # This array must maintain a consistent order because the IDs are generated from it.
@@ -95,12 +95,12 @@ all_locations: List[LocationData] = [
     LocationData("Fields - Shopkeeper Trade", "Fields", ["Cardboard Box"]),
     LocationData("Fields - Mitra Trade", "Fields", ["Biking Shoes"]),
     # Hidden path
-    LocationData("Fields - Near Overworld Secret Chest", "Fields", ["Swap:2"]),
+    LocationData("Fields - Near Overworld Secret Chest", "Fields North Secret Area"),
     # Hidden path
-    LocationData("Fields - Secluded Glen Chest", "Fields", ["Swap:2"]),
+    LocationData("Fields - Secluded Glen Chest", "Fields", ["SwapOrSecret"]),
     # Hidden path
     # Logically, this is in Terminal, because it is separated from the rest of Fields in the same way Terminal is.
-    LocationData("Fields - Near Terminal Secret Chest", "Terminal", ["Swap:2"]),
+    LocationData("Fields - Near Terminal Secret Chest", "Terminal", ["SwapOrSecret"]),
     LocationData("Deep Forest - Inlet Chest", "Forest", ["Combat"]),
     # This is the one that takes 2 hours
     LocationData("Deep Forest - Bunny Chest", "Forest", ["Swap:2"]),
@@ -288,7 +288,7 @@ all_locations: List[LocationData] = [
     LocationData("Fields - Before Annoyer Maze Dust", "Fields", dust=True),
     LocationData("Fields - Mitra House Dust", "Fields", dust=True),
     LocationData("Fields - Near Red Gate Dust", "Fields", dust=True),
-    LocationData("Fields - After Red Gate Dust", "Fields", [FieldsGate.typename()], dust=True),
+    LocationData("Fields - After Red Gate Dust", "Fields Past Gate", dust=True),
     LocationData("Fields - Near Terminal Dust", "Fields Lake", ["Jump Shoes"], dust=True),
     LocationData("Fields - North West of Lake Dust", "Fields Lake", ["Jump Shoes"], dust=True),
     LocationData("Fields - Near Beach Dust", "Fields Lake", dust=True),

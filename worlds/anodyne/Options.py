@@ -183,6 +183,11 @@ class VictoryCondition(Choice):
     option_final_gate = 1
     default = 0
 
+class FieldsSecretPaths(Toggle):
+    """
+    Toggles whether the secret paths towards three of the secret chests in Fields are in logic.
+    """
+    display_name = "Fields Secret Paths"
 
 class GateType(IntEnum):
     UNLOCKED = 0
@@ -428,6 +433,7 @@ class AnodyneGameOptions(PerGameCommonOptions):
     small_key_shuffle: SmallKeyShuffle
     health_cicada_shuffle: HealthCicadaShuffle
     big_key_shuffle: BigKeyShuffle
+    fields_secret_paths: FieldsSecretPaths
     dustsanity: Dustsanity
     red_cave_access: RedCaveAccess
     split_windmill: SplitWindmill

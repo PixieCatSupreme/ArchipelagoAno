@@ -81,6 +81,7 @@ class AnodyneWorld(World):
             self.options.nexus_gate_shuffle.value = slot_data["nexus_gate_shuffle"]
             self.options.victory_condition.value = slot_data["victory_condition"]
             self.options.forest_bunny_chest.value = slot_data.get("forest_bunny_chest", False)
+            self.options.fields_secret_paths.value = slot_data.get("fields_secret_paths", False)
             if "endgame_card_requirement" in slot_data:
                 Options.EndgameRequirement.cardoption(self.options).value = slot_data["endgame_card_requirement"]
 
@@ -170,7 +171,7 @@ class AnodyneWorld(World):
                     if not self.options.split_windmill and location.name == "Windmill - Activation":
                         continue
 
-                    if not include_postgame and location.postgame():
+                    if not include_postgame and location.postgame(bool(self.options.fields_secret_paths.value)):
                         continue
 
                     if not self.options.forest_bunny_chest and location.name == "Deep Forest - Bunny Chest":
@@ -286,6 +287,11 @@ class AnodyneWorld(World):
 
         for cls in Options.gatereq_classes:
             self.create_gate_proxy_rule(cls)
+
+        if self.options.fields_secret_paths:
+            self.proxy_rules["SwapOrSecret"] = []
+        else:
+            self.proxy_rules["SwapOrSecret"] = ["Swap:2"]
 
         if self.options.nexus_gate_shuffle or \
                 any(region in self.gates_unlocked for region in Regions.post_temple_boss_regions):

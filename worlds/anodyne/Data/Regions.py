@@ -31,6 +31,8 @@ all_regions = [
     "Drawer dark",
     "Fields",
     "Fields Lake",
+    "Fields Past Gate",
+    "Fields North Secret Area",
     "Forest",
     "Go bottom",
     "Go top",
@@ -145,6 +147,10 @@ postgame_regions = [
     "Boss Rush",
     "Nexus top",
     "Space Gauntlet"
+]
+
+postgame_without_secret_paths = [
+    "Fields North Secret Area"
 ]
 
 post_temple_boss_regions = [

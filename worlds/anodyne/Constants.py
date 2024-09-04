@@ -89,6 +89,8 @@ def check_access(state: CollectionState, world: "AnodyneWorld", rule: str, map_n
     elif rule.startswith("Swap:"):
         count = int(rule[5:])
         return state.has("Progressive Swap", world.player, count)
+    elif rule == "Secret Path":
+        return bool(world.options.fields_secret_paths.value)
     else:
         logging.debug(f"Item {rule} check in {map_name} ({world.player})")
         if rule not in Items.all_items and rule not in Events.all_events:

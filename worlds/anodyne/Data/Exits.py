@@ -1,5 +1,5 @@
 from worlds.anodyne.Options import BeachGauntletGate, OverworldGauntletGate, PostgameBlank, OverworldFieldsGate, \
-    WindmillEntranceGate, WindmillMiddleGate, WindmillTopGate, PostgameEnd
+    WindmillEntranceGate, WindmillMiddleGate, WindmillTopGate, PostgameEnd, FieldsGate
 
 all_exits = [
     ["Menu", "Blank start", []],
@@ -77,8 +77,14 @@ all_exits = [
     ["Forest", "Fields", []],
     ["Fields", "Fields Lake", ["Combat", "Jump Shoes"]],
     ["Fields Lake", "Fields", []],
-    ["Fields", "Terminal", ["Red Key", "Jump Shoes"]],
-    ["Terminal", "Fields", ["Red Key", "Jump Shoes"]],
+    ["Fields", "Fields Past Gate", [FieldsGate.typename()]],
+    ["Fields Past Gate", "Fields", [FieldsGate.typename()]],
+    ["Terminal", "Fields Past Gate", ["Jump Shoes"]],
+    ["Fields Past Gate", "Terminal", ["Jump Shoes"]],
+    ["Fields Past Gate", "Fields North Secret Area", ["Secret Path"]],
+    ["Fields North Secret Area", "Fields Past Gate", ["Secret Path"]],
+    ["Fields", "Fields North Secret Area", ["Swap:2"]],
+    ["Fields North Secret Area", "Fields", ["Swap:2"]],
     ["Fields", "Windmill entrance", [WindmillEntranceGate.typename()]],
     ["Windmill entrance", "Fields", [WindmillEntranceGate.typename()]],
     ["Windmill entrance", "Windmill", [WindmillMiddleGate.typename(),WindmillTopGate.typename()]],

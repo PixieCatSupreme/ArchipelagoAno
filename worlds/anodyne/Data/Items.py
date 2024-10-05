@@ -93,6 +93,12 @@ early_secret_items = [
     "Heart",
 ]
 
+secret_items_secret_paths = [
+    "Glitch",
+    "Spam Can",
+    "Electric Monster"
+]
+
 small_key_item_count = {
     "Small Key (Apartment)": 4,
     "Small Key (Temple of the Seeing One)": 3,

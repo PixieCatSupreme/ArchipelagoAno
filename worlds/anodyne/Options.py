@@ -4,7 +4,7 @@ from enum import Enum, IntEnum
 from typing import Type, List
 
 from Options import (Choice, DeathLink, PerGameCommonOptions, StartInventoryPool, Toggle, Range, OptionSet, TextChoice,
-                     DefaultOnToggle)
+                     DefaultOnToggle, NamedRange)
 from .Data import Regions
 
 
@@ -384,30 +384,6 @@ class IncludeForestBunnyChest(Toggle):
     display_name = "Include Forest Bunny Chest"
 
 
-class MatchDifferentWorldItem(Choice):
-    """Determines how external items look in your game.
-    [Disabled] Items from other worlds always look like AP items, split into important and filler.
-    [Match] Try to match items from others worlds with fitting sprites.
-    [Match Extra] Match item sprites with extra sprites that are normally not in the game.
-    """
-    display_name = "Match Different World Items"
-    option_disabled = 0
-    option_match = 1
-    option_match_extra = 2
-    default = 2
-
-
-class HideTrapItems(Choice):
-    """Determines how external trap items look in your game.
-    [Visible] Trap items, from both your world and others, always look like a trap AP item.
-    [Disguised] Freestanding trap items will disguise themselves as other items to trick you.
-    """
-    display_name = "Trap Item Mode"
-    option_visible = 0
-    option_disguised = 1
-    default = 1
-
-
 class TrapPercentage(Range):
     """Determines how many traps will be generated."""
     display_name = "Traps Percentage"
@@ -415,16 +391,35 @@ class TrapPercentage(Range):
     default = 25
 
 
-class PlayerSprite(TextChoice):
+class CardAmount(NamedRange):
     """
-    Sets the player sprite.
+    Sets the amount of cards available in the item pool.
+    If there are not enough locations or card slots available when "Extra cards" is added, this number will automatically get lowered.
+    This setting will then be used as the actual maximum for card requirements of any big gates in logic.
+    Special values:
+    [Vanilla] 37 with postgame disabled, 49 otherwise.
+    [Auto] Maximum of all in-logic big card gates(postgame gates excluded if postgame is disabled).
     """
-    display_name = "Player Sprite"
-    option_young = 0
-    option_jplayer = 1
-    option_nova = 2
-    default = 0
+    display_name = "Base cards in item pool"
+    option_vanilla = -1
+    option_auto = -2
+    range_start = 0
+    range_end = 49
+    default = option_vanilla
+    special_range_names = {
+        "vanilla": -1,
+        "auto": -2,
+    }
 
+
+class ExtraCardAmount(Range):
+    """
+    Sets the amount of extra cards in the item pool. Note that this setting combined with "Base cards in item pool"
+    will never exceed the maximum of 49 cards.
+    """
+    range_start = 0
+    range_end = 49
+    default = 0
 
 @dataclass
 @add_options
@@ -446,9 +441,8 @@ class AnodyneGameOptions(PerGameCommonOptions):
     randomize_color_puzzle: RandomizeColorPuzzle
     postgame_mode: PostgameMode
     forest_bunny_chest: IncludeForestBunnyChest
-    match_different_world_item: MatchDifferentWorldItem
-    hide_trap_items: HideTrapItems
     traps_percentage: TrapPercentage
+    card_amount: CardAmount
+    extra_cards: ExtraCardAmount
     death_link: DeathLink
     start_inventory_from_pool: StartInventoryPool
-    player_sprite: PlayerSprite

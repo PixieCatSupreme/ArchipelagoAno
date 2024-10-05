@@ -11,7 +11,7 @@ from . import Constants
 from .Data import Items, Locations, Regions, Exits, Events
 from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle, \
     HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode, \
-    Dustsanity, GateType
+    Dustsanity, GateType, gatereq_classes, CardAmount
 
 
 class AnodyneLocation(Location):
@@ -85,6 +85,9 @@ class AnodyneWorld(World):
             if "endgame_card_requirement" in slot_data:
                 Options.EndgameRequirement.cardoption(self.options).value = slot_data["endgame_card_requirement"]
 
+            self.options.card_amount.value = slot_data.get("card_amount",CardAmount.option_vanilla)
+            #For universal tracker, slot data already has final value for card amount + extra, extra can be set to 0
+            self.options.extra_cards.value = 0
             for c in Options.gatereq_classes:
                 option_name:str = slot_data.get(c.typename(), c.shorthand(self.options))
                 type_option = c.typeoption(self.options)
@@ -337,6 +340,7 @@ class AnodyneWorld(World):
             "Progressive Red Cave",
             "Progressive Swap",
             *Items.nexus_gate_items.keys(),
+            *Items.cards
         }
 
         if small_key_mode == SmallKeyMode.option_small_keys:
@@ -460,6 +464,29 @@ class AnodyneWorld(World):
                 placed_items += 1
                 item_pool.append(self.create_item(name))
 
+        max_cards = self.location_count - placed_items
+        card_gates_in_logic = [cls for cls in gatereq_classes
+                               if cls.typeoption(self.options) == GateType.CARDS and
+                               (self.options.postgame_mode != PostgameMode.option_disabled or cls.GateCardReq.default <= 36)]
+        requested_cards = max((cls.cardoption(self.options) for cls in card_gates_in_logic), default = 0)
+        if self.options.extra_cards > max_cards:
+            #make sure extra cards can't
+            self.options.extra_cards.value = max_cards
+        if self.options.card_amount == CardAmount.option_vanilla:
+            self.options.card_amount.value = 37 if self.options.postgame_mode == PostgameMode.option_disabled else 49
+        elif self.options.card_amount == CardAmount.option_auto:
+            self.options.card_amount.value = int(requested_cards)
+        if self.options.card_amount + self.options.extra_cards > max_cards:
+            self.options.card_amount.value = max_cards - self.options.extra_cards
+
+        for cls in card_gates_in_logic:
+            if cls.cardoption(self.options) > self.options.card_amount:
+                cls.cardoption(self.options).value = self.options.card_amount.value
+
+        for card in Items.cards[:self.options.card_amount+self.options.extra_cards]:
+            placed_items += 1
+            item_pool.append(self.create_item(card))
+
         # If we have space for filler, prioritize adding in the ??? items that would be in-logic. Also add traps,
         # if enabled.
         if placed_items < self.location_count:
@@ -474,6 +501,9 @@ class AnodyneWorld(World):
 
             secret_items = Items.early_secret_items if self.options.postgame_mode == PostgameMode.option_disabled \
                 else Items.secret_items
+
+            if self.options.postgame_mode == PostgameMode.option_disabled and self.options.fields_secret_paths:
+                secret_items = [*secret_items,*Items.secret_items_secret_paths]
 
             if len(secret_items) <= remaining_items:
                 new_items.extend(secret_items)
@@ -559,11 +589,9 @@ class AnodyneWorld(World):
             "nexus_gate_shuffle": int(self.options.nexus_gate_shuffle),
             "victory_condition": int(self.options.victory_condition),
             "forest_bunny_chest": bool(self.options.forest_bunny_chest.value),
-            "match_different_world_item": int(self.options.match_different_world_item),
-            "hide_trap_items": bool(self.options.hide_trap_items),
-            "player_sprite_name": str(self.options.player_sprite.current_key),
             "dust_sanity_base": self.location_name_to_id[next(l for l in Locations.all_locations if l.dust).name] if self.options.dustsanity else "Disabled",
             "seed": self.random.randint(0, 1000000),
+            "card_amount": self.options.card_amount + self.options.extra_cards,
             **{c.typename():c.shorthand(self.options) for c in Options.gatereq_classes}
         }
 

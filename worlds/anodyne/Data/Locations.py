@@ -20,9 +20,9 @@ class LocationData(NamedTuple):
 # This array must maintain a consistent order because the IDs are generated from it.
 all_locations: List[LocationData] = [
     # 0AC41F72-EE1D-0D32-8F5D-8F25796B6396
-    LocationData("Apartment - 1F Ledge Chest", "Apartment floor 1", ["Combat", "Jump Shoes"], small_key=True),
+    LocationData("Apartment - 1F Ledge Chest", "Apartment floor 1", ["Combat"], small_key=True),
     # DE415E2A-06EE-83AC-F1A3-5DCA1FA44735
-    LocationData("Apartment - 1F Rat Maze Chest", "Apartment floor 1", ["Combat", "Jump Shoes"], small_key=True),
+    LocationData("Apartment - 1F Rat Maze Chest", "Apartment floor 1", ["Combat"], small_key=True),
     LocationData("Apartment - 1F Exterior Chest", "Apartment floor 1", ["Combat", "Jump Shoes"]),
     LocationData("Apartment - 1F Couches Chest", "Apartment floor 1 top left", ["Combat", "Jump Shoes"]),
     # 5B55A264-3FCD-CF38-175C-141B2D093029

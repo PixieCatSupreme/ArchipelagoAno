@@ -138,9 +138,9 @@ all_locations: List[LocationData] = [
     # 4A9DC50D-8739-9AD8-2CB1-82ECE29D3B6F
     LocationData("Red Cave - Left Cave Rapids Chest", "Red Cave left", ["Combat"], small_key=True),
     # A7672339-F3FB-C49E-33CE-42A49D7E4533
-    LocationData("Red Cave - Right Cave Slasher Chest", "Red Cave right", small_key=True),
+    LocationData("Red Cave - Right Cave Slasher Chest", "Red Cave right", ["Combat"], small_key=True),
     # 83286BFB-FFDA-237E-BA57-CA2E532E1DC7
-    LocationData("Red Cave - Right Cave Four Shooter Chest", "Red Cave right", small_key=True),
+    LocationData("Red Cave - Right Cave Four Shooter Chest", "Red Cave right", ["Combat"], small_key=True),
     # CDA1FF45-0F88-4855-B0EC-A9B42376C33F
     LocationData("Red Cave - Left Cave Sticky Chest", "Red Cave left", ["Combat"], small_key=True),
     LocationData("Red Cave - Widen Upgrade Chest", "Red Cave bottom"),

@@ -149,7 +149,7 @@ all_locations: List[LocationData] = [
     LocationData("Young Town - Killers Chest", "Suburb", ["Combat", "Swap:2"]),
     LocationData("Space - Left Chest", "Space"),
     LocationData("Space - Right Chest", "Space"),
-    LocationData("Space - Challenge Area Chest", "Space", ["Combat", "Swap:2"]),
+    LocationData("Space - Challenge Area Chest", "Space", ["Combat", "Jump Shoes", "Swap:2"]),
     # Wiggle glitch available
     LocationData("Space - Hidden Chest", "Space"),
     # 3307AA58-CCF1-FB0D-1450-5AF0A0C458F7

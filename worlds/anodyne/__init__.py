@@ -120,6 +120,7 @@ class AnodyneWorld(World):
 
             if random_nexus_gate_count > len(available_gates):
                 logging.warning(f"Player {self.player} requested more random Nexus gates than are available.")
+                random_nexus_gate_count = len(available_gates)
 
             self.gates_unlocked = self.random.sample(available_gates, random_nexus_gate_count)
 

@@ -176,7 +176,7 @@ class VictoryCondition(Choice):
     """
     Select the end goal of your game.
     [Defeat Briar] Reach the credits screen after defeating the Briar.
-    [Final Gate] Open the final gate in the top section of the Nexus and interact with the console beyond it. Postgame must be enabled for this.
+    [Final Gate] Open the final gate in the top section of the Nexus and interact with the console beyond it. Postgame must be enabled for this, else the goal will revert to Briar.
     """
     display_name = "Victory Condition"
     option_defeat_briar = 0

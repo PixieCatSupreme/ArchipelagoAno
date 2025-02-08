@@ -133,6 +133,9 @@ class AnodyneWorld(World):
 
             if self.options.nexus_gate_shuffle == NexusGateShuffle.option_all_except_endgame:
                 self.shuffled_gates -= set(Regions.endgame_nexus_gates)
+        if self.options.victory_condition == VictoryCondition.option_final_gate and self.options.postgame_mode == PostgameMode.option_disabled:
+            logging.warning(f"Player {self.player} requested the final gate victory condition but turned off postgame. Changing goal to Briar")
+            self.options.victory_condition = VictoryCondition.option_defeat_briar
 
     def create_item(self, name: str) -> Item:
         if name in Items.progression_items:
@@ -311,9 +314,6 @@ class AnodyneWorld(World):
         if victory_condition == VictoryCondition.option_defeat_briar:
             requirements.append("Defeat Briar")
         elif victory_condition == VictoryCondition.option_final_gate:
-            if self.options.postgame_mode == PostgameMode.option_disabled:
-                raise Exception("Postgame must be enabled in order to use the All Cards victory condition.")
-
             requirements.append("Open final gate")
 
         self.multiworld.completion_condition[self.player] = Constants.get_access_rule(requirements, "Event", self)
@@ -471,7 +471,7 @@ class AnodyneWorld(World):
                                (self.options.postgame_mode != PostgameMode.option_disabled or cls.GateCardReq.default <= 36)]
         requested_cards = max((cls.cardoption(self.options) for cls in card_gates_in_logic), default = 0)
         if self.options.extra_cards > max_cards:
-            #make sure extra cards can't
+            # make sure extra cards can't overflow the game's card list
             self.options.extra_cards.value = max_cards
         if self.options.card_amount == CardAmount.option_vanilla:
             self.options.card_amount.value = 37 if self.options.postgame_mode == PostgameMode.option_disabled else 49

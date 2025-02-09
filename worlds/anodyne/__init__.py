@@ -377,14 +377,15 @@ class AnodyneWorld(World):
                 placed_items += 1
                 item = self.create_item(key_item)
 
+                if small_key_shuffle == SmallKeyShuffle.option_original_dungeon:
+                    self.dungeon_items.setdefault(key_item[len("Key Ring ("):-1], []).append(item)
+                else:
+                    item_pool.append(item)
+
                 if small_key_shuffle == SmallKeyShuffle.option_own_world:
                     local_item_pool.add(key_item)
-                    item_pool.append(item)
                 elif small_key_shuffle == SmallKeyShuffle.option_different_world:
                     non_local_item_pool.add(key_item)
-                    item_pool.append(item)
-                elif small_key_shuffle == SmallKeyShuffle.option_original_dungeon:
-                    self.dungeon_items.setdefault(key_item[len("Key Ring ("):-1],[]).append(item)
 
         start_broom_item: str = ""
         if start_broom == StartBroom.option_normal:

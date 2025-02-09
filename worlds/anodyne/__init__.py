@@ -126,7 +126,7 @@ class AnodyneWorld(World):
 
         if self.options.small_key_mode == SmallKeyMode.option_key_rings and self.options.small_key_shuffle == SmallKeyShuffle.option_vanilla:
             logging.warning(f"Player {self.player} requested vanilla small keys with key rings on, changing to small key original dungeon")
-            self.options.small_key_shuffle = SmallKeyShuffle.option_original_dungeon
+            self.options.small_key_shuffle.value = SmallKeyShuffle.option_original_dungeon
 
         if self.options.nexus_gate_shuffle != NexusGateShuffle.option_off:
             self.shuffled_gates = set(Regions.regions_with_nexus_gate) - set(self.gates_unlocked)
@@ -135,7 +135,7 @@ class AnodyneWorld(World):
                 self.shuffled_gates -= set(Regions.endgame_nexus_gates)
         if self.options.victory_condition == VictoryCondition.option_final_gate and self.options.postgame_mode == PostgameMode.option_disabled:
             logging.warning(f"Player {self.player} requested the final gate victory condition but turned off postgame. Changing goal to Briar")
-            self.options.victory_condition = VictoryCondition.option_defeat_briar
+            self.options.victory_condition.value = VictoryCondition.option_defeat_briar
 
     def create_item(self, name: str) -> Item:
         if name in Items.progression_items:

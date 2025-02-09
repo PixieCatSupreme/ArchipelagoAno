@@ -567,7 +567,7 @@ class AnodyneWorld(World):
             for attempts_remaining in range(2, -1, -1):
                 self.random.shuffle(dungeon_locations)
                 try:
-                    fill_restrictive(self.multiworld, collection_state, dungeon_locations, confined_dungeon_items,
+                    fill_restrictive(self.multiworld, collection_state, dungeon_locations, [*confined_dungeon_items],
                                      single_player_placement=True, lock=True, allow_excluded=True)
                     break
                 except FillError as exc:

@@ -155,10 +155,12 @@ class AnodyneWorld(World):
         include_postgame: bool = (self.options.postgame_mode != PostgameMode.option_disabled)
         dustsanity: bool = bool(self.options.dustsanity.value)
 
+        postgame_regions = Regions.postgame_regions if self.options.fields_secret_paths.value else Regions.postgame_regions + Regions.postgame_without_secret_paths
+
         all_regions: Dict[str, Region] = {}
 
         for region_name in Regions.all_regions:
-            if not include_postgame and region_name in Regions.postgame_regions:
+            if not include_postgame and region_name in postgame_regions:
                 continue
 
             region = Region(region_name, self.player, self.multiworld)
@@ -211,7 +213,7 @@ class AnodyneWorld(World):
             exit1: str = exit_vals[0]
             exit2: str = exit_vals[1]
 
-            if not include_postgame and (exit1 in Regions.postgame_regions or exit2 in Regions.postgame_regions):
+            if not include_postgame and (exit1 in postgame_regions or exit2 in postgame_regions):
                 continue
 
             requirements: list[str] = exit_vals[2]
@@ -234,7 +236,7 @@ class AnodyneWorld(World):
                     e.access_rule = Constants.get_access_rule([item_name], "Nexus bottom", self)
 
         for region_name, events in Events.events_by_region.items():
-            if not include_postgame and region_name in Regions.postgame_regions:
+            if not include_postgame and region_name in postgame_regions:
                 continue
 
             for event_name in events:

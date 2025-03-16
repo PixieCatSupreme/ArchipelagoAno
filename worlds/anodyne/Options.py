@@ -1,3 +1,4 @@
+import sys
 import typing
 from dataclasses import dataclass
 from enum import Enum, IntEnum
@@ -274,10 +275,15 @@ gatereq_classes: List[Type[GateRequirements]] = []
 
 def gate_req(gate_type: GateType, cards: int = 1):
     def decorator(cls: Type[GateRequirements]):
-        cls.Gate = type("Gate", (cls.Gate,), {"__doc__": cls.Gate.__doc__.format(cls.name), "default": int(gate_type)})
-        cls.GateCardReq = type("GateCardReq", (cls.GateCardReq,),
-                               {"__doc__": cls.GateCardReq.__doc__.format(cls.name), "default": cards})
-        cls.GateBossReq = type("GateBossReq", (cls.GateBossReq,), {"__doc__": cls.GateBossReq.__doc__.format(cls.name)})
+        # Need to reset module from abc to this module, and put the classes into global scope to make pickle work on them
+        cls.Gate = type(f"{cls.__name__}_Type", (cls.Gate,), {"__doc__": cls.Gate.__doc__.format(cls.name), "default": int(gate_type), '__module__':__name__})
+
+        cls.GateCardReq = type(f"{cls.__name__}_CardReq", (cls.GateCardReq,),
+                               {"__doc__": cls.GateCardReq.__doc__.format(cls.name), "default": cards, '__module__':__name__})
+        cls.GateBossReq = type(f"{cls.__name__}_BossReq", (cls.GateBossReq,), {"__doc__": cls.GateBossReq.__doc__.format(cls.name), '__module__':__name__})
+        globals()[cls.Gate.__name__] = cls.Gate
+        globals()[cls.GateCardReq.__name__] = cls.GateCardReq
+        globals()[cls.GateBossReq.__name__] = cls.GateBossReq
         gatereq_classes.append(cls)
         return cls
 

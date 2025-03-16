@@ -98,5 +98,14 @@ def check_access(state: CollectionState, world: "AnodyneWorld", rule: str, map_n
         return state.has(item=rule, player=world.player)
 
 
+class AccessRule:
+    def __init__(self,reqs:List[str], region_name: str, world: "AnodyneWorld"):
+        self.reqs = reqs
+        self.region_name = region_name
+        self.world = world
+
+    def __call__(self, state:CollectionState):
+        return all(check_access(state,self.world,item,self.region_name) for item in self.reqs)
+
 def get_access_rule(reqs: List[str], region_name: str, world: "AnodyneWorld"):
-    return lambda state: all(check_access(state, world, item, region_name) for item in reqs)
+    return AccessRule(reqs,region_name,world)

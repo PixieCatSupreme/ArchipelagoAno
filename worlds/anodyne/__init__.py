@@ -11,7 +11,7 @@ from . import Constants
 from .Data import Items, Locations, Regions, Exits, Events
 from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle, \
     HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode, \
-    Dustsanity, GateType, gatereq_classes, CardAmount
+    Dustsanity, GateType, gatereq_classes, CardAmount, EndgameRequirement, GateRequirements
 
 
 class AnodyneLocation(Location):
@@ -83,12 +83,12 @@ class AnodyneWorld(World):
             self.options.forest_bunny_chest.value = slot_data.get("forest_bunny_chest", False)
             self.options.fields_secret_paths.value = slot_data.get("fields_secret_paths", False)
             if "endgame_card_requirement" in slot_data:
-                Options.EndgameRequirement.cardoption(self.options).value = slot_data["endgame_card_requirement"]
+                EndgameRequirement.cardoption(self.options).value = slot_data["endgame_card_requirement"]
 
             self.options.card_amount.value = slot_data.get("card_amount",CardAmount.option_vanilla)
             #For universal tracker, slot data already has final value for card amount + extra, extra can be set to 0
             self.options.extra_cards.value = 0
-            for c in Options.gatereq_classes:
+            for c in gatereq_classes:
                 option_name:str = slot_data.get(c.typename(), c.shorthand(self.options))
                 type_option = c.typeoption(self.options)
                 if option_name.startswith("cards"):
@@ -254,7 +254,7 @@ class AnodyneWorld(World):
 
             visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
 
-    def create_gate_proxy_rule(self, cls: typing.Type[Options.GateRequirements]):
+    def create_gate_proxy_rule(self, cls: typing.Type[GateRequirements]):
         rules = []
 
         gatetype = cls.typeoption(self.options)
@@ -292,9 +292,9 @@ class AnodyneWorld(World):
             elif self.options.postgame_mode == PostgameMode.option_unlocked:
                 self.proxy_rules["Swap:2"] = ["Swap"]
 
-        self.proxy_rules["Endgame Access"] = [Options.EndgameRequirement.typename()]
+        self.proxy_rules["Endgame Access"] = [EndgameRequirement.typename()]
 
-        for cls in Options.gatereq_classes:
+        for cls in gatereq_classes:
             self.create_gate_proxy_rule(cls)
 
         if self.options.fields_secret_paths:
@@ -596,7 +596,7 @@ class AnodyneWorld(World):
             "dust_sanity_base": self.location_name_to_id[next(l for l in Locations.all_locations if l.dust).name] if self.options.dustsanity else "Disabled",
             "seed": self.random.randint(0, 1000000),
             "card_amount": self.options.card_amount + self.options.extra_cards,
-            **{c.typename():c.shorthand(self.options) for c in Options.gatereq_classes}
+            **{c.typename():c.shorthand(self.options) for c in gatereq_classes}
         }
 
     # for the universal tracker, doesn't get called in standard gen

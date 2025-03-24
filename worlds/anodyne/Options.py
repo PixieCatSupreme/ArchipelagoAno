@@ -184,11 +184,13 @@ class VictoryCondition(Choice):
     option_final_gate = 1
     default = 0
 
+
 class FieldsSecretPaths(Toggle):
     """
     Toggles whether the secret paths towards three of the secret chests in Fields are in logic.
     """
     display_name = "Fields Secret Paths"
+
 
 class GateType(IntEnum):
     UNLOCKED = 0
@@ -427,6 +429,21 @@ class ExtraCardAmount(Range):
     range_end = 49
     default = 0
 
+
+class MitraHints(Choice):
+    """
+    Sets how Mitra's hints work. She gives one free hint and then gives additional hints after defeating bosses.
+    [None] Mitra does not give any hints.
+    [Vague] Mitra only tells you the location of a progression item, but not what it is.
+    [Precise] Mitra tells you the exact location of one of your progression items. This will be sent out as a hint.
+    """
+    display_name = "Mitra Hint Mode"
+    option_none = 0
+    option_vague = 1
+    option_precise = 2
+    default = 1
+
+
 @dataclass
 @add_options
 class AnodyneGameOptions(PerGameCommonOptions):
@@ -450,5 +467,6 @@ class AnodyneGameOptions(PerGameCommonOptions):
     traps_percentage: TrapPercentage
     card_amount: CardAmount
     extra_cards: ExtraCardAmount
+    mitra_hints: MitraHints
     death_link: DeathLink
     start_inventory_from_pool: StartInventoryPool

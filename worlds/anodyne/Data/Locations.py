@@ -167,7 +167,7 @@ all_locations: List[LocationData] = [
     LocationData("Beach - Health Cicada", "Beach Gauntlet", [], health_cicada=True),
     LocationData("Temple of the Seeing One - Health Cicada", "Bedroom exit", ["Combat"], health_cicada=True),
     # Has to be frame 4
-    LocationData("Cell - Health Cicada", "Cell", [CellGate.typename()], health_cicada=True),
+    LocationData("Cell - Health Cicada", "Cell", [CellGate.typename(), "Jump Shoes"], health_cicada=True),
     LocationData("Circus - Health Cicada", "Circus 4", ["Defeat Servants"], health_cicada=True),
     LocationData("Mountain Cavern - Health Cicada", "Crowd floor 1", ["Defeat The Wall"], health_cicada=True),
     LocationData("Hotel - Health Cicada", "Hotel floor 1", ["Defeat Manager"], health_cicada=True),

@@ -8,8 +8,10 @@ from worlds.AutoWorld import WebWorld, World
 from typing import List, Callable, Dict, Any, Set
 
 from . import Constants
+from .Constants import AccessRule
 
 from .Data import Items, Locations, Regions, Exits, Events
+from .Data.Items import big_keys
 from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle, \
     HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode, \
     Dustsanity, GateType, gatereq_classes, CardAmount, EndgameRequirement, GateRequirements, MitraHints
@@ -211,7 +213,7 @@ class AnodyneWorld(World):
 
             all_regions[region_name] = region
 
-        for exit_vals in Exits.all_exits:
+        for exit_vals in (Exits.all_exits if self.options.fields_secret_paths.value else Exits.all_exits + Exits.secret_path_connections):
             exit1: str = exit_vals[0]
             exit2: str = exit_vals[1]
 
@@ -276,10 +278,34 @@ class AnodyneWorld(World):
             for statue in Items.statue_items:
                 self.proxy_rules[statue] = ["Windmill activated"]
 
+        if self.options.big_key_shuffle == BigKeyShuffle.option_unlocked:
+            for big_key in big_keys:
+                self.proxy_rules[big_key] = []
+        elif self.options.big_key_shuffle == BigKeyShuffle.option_vanilla:
+            for big_key in big_keys:
+                self.proxy_rules[big_key] = [f"Grab {big_key}"]
+
+        if self.options.small_key_mode == SmallKeyMode.option_unlocked:
+            for dungeon,amount in Items.small_key_item_count.items():
+                for i in range(amount):
+                    self.proxy_rules[f"{dungeon}:{i+1}"] = []
+        elif self.options.small_key_mode == SmallKeyMode.option_key_rings:
+            for dungeon,amount in Items.small_key_item_count.items():
+                for i in range(amount):
+                    self.proxy_rules[f"{dungeon}:{i+1}"] = [f"Key Ring ({dungeon})"]
+        elif self.options.small_key_mode == SmallKeyMode.option_small_keys and self.options.small_key_shuffle == SmallKeyShuffle.option_vanilla:
+            # For vanilla key placement, the regular rules don't quite match up in this dungeon, but the dungeon is still solvable
+            for i in range(Items.small_key_item_count["Small Key (Hotel)"]):
+                self.proxy_rules[f"Small Key (Hotel):{i+1}"] = []
+
         if self.options.red_cave_access == RedCaveAccess.option_vanilla:
-            self.proxy_rules["RedCave:Left"] = ["Center left tentacle hit"]
-            self.proxy_rules["RedCave:Right"] = ["Center right tentacle hit"]
-            self.proxy_rules["RedCave:Top"] = ["Left tentacle hit", "Right tentacle hit"]
+            self.proxy_rules["RedCave-Left"] = ["Center left tentacle hit"]
+            self.proxy_rules["RedCave-Right"] = ["Center right tentacle hit"]
+            self.proxy_rules["RedCave-Top"] = ["Left tentacle hit", "Right tentacle hit"]
+        else:
+            self.proxy_rules["RedCave-Left"] = ["Progressive Red Cave"]
+            self.proxy_rules["RedCave-Right"] = ["Progressive Red Cave:2"]
+            self.proxy_rules["RedCave-Top"] = ["Progressive Red Cave:3"]
 
         if self.options.randomize_color_puzzle:
             self.proxy_rules["GO Color Puzzle"] = ["Defeat Servants", "Defeat Watcher", "Defeat Manager"]
@@ -287,14 +313,12 @@ class AnodyneWorld(World):
             self.proxy_rules["GO Color Puzzle"] = []
 
         if self.options.postgame_mode != PostgameMode.option_progressive:
-            self.proxy_rules["Swap:1"] = ["Swap"]
+            self.proxy_rules["Progressive Swap:1"] = ["Swap"]
 
             if self.options.postgame_mode == PostgameMode.option_vanilla:
-                self.proxy_rules["Swap:2"] = ["Swap", "Defeat Briar"]
+                self.proxy_rules["Progressive Swap:2"] = ["Swap", "Defeat Briar"]
             elif self.options.postgame_mode == PostgameMode.option_unlocked:
-                self.proxy_rules["Swap:2"] = ["Swap"]
-
-        self.proxy_rules["Endgame Access"] = [EndgameRequirement.typename()]
+                self.proxy_rules["Progressive Swap:2"] = ["Swap"]
 
         for cls in gatereq_classes:
             self.create_gate_proxy_rule(cls)
@@ -302,15 +326,15 @@ class AnodyneWorld(World):
         if self.options.fields_secret_paths:
             self.proxy_rules["SwapOrSecret"] = []
         else:
-            self.proxy_rules["SwapOrSecret"] = ["Swap:2"]
+            self.proxy_rules["SwapOrSecret"] = ["Progressive Swap:2"]
 
         if self.options.nexus_gate_shuffle or \
                 any(region in self.gates_unlocked for region in Regions.post_temple_boss_regions):
             # There is one keyblock in Temple of the Seeing One that has conditional logic based on whether it is
             # possible for the player to access the exit of the dungeon early.
-            self.proxy_rules["Temple Boss Access"] = ["Keys:Temple of the Seeing One:3"]
+            self.proxy_rules["Temple Boss Access"] = ["Small Key (Temple of the Seeing One):3"]
         else:
-            self.proxy_rules["Temple Boss Access"] = ["Keys:Temple of the Seeing One:2"]
+            self.proxy_rules["Temple Boss Access"] = ["Small Key (Temple of the Seeing One):2"]
 
         victory_condition: VictoryCondition = self.options.victory_condition
         requirements: list[str] = []
@@ -387,10 +411,10 @@ class AnodyneWorld(World):
                     item_pool.append(item)
 
                 if small_key_shuffle == SmallKeyShuffle.option_own_world:
-                    local_item_pool.add(key_item)
-                elif small_key_shuffle == SmallKeyShuffle.option_different_world:
-                    non_local_item_pool.add(key_item)
-                    self.dungeon_items.setdefault(key_item[len("Key Ring ("):-1], []).append(item)
+                    if small_key_shuffle == SmallKeyShuffle.option_own_world:
+                        local_item_pool.add(key_item)
+                    elif small_key_shuffle == SmallKeyShuffle.option_different_world:
+                        non_local_item_pool.add(key_item)
 
         start_broom_item: str = ""
         if start_broom == StartBroom.option_normal:
@@ -475,7 +499,8 @@ class AnodyneWorld(World):
         card_gates_in_logic = [cls for cls in gatereq_classes
                                if cls.typeoption(self.options) == GateType.CARDS and
                                (
-                                       self.options.postgame_mode != PostgameMode.option_disabled or cls.GateCardReq.default <= 36)]
+                                       self.options.postgame_mode != PostgameMode.option_disabled
+                                       or cls.GateCardReq.default <= 36)]
         requested_cards = max((cls.cardoption(self.options) for cls in card_gates_in_logic), default=0)
         if self.options.extra_cards > max_cards:
             # make sure extra cards can't overflow the game's card list

@@ -1,11 +1,14 @@
+import itertools
 import logging
 import typing
+from collections import defaultdict
 from dataclasses import dataclass
 
 from BaseClasses import Region, Location, Item, ItemClassification, CollectionState, Tutorial
 from Fill import fill_restrictive, FillError
+from Options import Accessibility
 from worlds.AutoWorld import WebWorld, World
-from typing import List, Callable, Dict, Any, Set
+from typing import List, Callable, Dict, Any, Set, Iterable, Mapping, Type, Tuple
 
 from . import Constants
 from .Constants import AccessRule
@@ -14,7 +17,8 @@ from .Data import Items, Locations, Regions, Exits, Events
 from .Data.Items import big_keys
 from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle, \
     HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode, \
-    Dustsanity, GateType, gatereq_classes, CardAmount, EndgameRequirement, GateRequirements, MitraHints
+    Dustsanity, GateType, gatereq_classes, CardAmount, EndgameRequirement, GateRequirements, MitraHints, gate_lookup, \
+    OverworldFieldsGate
 
 
 class AnodyneLocation(Location):
@@ -122,7 +126,8 @@ class AnodyneWorld(World):
                     available_gates.remove(gate)
 
             if random_nexus_gate_count > len(available_gates):
-                logging.warning(f"Player {self.player} requested more random Nexus gates than are available.")
+                logging.warning(
+                    f"Player {self.player_name} requested more random Nexus gates than are available. Adjusting down to {len(available_gates)}")
                 random_nexus_gate_count = len(available_gates)
 
             self.gates_unlocked = self.random.sample(available_gates, random_nexus_gate_count)
@@ -130,7 +135,7 @@ class AnodyneWorld(World):
         if self.options.small_key_mode == SmallKeyMode.option_key_rings and self.options.small_key_shuffle == SmallKeyShuffle.option_vanilla:
             self.options.small_key_shuffle.value = SmallKeyShuffle.option_original_dungeon
             logging.warning(
-                f"Player {self.player} requested vanilla small keys with key rings on, changing to small key original dungeon")
+                f"Player {self.player_name} requested vanilla small keys with key rings on, changing to small key original dungeon")
 
         if self.options.nexus_gate_shuffle != NexusGateShuffle.option_off:
             self.shuffled_gates = set(Regions.regions_with_nexus_gate) - set(self.gates_unlocked)
@@ -138,8 +143,17 @@ class AnodyneWorld(World):
             if self.options.nexus_gate_shuffle == NexusGateShuffle.option_all_except_endgame:
                 self.shuffled_gates -= set(Regions.endgame_nexus_gates)
         if self.options.victory_condition == VictoryCondition.option_final_gate and self.options.postgame_mode == PostgameMode.option_disabled:
-            logging.warning(f"Player {self.player} requested the final gate victory condition but turned off postgame. Changing goal to Briar")
+            logging.warning(
+                f"Player {self.player_name} requested the final gate victory condition but turned off postgame. Changing goal to Briar")
             self.options.victory_condition.value = VictoryCondition.option_defeat_briar
+
+        if all(gate in Regions.wrong_big_key_early_locked_nexus_gates for gate in self.gates_unlocked) and \
+                self.options.nexus_gate_shuffle == NexusGateShuffle.option_off and \
+                self.options.big_key_shuffle == BigKeyShuffle.option_vanilla and \
+                OverworldFieldsGate.typeoption(self.options) in [GateType.BLUE, GateType.RED]:
+            logging.warning(
+                f"Player {self.player_name} has locked themselves into the starting area with no escape. Reverting Overworld->Fields gate to default")
+            OverworldFieldsGate.typeoption(self.options).value = GateType.GREEN
 
     def create_item(self, name: str) -> Item:
         if name in Items.progression_items:
@@ -152,199 +166,6 @@ class AnodyneWorld(World):
             item_class = ItemClassification.filler
 
         return AnodyneItem(name, item_class, self.item_name_to_id.get(name, None), self.player)
-
-    def create_regions(self) -> None:
-        include_health_cicadas = self.options.health_cicada_shuffle
-        include_big_keys = self.options.big_key_shuffle
-        include_postgame: bool = (self.options.postgame_mode != PostgameMode.option_disabled)
-        dustsanity: bool = bool(self.options.dustsanity.value)
-
-        postgame_regions = Regions.postgame_regions if self.options.fields_secret_paths.value else Regions.postgame_regions + Regions.postgame_without_secret_paths
-
-        all_regions: Dict[str, Region] = {}
-
-        for region_name in Regions.all_regions:
-            if not include_postgame and region_name in postgame_regions:
-                continue
-
-            region = Region(region_name, self.player, self.multiworld)
-            if region_name in Locations.locations_by_region:
-                for location in Locations.locations_by_region[region_name]:
-                    reqs: list[str] = location.reqs.copy()
-
-                    if include_health_cicadas == HealthCicadaShuffle.option_vanilla and location.health_cicada:
-                        continue
-
-                    if include_big_keys == BigKeyShuffle.option_vanilla and location.big_key:
-                        continue
-
-                    if self.options.red_cave_access == RedCaveAccess.option_vanilla and location.tentacle:
-                        continue
-
-                    if not self.options.split_windmill and location.name == "Windmill - Activation":
-                        continue
-
-                    if not include_postgame and location.postgame(bool(self.options.fields_secret_paths.value)):
-                        continue
-
-                    if not self.options.forest_bunny_chest and location.name == "Deep Forest - Bunny Chest":
-                        continue
-
-                    if self.options.victory_condition == VictoryCondition.option_defeat_briar \
-                            and location.name == "GO - Defeat Briar":
-                        continue
-
-                    if location.nexus_gate and location.region_name not in self.shuffled_gates:
-                        continue
-
-                    if location.dust:
-                        if dustsanity:
-                            reqs.append("Combat")
-                        else:
-                            continue
-
-                    location_id = Constants.location_name_to_id[location.name]
-
-                    new_location = AnodyneLocation(self.player, location.name, location_id, region)
-                    new_location.access_rule = Constants.get_access_rule(reqs, region_name, self)
-                    region.locations.append(new_location)
-
-                    self.location_count += 1
-
-            all_regions[region_name] = region
-
-        for exit_vals in (Exits.all_exits if self.options.fields_secret_paths.value else Exits.all_exits + Exits.secret_path_connections):
-            exit1: str = exit_vals[0]
-            exit2: str = exit_vals[1]
-
-            if not include_postgame and (exit1 in postgame_regions or exit2 in postgame_regions):
-                continue
-
-            requirements: list[str] = exit_vals[2]
-
-            r1 = all_regions[exit1]
-            r2 = all_regions[exit2]
-
-            e = r1.create_exit(f"{exit1} to {exit2} exit")
-            e.connect(r2)
-            e.access_rule = Constants.get_access_rule(requirements, exit1, self)
-
-        for region_name in self.gates_unlocked:
-            all_regions["Nexus bottom"].create_exit(f"{region_name} Nexus Gate").connect(all_regions[region_name])
-
-        if self.options.nexus_gate_shuffle != NexusGateShuffle.option_off:
-            for item_name, region_name in Items.nexus_gate_items.items():
-                if region_name in self.shuffled_gates:
-                    e = all_regions["Nexus bottom"].create_exit(f"{region_name} Nexus Gate")
-                    e.connect(all_regions[region_name])
-                    e.access_rule = Constants.get_access_rule([item_name], "Nexus bottom", self)
-
-        for region_name, events in Events.events_by_region.items():
-            if not include_postgame and region_name in postgame_regions:
-                continue
-
-            for event_name in events:
-                if include_big_keys != BigKeyShuffle.option_vanilla and event_name in Items.big_keys:
-                    continue
-
-                requirements: list[str] = Events.events_by_region[region_name][event_name]
-                self.create_event(all_regions[region_name], event_name, Constants.get_access_rule(requirements,
-                                                                                                  region_name, self))
-
-        self.multiworld.regions += all_regions.values()
-
-        if Constants.debug_mode:
-            from Utils import visualize_regions
-
-            visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
-
-    def create_gate_proxy_rule(self, cls: typing.Type[GateRequirements]):
-        rules = []
-
-        gatetype = cls.typeoption(self.options)
-        if gatetype == GateType.CARDS:
-            rules = [f"Cards:{cls.cardoption(self.options)}"]
-        elif gatetype == GateType.BOSSES:
-            rules = [f"Bosses:{cls.bossoption(self.options)}"]
-        elif gatetype == GateType.UNLOCKED:
-            pass
-        else:
-            rules = [f"{GateType(gatetype).name.title()} Key"]
-
-        self.proxy_rules[cls.typename()] = rules
-
-    def set_rules(self) -> None:
-        if not self.options.split_windmill:
-            for statue in Items.statue_items:
-                self.proxy_rules[statue] = ["Windmill activated"]
-
-        if self.options.big_key_shuffle == BigKeyShuffle.option_unlocked:
-            for big_key in big_keys:
-                self.proxy_rules[big_key] = []
-        elif self.options.big_key_shuffle == BigKeyShuffle.option_vanilla:
-            for big_key in big_keys:
-                self.proxy_rules[big_key] = [f"Grab {big_key}"]
-
-        if self.options.small_key_mode == SmallKeyMode.option_unlocked:
-            for dungeon,amount in Items.small_key_item_count.items():
-                for i in range(amount):
-                    self.proxy_rules[f"{dungeon}:{i+1}"] = []
-        elif self.options.small_key_mode == SmallKeyMode.option_key_rings:
-            for dungeon,amount in Items.small_key_item_count.items():
-                for i in range(amount):
-                    self.proxy_rules[f"{dungeon}:{i+1}"] = [f"Key Ring ({dungeon})"]
-        elif self.options.small_key_mode == SmallKeyMode.option_small_keys and self.options.small_key_shuffle == SmallKeyShuffle.option_vanilla:
-            # For vanilla key placement, the regular rules don't quite match up in this dungeon, but the dungeon is still solvable
-            for i in range(Items.small_key_item_count["Small Key (Hotel)"]):
-                self.proxy_rules[f"Small Key (Hotel):{i+1}"] = []
-
-        if self.options.red_cave_access == RedCaveAccess.option_vanilla:
-            self.proxy_rules["RedCave-Left"] = ["Center left tentacle hit"]
-            self.proxy_rules["RedCave-Right"] = ["Center right tentacle hit"]
-            self.proxy_rules["RedCave-Top"] = ["Left tentacle hit", "Right tentacle hit"]
-        else:
-            self.proxy_rules["RedCave-Left"] = ["Progressive Red Cave"]
-            self.proxy_rules["RedCave-Right"] = ["Progressive Red Cave:2"]
-            self.proxy_rules["RedCave-Top"] = ["Progressive Red Cave:3"]
-
-        if self.options.randomize_color_puzzle:
-            self.proxy_rules["GO Color Puzzle"] = ["Defeat Servants", "Defeat Watcher", "Defeat Manager"]
-        else:
-            self.proxy_rules["GO Color Puzzle"] = []
-
-        if self.options.postgame_mode != PostgameMode.option_progressive:
-            self.proxy_rules["Progressive Swap:1"] = ["Swap"]
-
-            if self.options.postgame_mode == PostgameMode.option_vanilla:
-                self.proxy_rules["Progressive Swap:2"] = ["Swap", "Defeat Briar"]
-            elif self.options.postgame_mode == PostgameMode.option_unlocked:
-                self.proxy_rules["Progressive Swap:2"] = ["Swap"]
-
-        for cls in gatereq_classes:
-            self.create_gate_proxy_rule(cls)
-
-        if self.options.fields_secret_paths:
-            self.proxy_rules["SwapOrSecret"] = []
-        else:
-            self.proxy_rules["SwapOrSecret"] = ["Progressive Swap:2"]
-
-        if self.options.nexus_gate_shuffle or \
-                any(region in self.gates_unlocked for region in Regions.post_temple_boss_regions):
-            # There is one keyblock in Temple of the Seeing One that has conditional logic based on whether it is
-            # possible for the player to access the exit of the dungeon early.
-            self.proxy_rules["Temple Boss Access"] = ["Small Key (Temple of the Seeing One):3"]
-        else:
-            self.proxy_rules["Temple Boss Access"] = ["Small Key (Temple of the Seeing One):2"]
-
-        victory_condition: VictoryCondition = self.options.victory_condition
-        requirements: list[str] = []
-
-        if victory_condition == VictoryCondition.option_defeat_briar:
-            requirements.append("Defeat Briar")
-        elif victory_condition == VictoryCondition.option_final_gate:
-            requirements.append("Open final gate")
-
-        self.multiworld.completion_condition[self.player] = Constants.get_access_rule(requirements, "Event", self)
 
     def create_items(self) -> None:
         item_pool: List[Item] = []
@@ -410,7 +231,6 @@ class AnodyneWorld(World):
                 else:
                     item_pool.append(item)
 
-                if small_key_shuffle == SmallKeyShuffle.option_own_world:
                     if small_key_shuffle == SmallKeyShuffle.option_own_world:
                         local_item_pool.add(key_item)
                     elif small_key_shuffle == SmallKeyShuffle.option_different_world:
@@ -555,6 +375,360 @@ class AnodyneWorld(World):
         self.options.local_items.value |= local_item_pool
         self.options.non_local_items.value |= non_local_item_pool
 
+    def create_regions(self) -> None:
+        include_health_cicadas = self.options.health_cicada_shuffle
+        include_big_keys = self.options.big_key_shuffle
+        include_postgame: bool = (self.options.postgame_mode != PostgameMode.option_disabled)
+        dustsanity: bool = bool(self.options.dustsanity.value)
+
+        postgame_regions = Regions.postgame_regions if self.options.fields_secret_paths.value else Regions.postgame_regions + Regions.postgame_without_secret_paths
+
+        all_regions: Dict[str, Region] = {}
+
+        for region_name in Regions.all_regions:
+            if not include_postgame and region_name in postgame_regions:
+                continue
+
+            region = Region(region_name, self.player, self.multiworld)
+            if region_name in Locations.locations_by_region:
+                for location in Locations.locations_by_region[region_name]:
+                    reqs: list[str] = location.reqs.copy()
+
+                    if include_health_cicadas == HealthCicadaShuffle.option_vanilla and location.health_cicada:
+                        continue
+
+                    if include_big_keys == BigKeyShuffle.option_vanilla and location.big_key:
+                        continue
+
+                    if self.options.red_cave_access == RedCaveAccess.option_vanilla and location.tentacle:
+                        continue
+
+                    if not self.options.split_windmill and location.name == "Windmill - Activation":
+                        continue
+
+                    if not include_postgame and location.postgame(bool(self.options.fields_secret_paths.value)):
+                        continue
+
+                    if not self.options.forest_bunny_chest and location.name == "Deep Forest - Bunny Chest":
+                        continue
+
+                    if self.options.victory_condition == VictoryCondition.option_defeat_briar \
+                            and location.name == "GO - Defeat Briar":
+                        continue
+
+                    if location.nexus_gate and location.region_name not in self.shuffled_gates:
+                        continue
+
+                    if location.dust:
+                        if dustsanity:
+                            reqs.append("Combat")
+                        else:
+                            continue
+
+                    location_id = Constants.location_name_to_id[location.name]
+
+                    new_location = AnodyneLocation(self.player, location.name, location_id, region)
+                    new_location.access_rule = Constants.get_access_rule(reqs, region_name, self)
+                    region.locations.append(new_location)
+
+                    self.location_count += 1
+
+            all_regions[region_name] = region
+
+        for exit_vals in (
+                Exits.all_exits if not self.options.fields_secret_paths.value else Exits.all_exits + Exits.secret_path_connections):
+            exit1: str = exit_vals[0]
+            exit2: str = exit_vals[1]
+
+            if not include_postgame and (exit1 in postgame_regions or exit2 in postgame_regions):
+                continue
+
+            requirements: list[str] = exit_vals[2]
+
+            r1 = all_regions[exit1]
+            r2 = all_regions[exit2]
+
+            e = r1.create_exit(f"{exit1} to {exit2} exit")
+            e.connect(r2)
+            e.access_rule = Constants.get_access_rule(requirements, exit1, self)
+
+        for region_name in self.gates_unlocked:
+            all_regions["Nexus bottom"].create_exit(f"{region_name} Nexus Gate").connect(all_regions[region_name])
+
+        if self.options.nexus_gate_shuffle != NexusGateShuffle.option_off:
+            for item_name, region_name in Items.nexus_gate_items.items():
+                if region_name in self.shuffled_gates:
+                    e = all_regions["Nexus bottom"].create_exit(f"{region_name} Nexus Gate")
+                    e.connect(all_regions[region_name])
+                    e.access_rule = Constants.get_access_rule([item_name], "Nexus bottom", self)
+
+        for region_name, events in Events.events_by_region.items():
+            if not include_postgame and region_name in postgame_regions:
+                continue
+
+            for event_name in events:
+                if include_big_keys != BigKeyShuffle.option_vanilla and event_name in Items.big_keys:
+                    continue
+
+                requirements: list[str] = Events.events_by_region[region_name][event_name]
+                self.create_event(all_regions[region_name], event_name, Constants.get_access_rule(requirements,
+                                                                                                  region_name, self))
+
+        self.multiworld.regions += all_regions.values()
+
+        if Constants.debug_mode:
+            from Utils import visualize_regions
+
+            visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
+
+    def create_gate_proxy_rule(self, cls: typing.Type[GateRequirements]):
+        rules = []
+
+        gatetype = cls.typeoption(self.options)
+        if gatetype == GateType.CARDS:
+            rules = [f"Cards:{cls.cardoption(self.options)}"]
+        elif gatetype == GateType.BOSSES:
+            rules = [f"Bosses:{cls.bossoption(self.options)}"]
+        elif gatetype == GateType.UNLOCKED:
+            pass
+        else:
+            rules = [f"{GateType(gatetype).name.title()} Key"]
+
+        self.proxy_rules[cls.typename()] = rules
+
+    def set_rules(self) -> None:
+        if not self.options.split_windmill:
+            for statue in Items.statue_items:
+                self.proxy_rules[statue] = ["Windmill activated"]
+
+        if self.options.big_key_shuffle == BigKeyShuffle.option_unlocked:
+            for big_key in big_keys:
+                self.proxy_rules[big_key] = []
+        elif self.options.big_key_shuffle == BigKeyShuffle.option_vanilla:
+            for big_key in big_keys:
+                self.proxy_rules[big_key] = [f"Grab {big_key}"]
+
+        if self.options.small_key_mode == SmallKeyMode.option_unlocked:
+            for dungeon, amount in Items.small_key_item_count.items():
+                for i in range(amount):
+                    self.proxy_rules[f"{dungeon}:{i + 1}"] = []
+        elif self.options.small_key_mode == SmallKeyMode.option_key_rings:
+            for dungeon, amount in Items.small_key_item_count.items():
+                dungeon_name = dungeon[len("Small Key ("):-1]
+                for i in range(amount):
+                    self.proxy_rules[f"{dungeon}:{i + 1}"] = [f"Key Ring ({dungeon_name})"]
+        elif self.options.small_key_mode == SmallKeyMode.option_small_keys and self.options.small_key_shuffle == SmallKeyShuffle.option_vanilla:
+            # For vanilla key placement, the regular rules don't quite match up in this dungeon, but the dungeon is still solvable
+            for i in range(Items.small_key_item_count["Small Key (Hotel)"]):
+                self.proxy_rules[f"Small Key (Hotel):{i + 1}"] = []
+
+        if self.options.red_cave_access == RedCaveAccess.option_vanilla:
+            self.proxy_rules["RedCave-Left"] = ["Center left tentacle hit"]
+            self.proxy_rules["RedCave-Right"] = ["Center right tentacle hit"]
+            self.proxy_rules["RedCave-Top"] = ["Left tentacle hit", "Right tentacle hit"]
+        else:
+            self.proxy_rules["RedCave-Left"] = ["Progressive Red Cave"]
+            self.proxy_rules["RedCave-Right"] = ["Progressive Red Cave:2"]
+            self.proxy_rules["RedCave-Top"] = ["Progressive Red Cave:3"]
+
+        if self.options.randomize_color_puzzle:
+            self.proxy_rules["GO Color Puzzle"] = ["Defeat Servants", "Defeat Watcher", "Defeat Manager"]
+        else:
+            self.proxy_rules["GO Color Puzzle"] = []
+
+        if self.options.postgame_mode != PostgameMode.option_progressive:
+            self.proxy_rules["Progressive Swap:1"] = ["Swap"]
+
+            if self.options.postgame_mode == PostgameMode.option_vanilla:
+                self.proxy_rules["Progressive Swap:2"] = ["Swap", "Defeat Briar"]
+            elif self.options.postgame_mode == PostgameMode.option_unlocked:
+                self.proxy_rules["Progressive Swap:2"] = ["Swap"]
+
+        for cls in gatereq_classes:
+            self.create_gate_proxy_rule(cls)
+
+        if self.options.fields_secret_paths.value:
+            self.proxy_rules["SwapOrSecret"] = []
+        else:
+            self.proxy_rules["SwapOrSecret"] = ["Progressive Swap:2"]
+
+        if self.options.nexus_gate_shuffle or \
+                any(region in self.gates_unlocked for region in Regions.post_temple_boss_regions):
+            # There is one keyblock in Temple of the Seeing One that has conditional logic based on whether it is
+            # possible for the player to access the exit of the dungeon early.
+            self.proxy_rules["Temple Boss Access"] = ["Small Key (Temple of the Seeing One):3"]
+        else:
+            self.proxy_rules["Temple Boss Access"] = ["Small Key (Temple of the Seeing One):2"]
+
+        victory_condition: VictoryCondition = self.options.victory_condition
+        requirements: list[str] = []
+
+        if victory_condition == VictoryCondition.option_defeat_briar:
+            requirements.append("Defeat Briar")
+        elif victory_condition == VictoryCondition.option_final_gate:
+            requirements.append("Open final gate")
+
+        self.multiworld.completion_condition[self.player] = Constants.get_access_rule(requirements, "Event", self)
+
+        self.test_gate_requirements()
+
+    def test_gate_requirements(self):
+        state = CollectionState(self.multiworld)
+        #This function runs before start_inventory gets put in precollected, so need to put them there ourselves
+        for item, amount in self.options.start_inventory:
+            for _ in range(amount):
+                state.collect(self.create_item(item), True)
+        state.sweep_for_advancements(self.multiworld.get_locations(self.player))
+
+        #Counter to keep track of how much extra progression items we've placed
+        placed_progression = 0
+
+        def finished():
+            return self.multiworld.has_beaten_game(state, self.player) and (
+                    self.options.accessibility.value == Accessibility.option_minimal or
+                    all(loc.can_reach(state) for loc in self.multiworld.get_locations(self.player))
+            )
+
+        def sort_key(req:AnodyneWorld.LogicRequirement):
+            # Reverse order for sorting lexicographically
+            return (
+                req.is_big_key_locked(), # Will only ever be true if big keys are fixed events
+                req.needed_bosses(),
+                req.unlockable_by_num_items(state),
+                req.needed_cards(),
+                req.name # Name to ensure unique and consistent sort order across seeds
+            )
+
+        while not finished():
+            max_placeable = len(self.multiworld.get_placeable_locations(state, self.player)) - placed_progression
+
+            #Sorting on location and entrance name to have consistent sorting
+            requirements = self.get_blocking_rules(state)
+            requirements.sort(key=sort_key)
+            to_fulfill = requirements[0]
+
+            if to_fulfill.is_unlockable_by_items() and to_fulfill.unlockable_by_num_items(state) <= max_placeable:
+                placed_progression += to_fulfill.unlockable_by_num_items(state)
+                to_fulfill.collect(state)
+            else:
+                gate_locked = [r for r in requirements if
+                               r.is_gate_locked() and r.unlockable_by_num_items(state) - r.remaining_cards(
+                                   state) <= max_placeable]
+                if len(gate_locked) == 0:
+                    logging.error("No gate to adjust and ran out of locations to put progression!")
+                    return
+                gate_to_unlock = gate_locked[0]
+                lower_cards_by = max(0, gate_to_unlock.unlockable_by_num_items(state) - max_placeable)
+                max_cards = gate_to_unlock.remaining_cards(state) - lower_cards_by
+                max_bosses = state.count_from_list(Constants.groups["Bosses"], self.player)
+                for cls in gate_to_unlock.gates:
+                    if cls.typeoption(self.options) == GateType.BOSSES:
+                        logging.warning(
+                            f"Player {self.player_name} requested impossible gate. Adjusting {cls.typename()} down to {max_bosses} Bosses")
+                        cls.bossoption(self.options).value = max_bosses
+                    elif cls.typeoption(self.options) == GateType.CARDS:
+                        opt = cls.cardoption(self.options)
+                        if opt.value > max_cards:
+                            logging.warning(
+                                f"Player {self.player_name} requested impossible gate. Adjusting {cls.typename()} down to {max_cards} Cards")
+                        opt.value = min(opt.value, max_cards)
+                    else:
+                        logging.warning(f"Player {self.player} requested self-locking big key gate. Opening up {cls.typename()}")
+                        cls.typeoption(self.options).value = GateType.UNLOCKED
+                    self.create_gate_proxy_rule(cls)  #Actually change the rule
+
+                gate_to_unlock.collect(state)
+                state.stale[self.player] = True
+
+            state.sweep_for_advancements(self.multiworld.get_locations(self.player))
+
+    class LogicRequirement:
+        def __init__(self, reqs: Iterable[str], world: "AnodyneWorld", name: str):
+            self.requirements: Dict[str, int] = defaultdict(int)
+            self.gates: Set[Type[GateRequirements]] = set()
+            self.world = world
+            self.name = name
+            for item in reqs:
+                if item in Options.gate_lookup:
+                    self.gates.add(Options.gate_lookup[item])
+                    continue
+                count = 1
+                if ':' in item:
+                    item, count = item.split(':')
+                    count = int(count)
+                if self.requirements[item] < count:
+                    self.requirements[item] = count
+
+        def is_event_locked(self):
+            return any(req in Events.all_events for req in self.requirements)
+
+        def is_gate_locked(self):
+            return len(self.gates) > 0
+
+        def is_big_key_locked(self):
+            return any(cls.typeoption(self.world.options) in [GateType.BLUE,GateType.RED,GateType.GREEN] for cls in self.gates)
+
+        def is_unlockable_by_items(self):
+            return not self.is_event_locked() and all(
+                cls.typeoption(self.world.options) != GateType.BOSSES for cls in self.gates)
+
+        def needed_bosses(self):
+            return max([0, *[cls.bossoption(self.world.options) for cls in self.gates if
+                             cls.typeoption(self.world.options) == GateType.BOSSES]])
+
+        def needed_cards(self):
+            return max([0, *[cls.cardoption(self.world.options) for cls in self.gates if
+                             cls.typeoption(self.world.options) == GateType.CARDS]])
+
+        def remaining_cards(self, state: CollectionState):
+            return max(0, self.needed_cards() - state.count_group("Cards", self.world.player))
+
+        def _unlock_dict(self, state: CollectionState):
+            ret: Dict[str, int] = {}
+            for item, amount in self.requirements.items():
+                ret[item] = max(0, amount - state.count(item, self.world.player))
+            for card in itertools.islice((c for c in Items.cards if not state.has(c, self.world.player)),
+                                         self.remaining_cards(state)):
+                ret[card] = 1
+            return ret
+
+        def unlockable_by_num_items(self, state: CollectionState):
+            return sum(self._unlock_dict(state).values())
+
+        def collect(self, state: CollectionState):
+            for item in itertools.chain.from_iterable(itertools.repeat(i, n) for i, n in self._unlock_dict(state).items()):
+                state.collect(self.world.create_item(item), True)
+
+    def get_blocking_rules(self, state: CollectionState):
+        blocked_rules: List[Tuple[AccessRule, str]] = [(loc.access_rule, loc.name) for region in
+                                                       state.reachable_regions[self.player] for loc in
+                                                       region.locations if not loc.access_rule(state)]
+        # All our rules are of type AccessRule
+        # noinspection PyTypeChecker
+        blocked_rules.extend((e.access_rule, e.name) for e in state.blocked_connections[self.player])
+
+        gate_types = [GateType.CARDS,GateType.BOSSES]
+        if self.options.big_key_shuffle == BigKeyShuffle.option_vanilla:
+            gate_types.extend([GateType.BLUE,GateType.RED,GateType.GREEN])
+
+        def reqs(r: str) -> Iterable[str]:
+            if r in self.proxy_rules and not (
+                    r in Options.gate_lookup and Options.gate_lookup[r].typeoption(self.options) in gate_types):
+                return itertools.chain(*[reqs(sub_r) for sub_r in self.proxy_rules[r]])
+            elif not Constants.check_access(state, self, r, "blocking_check"):
+                if r in Constants.groups:
+                    #If it's a group, return any of them(mostly used for the Combat group)
+                    return [Constants.groups[r][0]]
+                else:
+                    return [r]
+            return []
+
+        requirements = [
+            AnodyneWorld.LogicRequirement(itertools.chain.from_iterable(reqs(r) for r in rule.reqs), self, name) for
+            (rule, name) in blocked_rules]
+
+        return [r for r in requirements if not r.is_event_locked()]
+
     def get_filler_item_name(self) -> str:
         return self.random.choice(Items.non_secret_filler_items)
 
@@ -594,13 +768,13 @@ class AnodyneWorld(World):
                 dungeon_location_names.remove("Street - Broom Chest")
 
             dungeon_locations = [location for location in self.multiworld.get_locations(self.player)
-                                 if location.name in dungeon_location_names]
+                                 if location.name in dungeon_location_names and location.item is None]
 
             for attempts_remaining in range(2, -1, -1):
                 self.random.shuffle(dungeon_locations)
                 try:
                     fill_restrictive(self.multiworld, collection_state, dungeon_locations, [*confined_dungeon_items],
-                                     single_player_placement=True, lock=True, allow_excluded=True)
+                                     single_player_placement=True, lock=True)
                     break
                 except FillError as exc:
                     if attempts_remaining == 0:
@@ -626,9 +800,9 @@ class AnodyneWorld(World):
                 next(l for l in Locations.all_locations if l.dust).name] if self.options.dustsanity else "Disabled",
             "seed": self.random.randint(0, 1000000),
             "card_amount": self.options.card_amount + self.options.extra_cards,
-            "shop_items": self.get_shop_items(),        
+            "shop_items": self.get_shop_items(),
             "mitra_hints": self.get_mitra_hints(0 if self.options.mitra_hints != MitraHints.option_none else 8 + 1),
-            **{c.typename():c.shorthand(self.options) for c in gatereq_classes}
+            **{c.typename(): c.shorthand(self.options) for c in gatereq_classes}
         }
 
     @dataclass
@@ -668,7 +842,6 @@ class AnodyneWorld(World):
             hints.append(AnodyneWorld.ItemHint(item.code, location.address, location.player))
 
         return hints
-
 
     # for the universal tracker, doesn't get called in standard gen
     @staticmethod

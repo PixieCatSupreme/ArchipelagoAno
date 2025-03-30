@@ -2,7 +2,7 @@ import sys
 import typing
 from dataclasses import dataclass
 from enum import Enum, IntEnum
-from typing import Type, List
+from typing import Type, List, Dict
 
 from Options import (Choice, DeathLink, PerGameCommonOptions, StartInventoryPool, Toggle, Range, OptionSet, TextChoice,
                      DefaultOnToggle, NamedRange)
@@ -273,6 +273,7 @@ class GateRequirements:
 
 
 gatereq_classes: List[Type[GateRequirements]] = []
+gate_lookup: Dict[str,Type[GateRequirements]] = dict()
 
 
 def gate_req(gate_type: GateType, cards: int = 1):
@@ -287,6 +288,7 @@ def gate_req(gate_type: GateType, cards: int = 1):
         globals()[cls.GateCardReq.__name__] = cls.GateCardReq
         globals()[cls.GateBossReq.__name__] = cls.GateBossReq
         gatereq_classes.append(cls)
+        gate_lookup[cls.typename()] = cls
         return cls
 
     return decorator

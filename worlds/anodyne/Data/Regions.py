@@ -137,6 +137,12 @@ endgame_nexus_gates = [
     "Happy",
 ]
 
+wrong_big_key_early_locked_nexus_gates = [
+    "Apartment floor 1",
+    "Bedroom exit",
+    "Suburb"
+]
+
 postgame_regions = [
     "Bedroom drawer",
     "Blank windmill",

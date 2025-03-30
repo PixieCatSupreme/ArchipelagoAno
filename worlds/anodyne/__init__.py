@@ -649,8 +649,8 @@ class AnodyneWorld(World):
             self.world = world
             self.name = name
             for item in reqs:
-                if item in Options.gate_lookup:
-                    self.gates.add(Options.gate_lookup[item])
+                if item in gate_lookup:
+                    self.gates.add(gate_lookup[item])
                     continue
                 count = 1
                 if ':' in item:
@@ -713,7 +713,7 @@ class AnodyneWorld(World):
 
         def reqs(r: str) -> Iterable[str]:
             if r in self.proxy_rules and not (
-                    r in Options.gate_lookup and Options.gate_lookup[r].typeoption(self.options) in gate_types):
+                    r in gate_lookup and gate_lookup[r].typeoption(self.options) in gate_types):
                 return itertools.chain(*[reqs(sub_r) for sub_r in self.proxy_rules[r]])
             elif not Constants.check_access(state, self, r, "blocking_check"):
                 if r in Constants.groups:

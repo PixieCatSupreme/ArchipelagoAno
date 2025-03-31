@@ -134,6 +134,7 @@ class AnodyneWorld(World):
 
         if self.options.small_key_mode == SmallKeyMode.option_key_rings and self.options.small_key_shuffle == SmallKeyShuffle.option_vanilla:
             self.options.small_key_shuffle.value = SmallKeyShuffle.option_original_dungeon
+            self.options.small_key_mode.value = SmallKeyMode.option_small_keys
             logging.warning(
                 f"Player {self.player_name} requested vanilla small keys with key rings on, changing to small key original dungeon")
 

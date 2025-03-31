@@ -599,17 +599,21 @@ class AnodyneWorld(World):
                 req.name # Name to ensure unique and consistent sort order across seeds
             )
 
+        gate_max_cards:Dict[Type[GateRequirements],int] = defaultdict(lambda:49)
+
         while not finished():
             max_placeable = len(self.multiworld.get_placeable_locations(state, self.player)) - placed_progression
 
             #Sorting on location and entrance name to have consistent sorting
             requirements = self.get_blocking_rules(state)
+            for gate in (gate for r in requirements for gate in r.gates if r.is_gate_locked()):
+                gate_max_cards[gate] = min(gate_max_cards[gate], max_placeable + state.count_group("Cards", self.player))
+
             requirements.sort(key=sort_key)
             to_fulfill = requirements[0]
 
             if to_fulfill.is_unlockable_by_items() and to_fulfill.unlockable_by_num_items(state) <= max_placeable:
-                placed_progression += to_fulfill.unlockable_by_num_items(state)
-                to_fulfill.collect(state)
+                print(max_placeable,len(requirements),to_fulfill.unlockable_by_num_items(state),to_fulfill._unlock_dict(state))
             else:
                 gate_locked = [r for r in requirements if
                                r.is_gate_locked() and r.unlockable_by_num_items(state) - r.remaining_cards(
@@ -617,11 +621,13 @@ class AnodyneWorld(World):
                 if len(gate_locked) == 0:
                     logging.error("No gate to adjust and ran out of locations to put progression!")
                     return
-                gate_to_unlock = gate_locked[0]
-                lower_cards_by = max(0, gate_to_unlock.unlockable_by_num_items(state) - max_placeable)
-                max_cards = gate_to_unlock.remaining_cards(state) - lower_cards_by
+                to_fulfill = gate_locked[0]
+                print(max_placeable, len(requirements), to_fulfill.gates)
+
+            if to_fulfill.gates:
+                max_cards = min(gate_max_cards[gate] for gate in to_fulfill.gates)
                 max_bosses = state.count_from_list(Constants.groups["Bosses"], self.player)
-                for cls in gate_to_unlock.gates:
+                for cls in to_fulfill.gates:
                     if cls.typeoption(self.options) == GateType.BOSSES:
                         logging.warning(
                             f"Player {self.player_name} requested impossible gate. Adjusting {cls.typename()} down to {max_bosses} Bosses")
@@ -636,11 +642,22 @@ class AnodyneWorld(World):
                         logging.warning(f"Player {self.player} requested self-locking big key gate. Opening up {cls.typename()}")
                         cls.typeoption(self.options).value = GateType.UNLOCKED
                     self.create_gate_proxy_rule(cls)  #Actually change the rule
+                    state.stale[self.player] = True
 
-                gate_to_unlock.collect(state)
-                state.stale[self.player] = True
+            placed_progression += to_fulfill.unlockable_by_num_items(state)
+            to_fulfill.collect(state)
+
 
             state.sweep_for_advancements(self.multiworld.get_locations(self.player))
+
+        #Best-effort gate adjusting
+        for gate,max_cards in gate_max_cards.items():
+            if gate.typeoption(self.options) == GateType.CARDS:
+                if gate.cardoption(self.options) > max_cards:
+                    logging.warning(
+                        f"Player {self.player_name} requested impossible gate. Adjusting {gate.typename()} down to {max_cards} Cards")
+                    gate.cardoption(self.options).value = max_cards
+                    self.create_gate_proxy_rule(gate)
 
     class LogicRequirement:
         def __init__(self, reqs: Iterable[str], world: "AnodyneWorld", name: str):

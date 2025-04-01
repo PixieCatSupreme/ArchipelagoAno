@@ -587,10 +587,7 @@ class AnodyneWorld(World):
         placed_progression = 0
 
         def finished():
-            return self.multiworld.has_beaten_game(state, self.player) and (
-                    self.options.accessibility.value == Accessibility.option_minimal or
-                    all(loc.can_reach(state) for loc in self.multiworld.get_locations(self.player))
-            )
+            return self.multiworld.has_beaten_game(state, self.player) and all(loc.can_reach(state) for loc in self.multiworld.get_locations(self.player))
 
         def sort_key(req:AnodyneWorld.LogicRequirement):
             # Reverse order for sorting lexicographically
@@ -628,7 +625,11 @@ class AnodyneWorld(World):
                 print(max_placeable, len(requirements), to_fulfill.gates)
 
             if to_fulfill.gates:
-                max_cards = min(gate_max_cards[gate] for gate in to_fulfill.gates)
+                max_cards = (max_placeable - to_fulfill.unlockable_by_num_items(state) +
+                             to_fulfill.remaining_cards(state) + state.count_group("Cards",self.player))
+                if self.options.accessibility == Accessibility.option_minimal:
+                    #Minimal can get itself very easily stuck behind card gates
+                    max_cards = min(gate_max_cards[gate] for gate in to_fulfill.gates)
                 max_bosses = state.count_from_list(Constants.groups["Bosses"], self.player)
                 for cls in to_fulfill.gates:
                     if cls.typeoption(self.options) == GateType.BOSSES:
@@ -652,15 +653,6 @@ class AnodyneWorld(World):
 
 
             state.sweep_for_advancements(self.multiworld.get_locations(self.player))
-
-        #Best-effort gate adjusting
-        for gate,max_cards in gate_max_cards.items():
-            if gate.typeoption(self.options) == GateType.CARDS:
-                if gate.cardoption(self.options) > max_cards:
-                    logging.warning(
-                        f"Player {self.player_name} requested impossible gate. Adjusting {gate.typename()} down to {max_cards} Cards")
-                    gate.cardoption(self.options).value = max_cards
-                    self.create_gate_proxy_rule(gate)
 
     class LogicRequirement:
         def __init__(self, reqs: Iterable[str], world: "AnodyneWorld", name: str):

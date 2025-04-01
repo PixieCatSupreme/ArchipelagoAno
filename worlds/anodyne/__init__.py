@@ -440,11 +440,10 @@ class AnodyneWorld(World):
                 Exits.all_exits if not self.options.fields_secret_paths.value else Exits.all_exits + Exits.secret_path_connections):
             exit1: str = exit_vals[0]
             exit2: str = exit_vals[1]
-
-            if not include_postgame and (exit1 in postgame_regions or exit2 in postgame_regions):
-                continue
-
             requirements: list[str] = exit_vals[2]
+
+            if not include_postgame and (exit1 in postgame_regions or exit2 in postgame_regions or "Progressive Swap:2" in requirements):
+                continue
 
             r1 = all_regions[exit1]
             r2 = all_regions[exit2]
@@ -544,6 +543,8 @@ class AnodyneWorld(World):
                 self.proxy_rules["Progressive Swap:2"] = ["Swap", "Defeat Briar"]
             elif self.options.postgame_mode == PostgameMode.option_unlocked:
                 self.proxy_rules["Progressive Swap:2"] = ["Swap"]
+            else:
+                self.proxy_rules["Progressive Swap:2"] = ["Impossible"] #Shouldn't ever be asked for, but gives nice errors if it does
 
         for cls in gatereq_classes:
             self.create_gate_proxy_rule(cls)

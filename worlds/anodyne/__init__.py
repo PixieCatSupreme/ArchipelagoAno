@@ -790,16 +790,24 @@ class AnodyneWorld(World):
             dungeon_locations = [location for location in self.multiworld.get_locations(self.player)
                                  if location.name in dungeon_location_names and location.item is None]
 
-            for attempts_remaining in range(2, -1, -1):
+            for attempts_remaining in range(6, -1, -1):
                 self.random.shuffle(dungeon_locations)
+                items = confined_dungeon_items.copy()
+                locations = dungeon_locations.copy()
                 try:
-                    fill_restrictive(self.multiworld, collection_state, dungeon_locations, [*confined_dungeon_items],
+                    fill_restrictive(self.multiworld, collection_state, locations, items,
                                      single_player_placement=True, lock=True)
-                    break
+                    if len(items) == 0:
+                        break
                 except FillError as exc:
                     if attempts_remaining == 0:
                         raise exc
                     logging.debug(f"Failed to shuffle dungeon items for player {self.player}. Retrying...")
+                #Reset locations fill_restrictive tried setting but failed to complete
+                for loc in dungeon_locations:
+                    if loc.locked and loc.item is not None:
+                        loc.locked = False
+                        loc.item = None
             confined_dungeon_items.clear()
 
     def fill_slot_data(self):

@@ -830,7 +830,7 @@ class AnodyneWorld(World):
             "seed": self.random.randint(0, 1000000),
             "card_amount": self.options.card_amount + self.options.extra_cards,
             "shop_items": self.get_shop_items(),
-            "mitra_hints": self.get_mitra_hints(0 if self.options.mitra_hints != MitraHints.option_none else 8 + 1),
+            "mitra_hints": self.get_mitra_hints(0 if self.options.mitra_hints == MitraHints.option_none else 8 + 1),
             **{c.typename(): c.shorthand(self.options) for c in gatereq_classes}
         }
 
@@ -858,11 +858,12 @@ class AnodyneWorld(World):
             return [AnodyneWorld.ShopItem(item.player, item.code) for item in items]
 
     def get_mitra_hints(self, count: int) -> List[ItemHint]:
-        items = self.random.sample(
-            [item for item in self.multiworld.itempool if
+        possible_items =[item for item in self.multiworld.itempool if
              item.classification == ItemClassification.progression
-             and item.player == self.player],
-            count)
+             and item.player == self.player and item.location is not None]
+        items = self.random.sample(
+            possible_items,
+            min(count,len(possible_items)))
 
         hints: List[AnodyneWorld.ItemHint] = []
 

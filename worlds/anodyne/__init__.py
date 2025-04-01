@@ -555,7 +555,8 @@ class AnodyneWorld(World):
             self.proxy_rules["SwapOrSecret"] = ["Progressive Swap:2"]
 
         if self.options.nexus_gate_shuffle or \
-                any(region in self.gates_unlocked for region in Regions.post_temple_boss_regions):
+                any(region in self.gates_unlocked for region in Regions.post_temple_boss_regions) and \
+                self.options.small_key_shuffle != SmallKeyShuffle.option_vanilla:
             # There is one keyblock in Temple of the Seeing One that has conditional logic based on whether it is
             # possible for the player to access the exit of the dungeon early.
             self.proxy_rules["Temple Boss Access"] = ["Small Key (Temple of the Seeing One):3"]

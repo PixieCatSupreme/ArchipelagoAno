@@ -800,6 +800,7 @@ class AnodyneWorld(World):
                     if attempts_remaining == 0:
                         raise exc
                     logging.debug(f"Failed to shuffle dungeon items for player {self.player}. Retrying...")
+            confined_dungeon_items.clear()
 
     def fill_slot_data(self):
         return {

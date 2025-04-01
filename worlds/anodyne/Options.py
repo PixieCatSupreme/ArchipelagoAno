@@ -170,7 +170,7 @@ class CustomNexusGatesOpen(OptionSet):
     Note that the Street Nexus Gate will always be open.
     """
     display_name = "Custom Open Nexus Gates"
-    valid_keys = Regions.regions_with_nexus_gate
+    valid_keys = set(Regions.regions_with_nexus_gate) - {"Happy","Blue"}
 
 
 class VictoryCondition(Choice):

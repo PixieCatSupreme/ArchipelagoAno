@@ -613,16 +613,15 @@ class AnodyneWorld(World):
             to_fulfill = requirements[0]
 
             if to_fulfill.is_unlockable_by_items() and to_fulfill.unlockable_by_num_items(state) <= max_placeable:
-                print(max_placeable,len(requirements),to_fulfill.unlockable_by_num_items(state),to_fulfill._unlock_dict(state))
+                logging.debug(len(requirements),to_fulfill.unlockable_by_num_items(state),to_fulfill._unlock_dict(state))
             else:
-                gate_locked = [r for r in requirements if
+                unlockable_gates = [r for r in requirements if
                                r.is_gate_locked() and r.unlockable_by_num_items(state) - r.remaining_cards(
                                    state) <= max_placeable]
-                if len(gate_locked) == 0:
+                if len(unlockable_gates) == 0:
                     logging.error("No gate to adjust and ran out of locations to put progression!")
                     return
-                to_fulfill = gate_locked[0]
-                print(max_placeable, len(requirements), to_fulfill.gates)
+                to_fulfill = unlockable_gates[0]
 
             if to_fulfill.gates:
                 max_cards = (max_placeable - to_fulfill.unlockable_by_num_items(state) +
@@ -821,8 +820,8 @@ class AnodyneWorld(World):
                 next(l for l in Locations.all_locations if l.dust).name] if self.options.dustsanity else "Disabled",
             "seed": self.random.randint(0, 1000000),
             "card_amount": self.options.card_amount + self.options.extra_cards,
-            "shop_items": self.get_shop_items(),
-            "mitra_hints": self.get_mitra_hints(0 if self.options.mitra_hints == MitraHints.option_none else 8 + 1),
+            #"shop_items": self.get_shop_items(),
+            #"mitra_hints": self.get_mitra_hints(0 if self.options.mitra_hints == MitraHints.option_none else 8 + 1),
             **{c.typename(): c.shorthand(self.options) for c in gatereq_classes}
         }
 

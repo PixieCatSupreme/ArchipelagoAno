@@ -469,6 +469,6 @@ class AnodyneGameOptions(PerGameCommonOptions):
     traps_percentage: TrapPercentage
     card_amount: CardAmount
     extra_cards: ExtraCardAmount
-    mitra_hints: MitraHints
+    #mitra_hints: MitraHints
     death_link: DeathLink
     start_inventory_from_pool: StartInventoryPool

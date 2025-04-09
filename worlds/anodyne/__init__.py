@@ -613,7 +613,8 @@ class AnodyneWorld(World):
             to_fulfill = requirements[0]
 
             if to_fulfill.is_unlockable_by_items() and to_fulfill.unlockable_by_num_items(state) <= max_placeable:
-                logging.debug(len(requirements),to_fulfill.unlockable_by_num_items(state),to_fulfill._unlock_dict(state))
+                logging.debug(f"{len(requirements)},{to_fulfill.unlockable_by_num_items(state)},"
+                              f"{to_fulfill._unlock_dict(state)}")
             else:
                 unlockable_gates = [r for r in requirements if
                                r.is_gate_locked() and r.unlockable_by_num_items(state) - r.remaining_cards(

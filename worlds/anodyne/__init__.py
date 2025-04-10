@@ -805,9 +805,12 @@ class AnodyneWorld(World):
     def fill_slot_data(self):
         return {
             "death_link": bool(self.options.death_link.value),
+            "small_keys": self.options.small_key_mode.current_key if self.options.small_key_mode != SmallKeyMode.option_small_keys else ("vanilla" if self.options.small_key_shuffle == SmallKeyShuffle.option_vanilla else "shuffled"),
+            # Mostly useless slots given that small_keys encapsulates all three as far as clients/trackers are concerned, but here for backwards compat
             "unlock_gates": self.options.small_key_mode == SmallKeyMode.option_unlocked,
             "small_key_mode": int(self.options.small_key_mode),
             "shuffle_small_keys": int(self.options.small_key_shuffle),
+
             "shuffle_big_gates": int(self.options.big_key_shuffle),
             "vanilla_health_cicadas": self.options.health_cicada_shuffle == HealthCicadaShuffle.option_vanilla,
             "nexus_gates_unlocked": self.gates_unlocked,
@@ -817,6 +820,7 @@ class AnodyneWorld(World):
             "nexus_gate_shuffle": int(self.options.nexus_gate_shuffle),
             "victory_condition": int(self.options.victory_condition),
             "forest_bunny_chest": bool(self.options.forest_bunny_chest.value),
+            "dustsanity": bool(self.options.dustsanity),
             "dust_sanity_base": self.location_name_to_id[
                 next(l for l in Locations.all_locations if l.dust).name] if self.options.dustsanity else "Disabled",
             "seed": self.random.randint(0, 1000000),

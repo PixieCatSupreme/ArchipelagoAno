@@ -62,6 +62,7 @@ all_regions = [
     "Space Gauntlet",
     "Street",
     "Terminal",
+    "Terminal top",
     "Windmill entrance",
     "Windmill",
     "Boss Rush"

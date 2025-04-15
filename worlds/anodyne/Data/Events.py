@@ -21,8 +21,8 @@ events_by_region = {
     "Apartment floor 3": {
         "Defeat Watcher": ["Combat", "Small Key (Apartment):4"],
     },
-    "Terminal": {
-        "Defeat Sage": ["Combat", EndgameRequirement.typename()],
+    "Terminal top": {
+        "Defeat Sage": ["Combat", "Jump Shoes"],
     },
     "Go top": {
         "Defeat Briar": ["Jump Shoes", "Combat"],

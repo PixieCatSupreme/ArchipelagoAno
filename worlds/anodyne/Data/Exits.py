@@ -87,8 +87,10 @@ all_exits = [
     ["Windmill entrance", "Fields", [WindmillEntranceGate.typename()]],
     ["Windmill entrance", "Windmill", [WindmillMiddleGate.typename(),WindmillTopGate.typename()]],
     ["Windmill", "Windmill entrance", [WindmillMiddleGate.typename(),WindmillTopGate.typename()]],
-    ["Go bottom", "Terminal", [EndgameRequirement.typename()]],
-    ["Terminal", "Go bottom", [EndgameRequirement.typename()]],
+    ["Terminal top", "Terminal", [EndgameRequirement.typename(), "Defeat Sage"]],
+    ["Terminal", "Terminal top", [EndgameRequirement.typename()]],
+    ["Terminal top", "Go bottom", ["Defeat Sage"]],
+    ["Go bottom", "Terminal top", []],
     # Reverse isn't possible without cheats because of the blocks
     ["Go bottom", "Go top", ["Progressive Swap:1", "GO Color Puzzle"]],
     # Requires beating Blue, which requires Jump Shoes and Combat.

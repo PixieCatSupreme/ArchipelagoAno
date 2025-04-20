@@ -124,7 +124,7 @@ all_locations: List[LocationData] = [
     # 9D6FDA36-0CC6-BACC-3844-AEFB6C5C6290
     LocationData("Hotel - 2F Crevice Left Chest", "Hotel floor 2", ["Jump Shoes"], small_key=True),
     LocationData("Hotel - Boss Chest", "Hotel floor 1", ["Defeat Manager"]),
-    LocationData("Hotel - Roof Chest", "Hotel roof", ["Progressive Swap:2"]),
+    LocationData("Hotel - Roof Chest", "Hotel roof", ["Combat", "Progressive Swap:2"]),
     LocationData("Nexus - Isolated Chest", "Nexus top", ["Progressive Swap:2"]),
     LocationData("Overworld - Near Gate Chest", "Overworld"),
     LocationData("Overworld - After Temple Chest", "Overworld post windmill", ["Combat"]),

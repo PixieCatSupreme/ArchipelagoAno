@@ -46,6 +46,7 @@ all_regions = [
     "Nexus bottom",
     "Nexus top",
     "Overworld",
+    "Overworld west",
     "Overworld Gauntlet",
     "Overworld post windmill",
     "Red Cave top",

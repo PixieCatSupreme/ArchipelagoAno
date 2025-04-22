@@ -71,9 +71,11 @@ all_exits = [
     ["Cliff post windmill", "Cliff", []],
     # Technically this entrance works from floor 2, but only if you've used *this* entrance before, which is
     # logically the same as only this entrance existing.
-    ["Crowd floor 3", "Crowd floor 1", ["Small Key (Mountain Cavern):3"]],
-    ["Crowd floor 3", "Crowd floor 2", []],
-    ["Crowd floor 2", "Crowd floor 3", ["Combat", "Jump Shoes", "Small Key (Mountain Cavern):2"]],
+    ["Crowd floor 3", "Crowd floor 1", []],
+    ["Crowd floor 2", "Crowd floor 2 gauntlets", ["Combat", "Jump Shoes"]],
+    #Need to get through floor 2 gauntlets to activate gate on top of needing a key, and a second key is needed to get anywhere in floor 3
+    ["Crowd floor 2 gauntlets", "Crowd floor 3", ["Small Key (Mountain Cavern):3"]],
+    ["Crowd floor 3", "Crowd floor 3 center", ["Small Key (Mountain Cavern):4"]],
     # Return to entrance
     ["Crowd floor 1", "Crowd floor 2", []],
     ["Debug", "Nexus top", []],
@@ -87,7 +89,6 @@ all_exits = [
     ["Fields", "Forest", ["Combat"]],
     ["Forest", "Fields", []],
     ["Fields", "Fields Lake", ["Combat", "Jump Shoes"]],
-    ["Fields Lake", "Fields", []],
     ["Fields", "Fields Past Gate", [FieldsGate.typename()]],
     ["Fields Past Gate", "Fields", [FieldsGate.typename()]],
     ["Terminal", "Fields Past Gate", ["Jump Shoes"]],
@@ -106,6 +107,7 @@ all_exits = [
     ["Go bottom", "Go top", ["Progressive Swap:1", "GO Color Puzzle"]],
     # Requires beating Blue, which requires Jump Shoes and Combat.
     ["Go top", "Happy", ["Jump Shoes", "Combat"]],
+    ["Happy", "Happy gauntlet", ["Jump Shoes", "Combat"]],
     # You can clip through the happy blocker.
     ["Happy", "Go top", []],
     ["Hotel roof", "Space", []],
@@ -113,7 +115,8 @@ all_exits = [
     ["Space", "Space Gauntlet", ["Progressive Swap:2", "Combat", "Jump Shoes"]],
     ["Space Gauntlet", "Space", ["Progressive Swap:2"]],
     ["Hotel roof", "Hotel floor 4", ["Jump Shoes"]],
-    ["Hotel floor 4", "Hotel roof", ["Jump Shoes"]],
+    #return to entrance
+    ["Hotel floor 4", "Hotel roof", []],
     ["Hotel floor 4", "Hotel floor 3", ["Combat", "Jump Shoes", "Small Key (Hotel):1"]],
     ["Hotel floor 3", "Hotel floor 4", ["Combat", "Jump Shoes"]],
     ["Hotel floor 3", "Hotel floor 2", ["Small Key (Hotel):4"]],
@@ -145,6 +148,7 @@ all_exits = [
     ["Red Cave top", "Red Cave exit", ["Defeat Rogue"]],
     # Return to entrance
     ["Red Cave exit", "Red Cave top", []],
+    ["Cell", "Red Cave top",[]],
     # Hidden path
     ["Red Cave Isaac", "Red Sea", []],
     ["Red Sea", "Red Cave Isaac", []],

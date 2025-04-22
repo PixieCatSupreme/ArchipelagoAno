@@ -18,11 +18,15 @@ all_exits = [
     ["Beach", "Red Sea", ["Combat"]],
     ["Red Sea", "Beach", []],
     ["Beach", "Beach Gauntlet", ["Combat",BeachGauntletGate.typename()]],
-    ["Bedroom", "Overworld", []],
-    ["Overworld", "Bedroom", []],
-    ["Bedroom", "Bedroom exit", ["Combat", "Temple Boss Access"]],
-    # You can always use return to entrance to get to the start from the exit
-    ["Bedroom exit", "Bedroom", []],
+    ["Bedroom entrance", "Overworld", []],
+    ["Overworld", "Bedroom entrance", []],
+    ["Bedroom entrance", "Bedroom core", ["Combat"]], #pick up dust
+    ["Bedroom core", "Bedroom entrance", ["Combat"]],
+    ["Bedroom core", "Bedroom exit", ["Temple Boss Access"]],
+    ["Bedroom core", "Bedroom shieldy room", ["Small Key (Temple of the Seeing One):3"]],
+    ["Bedroom exit", "Bedroom after statue", ["Temple of the Seeing One Statue", "Combat"]],
+    ["Bedroom exit", "Bedroom entrance", []], #return to entrance
+    ["Overworld post windmill", "Bedroom entrance", []], #return to entrance
     ["Bedroom exit", "Overworld post windmill", ["Temple of the Seeing One Statue", "Small Key (Temple of the Seeing One):3",
                                                  "Combat"]],
     ["Overworld post windmill", "Bedroom exit", ["Temple of the Seeing One Statue", "Small Key (Temple of the Seeing One):3",

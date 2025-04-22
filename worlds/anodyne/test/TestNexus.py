@@ -10,7 +10,7 @@ class TestCustomNexusGates1(AnodyneTestBase):
     def test_requirement(self):
         self.assertFalse(self.can_reach_region("Apartment floor 1"))
         self.assertTrue(self.can_reach_region("Beach"))
-        self.assertFalse(self.can_reach_region("Bedroom"))
+        self.assertFalse(self.can_reach_region("Bedroom entrance"))
         self.assertFalse(self.can_reach_region("Blue"))
         self.assertFalse(self.can_reach_region("Cell"))
         self.assertFalse(self.can_reach_region("Circus"))
@@ -34,7 +34,7 @@ class TestCustomNexusGates2(AnodyneTestBase):
     def test_requirement(self):
         self.assertFalse(self.can_reach_region("Apartment floor 1"))
         self.assertFalse(self.can_reach_region("Beach"))
-        self.assertFalse(self.can_reach_region("Bedroom"))
+        self.assertFalse(self.can_reach_region("Bedroom entrance"))
         self.assertFalse(self.can_reach_region("Blue"))
         self.assertFalse(self.can_reach_region("Cell"))
         self.assertFalse(self.can_reach_region("Circus"))
@@ -57,7 +57,7 @@ class TestCustomNexusGates3(AnodyneTestBase):
     def test_requirement(self):
         self.assertFalse(self.can_reach_region("Apartment floor 1"))
         self.assertTrue(self.can_reach_region("Beach"))
-        self.assertTrue(self.can_reach_region("Bedroom"))  # through the front, because of Street
+        self.assertTrue(self.can_reach_region("Bedroom entrance"))  # through the front, because of Street
         self.assertFalse(self.can_reach_region("Blue"))
         self.assertTrue(self.can_reach_region("Cell"))
         self.assertTrue(self.can_reach_region("Circus"))

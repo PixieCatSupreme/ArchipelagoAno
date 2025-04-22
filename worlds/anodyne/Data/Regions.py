@@ -7,7 +7,10 @@ all_regions = [
     "Apartment floor 3",
     "Beach",
     "Beach Gauntlet",
-    "Bedroom",
+    "Bedroom entrance",
+    "Bedroom core",
+    "Bedroom shieldy room",
+    "Bedroom after statue",
     "Bedroom drawer",
     "Bedroom exit",
     "Blank start",
@@ -74,7 +77,11 @@ all_regions = [
 ]
 
 dungeon_areas = {
-    "Temple of the Seeing One": ["Bedroom", "Bedroom exit"],
+    "Temple of the Seeing One": ["Bedroom entrance",
+                                 "Bedroom core",
+                                 "Bedroom shieldy room",
+                                 "Bedroom after statue",
+                                 "Bedroom exit"],
     "Red Cave": ["Red Cave top",
                  "Red Cave left",
                  "Red Cave center",

@@ -54,6 +54,8 @@ class AnodyneWorld(World):
     options: AnodyneGameOptions
     topology_present = False  # show path to required location checks in spoiler
 
+    ut_can_gen_without_yaml = True
+
     data_version = 1
 
     item_name_to_id = Constants.item_name_to_id

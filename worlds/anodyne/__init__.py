@@ -1,3 +1,4 @@
+import dataclasses
 import itertools
 import logging
 import typing
@@ -831,8 +832,9 @@ class AnodyneWorld(World):
             "seed": self.random.randint(0, 1000000),
             "card_amount": self.options.card_amount + self.options.extra_cards,
             "fields_secret_paths": bool(self.options.fields_secret_paths),
-            #"shop_items": self.get_shop_items(),
-            #"mitra_hints": self.get_mitra_hints(0 if self.options.mitra_hints == MitraHints.option_none else 8 + 1),
+            "shop_items": [dataclasses.asdict(item) for item in self.get_shop_items()],
+            "mitra_hints": [dataclasses.asdict(hint) for hint in self.get_mitra_hints(0 if self.options.mitra_hints == MitraHints.option_none else 8 + 1)],
+            "mitra_hint_type": int(self.options.mitra_hints),
             **{c.typename(): c.shorthand(self.options) for c in gatereq_classes}
         }
 

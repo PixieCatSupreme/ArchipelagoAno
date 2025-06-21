@@ -87,7 +87,7 @@ all_locations: List[LocationData] = [
     # Cleaning up his cave
     LocationData("Fields - Goldman's Cave Chest", "Fields Goldman's Cave", ["Combat"]),
     LocationData("Fields - Blocked River Chest", "Fields", ["Progressive Swap:2", "Jump Shoes"]),
-    LocationData("Fields - Cardboard Box", "Fields"),
+    LocationData("Fields - Cardboard Box", "Fields", ["Miao"]),
     LocationData("Fields - Shopkeeper Trade", "Fields", ["Cardboard Box"]),
     LocationData("Fields - Mitra Trade", "Fields", ["Biking Shoes"]),
     # Hidden path

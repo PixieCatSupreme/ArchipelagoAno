@@ -57,7 +57,7 @@ class AnodyneWorld(World):
 
     ut_can_gen_without_yaml = True
 
-    data_version = 1
+    version = "0.3.0"
 
     item_name_to_id = Constants.item_name_to_id
     location_name_to_id = Constants.location_name_to_id
@@ -766,7 +766,7 @@ class AnodyneWorld(World):
             if len(confined_dungeon_items) == 0:
                 continue
 
-            collection_state = self.multiworld.get_all_state(False)
+            collection_state = self.multiworld.get_all_state(False, collect_pre_fill_items=False)
             for other_dungeon, other_dungeon_items in self.dungeon_items.items():
                 if other_dungeon == dungeon:
                     continue
@@ -808,6 +808,9 @@ class AnodyneWorld(World):
                         loc.item = None
             confined_dungeon_items.clear()
 
+    def get_pre_fill_items(self) -> List["Item"]:
+        return [item for dungeon_items in self.dungeon_items.values() for item in dungeon_items]
+
     def fill_slot_data(self):
         return {
             "death_link": bool(self.options.death_link.value),
@@ -835,6 +838,7 @@ class AnodyneWorld(World):
             "shop_items": [dataclasses.asdict(item) for item in self.get_shop_items()],
             "mitra_hints": [dataclasses.asdict(hint) for hint in self.get_mitra_hints(0 if self.options.mitra_hints == MitraHints.option_none else 8 + 1)],
             "mitra_hint_type": int(self.options.mitra_hints),
+            "version": self.version,
             **{c.typename(): c.shorthand(self.options) for c in gatereq_classes}
         }
 

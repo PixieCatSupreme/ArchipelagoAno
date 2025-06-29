@@ -831,6 +831,7 @@ class AnodyneWorld(World):
             "seed": self.random.randint(0, 1000000),
             "card_amount": self.options.card_amount + self.options.extra_cards,
             "fields_secret_paths": bool(self.options.fields_secret_paths),
+            "randomize_color_puzzle": bool(self.options.randomize_color_puzzle),
             #"shop_items": self.get_shop_items(),
             #"mitra_hints": self.get_mitra_hints(0 if self.options.mitra_hints == MitraHints.option_none else 8 + 1),
             **{c.typename(): c.shorthand(self.options) for c in gatereq_classes}

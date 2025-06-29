@@ -836,6 +836,7 @@ class AnodyneWorld(World):
             "card_amount": self.options.card_amount + self.options.extra_cards,
             "fields_secret_paths": bool(self.options.fields_secret_paths),
             "shop_items": [dataclasses.asdict(item) for item in self.get_shop_items()],
+            "randomize_color_puzzle": bool(self.options.randomize_color_puzzle),
             "mitra_hints": [dataclasses.asdict(hint) for hint in self.get_mitra_hints(0 if self.options.mitra_hints == MitraHints.option_none else 8 + 1)],
             "mitra_hint_type": int(self.options.mitra_hints),
             "version": self.version,

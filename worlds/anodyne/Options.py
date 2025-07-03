@@ -437,7 +437,7 @@ class MitraHints(Choice):
     Sets how Mitra's hints work. She gives one free hint and then gives additional hints after defeating bosses.
     [None] Mitra does not give any hints.
     [Vague] Mitra only tells you the location of a progression item, but not what it is.
-    [Precise] Mitra tells you the exact location of one of your progression items. This will be sent out as a hint.
+    [Precise] Mitra tells you the exact location of one of your progression items.
     [Precise Hint] Same as Precise, but will be sent out as a hint (if it's at a local location).
     """
     display_name = "Mitra Hint Mode"

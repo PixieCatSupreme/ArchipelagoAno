@@ -766,13 +766,18 @@ class AnodyneWorld(World):
             if len(confined_dungeon_items) == 0:
                 continue
 
-            collection_state = self.multiworld.get_all_state(False, collect_pre_fill_items=False)
+            collection_state = CollectionState(self.multiworld,True)
+            for item in [*[i for i in self.multiworld.itempool if i.player == self.player]]:
+                collection_state.collect(item,True)
+
             for other_dungeon, other_dungeon_items in self.dungeon_items.items():
                 if other_dungeon == dungeon:
                     continue
 
                 for other_dungeon_item in other_dungeon_items:
-                    collection_state.collect(other_dungeon_item)
+                    collection_state.collect(other_dungeon_item,True)
+
+            collection_state.sweep_for_advancements(self.get_locations())
 
             dungeon_location_names = [location.name
                                       for region_name in Regions.dungeon_areas[dungeon]

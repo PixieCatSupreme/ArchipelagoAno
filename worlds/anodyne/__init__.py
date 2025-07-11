@@ -57,7 +57,7 @@ class AnodyneWorld(World):
 
     ut_can_gen_without_yaml = True
 
-    version = "0.3.0"
+    version = "0.3.1"
 
     item_name_to_id = Constants.item_name_to_id
     location_name_to_id = Constants.location_name_to_id

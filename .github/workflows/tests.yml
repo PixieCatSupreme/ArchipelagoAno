@@ -1,0 +1,17 @@
+name: Test APWorld
+on:
+  push:
+    branches: [anodyne]
+  pull_request:
+    branches: [anodyne]
+
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Eijebong/ap-actions/ap-tests@main
+        with:
+          apworld-path: worlds/anodyne
+          ap-version: '0.6.1'
+          python-version: '3.12'

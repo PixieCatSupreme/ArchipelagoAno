@@ -199,6 +199,8 @@ all_locations: List[LocationData] = [
     LocationData("Space - Warp Pad", "Space", nexus_gate=True),
     LocationData("Terminal - Warp Pad", "Terminal", nexus_gate=True),
     LocationData("Windmill - Warp Pad", "Windmill entrance", nexus_gate=True),
+    LocationData("Blue - Completion Reward", "Blue"),
+    LocationData("Happy - Completion Reward", "Happy gauntlet"),
     # Dust locations
     LocationData("Apartment - 1F Shortcut Room Dust 1", "Apartment floor 1", ["Jump Shoes"], dust=True),
     LocationData("Apartment - 2F Switch Pillar Rat Maze Dust", "Apartment floor 2", ["Jump Shoes", "Small Key (Apartment):3"], dust=True),

@@ -107,6 +107,15 @@ class SplitWindmill(Toggle):
     display_name = "Split Windmill"
 
 
+class IncludeBlueAndHappy(Toggle):
+    """
+    Select how Blue and Happy activation works
+    [Off] Blue and Happy behave like in vanilla. You need to complete the gauntlets and activate the fountains to fight Briar.
+    [On] The Blue and Happy fountains become items that both need to be found to fight Briar. Both gauntlets have random items at the end.
+    """
+    display_name = "Include Blue and Happy"
+
+
 class StartBroom(Choice):
     """Select which broom to start with."""
     display_name = "Starting Broom"
@@ -472,5 +481,6 @@ class AnodyneGameOptions(PerGameCommonOptions):
     card_amount: CardAmount
     extra_cards: ExtraCardAmount
     mitra_hints: MitraHints
+    include_blue_happy: IncludeBlueAndHappy
     death_link: DeathLink
     start_inventory_from_pool: StartInventoryPool

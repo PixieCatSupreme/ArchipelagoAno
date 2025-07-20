@@ -164,6 +164,12 @@ trap_items = [
     "Gas Trap"
 ]
 
+
+fountains = [
+    "Blue Fountain",
+    "Happy Fountain"
+]
+
 # This array must maintain a consistent order because the IDs are generated from it.
 all_items = [
     "Broom",
@@ -188,7 +194,8 @@ all_items = [
     *nexus_gate_items.keys(),
     *trap_items,
     *key_rings,
-    "Miao"
+    "Miao",
+    *fountains
 ]
 
 progression_items = [
@@ -207,7 +214,8 @@ progression_items = [
     "Progressive Swap",
     *nexus_gate_items.keys(),
     *key_rings,
-    "Miao"
+    "Miao",
+    *fountains
 ]
 
 useful_items = [
@@ -233,4 +241,5 @@ item_groups = {
     "Big Keys": big_keys,
     "Statues": statue_items,
     "Brooms": brooms,
+    "Fountains": fountains
 }

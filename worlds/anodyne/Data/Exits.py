@@ -114,7 +114,7 @@ all_exits = [
     # Reverse isn't possible without cheats because of the blocks
     ["Go bottom", "Go top", ["Progressive Swap:1", "GO Color Puzzle"]],
     # Requires beating Blue, which requires Jump Shoes and Combat.
-    ["Go top", "Happy", ["Jump Shoes", "Combat"]],
+    ["Go top", "Happy", ["Happy Open"]],
     ["Happy", "Happy gauntlet", ["Jump Shoes", "Combat"]],
     # You can clip through the happy blocker.
     ["Happy", "Go top", []],
@@ -123,7 +123,7 @@ all_exits = [
     ["Space", "Space Gauntlet", ["Progressive Swap:2", "Combat", "Jump Shoes"]],
     ["Space Gauntlet", "Space", ["Progressive Swap:2"]],
     ["Hotel roof", "Hotel floor 4", ["Jump Shoes"]],
-    #return to entrance
+    # Return to entrance
     ["Hotel floor 4", "Hotel roof", []],
     ["Hotel floor 4", "Hotel floor 3", ["Combat", "Jump Shoes", "Small Key (Hotel):1"]],
     ["Hotel floor 3", "Hotel floor 4", ["Combat", "Jump Shoes"]],

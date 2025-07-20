@@ -298,6 +298,9 @@ class AnodyneWorld(World):
         if not self.options.split_windmill:
             excluded_items.update(Items.statue_items)
 
+        if not self.options.include_blue_happy:
+            excluded_items.update(Items.fountains)
+
         if self.options.postgame_mode == PostgameMode.option_disabled:
             excluded_items.update(Items.postgame_cards)
 
@@ -387,6 +390,7 @@ class AnodyneWorld(World):
         include_big_keys = self.options.big_key_shuffle
         include_postgame: bool = (self.options.postgame_mode != PostgameMode.option_disabled)
         dustsanity: bool = bool(self.options.dustsanity.value)
+        include_blue_happy: bool = bool(self.options.include_blue_happy.value)
 
         postgame_regions = Regions.postgame_regions if self.options.fields_secret_paths.value else Regions.postgame_regions + Regions.postgame_without_secret_paths
 
@@ -419,6 +423,10 @@ class AnodyneWorld(World):
                     if not self.options.forest_bunny_chest and location.name == "Deep Forest - Bunny Chest":
                         continue
 
+                    if not self.options.include_blue_happy and (location.name == "Blue - Completion Reward"
+                                                                or location.name == "Happy - Completion Reward"):
+                        continue
+
                     if self.options.victory_condition == VictoryCondition.option_defeat_briar \
                             and location.name == "GO - Defeat Briar":
                         continue
@@ -448,7 +456,8 @@ class AnodyneWorld(World):
             exit2: str = exit_vals[1]
             requirements: list[str] = exit_vals[2]
 
-            if not include_postgame and (exit1 in postgame_regions or exit2 in postgame_regions or "Progressive Swap:2" in requirements):
+            if not include_postgame and (
+                    exit1 in postgame_regions or exit2 in postgame_regions or "Progressive Swap:2" in requirements):
                 continue
 
             r1 = all_regions[exit1]
@@ -477,6 +486,7 @@ class AnodyneWorld(World):
                     continue
 
                 requirements: list[str] = Events.events_by_region[region_name][event_name]
+
                 self.create_event(all_regions[region_name], event_name, Constants.get_access_rule(requirements,
                                                                                                   region_name, self))
 
@@ -542,6 +552,15 @@ class AnodyneWorld(World):
         else:
             self.proxy_rules["GO Color Puzzle"] = []
 
+        if self.options.include_blue_happy:
+            self.proxy_rules["Complete Blue"] = ["Blue Fountain"]
+            self.proxy_rules["Complete Happy"] = ["Happy Fountain"]
+            self.proxy_rules["Happy Open"] = []
+        else:
+            self.proxy_rules["Complete Blue"] = ["Blue Completion"]
+            self.proxy_rules["Complete Happy"] = ["Happy Completion"]
+            self.proxy_rules["Happy Open"] = ["Blue Completion"]
+
         if self.options.postgame_mode != PostgameMode.option_progressive:
             self.proxy_rules["Progressive Swap:1"] = ["Swap"]
 
@@ -550,7 +569,8 @@ class AnodyneWorld(World):
             elif self.options.postgame_mode == PostgameMode.option_unlocked:
                 self.proxy_rules["Progressive Swap:2"] = ["Swap"]
             else:
-                self.proxy_rules["Progressive Swap:2"] = ["Impossible"] #Shouldn't ever be asked for, but gives nice errors if it does
+                self.proxy_rules["Progressive Swap:2"] = [
+                    "Impossible"]  #Shouldn't ever be asked for, but gives nice errors if it does
 
         for cls in gatereq_classes:
             self.create_gate_proxy_rule(cls)
@@ -593,19 +613,20 @@ class AnodyneWorld(World):
         placed_progression = 0
 
         def finished():
-            return self.multiworld.has_beaten_game(state, self.player) and all(loc.can_reach(state) for loc in self.multiworld.get_locations(self.player))
+            return self.multiworld.has_beaten_game(state, self.player) and all(
+                loc.can_reach(state) for loc in self.multiworld.get_locations(self.player))
 
-        def sort_key(req:AnodyneWorld.LogicRequirement):
+        def sort_key(req: AnodyneWorld.LogicRequirement):
             # Reverse order for sorting lexicographically
             return (
-                req.is_big_key_locked(), # Will only ever be true if big keys are fixed events
+                req.is_big_key_locked(),  # Will only ever be true if big keys are fixed events
                 req.needed_bosses(),
                 req.unlockable_by_num_items(state),
                 req.needed_cards(),
-                req.name # Name to ensure unique and consistent sort order across seeds
+                req.name  # Name to ensure unique and consistent sort order across seeds
             )
 
-        gate_max_cards:Dict[Type[GateRequirements],int] = defaultdict(lambda:49)
+        gate_max_cards: Dict[Type[GateRequirements], int] = defaultdict(lambda: 49)
 
         while not finished():
             max_placeable = len(self.multiworld.get_placeable_locations(state, self.player)) - placed_progression
@@ -613,7 +634,8 @@ class AnodyneWorld(World):
             #Sorting on location and entrance name to have consistent sorting
             requirements = self.get_blocking_rules(state)
             for gate in (gate for r in requirements for gate in r.gates if r.is_gate_locked()):
-                gate_max_cards[gate] = min(gate_max_cards[gate], max_placeable + state.count_group("Cards", self.player))
+                gate_max_cards[gate] = min(gate_max_cards[gate],
+                                           max_placeable + state.count_group("Cards", self.player))
 
             requirements.sort(key=sort_key)
             to_fulfill = requirements[0]
@@ -623,8 +645,8 @@ class AnodyneWorld(World):
                               f"{to_fulfill._unlock_dict(state)}")
             else:
                 unlockable_gates = [r for r in requirements if
-                               r.is_gate_locked() and r.unlockable_by_num_items(state) - r.remaining_cards(
-                                   state) <= max_placeable]
+                                    r.is_gate_locked() and r.unlockable_by_num_items(state) - r.remaining_cards(
+                                        state) <= max_placeable]
                 if len(unlockable_gates) == 0:
                     logging.error("No gate to adjust and ran out of locations to put progression!")
                     return
@@ -632,7 +654,7 @@ class AnodyneWorld(World):
 
             if to_fulfill.gates:
                 max_cards = (max_placeable - to_fulfill.unlockable_by_num_items(state) +
-                             to_fulfill.remaining_cards(state) + state.count_group("Cards",self.player))
+                             to_fulfill.remaining_cards(state) + state.count_group("Cards", self.player))
                 if self.options.accessibility == Accessibility.option_minimal:
                     #Minimal can get itself very easily stuck behind card gates
                     max_cards = min(gate_max_cards[gate] for gate in to_fulfill.gates)
@@ -649,14 +671,14 @@ class AnodyneWorld(World):
                                 f"Player {self.player_name} requested impossible gate. Adjusting {cls.typename()} down to {max_cards} Cards")
                         opt.value = min(opt.value, max_cards)
                     else:
-                        logging.warning(f"Player {self.player} requested self-locking big key gate. Opening up {cls.typename()}")
+                        logging.warning(
+                            f"Player {self.player} requested self-locking big key gate. Opening up {cls.typename()}")
                         cls.typeoption(self.options).value = GateType.UNLOCKED
                     self.create_gate_proxy_rule(cls)  #Actually change the rule
                     state.stale[self.player] = True
 
             placed_progression += to_fulfill.unlockable_by_num_items(state)
             to_fulfill.collect(state)
-
 
             state.sweep_for_advancements(self.multiworld.get_locations(self.player))
 
@@ -684,7 +706,8 @@ class AnodyneWorld(World):
             return len(self.gates) > 0
 
         def is_big_key_locked(self):
-            return any(cls.typeoption(self.world.options) in [GateType.BLUE,GateType.RED,GateType.GREEN] for cls in self.gates)
+            return any(cls.typeoption(self.world.options) in [GateType.BLUE, GateType.RED, GateType.GREEN] for cls in
+                       self.gates)
 
         def is_unlockable_by_items(self):
             return not self.is_event_locked() and all(
@@ -714,7 +737,8 @@ class AnodyneWorld(World):
             return sum(self._unlock_dict(state).values())
 
         def collect(self, state: CollectionState):
-            for item in itertools.chain.from_iterable(itertools.repeat(i, n) for i, n in self._unlock_dict(state).items()):
+            for item in itertools.chain.from_iterable(
+                    itertools.repeat(i, n) for i, n in self._unlock_dict(state).items()):
                 state.collect(self.world.create_item(item), True)
 
     def get_blocking_rules(self, state: CollectionState):
@@ -725,9 +749,9 @@ class AnodyneWorld(World):
         # noinspection PyTypeChecker
         blocked_rules.extend((e.access_rule, e.name) for e in state.blocked_connections[self.player])
 
-        gate_types = [GateType.CARDS,GateType.BOSSES]
+        gate_types = [GateType.CARDS, GateType.BOSSES]
         if self.options.big_key_shuffle == BigKeyShuffle.option_vanilla:
-            gate_types.extend([GateType.BLUE,GateType.RED,GateType.GREEN])
+            gate_types.extend([GateType.BLUE, GateType.RED, GateType.GREEN])
 
         def reqs(r: str) -> Iterable[str]:
             if r in self.proxy_rules and not (
@@ -767,9 +791,10 @@ class AnodyneWorld(World):
                 continue
 
             current_items = confined_dungeon_items.copy()
-            confined_dungeon_items.clear() #Prevent the current items from being picked up by all state
+            confined_dungeon_items.clear()  #Prevent the current items from being picked up by all state
 
-            collection_state = self.multiworld.get_all_state(False,True) #This will pick up all unplaced dungeon items as well
+            collection_state = self.multiworld.get_all_state(False,
+                                                             True)  #This will pick up all unplaced dungeon items as well
 
             confined_dungeon_items.extend(current_items)
             del current_items
@@ -814,7 +839,8 @@ class AnodyneWorld(World):
     def fill_slot_data(self):
         return {
             "death_link": bool(self.options.death_link.value),
-            "small_keys": self.options.small_key_mode.current_key if self.options.small_key_mode != SmallKeyMode.option_small_keys else ("vanilla" if self.options.small_key_shuffle == SmallKeyShuffle.option_vanilla else "shuffled"),
+            "small_keys": self.options.small_key_mode.current_key if self.options.small_key_mode != SmallKeyMode.option_small_keys else (
+                "vanilla" if self.options.small_key_shuffle == SmallKeyShuffle.option_vanilla else "shuffled"),
             # Mostly useless slots given that small_keys encapsulates all three as far as clients/trackers are concerned, but here for backwards compat
             "unlock_gates": self.options.small_key_mode == SmallKeyMode.option_unlocked,
             "small_key_mode": int(self.options.small_key_mode),
@@ -837,8 +863,10 @@ class AnodyneWorld(World):
             "fields_secret_paths": bool(self.options.fields_secret_paths),
             "shop_items": [dataclasses.asdict(item) for item in self.get_shop_items()],
             "randomize_color_puzzle": bool(self.options.randomize_color_puzzle),
-            "mitra_hints": [dataclasses.asdict(hint) for hint in self.get_mitra_hints(0 if self.options.mitra_hints == MitraHints.option_none else 8 + 1)],
+            "mitra_hints": [dataclasses.asdict(hint) for hint in
+                            self.get_mitra_hints(0 if self.options.mitra_hints == MitraHints.option_none else 8 + 1)],
             "mitra_hint_type": int(self.options.mitra_hints),
+            "include_blue_happy": bool(self.options.include_blue_happy),
             "version": self.version,
             **{c.typename(): c.shorthand(self.options) for c in gatereq_classes}
         }
@@ -867,12 +895,12 @@ class AnodyneWorld(World):
             return [AnodyneWorld.ShopItem(item.player, item.code) for item in items]
 
     def get_mitra_hints(self, count: int) -> List[ItemHint]:
-        possible_items =[item for item in self.multiworld.itempool if
-             item.classification == ItemClassification.progression
-             and item.player == self.player and item.location is not None]
+        possible_items = [item for item in self.multiworld.itempool if
+                          item.classification == ItemClassification.progression
+                          and item.player == self.player and item.location is not None]
         items = self.random.sample(
             possible_items,
-            min(count,len(possible_items)))
+            min(count, len(possible_items)))
 
         hints: List[AnodyneWorld.ItemHint] = []
 

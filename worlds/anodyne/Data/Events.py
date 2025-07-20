@@ -25,7 +25,13 @@ events_by_region = {
         "Defeat Sage": ["Combat", "Jump Shoes"],
     },
     "Go top": {
-        "Defeat Briar": ["Jump Shoes", "Combat"],
+        "Defeat Briar": ["Combat", "Complete Blue", "Complete Happy"],
+    },
+    "Blue": {
+        "Blue Completion": ["Combat", "Jump Shoes"],
+    },
+    "Happy gauntlet": {
+        "Happy Completion": [],
     },
     "Nexus top": {
         "Open final gate": [PostgameEnd.typename()],

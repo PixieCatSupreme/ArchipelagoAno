@@ -357,7 +357,9 @@ all_locations: List[LocationData] = [
     LocationData("Boss Rush - Red Boss Dust 3", "Boss Rush", dust=True),
     LocationData("Boss Rush - Red Boss Dust 4", "Boss Rush", dust=True),
     LocationData("Boss Rush - Manager Phase 1 Dust", "Boss Rush", dust=True),
-    LocationData("Boss Rush - Manager Phase 2 Dust", "Boss Rush", dust=True)
+    LocationData("Boss Rush - Manager Phase 2 Dust", "Boss Rush", dust=True),
+    LocationData("Blue - Completion Reward", "Blue"),
+    LocationData("Happy - Completion Reward", "Happy gauntlet")
 ]
 
 locations_by_name: Dict[str, LocationData] = {location.name: location for location in all_locations}

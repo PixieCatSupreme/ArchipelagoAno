@@ -64,6 +64,8 @@ class AnodyneWorld(World):
     item_name_groups = Items.item_groups
     location_name_groups = Locations.location_groups
 
+    origin_region_name = str(Regions.Nexus.bottom)
+
     gates_unlocked: List[str]
     location_count: int
     dungeon_items: Dict[str, List[Item]]
@@ -396,7 +398,8 @@ class AnodyneWorld(World):
 
         all_regions: Dict[str, Region] = {}
 
-        for region_name in Regions.all_regions:
+        for region in (m for area in Regions.all_areas for m in area):
+            region_name = str(region)
             if not include_postgame and region_name in postgame_regions:
                 continue
 

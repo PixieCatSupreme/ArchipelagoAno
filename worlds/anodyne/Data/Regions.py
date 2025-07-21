@@ -22,9 +22,12 @@ class RegionEnum(str,Enum):
     def _generate_next_value_(name, start, count, last_values):
         return "" if name == "DEFAULT" else name.replace('_',' ')
 
-    def __str__(self):
+    def area_name(self):
         name = self.__class__.__name__.replace('_',' ')
-        return area_name_trans.setdefault(name,name)+(' ' + self.value).rstrip()
+        return area_name_trans.setdefault(name,name)
+
+    def __str__(self):
+        return self.area_name()+(' ' + self.value).rstrip()
 
 class Apartment(RegionEnum):
     floor_1 = auto()

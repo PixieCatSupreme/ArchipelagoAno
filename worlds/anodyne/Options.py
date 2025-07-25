@@ -1,12 +1,11 @@
-import sys
 import typing
 from dataclasses import dataclass
-from enum import Enum, IntEnum
+from enum import IntEnum
 from typing import Type, List, Dict
 
-from Options import (Choice, DeathLink, PerGameCommonOptions, StartInventoryPool, Toggle, Range, OptionSet, TextChoice,
+from Options import (Choice, DeathLink, PerGameCommonOptions, StartInventoryPool, Toggle, Range, OptionSet,
                      DefaultOnToggle, NamedRange)
-from .Data import Regions
+from .Data import Locations
 
 
 class SmallKeyMode(Choice):
@@ -168,7 +167,7 @@ class RandomNexusGateOpenCount(Range):
     """
     display_name = "Random Open Nexus Gates Count"
     range_start = 1
-    range_end = len(Regions.regions_with_nexus_gate)
+    range_end = len(Locations.nexus_pad_locations)
     default = 4
 
 
@@ -179,7 +178,7 @@ class CustomNexusGatesOpen(OptionSet):
     Note that the Street Nexus Gate will always be open.
     """
     display_name = "Custom Open Nexus Gates"
-    valid_keys = set(Regions.regions_with_nexus_gate) - {"Happy","Blue"}
+    valid_keys = set(location.region.area_name() for location in Locations.nexus_pad_locations)
 
 
 class VictoryCondition(Choice):

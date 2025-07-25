@@ -1,7 +1,6 @@
 from enum import Enum, auto
 from typing import NamedTuple, List, Dict
 
-from ..Options import CellGate, SuburbGate
 from .Regions import Apartment, Beach, Bedroom, Blank, Cell, Circus, Debug, Boss_Rush, Street, Space, Red_Cave, Drawer, \
     Cliff, Crowd, Fields, Terminal, Forest, Happy, Red_Sea, Overworld, Blue, Go, Hotel, Nexus, Suburb, Windmill, \
     RegionEnum, postgame_regions, postgame_without_secret_paths
@@ -201,13 +200,13 @@ all_locations: List[LocationData] = [
     LocationData(Beach.gauntlet, "Beach - Health Cicada", [], type=LocationType.Cicada),
     LocationData(Bedroom.exit, "Temple of the Seeing One - Health Cicada", ["Defeat Seer"], type=LocationType.Cicada),
     # Has to be frame 4
-    LocationData(Cell.DEFAULT, "Cell - Health Cicada", [CellGate.typename(), "Jump Shoes"], type=LocationType.Cicada),
+    LocationData(Cell.past_gate, "Cell - Health Cicada", ["Jump Shoes"], type=LocationType.Cicada),
     LocationData(Circus.boss_gauntlet, "Circus - Health Cicada", ["Defeat Servants"], type=LocationType.Cicada),
     LocationData(Crowd.floor_1, "Mountain Cavern - Health Cicada", ["Defeat The Wall"], type=LocationType.Cicada),
     LocationData(Hotel.floor_1, "Hotel - Health Cicada", ["Defeat Manager"], type=LocationType.Cicada),
     LocationData(Overworld.Gauntlet, "Overworld - Health Cicada", [], type=LocationType.Cicada),
     LocationData(Red_Cave.top, "Red Cave - Health Cicada", ["Defeat Rogue"], type=LocationType.Cicada),
-    LocationData(Suburb.DEFAULT, "Young Town - Health Cicada", [SuburbGate.typename()], type=LocationType.Cicada),
+    LocationData(Suburb.past_gate, "Young Town - Health Cicada", [], type=LocationType.Cicada),
     LocationData(Bedroom.exit, "Temple of the Seeing One - Green Key", [], type=LocationType.BigKey),
     LocationData(Red_Cave.exit, "Red Cave - Red Key", [], type=LocationType.BigKey),
     LocationData(Crowd.exit, "Mountain Cavern - Blue Key", [], type=LocationType.BigKey),

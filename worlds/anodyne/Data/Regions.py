@@ -80,6 +80,7 @@ class Boss_Rush(RegionEnum):
 
 class Cell(RegionEnum):
     DEFAULT = auto()
+    past_gate = auto()
 
 class Cliff(RegionEnum):
     DEFAULT = auto()
@@ -151,6 +152,7 @@ class Street(RegionEnum):
 class Suburb(RegionEnum):
     DEFAULT = auto()
     card_house = auto()
+    past_gate = auto()
 
 class Terminal(RegionEnum):
     DEFAULT = auto()

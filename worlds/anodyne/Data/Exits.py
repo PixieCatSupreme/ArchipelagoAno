@@ -1,7 +1,8 @@
 from typing import TypeAlias
 
 from ..Options import BeachGauntletGate, OverworldGauntletGate, PostgameBlank, OverworldFieldsGate, \
-    WindmillEntranceGate, WindmillMiddleGate, WindmillTopGate, PostgameEnd, FieldsGate, EndgameRequirement
+    WindmillEntranceGate, WindmillMiddleGate, WindmillTopGate, PostgameEnd, FieldsGate, EndgameRequirement, CellGate, \
+    SuburbGate
 
 from .Regions import Apartment, Beach, Bedroom, Blank, Cell, Circus, Debug, Boss_Rush, Street, Space, Red_Cave, Drawer, \
     Cliff, Crowd, Fields, Terminal, Forest, Happy, Red_Sea, Overworld, Blue, Go, Hotel, Nexus, Suburb, Windmill, \
@@ -52,6 +53,7 @@ all_exits:list[Connection] = [
     (Drawer.dark, Blank.windmill, [PostgameBlank.typename()]),
     (Blue.DEFAULT, Go.top, []),
     (Go.top, Blue.DEFAULT, []),
+    (Cell.DEFAULT, Cell.past_gate, [CellGate.typename()]),
     (Cell.DEFAULT, Circus.DEFAULT, []),
     (Circus.DEFAULT, Cell.DEFAULT, []),
     (Circus.DEFAULT, Circus.entrance_lake, ["Combat"]),  #Pick up dust
@@ -148,6 +150,7 @@ all_exits:list[Connection] = [
     (Blank.ending, Nexus.top, [PostgameEnd.typename()]),
     (Overworld.post_windmill, Suburb.DEFAULT, []),
     (Suburb.DEFAULT, Overworld.post_windmill, []),
+    (Suburb.DEFAULT, Suburb.past_gate, [SuburbGate.typename()]),
     (Overworld.post_windmill, Overworld.DEFAULT, []),
     (Red_Cave.center, Red_Sea.DEFAULT, []),
     (Red_Sea.DEFAULT, Red_Cave.center, []),

@@ -6,7 +6,7 @@ from typing import Type, List, Dict
 from Options import (Choice, DeathLink, PerGameCommonOptions, StartInventoryPool, Toggle, Range, OptionSet,
                      DefaultOnToggle, NamedRange)
 from .Data import Locations
-
+from .Data.Regions import Red_Cave
 
 class SmallKeyMode(Choice):
     """
@@ -85,12 +85,12 @@ class Dustsanity(Toggle):
 
 class RedCaveAccess(Choice):
     """
-    Select how progression through the Red Cave dungeon should be handled.
-    [Progressive] Three Progressive Red Cave items will be added to the pool, and each will open the next section of the dungeon, in the following order: left, right, top.
+    Select how progression through the Red Grotto dungeon should be handled.
+    [Progressive] Three Progressive Red Grotto items will be added to the pool, and each will open the next section of the dungeon, in the following order: left, right, top.
     [Original Dungeon] Same as above, but the progression items will be restricted to the original dungeon.
-    [Vanilla] The Red Cave will open up the same way it does in vanilla. The red tentacles will not be location checks.
+    [Vanilla] The Red Grotto will open up the same way it does in vanilla. The red tentacles will not be location checks.
     """
-    display_name = "Red Cave Access"
+    display_name = f"{Red_Cave.area_name()} Access"
     option_progressive = 0
     option_original_dungeon = 1
     option_vanilla = 2
@@ -465,7 +465,7 @@ class AnodyneGameOptions(PerGameCommonOptions):
     big_key_shuffle: BigKeyShuffle
     fields_secret_paths: FieldsSecretPaths
     dustsanity: Dustsanity
-    red_cave_access: RedCaveAccess
+    red_grotto_access: RedCaveAccess
     split_windmill: SplitWindmill
     start_broom: StartBroom
     nexus_gate_shuffle: NexusGateShuffle

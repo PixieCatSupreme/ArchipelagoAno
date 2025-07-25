@@ -192,6 +192,7 @@ wrong_big_key_early_locked_nexus_gates = [
 
 postgame_regions:list[RegionEnum] = [
     Bedroom.drawer,
+    *Drawer,
     *Blank,
     *Debug,
     *Boss_Rush,

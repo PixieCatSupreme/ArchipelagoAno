@@ -42,10 +42,10 @@ events_by_region:dict[RegionEnum,dict[str,list[str]]] = {
         "Center right tentacle hit": ["Combat"],
     },
     Red_Cave.left: {
-        "Left tentacle hit": ["Combat", "Small Key (Red Cave):6"],
+        "Left tentacle hit": ["Combat", "Small Key (Red Grotto):6"],
     },
     Red_Cave.right: {
-        "Right tentacle hit": ["Combat", "Small Key (Red Cave):6"],
+        "Right tentacle hit": ["Combat", "Small Key (Red Grotto):6"],
     },
     Red_Cave.top: {
         "Defeat Rogue": ["Combat"],

@@ -105,13 +105,13 @@ secret_items_secret_paths = [
     "Electric Monster"
 ]
 
-small_key_count = defaultdict(int)
+small_key_count:defaultdict[type[RegionEnum],int] = defaultdict(int)
 for location in Locations.all_locations:
     if location.type == LocationType.Key:
-        small_key_count[location.region.area_name()] += 1
+        small_key_count[location.region.__class__] += 1
 
 small_key_item_count = {
-    f"Small Key ({name})":value for name,value in small_key_count.items()
+    f"Small Key ({dungeon.area_name()})":value for dungeon,value in small_key_count.items()
 }
 
 big_keys = [
@@ -121,7 +121,7 @@ big_keys = [
 ]
 
 key_rings = [
-    f"Key Ring ({name})" for name in small_key_count.keys()
+    f"Key Ring ({dungeon.area_name()})" for dungeon in small_key_count.keys()
 ]
 
 statue_items = [
@@ -137,6 +137,7 @@ non_secret_filler_items = [
 
 def region_to_nexus_gate(region:RegionEnum):
     return f"Nexus Gate ({region.area_name()})"
+
 
 nexus_gate_items = {
     region_to_nexus_gate(location.region):location.region for location in Locations.nexus_pad_locations

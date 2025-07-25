@@ -22,9 +22,10 @@ class RegionEnum(Enum):
     def _generate_next_value_(name, start, count, last_values):
         return "" if name == "DEFAULT" else name.replace('_',' ')
 
-    def area_name(self):
-        name = self.__class__.__name__.replace('_',' ')
-        return area_name_trans.setdefault(name,name)
+    @classmethod
+    def area_name(cls):
+        name = cls.__name__.replace('_', ' ')
+        return area_name_trans.setdefault(name, name)
 
     def __str__(self):
         return self.area_name()+(' ' + self.value).rstrip()

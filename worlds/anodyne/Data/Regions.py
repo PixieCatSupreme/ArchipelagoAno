@@ -14,7 +14,7 @@ area_name_trans = {
 
 all_areas:list[type['RegionEnum']] = []
 
-class RegionEnum(str,Enum):
+class RegionEnum(Enum):
     def __init_subclass__(cls, **kwargs):
         all_areas.append(cls)
 
@@ -159,93 +159,32 @@ class Windmill(RegionEnum):
     DEFAULT = auto()
     entrance = auto()
 
-dungeon_areas = {
-    "Temple of the Seeing One": ["Bedroom entrance",
-                                 "Bedroom core",
-                                 "Bedroom shieldy room",
-                                 "Bedroom after statue",
-                                 "Bedroom exit"],
-    "Red Cave": ["Red Cave top",
-                 "Red Cave left",
-                 "Red Cave center",
-                 "Red Cave right",
-                 "Red Cave bottom",
-                 "Red Cave exit",
-                 "Red Cave Isaac"],
-    "Mountain Cavern": ["Crowd floor 1",
-                        "Crowd floor 2",
-                        "Crowd floor 2 gauntlets",
-                        "Crowd floor 3",
-                        "Crowd floor 3 center",
-                        "Crowd jump challenge",
-                        "Crowd exit"],
-    "Hotel": ["Hotel roof",
-              "Hotel floor 4",
-              "Hotel floor 3",
-              "Hotel floor 2",
-              "Hotel floor 2 right",
-              "Hotel floor 1"],
-    "Apartment": ["Apartment floor 1",
-                  "Apartment floor 1 top left",
-                  "Apartment floor 2",
-                  "Apartment floor 2 top left",
-                  "Apartment floor 3"],
-    "Circus":  ["Circus",
-                "Circus entrance lake",
-                "Circus entry gauntlets",
-                "Circus past entrance lake",
-                "Circus circlejump gauntlets",
-                "Circus third key gauntlet",
-                "Circus boss gauntlet",
-                "Circus north gauntlet"],
-    "Street": ["Street"],
-}
-
-dungeon_area_to_dungeon = {name: dungeon for dungeon, names in dungeon_areas.items() for name in names}
-
-# The Street nexus gate is open from the start
-regions_with_nexus_gate = [
-    "Apartment floor 1",
-    "Beach",
-    "Bedroom exit",
-    "Blue",
-    "Cell",
-    "Circus",
-    "Cliff",
-    "Crowd exit",
-    "Fields",
-    "Forest",
-    "Go bottom",
-    "Happy",
-    "Hotel floor 4",
-    "Overworld",
-    "Red Cave exit",
-    "Red Sea",
-    "Suburb",
-    "Space",
-    "Terminal",
-    "Windmill entrance",
-]
 
 early_nexus_gates = [
-    "Beach",
-    "Cliff",
-    "Fields",
-    "Forest",
-    "Overworld",
-    "Red Sea"
+    Beach,
+    Cliff,
+    Fields,
+    Forest,
+    Overworld,
+    Red_Sea
 ]
 
 endgame_nexus_gates = [
-    "Blue",
-    "Go bottom",
-    "Happy",
+    Blue,
+    Go,
+    Happy,
+]
+
+post_temple_boss_nexus_gates:list[type[RegionEnum]] = [
+    Bedroom,
+    Suburb,
+    Apartment
 ]
 
 wrong_big_key_early_locked_nexus_gates = [
-    "Apartment floor 1",
-    "Bedroom exit",
-    "Suburb"
+    Apartment,
+    Bedroom,
+    Suburb
 ]
 
 postgame_regions:list[RegionEnum] = [
@@ -261,8 +200,3 @@ postgame_without_secret_paths:list[RegionEnum] = [
     Fields.North_Secret_Area
 ]
 
-post_temple_boss_nexus_gates:list[type[RegionEnum]] = [
-    Bedroom,
-    Suburb,
-    Apartment
-]

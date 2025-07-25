@@ -18,16 +18,16 @@ class LocationType(Enum):
 
 class LocationData(NamedTuple):
     region: RegionEnum
-    _name: str
+    base_name: str
     reqs: List[str] = []
     type:LocationType = LocationType.Regular
     outside_of_dungeon:bool = False
 
     @property
     def name(self):
-        if ' - ' in self._name:
-            return self._name
-        return f"{self.region.area_name()} - {self._name}"
+        if ' - ' in self.base_name:
+            return self.base_name
+        return f"{self.region.area_name()} - {self.base_name}"
 
     @property
     def small_key(self):

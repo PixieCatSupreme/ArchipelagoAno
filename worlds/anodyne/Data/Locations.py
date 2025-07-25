@@ -21,6 +21,7 @@ class LocationData(NamedTuple):
     _name: str
     reqs: List[str] = []
     type:LocationType = LocationType.Regular
+    outside_of_dungeon:bool = False
 
     @property
     def name(self):
@@ -109,7 +110,7 @@ all_locations: List[LocationData] = [
     LocationData(Crowd.floor_2_gauntlets, "Mountain Cavern - 2F Frogs and Dog Chest", type=LocationType.Key),
     LocationData(Crowd.floor_3_center, "Mountain Cavern - 3F Roller Chest", []),
     LocationData(Crowd.exit, "Mountain Cavern - Boss Chest", []),
-    LocationData(Crowd.jump_challenge, "Mountain Cavern - Extend Upgrade Chest", ["Combat", "Jump Shoes"]),
+    LocationData(Crowd.jump_challenge, "Mountain Cavern - Extend Upgrade Chest", ["Combat", "Jump Shoes"], outside_of_dungeon=True),
     # 868736EF-EC8B-74C9-ACAB-B7BC56A44394
     LocationData(Crowd.floor_2_gauntlets, "Mountain Cavern - 2F Frogs and Rotators Chest", type=LocationType.Key),
     LocationData(Debug.DEFAULT, "Debug - River Puzzles Chest", ["Combat", "Jump Shoes"]),
@@ -157,7 +158,7 @@ all_locations: List[LocationData] = [
     # 9D6FDA36-0CC6-BACC-3844-AEFB6C5C6290
     LocationData(Hotel.floor_2, "Hotel - 2F Crevice Left Chest", ["Jump Shoes"], type=LocationType.Key),
     LocationData(Hotel.floor_1, "Hotel - Boss Chest", ["Defeat Manager"]),
-    LocationData(Hotel.roof, "Hotel - Roof Chest", ["Combat", "Progressive Swap:2"]),
+    LocationData(Hotel.roof, "Hotel - Roof Chest", ["Combat", "Progressive Swap:2"], outside_of_dungeon=True),
     LocationData(Nexus.top, "Nexus - Isolated Chest", ["Progressive Swap:2"]),
     LocationData(Overworld.DEFAULT, "Overworld - Near Gate Chest"),
     LocationData(Overworld.post_windmill, "Overworld - After Temple Chest", ["Combat"]),
@@ -176,8 +177,8 @@ all_locations: List[LocationData] = [
     LocationData(Red_Cave.right, "Red Cave - Right Cave Four Shooter Chest", ["Combat"], type=LocationType.Key),
     # CDA1FF45-0F88-4855-B0EC-A9B42376C33F
     LocationData(Red_Cave.left, "Red Cave - Left Cave Sticky Chest", ["Combat"], type=LocationType.Key),
-    LocationData(Red_Cave.bottom, "Red Cave - Widen Upgrade Chest"),
-    LocationData(Red_Cave.Isaac, "Red Cave - Isaac Dungeon Chest", ["Combat"]),
+    LocationData(Red_Cave.bottom, "Red Cave - Widen Upgrade Chest", outside_of_dungeon=True),
+    LocationData(Red_Cave.Isaac, "Red Cave - Isaac Dungeon Chest", ["Combat"], outside_of_dungeon=True),
     LocationData(Red_Sea.DEFAULT, "Red Sea - Lonely Chest"),
     LocationData(Red_Sea.DEFAULT, "Red Sea - Out-of-bounds Chest", ["Progressive Swap:2"]),
     LocationData(Suburb.card_house, "Young Town - Stab Reward Chest"),

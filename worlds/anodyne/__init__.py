@@ -16,7 +16,7 @@ from .Constants import AccessRule
 
 from .Data import Items, Locations, Regions, Exits, Events
 from .Data.Items import big_keys
-from .Data.Regions import RegionEnum, Nexus, Red_Cave
+from .Data.Regions import RegionEnum, Nexus, Red_Cave, Blue, Happy
 from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle, \
     HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode, \
     Dustsanity, GateType, gatereq_classes, CardAmount, EndgameRequirement, GateRequirements, MitraHints, gate_lookup, \
@@ -128,10 +128,10 @@ class AnodyneWorld(World):
         elif nexus_gate_open in [NexusGatesOpen.option_random_count, NexusGatesOpen.option_random_pre_endgame]:
             random_nexus_gate_count = int(self.options.random_nexus_gate_open_count)
 
-            available_gates = [location.region for location in Locations.nexus_pad_locations]
+            available_gates = [location.region.area_name() for location in Locations.nexus_pad_locations]
             if nexus_gate_open == NexusGatesOpen.option_random_pre_endgame:
                 for gate in Regions.endgame_nexus_gates:
-                    available_gates.remove(gate)
+                    available_gates.remove(gate.area_name())
 
             if random_nexus_gate_count > len(available_gates):
                 logging.warning(
@@ -232,12 +232,13 @@ class AnodyneWorld(World):
                     elif small_key_shuffle == SmallKeyShuffle.option_different_world:
                         non_local_item_pool.add(key_item)
         elif small_key_mode == SmallKeyMode.option_key_rings:
-            for key_item in Items.key_rings:
+            for dungeon in Items.small_key_count.keys():
                 placed_items += 1
+                key_item = f"Key Ring ({dungeon.area_name()})"
                 item = self.create_item(key_item)
 
                 if small_key_shuffle == SmallKeyShuffle.option_original_dungeon:
-                    self.dungeon_items.setdefault(key_item[len("Key Ring ("):-1], []).append(item)
+                    self.dungeon_items.setdefault(dungeon, []).append(item)
                 else:
                     item_pool.append(item)
 
@@ -557,8 +558,8 @@ class AnodyneWorld(World):
             self.proxy_rules["GO Color Puzzle"] = []
 
         if self.options.include_blue_happy:
-            self.proxy_rules["Complete Blue"] = ["Blue Fountain"]
-            self.proxy_rules["Complete Happy"] = ["Happy Fountain"]
+            self.proxy_rules["Complete Blue"] = [f"{Blue.area_name()} Fountain"]
+            self.proxy_rules["Complete Happy"] = [f"{Happy.area_name()} Fountain"]
             self.proxy_rules["Happy Open"] = []
         else:
             self.proxy_rules["Complete Blue"] = ["Blue Completion"]

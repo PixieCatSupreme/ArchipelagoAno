@@ -198,3 +198,4 @@ Thumbs.db
 /fuzz_output/
 /fuzz.py
 /run_tests.py
+/hooks/

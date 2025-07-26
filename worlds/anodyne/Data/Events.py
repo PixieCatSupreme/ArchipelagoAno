@@ -1,52 +1,53 @@
-from worlds.anodyne.Options import EndgameRequirement, PostgameEnd
+from worlds.anodyne.Data.Regions import Blank, Bedroom, Crowd, Windmill, Hotel, Circus, Apartment, Terminal, Go, Blue, \
+    Happy, Red_Cave, RegionEnum
 
-events_by_region = {
-    "Bedroom exit": {
+events_by_region:dict[RegionEnum,dict[str,list[str]]] = {
+    Bedroom.exit: {
         "Defeat Seer": ["Combat"],
         "Grab Green Key": []
     },
-    "Crowd floor 1": {
+    Crowd.floor_1: {
         "Defeat The Wall": ["Combat", "Jump Shoes"],
         "Grab Blue Key": ["Defeat The Wall"]
     },
-    "Windmill": {
+    Windmill.DEFAULT: {
         "Windmill activated": [],
     },
-    "Hotel floor 1": {
+    Hotel.floor_1: {
         "Defeat Manager": ["Small Key (Hotel):6", "Combat"],
     },
-    "Circus boss gauntlet": {
+    Circus.boss_gauntlet: {
         "Defeat Servants": ["Combat", "Jump Shoes"],
     },
-    "Apartment floor 3": {
+    Apartment.floor_3: {
         "Defeat Watcher": ["Combat", "Small Key (Apartment):4"],
     },
-    "Terminal top": {
+    Terminal.top: {
         "Defeat Sage": ["Combat", "Jump Shoes"],
     },
-    "Go top": {
+    Go.top: {
         "Defeat Briar": ["Combat", "Complete Blue", "Complete Happy"],
     },
-    "Blue": {
+    Blue.DEFAULT: {
         "Blue Completion": ["Combat", "Jump Shoes"],
     },
-    "Happy gauntlet": {
+    Happy.gauntlet: {
         "Happy Completion": [],
     },
-    "Nexus top": {
-        "Open final gate": [PostgameEnd.typename()],
+    Blank.ending: {
+        "Open final gate": [],
     },
-    "Red Cave center": {
+    Red_Cave.center: {
         "Center left tentacle hit": ["Combat"],
         "Center right tentacle hit": ["Combat"],
     },
-    "Red Cave left": {
-        "Left tentacle hit": ["Combat", "Small Key (Red Cave):6"],
+    Red_Cave.left: {
+        "Left tentacle hit": ["Combat", "Small Key (Red Grotto):6"],
     },
-    "Red Cave right": {
-        "Right tentacle hit": ["Combat", "Small Key (Red Cave):6"],
+    Red_Cave.right: {
+        "Right tentacle hit": ["Combat", "Small Key (Red Grotto):6"],
     },
-    "Red Cave top": {
+    Red_Cave.top: {
         "Defeat Rogue": ["Combat"],
         "Grab Red Key": ["Defeat Rogue"]
     },

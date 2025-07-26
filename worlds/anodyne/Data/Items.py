@@ -1,3 +1,9 @@
+from collections import defaultdict
+
+from . import Locations
+from .Locations import LocationType
+from .Regions import RegionEnum, Bedroom, Red_Cave, Crowd, Blue, Happy
+
 cards = [
     # Type 0
     "Card (Edward)",
@@ -99,14 +105,13 @@ secret_items_secret_paths = [
     "Electric Monster"
 ]
 
+small_key_count:defaultdict[type[RegionEnum],int] = defaultdict(int)
+for location in Locations.all_locations:
+    if location.type == LocationType.Key:
+        small_key_count[location.region.__class__] += 1
+
 small_key_item_count = {
-    "Small Key (Apartment)": 4,
-    "Small Key (Temple of the Seeing One)": 3,
-    "Small Key (Circus)": 4,
-    "Small Key (Mountain Cavern)": 4,
-    "Small Key (Hotel)": 7,
-    "Small Key (Red Cave)": 6,
-    "Small Key (Street)": 1
+    f"Small Key ({dungeon.area_name()})":value for dungeon,value in small_key_count.items()
 }
 
 big_keys = [
@@ -116,19 +121,13 @@ big_keys = [
 ]
 
 key_rings = [
-    "Key Ring (Apartment)",
-    "Key Ring (Temple of the Seeing One)",
-    "Key Ring (Circus)",
-    "Key Ring (Mountain Cavern)",
-    "Key Ring (Hotel)",
-    "Key Ring (Red Cave)",
-    "Key Ring (Street)"
+    f"Key Ring ({dungeon.area_name()})" for dungeon in small_key_count.keys()
 ]
 
 statue_items = [
-    "Temple of the Seeing One Statue",
-    "Red Cave Statue",
-    "Mountain Cavern Statue",
+    f"{Bedroom.area_name()} Statue",
+    f"{Red_Cave.area_name()} Statue",
+    f"{Crowd.area_name()} Statue",
 ]
 
 non_secret_filler_items = [
@@ -136,27 +135,12 @@ non_secret_filler_items = [
     "Big Heal"
 ]
 
+def region_to_nexus_gate(region:RegionEnum):
+    return f"Nexus Gate ({region.area_name()})"
+
+
 nexus_gate_items = {
-    "Nexus Gate (Apartment)": "Apartment floor 1",
-    "Nexus Gate (Beach)": "Beach",
-    "Nexus Gate (Temple of the Seeing One)": "Bedroom exit",
-    "Nexus Gate (Blue)": "Blue",
-    "Nexus Gate (Cell)": "Cell",
-    "Nexus Gate (Circus)": "Circus",
-    "Nexus Gate (Cliffs)": "Cliff",
-    "Nexus Gate (Mountain Cavern)": "Crowd exit",
-    "Nexus Gate (Fields)": "Fields",
-    "Nexus Gate (Deep Forest)": "Forest",
-    "Nexus Gate (GO)": "Go bottom",
-    "Nexus Gate (Happy)": "Happy",
-    "Nexus Gate (Hotel)": "Hotel floor 4",
-    "Nexus Gate (Overworld)": "Overworld",
-    "Nexus Gate (Red Cave)": "Red Cave exit",
-    "Nexus Gate (Red Sea)": "Red Sea",
-    "Nexus Gate (Young Town)": "Suburb",
-    "Nexus Gate (Space)": "Space",
-    "Nexus Gate (Terminal)": "Terminal",
-    "Nexus Gate (Windmill)": "Windmill entrance",
+    region_to_nexus_gate(location.region):location.region for location in Locations.nexus_pad_locations
 }
 
 trap_items = [
@@ -164,10 +148,9 @@ trap_items = [
     "Gas Trap"
 ]
 
-
 fountains = [
-    "Blue Fountain",
-    "Happy Fountain"
+    f"{Blue.area_name()} Fountain",
+    f"{Happy.area_name()} Fountain"
 ]
 
 # This array must maintain a consistent order because the IDs are generated from it.
@@ -187,7 +170,7 @@ all_items = [
     "Health Cicada",
     "Cardboard Box",
     "Biking Shoes",
-    "Progressive Red Cave",
+    f"Progressive {Red_Cave.area_name()}",
     *statue_items,
     "Progressive Swap",
     *non_secret_filler_items,
@@ -209,7 +192,7 @@ progression_items = [
     *big_keys,
     "Cardboard Box",
     "Biking Shoes",
-    "Progressive Red Cave",
+    f"Progressive {Red_Cave.area_name()}",
     *statue_items,
     "Progressive Swap",
     *nexus_gate_items.keys(),
@@ -237,7 +220,7 @@ item_groups = {
     "Cards": cards,
     "Nexus Gates": nexus_gate_items.keys(),
     "Keys": small_key_item_count.keys(),
-    "Key Rings": small_key_item_count.keys(),
+    "Key Rings": key_rings,
     "Big Keys": big_keys,
     "Statues": statue_items,
     "Brooms": brooms,

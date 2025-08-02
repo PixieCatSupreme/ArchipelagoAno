@@ -16,7 +16,7 @@ from .Constants import AccessRule
 
 from .Data import Items, Locations, Regions, Exits, Events
 from .Data.Items import big_keys
-from .Data.Regions import RegionEnum, Nexus, Red_Cave, Blue, Happy
+from .Data.Regions import RegionEnum, Nexus, Red_Cave, Blue, Happy, Forest, Windmill, Bedroom, Street
 from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle, \
     HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode, \
     Dustsanity, GateType, gatereq_classes, CardAmount, EndgameRequirement, GateRequirements, MitraHints, gate_lookup, \
@@ -418,21 +418,20 @@ class AnodyneWorld(World):
                     if self.options.red_grotto_access == RedCaveAccess.option_vanilla and location.tentacle:
                         continue
 
-                    if not self.options.split_windmill and location.name == "Windmill - Activation":
+                    if not self.options.split_windmill and location.region.area_name() == Windmill.area_name() and location.base_name == "Activation":
                         continue
 
                     if not include_postgame and location.postgame(bool(self.options.fields_secret_paths.value)):
                         continue
 
-                    if not self.options.forest_bunny_chest and location.name == "Deep Forest - Bunny Chest":
+                    if not self.options.forest_bunny_chest and location.region.area_name() == Forest.area_name() and location.base_name == "Bunny Chest":
                         continue
 
-                    if not self.options.include_blue_happy and (location.name == "Blue - Completion Reward"
-                                                                or location.name == "Happy - Completion Reward"):
+                    if not self.options.include_blue_happy and location.region.__class__ in [Blue,Happy] and location.base_name == "Completion Reward":
                         continue
 
                     if self.options.victory_condition == VictoryCondition.option_defeat_briar \
-                            and location.name == "GO - Defeat Briar":
+                            and location.base_name == "Defeat Briar":
                         continue
 
                     if location.nexus_gate and location.region not in self.shuffled_gates:
@@ -558,8 +557,8 @@ class AnodyneWorld(World):
             self.proxy_rules["GO Color Puzzle"] = []
 
         if self.options.include_blue_happy:
-            self.proxy_rules["Complete Blue"] = [f"{Blue.area_name()} Fountain"]
-            self.proxy_rules["Complete Happy"] = [f"{Happy.area_name()} Fountain"]
+            self.proxy_rules["Complete Blue"] = [Items.fountains[0]]
+            self.proxy_rules["Complete Happy"] = [Items.fountains[1]]
             self.proxy_rules["Happy Open"] = []
         else:
             self.proxy_rules["Complete Blue"] = ["Blue Completion"]
@@ -590,9 +589,9 @@ class AnodyneWorld(World):
                 self.options.small_key_shuffle != SmallKeyShuffle.option_vanilla:
             # There is one keyblock in Temple of the Seeing One that has conditional logic based on whether it is
             # possible for the player to access the exit of the dungeon early.
-            self.proxy_rules["Temple Boss Access"] = ["Small Key (Temple of the Seeing One):3"]
+            self.proxy_rules["Temple Boss Access"] = [f"Small Key ({Bedroom.area_name()}):3"]
         else:
-            self.proxy_rules["Temple Boss Access"] = ["Small Key (Temple of the Seeing One):2"]
+            self.proxy_rules["Temple Boss Access"] = [f"Small Key ({Bedroom.area_name()}):2"]
 
         victory_condition: VictoryCondition = self.options.victory_condition
         requirements: list[str] = []
@@ -813,7 +812,7 @@ class AnodyneWorld(World):
                     self.options.start_broom == StartBroom.option_none:
                 # This is a degenerate case; we need to prevent pre-fill from putting the Street small key in the Broom
                 # chest because if it does, there are no reachable locations at the start of the game.
-                dungeon_location_names.remove("Street - Broom Chest")
+                dungeon_location_names.remove(f"{Street.area_name()} - Broom Chest")
 
             dungeon_locations = [location for location in self.multiworld.get_unfilled_locations(self.player)
                                  if location.name in dungeon_location_names]

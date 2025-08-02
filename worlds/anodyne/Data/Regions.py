@@ -97,6 +97,7 @@ class Fields(RegionEnum):
     DEFAULT = auto()
     Lake = auto()
     Past_Gate = auto()
+    Terminal_Entrance = auto()
     North_Secret_Area = auto()
     Goldman = "Goldman's Cave"
     East = auto()

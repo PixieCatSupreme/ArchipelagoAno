@@ -133,7 +133,7 @@ all_locations: List[LocationData] = [
     LocationData(Fields.DEFAULT, "Fields - Secluded Glen Chest", ["SwapOrSecret"]),
     # Hidden path
     # Logically, this is in Terminal, because it is separated from the rest of Fields in the same way Terminal is.
-    LocationData(Terminal.DEFAULT, "Fields - Near Terminal Secret Chest", ["SwapOrSecret"]),
+    LocationData(Fields.Terminal_Entrance, "Fields - Near Terminal Secret Chest", ["SwapOrSecret"]),
     LocationData(Forest.DEFAULT, "Deep Forest - Inlet Chest", ["Combat"]),
     # This is the one that takes 2 hours
     LocationData(Forest.DEFAULT, "Deep Forest - Bunny Chest", ["Progressive Swap:2"]),
@@ -324,7 +324,7 @@ all_locations: List[LocationData] = [
     LocationData(Fields.DEFAULT, "Fields - Mitra House Dust", type=LocationType.Dust),
     LocationData(Fields.DEFAULT, "Fields - Near Red Gate Dust", type=LocationType.Dust),
     LocationData(Fields.Past_Gate, "Fields - After Red Gate Dust", type=LocationType.Dust),
-    LocationData(Terminal.DEFAULT, "Fields - Near Terminal Dust", type=LocationType.Dust),
+    LocationData(Fields.Terminal_Entrance, "Fields - Near Terminal Dust", type=LocationType.Dust),
     LocationData(Fields.DEFAULT, "Fields - North West of Lake Dust", type=LocationType.Dust),
     LocationData(Fields.DEFAULT, "Fields - Near Beach Dust", type=LocationType.Dust),
     LocationData(Fields.Lake, "Fields - South West Corner Dust", type=LocationType.Dust),

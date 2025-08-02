@@ -1,9 +1,11 @@
 import logging
+from collections import defaultdict
 from typing import TYPE_CHECKING, List
 
 from BaseClasses import CollectionState
 
-from .Data import Items, Locations, Events
+from .Data import Items, Locations, Events, Regions
+from .Data.Locations import LocationData
 
 if TYPE_CHECKING:
     from . import AnodyneWorld
@@ -12,8 +14,22 @@ id_offset: int = 20130204  # nice
 
 debug_mode: bool = False
 
+map_to_id = {m: n for n, m in enumerate(Regions.all_areas)}
+def location_ids():
+    id_counter = defaultdict(int)
+
+    def l_id(location:LocationData):
+        nonlocal id_counter
+        lookup = (location.region.__class__,location.type)
+        val = id_counter[lookup]
+        id_counter[lookup] += 1
+        # 10**9 addition to avoid being able to generate id 0
+        return 10**9 + map_to_id[location.region.__class__] * 10**6 + location.type.value * 1000 + val
+
+    return {location.name: l_id(location) for location in Locations.all_locations}
+
 item_name_to_id = {name: n for n, name in enumerate(Items.all_items, id_offset)}
-location_name_to_id = {location.name: n for n, location in enumerate(Locations.all_locations, id_offset)}
+location_name_to_id = location_ids()
 
 groups = {
     **Items.item_groups,

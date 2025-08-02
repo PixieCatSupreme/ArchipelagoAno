@@ -107,7 +107,7 @@ secret_items_secret_paths = [
 
 small_key_count:defaultdict[type[RegionEnum],int] = defaultdict(int)
 for location in Locations.all_locations:
-    if location.type == LocationType.Key:
+    if location.small_key:
         small_key_count[location.region.__class__] += 1
 
 small_key_item_count = {

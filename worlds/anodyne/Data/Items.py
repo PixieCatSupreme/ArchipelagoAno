@@ -1,228 +1,318 @@
-from collections import defaultdict
+from enum import Enum, auto
+from dataclasses import dataclass
+from typing import Optional
 
-from . import Locations
-from .Locations import LocationType
-from .Regions import RegionEnum, Bedroom, Red_Cave, Crowd, Blue, Happy
+from BaseClasses import ItemClassification
+from .Regions import RegionEnum, Street, Apartment, Beach, Bedroom, Cell, Cliff, Circus, Crowd, Fields, Forest, Go, \
+    Hotel, Overworld, Red_Cave, Red_Sea, Suburb, Space, Terminal, Windmill, Blue, Happy
 
-cards = [
-    # Type 0
-    "Card (Edward)",
-    "Card (Annoyer)",
-    "Card (Seer)",
-    "Card (Shieldy)",
-    "Card (Slime)",
-    "Card (PewLaser)",
-    "Card (Suburbian)",
-    "Card (Watcher)",
-    "Card (Silverfish)",
-    "Card (Gas Guy)",
-    # Type 10
-    "Card (Mitra)",
-    "Card (Miao)",
-    "Card (Windmill)",
-    "Card (Mushroom)",
-    "Card (Dog)",
-    "Card (Rock)",
-    "Card (Fisherman)",
-    "Card (Walker)",
-    "Card (Mover)",
-    "Card (Slasher)",
-    # Type 20
-    "Card (Rogue)",
-    "Card (Chaser)",
-    "Card (Fire Pillar)",
-    "Card (Contorts)",
-    "Card (Lion)",
-    "Card (Arthur and Javiera)",
-    "Card (Frog)",
-    "Card (Person)",
-    "Card (Wall)",
-    "Card (Blue Cube King)",
-    # Type 30
-    "Card (Orange Cube King)",
-    "Card (Dust Maid)",
-    "Card (Dasher)",
-    "Card (Burst Plant)",
-    "Card (Manager)",
-    "Card (Sage)",
-    "Card (Young)",
-    "Card (Carved Rock)",
-    "Card (City Man)",
-    "Card (Intra)",
-    # Type 40
-    "Card (Torch)",
-    "Card (Triangle NPC)",
-    "Card (Killer)",
-    "Card (Goldman)",
-    "Card (Broom)",
-    "Card (Rank)",
-    "Card (Follower)",
-    "Card (Rock Creature)",
-    # Type 49
-    "Card (Null)",
-]
+item_types: list[type['ItemEnum']] = []
 
-postgame_cards = [
-    "Card (Young)",
-    "Card (Carved Rock)",
-    "Card (City Man)",
-    "Card (Intra)",
-    "Card (Torch)",
-    "Card (Triangle NPC)",
-    "Card (Killer)",
-    "Card (Broom)",
-    "Card (Rank)",
-    "Card (Follower)",
-    "Card (Rock Creature)",
-    "Card (Null)",
-]
 
-secret_items = [
-    "Golden Poop",
-    "Spam Can",
-    "Glitch",
-    "Heart",
-    "Electric Monster",
-    "Cat Statue",
-    "Melos",
-    "Marina",
-    "Black Cube",
-    "Red Cube",
-    "Green Cube",
-    "Blue Cube",
-    "White Cube",
-    "Golden Broom",
-]
+@dataclass
+class ItemData:
+    full_name: str
+    item_id: int
+    map: Optional[type[RegionEnum]]
+    classification: ItemClassification
+
+
+class ItemEnum(int, Enum):
+    __items: dict[Optional[type[RegionEnum]], ItemData]
+
+    @staticmethod
+    def _generate_next_value_(name, start, count, last_values):
+        return name.replace('_', ' '), count
+
+    def __init_subclass__(cls):
+        item_types.append(cls)
+
+    def __new__(cls, name, local_id):
+        obj = int.__new__(cls, local_id)
+        obj._value_ = local_id
+        return obj
+
+    def __init__(self, name, local_id):
+        self.__items = {
+            map_t: ItemData(self._format_name(name, map_t),
+                            10 ** 9 + 10 ** 6 * len(item_types) + 10 ** 3 * (
+                                map_t.area_id() if map_t is not None else 0)
+                            + local_id, map_t, self._classification())
+            for map_t in self._maps()
+        }
+
+    def __repr__(self):
+        return f"<{self.__class__.__name__}.{self.name}: {self.__items}>"
+
+    def __getitem__(self, item: type[RegionEnum]):
+        return self.__items[item]
+
+    def __len__(self):
+        return len(self.__items)
+
+    def __iter__(self):
+        return (i for i in self.__items.values())
+
+    @classmethod
+    def all(cls):
+        return [item for val in cls for item in val]
+
+    @classmethod
+    def names(cls):
+        return [item.full_name for item in cls.all()]
+
+    @staticmethod
+    def _classification():
+        return ItemClassification.progression
+
+    @property
+    def item(self):
+        return self.__items[None]
+
+    @staticmethod
+    def _maps() -> list[Optional[type[RegionEnum]]]:
+        return [None]
+
+    @staticmethod
+    def _format_name(name: str, map_t: Optional[type[RegionEnum]]):
+        return name
+
+
+class Inventory(ItemEnum):
+    Broom = auto()
+    Widen = auto()
+    Extend = auto()
+    Jump_Shoes = auto()
+    Swap = auto()
+    Progressive_Swap = auto()
+
+
+class Cicada(ItemEnum):
+    @staticmethod
+    def _classification():
+        return ItemClassification.useful
+
+    Health_Cicada = auto()
+
+
+class Card(ItemEnum):
+    @staticmethod
+    def _format_name(name: str, map_t: Optional[type[RegionEnum]]):
+        return f"Card ({name})"
+
+    Edward = auto()
+    Annoyer = auto()
+    Seer = auto()
+    Shieldy = auto()
+    Slime = auto()
+    PewLaser = auto()
+    Suburbian = auto()
+    Watcher = auto()
+    Silverfish = auto()
+    Gas_Guy = auto()
+    Mitra = auto()
+    Miao = auto()
+    Windmill = auto()
+    Mushroom = auto()
+    Dog = auto()
+    Rock = auto()
+    Fisherman = auto()
+    Walker = auto()
+    Mover = auto()
+    Slasher = auto()
+    Rogue = auto()
+    Chaser = auto()
+    Fire_Pillar = auto()
+    Contorts = auto()
+    Lion = auto()
+    Arthur_and_Javiera = auto()
+    Frog = auto()
+    Person = auto()
+    Wall = auto()
+    Blue_Cube_King = auto()
+    Orange_Cube_King = auto()
+    Dust_Maid = auto()
+    Dasher = auto()
+    Burst_Plant = auto()
+    Manager = auto()
+    Sage = auto()
+    Young = auto()
+    Carved_Rock = auto()
+    City_Man = auto()
+    Intra = auto()
+    Torch = auto()
+    Triangle_NPC = auto()
+    Killer = auto()
+    Goldman = auto()
+    Broom = auto()
+    Rank = auto()
+    Follower = auto()
+    Rock_Creature = auto()
+    Null = auto()
+
+
+postgame_cards = [card.item for card in [
+    Card.Young,
+    Card.Carved_Rock,
+    Card.City_Man,
+    Card.Intra,
+    Card.Torch,
+    Card.Triangle_NPC,
+    Card.Killer,
+    Card.Broom,
+    Card.Rank,
+    Card.Follower,
+    Card.Rock_Creature,
+    Card.Null
+]]
+
+
+class Secret(ItemEnum):
+    @staticmethod
+    def _classification():
+        return ItemClassification.filler
+
+    Golden_Poop = auto()
+    Spam_Can = auto()
+    Glitch = auto()
+    Heart = auto()
+    Electric_Monster = auto()
+    Cat_Statue = auto()
+    Melos = auto()
+    Marina = auto()
+    Black_Cube = auto()
+    Red_Cube = auto()
+    Green_Cube = auto()
+    Blue_Cube = auto()
+    White_Cube = auto()
+    Golden_Broom = auto()
 
 early_secret_items = [
-    "Golden Poop",
-    "Heart",
+    Secret.Golden_Poop.item,
+    Secret.Heart.item
 ]
 
 secret_items_secret_paths = [
-    "Glitch",
-    "Spam Can",
-    "Electric Monster"
+    Secret.Glitch.item,
+    Secret.Spam_Can.item,
+    Secret.Electric_Monster.item
 ]
 
-small_key_count:defaultdict[type[RegionEnum],int] = defaultdict(int)
-for location in Locations.all_locations:
-    if location.small_key:
-        small_key_count[location.region.__class__] += 1
 
-small_key_item_count = {
-    f"Small Key ({dungeon.area_name()})":value for dungeon,value in small_key_count.items()
-}
+class Keys(ItemEnum):
+    @staticmethod
+    def _maps() -> list[Optional[type[RegionEnum]]]:
+        return [Street, Bedroom, Red_Cave, Crowd, Hotel, Apartment, Circus]
 
-big_keys = [
-    "Green Key",
-    "Red Key",
-    "Blue Key",
-]
+    @staticmethod
+    def _format_name(name: str, map_t: Optional[type[RegionEnum]]):
+        return f"{name} ({map_t.area_name()})"
 
-key_rings = [
-    f"Key Ring ({dungeon.area_name()})" for dungeon in small_key_count.keys()
-]
-
-statue_items = [
-    f"{Bedroom.area_name()} Statue",
-    f"{Red_Cave.area_name()} Statue",
-    f"{Crowd.area_name()} Statue",
-]
-
-non_secret_filler_items = [
-    "Heal",
-    "Big Heal"
-]
-
-def region_to_nexus_gate(region:RegionEnum):
-    return f"Nexus Gate ({region.area_name()})"
+    Small_Key = auto()
+    Key_Ring = auto()
 
 
-nexus_gate_items = {
-    region_to_nexus_gate(location.region):location.region for location in Locations.nexus_pad_locations
-}
+class BigKey(ItemEnum):
+    @staticmethod
+    def _format_name(name: str, map_t: Optional[type[RegionEnum]]):
+        return name.title() + " Key"
 
-trap_items = [
-    "Person Trap",
-    "Gas Trap"
-]
+    GREEN = auto()
+    RED = auto()
+    BLUE = auto()
 
-fountains = [
-    f"{Blue.area_name()} Fountain",
-    f"{Happy.area_name()} Fountain"
-]
 
-# This array must maintain a consistent order because the IDs are generated from it.
-all_items = [
-    "Broom",
-    "Jump Shoes",
-    "Widen",
-    "Extend",
-    "Swap",
-    # Cards
-    *cards,
-    # Secrets
-    *secret_items,
-    # Keys
-    *small_key_item_count.keys(),
-    *big_keys,
-    "Health Cicada",
-    "Cardboard Box",
-    "Biking Shoes",
-    f"Progressive {Red_Cave.area_name()}",
-    *statue_items,
-    "Progressive Swap",
-    *non_secret_filler_items,
-    *nexus_gate_items.keys(),
-    *trap_items,
-    *key_rings,
-    "Miao",
-    *fountains
-]
+class StatueUnlocks(ItemEnum):
+    @staticmethod
+    def _format_name(name: str, region: Optional[type[RegionEnum]]):
+        return f"{region.area_name()} Statue"
 
-progression_items = [
-    "Broom",
-    "Widen",
-    "Extend",
-    "Swap",
-    "Jump Shoes",
-    *cards,
-    *small_key_item_count.keys(),
-    *big_keys,
-    "Cardboard Box",
-    "Biking Shoes",
-    f"Progressive {Red_Cave.area_name()}",
-    *statue_items,
-    "Progressive Swap",
-    *nexus_gate_items.keys(),
-    *key_rings,
-    "Miao",
-    *fountains
-]
+    @staticmethod
+    def _maps() -> list[Optional[type[RegionEnum]]]:
+        return [Red_Cave, Bedroom, Crowd]
 
-useful_items = [
-    "Health Cicada",
-]
+    STATUE = auto()
 
-filler_items = [
-    *secret_items,
-    *non_secret_filler_items,
-]
+
+class Heal(ItemEnum):
+    @staticmethod
+    def _classification():
+        return ItemClassification.filler
+
+    Heal = auto()
+    Big_Heal = auto()
+
+
+class Nexus(ItemEnum):
+    @staticmethod
+    def _maps() -> list[Optional[type[RegionEnum]]]:
+        return [Apartment, Beach, Bedroom, Blue, Cell, Cliff, Circus, Crowd, Fields, Forest, Go,
+                Happy, Hotel, Overworld, Red_Cave, Red_Sea, Suburb, Space, Terminal, Windmill]
+
+    @staticmethod
+    def _format_name(name: str, map_t: Optional[type[RegionEnum]]):
+        return f"Nexus Gate ({map_t.area_name()})"
+
+    GATE = auto()
+
+
+class Trap(ItemEnum):
+    @staticmethod
+    def _format_name(name: str, map_t: Optional[type[RegionEnum]]):
+        return name + " Trap"
+
+    @staticmethod
+    def _classification():
+        return ItemClassification.trap
+
+    Person = auto()
+    Gas = auto()
+
+
+class RedCaveUnlock(ItemEnum):
+    @staticmethod
+    def _maps() -> list[Optional[type[RegionEnum]]]:
+        return [Red_Cave]
+
+    @staticmethod
+    def _format_name(name: str, map_t: Optional[type[RegionEnum]]):
+        return "Progressive " + map_t.area_name()
+
+    RED_CAVE = auto()
+
+
+class Fountain(ItemEnum):
+    @staticmethod
+    def _maps() -> list[Optional[type[RegionEnum]]]:
+        return [Blue, Happy]
+
+    @staticmethod
+    def _format_name(name: str, map_t: Optional[type[RegionEnum]]):
+        return f"{map_t.area_name()} Fountain"
+
+    FOUNTAIN = auto()
+
+
+class TradingQuest(ItemEnum):
+    Miao = auto()
+    Cardboard_Box = auto()
+    Biking_Shoes = auto()
+
+
+all_items = {item.full_name: item for item_enum in item_types for item in item_enum.all()}
 
 brooms = [
-    "Broom",
-    "Widen",
-    "Extend"
+    Inventory.Broom.item,
+    Inventory.Extend.item,
+    Inventory.Widen.item
 ]
 
 item_groups = {
-    "Cards": cards,
-    "Nexus Gates": nexus_gate_items.keys(),
-    "Keys": small_key_item_count.keys(),
-    "Key Rings": key_rings,
-    "Big Keys": big_keys,
-    "Statues": statue_items,
-    "Brooms": brooms,
-    "Fountains": fountains
+    "Cards": Card.names(),
+    "Nexus Gates": Nexus.names(),
+    "Keys": [item.full_name for item in Keys.Small_Key],
+    "Key Rings": [item.full_name for item in Keys.Key_Ring],
+    "Statues": StatueUnlocks.names(),
+    "Brooms": [broom.full_name for broom in brooms],
+    "Fountains": Fountain.names()
 }

@@ -4,17 +4,15 @@ from typing import TYPE_CHECKING, List
 
 from BaseClasses import CollectionState
 
-from .Data import Items, Locations, Events, Regions
+from .Data import Items, Locations, Events
 from .Data.Locations import LocationData
+from .Data.Regions import RegionEnum
 
 if TYPE_CHECKING:
     from . import AnodyneWorld
 
-id_offset: int = 20130204  # nice
-
 debug_mode: bool = False
 
-map_to_id = {m: n for n, m in enumerate(Regions.all_areas)}
 def location_ids():
     id_counter = defaultdict(int)
 
@@ -24,17 +22,26 @@ def location_ids():
         val = id_counter[lookup]
         id_counter[lookup] += 1
         # 10**9 addition to avoid being able to generate id 0
-        return 10**9 + map_to_id[location.region.__class__] * 10**6 + location.type.value * 1000 + val
+        return 10**9 + location.region.area_id() * 10**6 + location.type.value * 1000 + val
 
     return {location.name: l_id(location) for location in Locations.all_locations}
 
-item_name_to_id = {name: n for n, name in enumerate(Items.all_items, id_offset)}
+item_name_to_id = {name:item.item_id for name,item in Items.all_items.items()}
 location_name_to_id = location_ids()
+
+def get_small_key_count():
+    ret:defaultdict[type[RegionEnum],int] = defaultdict(int)
+    for location in Locations.all_locations:
+        if location.small_key:
+            ret[location.region.__class__] += 1
+    return ret
+
+small_key_count = get_small_key_count()
 
 groups = {
     **Items.item_groups,
     "Bosses": [f"Defeat {c}" for c in ["Seer","The Wall","Rogue","Watcher","Servants","Manager","Sage","Briar"]],
-    "Combat": ["Broom","Widen","Extend"]
+    "Combat": Items.item_groups["Brooms"]
 }
 
 def check_access(state: CollectionState, world: "AnodyneWorld", rule: str, map_name: str) -> bool:

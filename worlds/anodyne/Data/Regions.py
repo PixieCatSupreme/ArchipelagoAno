@@ -23,6 +23,10 @@ class RegionEnum(Enum):
         return "" if name == "DEFAULT" else name.replace('_',' ')
 
     @classmethod
+    def area_id(cls):
+        return all_areas.index(cls)
+
+    @classmethod
     def area_name(cls):
         name = cls.__name__.replace('_', ' ')
         return area_name_trans.setdefault(name, name)

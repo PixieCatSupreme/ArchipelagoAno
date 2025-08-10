@@ -13,10 +13,12 @@ area_name_trans = {
 }
 
 all_areas:list[type['RegionEnum']] = []
+area_lookup:dict[str,type['RegionEnum']] = {}
 
 class RegionEnum(Enum):
     def __init_subclass__(cls, **kwargs):
         all_areas.append(cls)
+        area_lookup[cls.area_name()] = cls
 
     @staticmethod
     def _generate_next_value_(name, start, count, last_values):

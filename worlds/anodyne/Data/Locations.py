@@ -123,9 +123,9 @@ all_locations: List[LocationData] = [
     # Cleaning up his cave
     LocationData(Fields.Goldman, "Goldman's Cave Chest", ["Combat"]),
     LocationData(Fields.DEFAULT, "Blocked River Chest", ["Progressive Swap:2", "Jump Shoes"]),
-    LocationData(Fields.DEFAULT, "Cardboard Box", ["Miao"]),
-    LocationData(Fields.DEFAULT, "Shopkeeper Trade", ["Cardboard Box"]),
-    LocationData(Fields.DEFAULT, "Mitra Trade", ["Biking Shoes"]),
+    LocationData(Fields.DEFAULT, "Cardboard Box", ["Miao"], type=LocationType.AreaEvent),
+    LocationData(Fields.DEFAULT, "Shopkeeper Trade", ["Cardboard Box"], type=LocationType.AreaEvent),
+    LocationData(Fields.DEFAULT, "Mitra Trade", ["Biking Shoes"], type=LocationType.AreaEvent),
     # Hidden path
     LocationData(Fields.North_Secret_Area, f"Near {Overworld.area_name()} Secret Chest"),
     # Hidden path

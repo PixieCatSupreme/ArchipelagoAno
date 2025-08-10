@@ -60,6 +60,13 @@ class Blank(RegionEnum):
 class Blue(RegionEnum):
     DEFAULT = auto()
 
+class Boss_Rush(RegionEnum):
+    DEFAULT = auto()
+
+class Cell(RegionEnum):
+    DEFAULT = auto()
+    past_gate = auto()
+
 class Circus(RegionEnum):
     DEFAULT = auto()
     entrance_lake = auto()
@@ -70,6 +77,10 @@ class Circus(RegionEnum):
     boss_gauntlet = auto()
     north_gauntlet = auto()
 
+class Cliff(RegionEnum):
+    DEFAULT = auto()
+    post_windmill = auto()
+
 class Crowd(RegionEnum):
     floor_1 = auto()
     floor_2 = auto()
@@ -78,17 +89,6 @@ class Crowd(RegionEnum):
     floor_3_center = auto()
     jump_challenge = auto()
     exit = auto()
-
-class Boss_Rush(RegionEnum):
-    DEFAULT = auto()
-
-class Cell(RegionEnum):
-    DEFAULT = auto()
-    past_gate = auto()
-
-class Cliff(RegionEnum):
-    DEFAULT = auto()
-    post_windmill = auto()
 
 class Debug(RegionEnum):
     DEFAULT = auto()

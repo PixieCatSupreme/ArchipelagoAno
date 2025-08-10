@@ -15,7 +15,7 @@ from . import Constants
 from .Constants import AccessRule
 
 from .Data import Items, Locations, Regions, Exits, Events
-from .Data.Regions import RegionEnum, Nexus, Red_Cave, Blue, Happy, Forest, Windmill, Bedroom, Street, Hotel
+from .Data.Regions import RegionEnum, Nexus, Red_Cave, Blue, Happy, Forest, Windmill, Bedroom, Street, Hotel, Fields
 from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle, \
     HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode, \
     Dustsanity, GateType, gatereq_classes, CardAmount, EndgameRequirement, GateRequirements, MitraHints, gate_lookup, \
@@ -66,11 +66,11 @@ class AnodyneWorld(World):
 
     origin_region_name = str(Regions.Nexus.bottom)
 
-    gates_unlocked: List[str]
+    gates_unlocked: List[type[RegionEnum]]
     location_count: int
     dungeon_items: Dict[type[RegionEnum], List[Item]]
     proxy_rules: Dict[str, List[str]]
-    shuffled_gates: Set[str]
+    shuffled_gates: Set[type[RegionEnum]]
 
     def generate_early(self):
         self.gates_unlocked = []
@@ -86,7 +86,7 @@ class AnodyneWorld(World):
             # Universal tracker; ignored during normal gen.
             slot_data = self.multiworld.re_gen_passthrough["Anodyne"]
 
-            self.gates_unlocked = slot_data["nexus_gates_unlocked"]
+            self.gates_unlocked = [Regions.all_areas[i] for i in slot_data["nexus_gates_unlocked"]]
             self.options.small_key_mode.value = slot_data["small_key_mode"]
             self.options.small_key_shuffle.value = slot_data["shuffle_small_keys"]
             self.options.big_key_shuffle.value = slot_data["shuffle_big_gates"]
@@ -115,22 +115,21 @@ class AnodyneWorld(World):
                 else:
                     type_option.value = type_option.from_text(option_name).value
         elif len(self.options.custom_nexus_gates_open.value) > 0:
-            self.gates_unlocked.extend(self.options.custom_nexus_gates_open.value)
+            self.gates_unlocked.extend(Regions.area_lookup[name] for name in self.options.custom_nexus_gates_open.value)
         elif nexus_gate_open == NexusGatesOpen.option_street_and_fields:
-            self.gates_unlocked.append("Fields")
+            self.gates_unlocked.append(Fields)
         elif nexus_gate_open == NexusGatesOpen.option_early:
-            for region in Regions.early_nexus_gates:
-                self.gates_unlocked.append(region.area_name())
+            self.gates_unlocked.extend(Regions.early_nexus_gates)
         elif nexus_gate_open == NexusGatesOpen.option_all:
             for location in Locations.nexus_pad_locations:
-                self.gates_unlocked.append(location.region.area_name())
+                self.gates_unlocked.append(location.region.__class__)
         elif nexus_gate_open in [NexusGatesOpen.option_random_count, NexusGatesOpen.option_random_pre_endgame]:
             random_nexus_gate_count = int(self.options.random_nexus_gate_open_count)
 
-            available_gates = [location.region.area_name() for location in Locations.nexus_pad_locations]
+            available_gates = [location.region.__class__ for location in Locations.nexus_pad_locations]
             if nexus_gate_open == NexusGatesOpen.option_random_pre_endgame:
                 for gate in Regions.endgame_nexus_gates:
-                    available_gates.remove(gate.area_name())
+                    available_gates.remove(gate)
 
             if random_nexus_gate_count > len(available_gates):
                 logging.warning(
@@ -146,7 +145,7 @@ class AnodyneWorld(World):
                 f"Player {self.player_name} requested vanilla small keys with key rings on, changing to small key original dungeon")
 
         if self.options.nexus_gate_shuffle != NexusGateShuffle.option_off:
-            self.shuffled_gates = set(location.region.area_name() for location in Locations.nexus_pad_locations) - set(self.gates_unlocked)
+            self.shuffled_gates = set(item.map for item in Items.Nexus.all()) - set(self.gates_unlocked)
 
             if self.options.nexus_gate_shuffle == NexusGateShuffle.option_all_except_endgame:
                 self.shuffled_gates -= set(Regions.endgame_nexus_gates)
@@ -313,7 +312,7 @@ class AnodyneWorld(World):
 
         if self.options.nexus_gate_shuffle != NexusGateShuffle.option_off:
             nexus_gate_items = [Items.Nexus.GATE[loc.region.__class__] for loc in Locations.nexus_pad_locations
-                                if loc.region.area_name() in self.shuffled_gates]
+                                if loc.region.__class__ in self.shuffled_gates]
             item_pool.extend(self.create_item(item.full_name) for item in nexus_gate_items)
             placed_items += len(nexus_gate_items)
 
@@ -429,7 +428,7 @@ class AnodyneWorld(World):
                             and location.base_name == "Defeat Briar":
                         continue
 
-                    if location.nexus_gate and location.region not in self.shuffled_gates:
+                    if location.nexus_gate and location.region.__class__ not in self.shuffled_gates:
                         continue
 
                     if location.dust:
@@ -465,12 +464,12 @@ class AnodyneWorld(World):
             e.connect(r2)
             e.access_rule = Constants.get_access_rule(requirements, str(exit1), self)
 
-        for region_name in self.gates_unlocked:
-            all_regions[Nexus.bottom].create_exit(f"{region_name} Nexus Gate").connect(all_regions[{location.region.area_name():location.region for location in Locations.nexus_pad_locations}[region_name]])
+        for region in self.gates_unlocked:
+            all_regions[Nexus.bottom].create_exit(f"{region.area_name()} Nexus Gate").connect(all_regions[{location.region.__class__:location.region for location in Locations.nexus_pad_locations}[region]])
 
         if self.options.nexus_gate_shuffle != NexusGateShuffle.option_off:
             for location in Locations.nexus_pad_locations:
-                if location.region.area_name() in self.shuffled_gates:
+                if location.region.__class__ in self.shuffled_gates:
                     e = all_regions[Nexus.bottom].create_exit(f"{location.region.area_name()} Nexus Gate")
                     e.connect(all_regions[location.region])
                     e.access_rule = Constants.get_access_rule([Items.Nexus.GATE[location.region.__class__].full_name], "Nexus bottom", self)
@@ -581,7 +580,7 @@ class AnodyneWorld(World):
             self.proxy_rules["SwapOrSecret"] = [f"{Items.Inventory.Progressive_Swap.item.full_name}:2"]
 
         if self.options.nexus_gate_shuffle or \
-                any(region.area_name() in self.gates_unlocked for region in Regions.post_temple_boss_nexus_gates) and \
+                any(region in self.gates_unlocked for region in Regions.post_temple_boss_nexus_gates) and \
                 self.options.small_key_shuffle != SmallKeyShuffle.option_vanilla:
             # There is one keyblock in Temple of the Seeing One that has conditional logic based on whether it is
             # possible for the player to access the exit of the dungeon early.
@@ -841,14 +840,12 @@ class AnodyneWorld(World):
             "death_link": bool(self.options.death_link.value),
             "small_keys": self.options.small_key_mode.current_key if self.options.small_key_mode != SmallKeyMode.option_small_keys else (
                 "vanilla" if self.options.small_key_shuffle == SmallKeyShuffle.option_vanilla else "shuffled"),
-            # Mostly useless slots given that small_keys encapsulates all three as far as clients/trackers are concerned, but here for backwards compat
-            "unlock_gates": self.options.small_key_mode == SmallKeyMode.option_unlocked,
             "small_key_mode": int(self.options.small_key_mode),
             "shuffle_small_keys": int(self.options.small_key_shuffle),
 
             "shuffle_big_gates": int(self.options.big_key_shuffle),
             "vanilla_health_cicadas": self.options.health_cicada_shuffle == HealthCicadaShuffle.option_vanilla,
-            "nexus_gates_unlocked": self.gates_unlocked,
+            "nexus_gates_unlocked": [gate.area_id() for gate in self.gates_unlocked],
             "vanilla_red_cave": self.options.red_grotto_access == RedCaveAccess.option_vanilla,
             "split_windmill": bool(self.options.split_windmill),
             "postgame_mode": int(self.options.postgame_mode),
@@ -856,8 +853,6 @@ class AnodyneWorld(World):
             "victory_condition": int(self.options.victory_condition),
             "forest_bunny_chest": bool(self.options.forest_bunny_chest.value),
             "dustsanity": bool(self.options.dustsanity),
-            "dust_sanity_base": self.location_name_to_id[
-                next(l for l in Locations.all_locations if l.dust).name] if self.options.dustsanity else "Disabled",
             "seed": self.random.randint(0, 1000000),
             "card_amount": self.options.card_amount + self.options.extra_cards,
             "fields_secret_paths": bool(self.options.fields_secret_paths),

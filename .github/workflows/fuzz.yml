@@ -13,5 +13,5 @@ jobs:
       - uses: Eijebong/ap-actions/fuzz@main
         with:
           apworld-path: worlds/anodyne
-          ap-version: '0.6.1'
+          ap-version: '0.6.3'
           python-version: '3.12'

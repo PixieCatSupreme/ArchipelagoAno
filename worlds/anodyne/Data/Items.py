@@ -100,6 +100,10 @@ class Card(ItemEnum):
     def _format_name(name: str, map_t: Optional[type[RegionEnum]]):
         return f"Card ({name})"
 
+    @staticmethod
+    def _classification():
+        return ItemClassification.progression_deprioritized
+
     Edward = auto()
     Annoyer = auto()
     Seer = auto()
@@ -186,6 +190,7 @@ class Secret(ItemEnum):
     Blue_Cube = auto()
     White_Cube = auto()
     Golden_Broom = auto()
+
 
 early_secret_items = [
     Secret.Golden_Poop.item,

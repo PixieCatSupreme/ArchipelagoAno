@@ -881,7 +881,8 @@ class AnodyneWorld(World):
         # Do not change shop items if playing solo
         if self.multiworld.players == 1:
             return []
-        else:
+        elif sum(i.classification == ItemClassification.progression and i.player != self.player
+                 for i in self.multiworld.itempool) >= 3:
             items = self.random.sample(
                 [item for item in self.multiworld.itempool if
                  item.classification == ItemClassification.progression

@@ -446,7 +446,7 @@ class MitraHints(Choice):
     [None] Mitra does not give any hints.
     [Vague] Mitra only tells you the location of a progression item, but not what it is.
     [Precise] Mitra tells you the exact location of one of your progression items.
-    [Precise Hint] Same as Precise, but will be sent out as a hint (if it's at a local location).
+    [Precise Hint] Same as Precise, but will be sent out as a hint.
     """
     display_name = "Mitra Hint Mode"
     option_none = 0

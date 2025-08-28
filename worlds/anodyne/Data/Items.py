@@ -286,16 +286,16 @@ class RedCaveUnlock(ItemEnum):
     RED_CAVE = auto()
 
 
-class Fountain(ItemEnum):
+class Dam(ItemEnum):
     @staticmethod
     def _maps() -> list[Optional[type[RegionEnum]]]:
         return [Blue, Happy]
 
     @staticmethod
     def _format_name(name: str, map_t: Optional[type[RegionEnum]]):
-        return f"{map_t.area_name()} Fountain"
+        return f"{map_t.area_name()} Dam"
 
-    FOUNTAIN = auto()
+    DAM = auto()
 
 
 class TradingQuest(ItemEnum):
@@ -319,5 +319,5 @@ item_groups = {
     "Key Rings": [item.full_name for item in Keys.Key_Ring],
     "Statues": StatueUnlocks.names(),
     "Brooms": [broom.full_name for broom in brooms],
-    "Fountains": Fountain.names()
+    "Dams": Dam.names()
 }

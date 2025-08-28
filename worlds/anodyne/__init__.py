@@ -294,7 +294,7 @@ class AnodyneWorld(World):
             prevent_autoplacement.extend(Items.StatueUnlocks.all())
 
         if not self.options.include_blue_happy:
-            prevent_autoplacement.extend(Items.Fountain.all())
+            prevent_autoplacement.extend(Items.Dam.all())
 
         if self.options.postgame_mode == PostgameMode.option_disabled:
             prevent_autoplacement.extend(Items.postgame_cards)
@@ -550,8 +550,8 @@ class AnodyneWorld(World):
             self.proxy_rules["GO Color Puzzle"] = []
 
         if self.options.include_blue_happy:
-            self.proxy_rules["Complete Blue"] = [Items.Fountain.FOUNTAIN[Blue].full_name]
-            self.proxy_rules["Complete Happy"] = [Items.Fountain.FOUNTAIN[Happy].full_name]
+            self.proxy_rules["Complete Blue"] = [Items.Dam.DAM[Blue].full_name]
+            self.proxy_rules["Complete Happy"] = [Items.Dam.DAM[Happy].full_name]
             self.proxy_rules["Happy Open"] = []
         else:
             self.proxy_rules["Complete Blue"] = ["Blue Completion"]

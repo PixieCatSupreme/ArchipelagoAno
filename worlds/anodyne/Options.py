@@ -109,8 +109,8 @@ class SplitWindmill(Toggle):
 class IncludeBlueAndHappy(Toggle):
     """
     Select how Blue and Happy activation works
-    [Off] Blue and Happy behave like in vanilla. You need to complete the gauntlets and activate the fountains to fight Briar.
-    [On] The Blue and Happy fountains become items that both need to be found to fight Briar. Both gauntlets have random items at the end.
+    [Off] Blue and Happy behave like in vanilla. You need to complete the gauntlets and open the dams to fight Briar.
+    [On] The Blue and Happy dams become items that both need to be found to fight Briar. Both gauntlets have random items at the end.
     """
     display_name = "Include Blue and Happy"
 

@@ -11,7 +11,7 @@ from Options import Accessibility, OptionGroup
 from worlds.AutoWorld import WebWorld, World
 from typing import List, Callable, Dict, Any, Set, Iterable, Type, Tuple, Optional
 
-from . import Constants
+from . import Constants, Options
 from .Constants import AccessRule
 
 from .Data import Items, Locations, Regions, Exits, Events

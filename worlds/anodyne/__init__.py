@@ -641,7 +641,8 @@ class AnodyneWorld(World):
 
         self.multiworld.completion_condition[self.player] = Constants.get_access_rule(requirements, "Event", self)
 
-        self.test_gate_requirements()
+        if not hasattr(self.multiworld,"generation_is_fake"):
+            self.test_gate_requirements()
 
     def test_gate_requirements(self):
         state = CollectionState(self.multiworld)

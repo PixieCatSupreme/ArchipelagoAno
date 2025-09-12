@@ -135,6 +135,10 @@ class AnodyneWorld(World):
             self.options.dustsanity.value = slot_data.get("dustsanity", False)
             if "endgame_card_requirement" in slot_data:
                 EndgameRequirement.cardoption(self.options).value = slot_data["endgame_card_requirement"]
+            self.options.include_blue_happy.value = slot_data.get("include_blue_happy", False)
+            self.options.red_grotto_access.value = RedCaveAccess.option_vanilla if slot_data.get("vanilla_red_cave",
+                                                                                                 True) else RedCaveAccess.option_progressive
+            self.options.randomize_color_puzzle.value = slot_data.get("randomize_color_puzzle", False)
 
             self.options.card_amount.value = slot_data.get("card_amount", CardAmount.option_vanilla)
             # For universal tracker, slot data already has final value for card amount + extra, extra can be set to 0

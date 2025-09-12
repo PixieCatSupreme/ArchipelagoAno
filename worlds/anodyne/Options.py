@@ -257,12 +257,12 @@ class GateRequirements:
         [Blue Key] This gate opens with the blue key.
         [Bosses] This gate has a configurable amount of bosses required to be defeated, specified in the {0} gate boss requirement option.
         """
-        option_unlocked = GateType.UNLOCKED
-        option_cards = GateType.CARDS
-        option_green_key = GateType.GREEN
-        option_red_key = GateType.RED
-        option_blue_key = GateType.BLUE
-        option_bosses = GateType.BOSSES
+        option_unlocked = int(GateType.UNLOCKED)
+        option_cards = int(GateType.CARDS)
+        option_green_key = int(GateType.GREEN)
+        option_red_key = int(GateType.RED)
+        option_blue_key = int(GateType.BLUE)
+        option_bosses = int(GateType.BOSSES)
 
     class GateCardReq(Range):
         """

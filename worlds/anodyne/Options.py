@@ -459,27 +459,34 @@ class MitraHints(Choice):
 @dataclass
 @add_options
 class AnodyneGameOptions(PerGameCommonOptions):
+    # Game Options
+    start_broom: StartBroom
+    victory_condition: VictoryCondition
+    postgame_mode: PostgameMode
+    mitra_hints: MitraHints
+    death_link: DeathLink
+    start_inventory_from_pool: StartInventoryPool
+    # Key Logic
     small_key_mode: SmallKeyMode
     small_key_shuffle: SmallKeyShuffle
-    health_cicada_shuffle: HealthCicadaShuffle
     big_key_shuffle: BigKeyShuffle
-    fields_secret_paths: FieldsSecretPaths
-    dustsanity: Dustsanity
-    red_grotto_access: RedCaveAccess
+    # Cards
+    card_amount: CardAmount
+    extra_cards: ExtraCardAmount
+    # Logic Changes
     split_windmill: SplitWindmill
-    start_broom: StartBroom
+    include_blue_happy: IncludeBlueAndHappy
+    fields_secret_paths: FieldsSecretPaths
+    randomize_color_puzzle: RandomizeColorPuzzle
     nexus_gate_shuffle: NexusGateShuffle
+    red_grotto_access: RedCaveAccess
+    # Starting Nexus Gates
     nexus_gates_open: NexusGatesOpen
     random_nexus_gate_open_count: RandomNexusGateOpenCount
     custom_nexus_gates_open: CustomNexusGatesOpen
-    victory_condition: VictoryCondition
-    randomize_color_puzzle: RandomizeColorPuzzle
-    postgame_mode: PostgameMode
+    # Extra Locations
+    dustsanity: Dustsanity
+    health_cicada_shuffle: HealthCicadaShuffle
     forest_bunny_chest: IncludeForestBunnyChest
+    # Filler Items
     traps_percentage: TrapPercentage
-    card_amount: CardAmount
-    extra_cards: ExtraCardAmount
-    mitra_hints: MitraHints
-    include_blue_happy: IncludeBlueAndHappy
-    death_link: DeathLink
-    start_inventory_from_pool: StartInventoryPool

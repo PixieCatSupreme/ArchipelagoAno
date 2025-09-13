@@ -1,7 +1,7 @@
 from worlds.anodyne.Data.Regions import Blank, Bedroom, Crowd, Windmill, Hotel, Circus, Apartment, Terminal, Go, Blue, \
     Happy, Red_Cave, RegionEnum
 
-events_by_region:dict[RegionEnum,dict[str,list[str]]] = {
+events_by_region: dict[RegionEnum, dict[str, list[str]]] = {
     Bedroom.exit: {
         "Defeat Seer": ["Combat"],
         "Grab Green Key": []

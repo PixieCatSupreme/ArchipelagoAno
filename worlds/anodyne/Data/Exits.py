@@ -4,13 +4,13 @@ from ..Options import BeachGauntletGate, OverworldGauntletGate, PostgameBlank, O
     WindmillEntranceGate, WindmillMiddleGate, WindmillTopGate, PostgameEnd, FieldsGate, EndgameRequirement, CellGate, \
     SuburbGate
 
-from .Regions import Apartment, Beach, Bedroom, Blank, Cell, Circus, Debug, Boss_Rush, Street, Space, Red_Cave, Drawer, \
-    Cliff, Crowd, Fields, Terminal, Forest, Happy, Red_Sea, Overworld, Blue, Go, Hotel, Nexus, Suburb, Windmill, \
-    RegionEnum
+from .Regions import (Apartment, Beach, Bedroom, Blank, Cell, Circus, Debug, Boss_Rush, Street, Space, Red_Cave, Drawer,
+                      Cliff, Crowd, Fields, Terminal, Forest, Happy, Red_Sea, Overworld, Blue, Go, Hotel, Nexus, Suburb,
+                      Windmill, RegionEnum)
 
-Connection:TypeAlias = tuple[RegionEnum,RegionEnum,list[str]]
+Connection: TypeAlias = tuple[RegionEnum, RegionEnum, list[str]]
 
-all_exits:list[Connection] = [
+all_exits: list[Connection] = [
     (Apartment.floor_1, Suburb.DEFAULT, []),
     (Suburb.DEFAULT, Apartment.floor_1, ["Jump Shoes"]),
     (Apartment.floor_1, Apartment.floor_2, []),
@@ -28,13 +28,13 @@ all_exits:list[Connection] = [
     (Beach.DEFAULT, Beach.gauntlet, ["Combat", BeachGauntletGate.typename()]),
     (Bedroom.entrance, Overworld.DEFAULT, []),
     (Overworld.DEFAULT, Bedroom.entrance, []),
-    (Bedroom.entrance, Bedroom.core, ["Combat"]),  #pick up dust
+    (Bedroom.entrance, Bedroom.core, ["Combat"]),  # pick up dust
     (Bedroom.core, Bedroom.entrance, ["Combat"]),
     (Bedroom.core, Bedroom.exit, ["Temple Boss Access"]),
     (Bedroom.core, Bedroom.shieldy_room, ["Small Key (Temple of the Seeing One):3"]),
     (Bedroom.exit, Bedroom.after_statue, ["Temple of the Seeing One Statue", "Combat"]),
-    (Bedroom.exit, Bedroom.entrance, []),  #return to entrance
-    (Overworld.post_windmill, Bedroom.entrance, []),  #return to entrance
+    (Bedroom.exit, Bedroom.entrance, []),  # return to entrance
+    (Overworld.post_windmill, Bedroom.entrance, []),  # return to entrance
     (Bedroom.exit, Overworld.post_windmill,
      ["Temple of the Seeing One Statue", "Small Key (Temple of the Seeing One):3",
       "Combat"]),
@@ -56,7 +56,7 @@ all_exits:list[Connection] = [
     (Cell.DEFAULT, Cell.past_gate, [CellGate.typename()]),
     (Cell.DEFAULT, Circus.DEFAULT, []),
     (Circus.DEFAULT, Cell.DEFAULT, []),
-    (Circus.DEFAULT, Circus.entrance_lake, ["Combat"]),  #Pick up dust
+    (Circus.DEFAULT, Circus.entrance_lake, ["Combat"]),  # Pick up dust
     (Circus.entrance_lake, Circus.entry_gauntlets, ["Jump Shoes"]),
     (Circus.entrance_lake, Circus.past_entrance_lake, ["Small Key (Circus):1"]),
     (Circus.past_entrance_lake, Circus.circlejump_gauntlets, ["Jump Shoes"]),
@@ -83,7 +83,8 @@ all_exits:list[Connection] = [
     # logically the same as only this entrance existing.
     (Crowd.floor_3, Crowd.floor_1, []),
     (Crowd.floor_2, Crowd.floor_2_gauntlets, ["Combat", "Jump Shoes"]),
-    # Need to get through floor 2 gauntlets to activate gate on top of needing a key, and a second key is needed to get anywhere in floor 3
+    # Need to get through floor 2 gauntlets to activate gate on top of needing a key,
+    # and a second key is needed to get anywhere in floor 3
     (Crowd.floor_2_gauntlets, Crowd.floor_3, ["Small Key (Mountain Cavern):3"]),
     (Crowd.floor_3, Crowd.floor_3_center, ["Small Key (Mountain Cavern):4"]),
     # Return to entrance
@@ -176,7 +177,7 @@ all_exits:list[Connection] = [
     (Suburb.card_house, Suburb.DEFAULT, ["Combat"]),
 ]
 
-secret_path_connections:list[Connection] = [
+secret_path_connections: list[Connection] = [
     (Fields.Past_Gate, Fields.North_Secret_Area, []),
     (Fields.North_Secret_Area, Fields.Past_Gate, [])
 ]

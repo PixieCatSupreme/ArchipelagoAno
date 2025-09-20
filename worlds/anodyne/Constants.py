@@ -50,6 +50,8 @@ groups = {
 
 
 def check_access(state: CollectionState, world: "AnodyneWorld", rule: str, map_name: str) -> bool:
+    if len(world.proxy_rules) == 0:
+        return True # Shut up warnings when running all_state before our set_rules has run
     if rule in world.proxy_rules:
         return all(check_access(state, world, subrule, map_name) for subrule in world.proxy_rules[rule])
     elif rule in groups:

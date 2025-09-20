@@ -853,8 +853,9 @@ class AnodyneWorld(World):
             current_items = confined_dungeon_items.copy()
             confined_dungeon_items.clear()  # Prevent the current items from being picked up by all state
 
+
             # This will pick up all unplaced dungeon items as well
-            collection_state = self.multiworld.get_all_state(False, True)
+            collection_state = self.multiworld.get_all_state(allow_partial_entrances=True)
 
             confined_dungeon_items.extend(current_items)
             del current_items
@@ -952,6 +953,8 @@ class AnodyneWorld(World):
                  and item.player != self.player],
                 3)
             return [AnodyneWorld.ShopItem(item.player, item.code) for item in items]
+        else:
+            return []
 
     def get_mitra_hints(self, count: int) -> List[ItemHint]:
         possible_items = [item for item in self.multiworld.itempool if

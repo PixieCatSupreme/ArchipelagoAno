@@ -5,7 +5,7 @@ from ..Options import BeachGauntletGate, OverworldGauntletGate, PostgameBlank, O
     SuburbGate
 
 from .Regions import (Apartment, Beach, Bedroom, Blank, Cell, Circus, Debug, Boss_Rush, Street, Space, Red_Cave, Drawer,
-                      Cliff, Crowd, Fields, Terminal, Forest, Happy, Red_Sea, Overworld, Blue, Go, Hotel, Nexus, Suburb,
+                      Cliffs, Crowd, Fields, Terminal, Forest, Happy, Red_Sea, Overworld, Blue, Go, Hotel, Nexus, Suburb,
                       Windmill, RegionEnum)
 
 Connection: TypeAlias = tuple[RegionEnum, RegionEnum, list[str]]
@@ -65,20 +65,20 @@ all_exits: list[Connection] = [
     (Circus.boss_gauntlet, Circus.north_gauntlet, ["Small Key (Circus):4"]),
     (Cell.DEFAULT, Red_Cave.exit, ["Red Grotto Statue"]),
     (Red_Cave.exit, Cell.DEFAULT, ["Red Grotto Statue"]),
-    (Cliff.DEFAULT, Forest.DEFAULT, []),
-    (Forest.DEFAULT, Cliff.DEFAULT, []),
-    (Cliff.DEFAULT, Crowd.floor_2, []),
-    (Crowd.floor_2, Cliff.DEFAULT, []),
-    (Cliff.DEFAULT, Crowd.jump_challenge, []),
-    (Crowd.jump_challenge, Cliff.DEFAULT, []),
-    (Cliff.post_windmill, Space.DEFAULT, []),
-    (Space.DEFAULT, Cliff.post_windmill, []),
+    (Cliffs.DEFAULT, Forest.DEFAULT, []),
+    (Forest.DEFAULT, Cliffs.DEFAULT, []),
+    (Cliffs.DEFAULT, Crowd.floor_2, []),
+    (Crowd.floor_2, Cliffs.DEFAULT, []),
+    (Cliffs.DEFAULT, Crowd.jump_challenge, []),
+    (Crowd.jump_challenge, Cliffs.DEFAULT, []),
+    (Cliffs.post_windmill, Space.DEFAULT, []),
+    (Space.DEFAULT, Cliffs.post_windmill, []),
     (Crowd.floor_1, Crowd.exit, ["Defeat The Wall"]),
     (Crowd.exit, Crowd.floor_1, ["Defeat The Wall"]),
-    (Crowd.exit, Cliff.post_windmill, ["Mountain Cavern Statue"]),
-    (Cliff.post_windmill, Crowd.exit, ["Mountain Cavern Statue"]),
-    (Cliff.post_windmill, Crowd.floor_2, []),
-    (Cliff.post_windmill, Cliff.DEFAULT, []),
+    (Crowd.exit, Cliffs.post_windmill, ["Mountain Cavern Statue"]),
+    (Cliffs.post_windmill, Crowd.exit, ["Mountain Cavern Statue"]),
+    (Cliffs.post_windmill, Crowd.floor_2, []),
+    (Cliffs.post_windmill, Cliffs.DEFAULT, []),
     # Technically this entrance works from floor 2, but only if you've used *this* entrance before, which is
     # logically the same as only this entrance existing.
     (Crowd.floor_3, Crowd.floor_1, []),

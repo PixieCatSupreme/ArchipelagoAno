@@ -1,0 +1,40 @@
+[
+    {
+        "name": "Nexus",
+        "children": [
+            {
+                "name": "Apartment",
+                "sections": [
+                    {
+                        "name": "Apartment - 1F Ledge Chest"
+                    },
+                    {
+                        "name": "Apartment - 1F Rat Maze Chest"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 592,
+                        "y": 833
+                    }
+                ]
+            },
+            {
+                "name": "Street",
+                "sections": [
+                    {
+                        "name": "Street - Broom Chest"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 256,
+                        "y": 897
+                    }
+                ]
+            }
+        ]
+    }
+]

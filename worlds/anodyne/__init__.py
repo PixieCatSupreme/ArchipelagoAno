@@ -20,6 +20,7 @@ from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCon
     HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode, \
     Dustsanity, GateType, gatereq_classes, CardAmount, EndgameRequirement, GateRequirements, MitraHints, gate_lookup, \
     OverworldFieldsGate
+from .ut_stuff import UTTrackerData
 
 
 class AnodyneLocation(Location):
@@ -92,6 +93,7 @@ class AnodyneWorld(World):
     topology_present = False  # show path to required location checks in spoiler
 
     ut_can_gen_without_yaml = True
+    tracker_world = UTTrackerData
 
     version = "0.3.2"
 

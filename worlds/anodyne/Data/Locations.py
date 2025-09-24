@@ -1,9 +1,9 @@
 from enum import Enum, auto
 from typing import NamedTuple, List, Dict
 
-from .Regions import Apartment, Beach, Bedroom, Blank, Cell, Circus, Debug, Boss_Rush, Street, Space, Red_Cave,\
-    Drawer, Cliff, Crowd, Fields, Terminal, Forest, Happy, Red_Sea, Overworld, Blue, Go, Hotel, Nexus, Suburb, \
-    Windmill, RegionEnum, postgame_regions, postgame_without_secret_paths
+from .Regions import Apartment, Beach, Bedroom, Blank, Cell, Circus, Debug, Boss_Rush, Street, Space, Red_Cave, Drawer, \
+    Cliffs, Crowd, Fields, Terminal, Forest, Happy, Red_Sea, Overworld, Blue, Go, Hotel, Nexus, Suburb, Windmill, \
+    RegionEnum, postgame_regions, postgame_without_secret_paths
 
 
 class LocationType(Enum):
@@ -100,8 +100,8 @@ all_locations: List[LocationData] = [
     LocationData(Circus.third_key_gauntlet, "Lion Chest", [], (232, 344), has_key=True),
     LocationData(Circus.north_gauntlet, "Double Clowns Chest", [], (616, 424)),
     LocationData(Circus.boss_gauntlet, "Boss Chest", ["Defeat Servants"], (1192, 24)),
-    LocationData(Cliff.post_windmill, "Upper Chest", [], (744, 932)),
-    LocationData(Cliff.post_windmill, "Lower Chest", [], (440, 1224)),
+    LocationData(Cliffs.post_windmill, "Upper Chest", [], (744, 932)),
+    LocationData(Cliffs.post_windmill, "Lower Chest", [], (440, 1224)),
     LocationData(Crowd.floor_2_gauntlets, "2F Crowded Ledge Chest", ["Small Key (Mountain Cavern):4"], ),
     # BE2FB96B-1D5F-FCD1-3F58-D158DB982C21
     LocationData(Crowd.floor_2, "2F Four Enemies Chest", ["Combat"], has_key=True),
@@ -222,7 +222,7 @@ all_locations: List[LocationData] = [
     LocationData(Bedroom.exit, "Warp Pad", [], (672, 32), type=LocationType.Nexus),
     LocationData(Blue.DEFAULT, "Warp Pad", [], (128, 128), type=LocationType.Nexus),
     LocationData(Cell.DEFAULT, "Warp Pad", [], (560, 528), type=LocationType.Nexus),
-    LocationData(Cliff.DEFAULT, "Warp Pad", [], (554, 688), type=LocationType.Nexus),
+    LocationData(Cliffs.DEFAULT, "Warp Pad", [], (554, 688), type=LocationType.Nexus),
     LocationData(Circus.DEFAULT, "Warp Pad", [], (752, 1376), type=LocationType.Nexus),
     LocationData(Crowd.exit, "Warp Pad", [], (1520, 745), type=LocationType.Nexus),
     LocationData(Fields.DEFAULT, "Warp Pad", [], (1040, 576), type=LocationType.Nexus),

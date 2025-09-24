@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from typing import Optional
 
 from BaseClasses import ItemClassification
-from .Regions import RegionEnum, Street, Apartment, Beach, Bedroom, Cell, Cliff, Circus, Crowd, Fields, Forest, Go, \
+from .Regions import RegionEnum, Street, Apartment, Beach, Bedroom, Cell, Cliffs, Circus, Crowd, Fields, Forest, Go, \
     Hotel, Overworld, Red_Cave, Red_Sea, Suburb, Space, Terminal, Windmill, Blue, Happy
 
 item_types: list[type['ItemEnum']] = []
@@ -251,7 +251,7 @@ class Heal(ItemEnum):
 class Nexus(ItemEnum):
     @staticmethod
     def _maps() -> list[Optional[type[RegionEnum]]]:
-        return [Apartment, Beach, Bedroom, Blue, Cell, Cliff, Circus, Crowd, Fields, Forest, Go,
+        return [Apartment, Beach, Bedroom, Blue, Cell, Cliffs, Circus, Crowd, Fields, Forest, Go,
                 Happy, Hotel, Overworld, Red_Cave, Red_Sea, Suburb, Space, Terminal, Windmill]
 
     @staticmethod

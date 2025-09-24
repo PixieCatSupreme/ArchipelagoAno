@@ -1,9 +1,9 @@
 from enum import Enum, auto
 from typing import NamedTuple, List, Dict
 
-from .Regions import Apartment, Beach, Bedroom, Blank, Cell, Circus, Debug, Boss_Rush, Street, Space, Red_Cave, Drawer, \
-    Cliff, Crowd, Fields, Terminal, Forest, Happy, Red_Sea, Overworld, Blue, Go, Hotel, Nexus, Suburb, Windmill, \
-    RegionEnum, postgame_regions, postgame_without_secret_paths
+from .Regions import Apartment, Beach, Bedroom, Blank, Cell, Circus, Debug, Boss_Rush, Street, Space, Red_Cave,\
+    Drawer, Cliff, Crowd, Fields, Terminal, Forest, Happy, Red_Sea, Overworld, Blue, Go, Hotel, Nexus, Suburb, \
+    Windmill, RegionEnum, postgame_regions, postgame_without_secret_paths
 
 
 class LocationType(Enum):
@@ -15,14 +15,15 @@ class LocationType(Enum):
     Nexus = auto()
     AreaEvent = auto()
 
+
 class LocationData(NamedTuple):
     region: RegionEnum
     base_name: str
     reqs: List[str] = []
-    tracker_loc: tuple[int,int] = (0,0)
-    type:LocationType = LocationType.Chest
-    has_key:bool = False
-    outside_of_dungeon:bool = False
+    tracker_loc: tuple[int, int] = (0, 0)
+    type: LocationType = LocationType.Chest
+    has_key: bool = False
+    outside_of_dungeon: bool = False
 
     @property
     def name(self):
@@ -52,26 +53,28 @@ class LocationData(NamedTuple):
     def nexus_gate(self):
         return self.type == LocationType.Nexus
 
-    def postgame(self,secret_paths:bool):
-        return ("SwapOrSecret" in self.reqs and not secret_paths) or "Progressive Swap:2" in self.reqs or self.region in postgame_regions or (not secret_paths and self.region in postgame_without_secret_paths)
+    def postgame(self, secret_paths: bool):
+        return (("SwapOrSecret" in self.reqs and not secret_paths) or "Progressive Swap:2"
+                in self.reqs or self.region in postgame_regions or (
+                        not secret_paths and self.region in postgame_without_secret_paths))
 
 
 # This array must maintain a consistent order because the IDs are generated from it.
 all_locations: List[LocationData] = [
     # 0AC41F72-EE1D-0D32-8F5D-8F25796B6396
-    LocationData(Apartment.floor_1, "1F Ledge Chest", ["Combat"], has_key=True),
+    LocationData(Apartment.floor_1, "1F Ledge Chest", ["Combat"], (24, 504), has_key=True),
     # DE415E2A-06EE-83AC-F1A3-5DCA1FA44735
-    LocationData(Apartment.floor_1, "1F Rat Maze Chest", ["Combat"], has_key=True),
-    LocationData(Apartment.floor_1, "1F Exterior Chest", ["Combat", "Jump Shoes"]),
-    LocationData(Apartment.floor_1_top_left, "1F Couches Chest", ["Combat", "Jump Shoes"]),
+    LocationData(Apartment.floor_1, "1F Rat Maze Chest", ["Combat"], (536, 216), has_key=True),
+    LocationData(Apartment.floor_1, "1F Exterior Chest", ["Combat", "Jump Shoes"], (600, 920)),
+    LocationData(Apartment.floor_1_top_left, "1F Couches Chest", ["Combat", "Jump Shoes"], (136, 72)),
     # 5B55A264-3FCD-CF38-175C-141B2D093029
-    LocationData(Apartment.floor_2, "2F Rat Maze Chest", ["Combat", "Jump Shoes"], has_key=True),
+    LocationData(Apartment.floor_2, "2F Rat Maze Chest", ["Combat", "Jump Shoes"], (1320, 504), has_key=True),
     # 2BBF01C8-8267-7E71-5BD4-325001DBC0BA
-    LocationData(Apartment.floor_3, "3F Gauntlet Chest", ["Combat"], has_key=True),
-    LocationData(Apartment.floor_3, "Boss Chest", ["Defeat Watcher"]),
-    LocationData(Beach.DEFAULT, "Dock Chest"),
-    LocationData(Beach.gauntlet, "Secret Chest", ["Progressive Swap:2"]),
-    LocationData(Beach.DEFAULT, "Out-of-bounds Chest", ["Progressive Swap:2"]),
+    LocationData(Apartment.floor_3, "3F Gauntlet Chest", ["Combat"], (1096, 984), has_key=True),
+    LocationData(Apartment.floor_3, "Boss Chest", ["Defeat Watcher"], (1384, 1176)),
+    LocationData(Beach.DEFAULT, "Dock Chest", [], (711, 504)),
+    LocationData(Beach.gauntlet, "Secret Chest", ["Progressive Swap:2"], (376, 56)),
+    LocationData(Beach.DEFAULT, "Out-of-bounds Chest", ["Progressive Swap:2"], (712, 1080)),
     # 40DE36CF-9238-F8B0-7A57-C6C8CA465CC2
     LocationData(Bedroom.entrance, "Entrance Chest", has_key=True),
     LocationData(Bedroom.shieldy_room, "Shieldy Room Chest", []),
@@ -82,25 +85,24 @@ all_locations: List[LocationData] = [
     LocationData(Bedroom.after_statue, "After Statue Right Chest", []),
     # 401939A4-41BA-E07E-3BA2-DC22513DCC5C
     LocationData(Bedroom.core, "Dark Room Chest", [], has_key=True),
-    LocationData(Blank.windmill, "Card Chest"),
-    LocationData(Cell.DEFAULT, "Top Left Chest", ["Jump Shoes"]),
-    LocationData(Cell.DEFAULT, "Chaser Gauntlet Chest", ["Progressive Swap:2", "Combat", "Jump Shoes"]),
+    LocationData(Blank.windmill, "Card Chest", [], (920, 264)),
+    LocationData(Cell.DEFAULT, "Top Left Chest", ["Jump Shoes"], (104, 56)),
+    LocationData(Cell.DEFAULT, "Chaser Gauntlet Chest", ["Progressive Swap:2", "Combat", "Jump Shoes"], (904, 1352)),
     # 75C2D434-4AE8-BCD0-DBEB-8E6CDA67BF45
-    LocationData(Circus.entry_gauntlets, "Rat Maze Chest", [], has_key=True),
-    LocationData(Circus.entry_gauntlets, "Clowns Chest", []),
-    LocationData(Circus.circlejump_gauntlets, "Fire Pillar Chest", []),
+    LocationData(Circus.entry_gauntlets, "Rat Maze Chest", [], (360, 824), has_key=True),
+    LocationData(Circus.entry_gauntlets, "Clowns Chest", [], (88, 504)),
+    LocationData(Circus.circlejump_gauntlets, "Fire Pillar Chest", [], (536, 1080)),
     # 69E8FBD6-2DA3-D25E-446F-6A59AC3E9FC2
-    LocationData(Circus.entry_gauntlets, "Arthur Chest", [], has_key=True),
+    LocationData(Circus.entry_gauntlets, "Arthur Chest", [], (1208, 824), has_key=True),
     # 6A95EB2F-75FD-8649-5E07-3ED37C69A9FB
-    LocationData(Circus.circlejump_gauntlets, "Javiera Chest", [], has_key=True),
+    LocationData(Circus.circlejump_gauntlets, "Javiera Chest", [], (1208, 334), has_key=True),
     # A2479A02-9B0D-751F-71A4-DB15C4982DF5
-    LocationData(Circus.third_key_gauntlet, "Lion Chest", [], has_key=True),
-    LocationData(Circus.north_gauntlet, "Double Clowns Chest", []),
-    LocationData(Circus.boss_gauntlet, "Boss Chest", ["Defeat Servants"]),
-    LocationData(Cliff.post_windmill, "Upper Chest"),
-    LocationData(Cliff.post_windmill, "Lower Chest"),
-    LocationData(Crowd.floor_2_gauntlets, "2F Crowded Ledge Chest",
-                 ["Small Key (Mountain Cavern):4"]),
+    LocationData(Circus.third_key_gauntlet, "Lion Chest", [], (232, 344), has_key=True),
+    LocationData(Circus.north_gauntlet, "Double Clowns Chest", [], (616, 424)),
+    LocationData(Circus.boss_gauntlet, "Boss Chest", ["Defeat Servants"], (1192, 24)),
+    LocationData(Cliff.post_windmill, "Upper Chest", [], (744, 932)),
+    LocationData(Cliff.post_windmill, "Lower Chest", [], (440, 1224)),
+    LocationData(Crowd.floor_2_gauntlets, "2F Crowded Ledge Chest", ["Small Key (Mountain Cavern):4"], ),
     # BE2FB96B-1D5F-FCD1-3F58-D158DB982C21
     LocationData(Crowd.floor_2, "2F Four Enemies Chest", ["Combat"], has_key=True),
     # 5743A883-D209-2518-70D7-869D14925B77
@@ -112,13 +114,13 @@ all_locations: List[LocationData] = [
     LocationData(Crowd.jump_challenge, "Extend Upgrade Chest", ["Combat", "Jump Shoes"], outside_of_dungeon=True),
     # 868736EF-EC8B-74C9-ACAB-B7BC56A44394
     LocationData(Crowd.floor_2_gauntlets, "2F Frogs and Rotators Chest", has_key=True),
-    LocationData(Debug.DEFAULT, "River Puzzles Chest", ["Combat", "Jump Shoes"]),
-    LocationData(Debug.DEFAULT, "Upper Prison Chest"),
-    LocationData(Debug.DEFAULT, "Lower Prison Chest"),
-    LocationData(Debug.DEFAULT, "Jumping Chest"),
-    LocationData(Debug.DEFAULT, "Maze Chest", ["Jump Shoes"]),
-    LocationData(Drawer.DEFAULT, "Game Over Chest", ["Progressive Swap:2"]),
-    LocationData(Drawer.DEFAULT, "Brown Area Chest"),
+    LocationData(Debug.DEFAULT, "River Puzzles Chest", ["Combat", "Jump Shoes"], (728, 600)),
+    LocationData(Debug.DEFAULT, "Upper Prison Chest", [], (72, 664)),
+    LocationData(Debug.DEFAULT, "Lower Prison Chest", [], (136, 1080)),
+    LocationData(Debug.DEFAULT, "Jumping Chest", [], (872, 56)),
+    LocationData(Debug.DEFAULT, "Maze Chest", ["Jump Shoes"], (888, 1496)),
+    LocationData(Drawer.DEFAULT, "Game Over Chest", ["Progressive Swap:2"], (440, 200)),
+    LocationData(Drawer.DEFAULT, "Brown Area Chest", [], (776, 1240)),
     LocationData(Fields.Lake, "Island Chest", ["Combat", "Jump Shoes"]),
     LocationData(Fields.Lake, "Gauntlet Chest", ["Combat", "Jump Shoes"]),
     # Cleaning up his cave
@@ -133,9 +135,9 @@ all_locations: List[LocationData] = [
     LocationData(Fields.DEFAULT, "Secluded Glen Chest", ["SwapOrSecret"]),
     # Hidden path
     LocationData(Fields.Terminal_Entrance, f"Near {Terminal.area_name()} Secret Chest", ["SwapOrSecret"]),
-    LocationData(Forest.DEFAULT, "Inlet Chest", ["Combat"]),
+    LocationData(Forest.DEFAULT, "Inlet Chest", ["Combat"], (536, 392)),
     # This is the one that takes 2 hours
-    LocationData(Forest.DEFAULT, "Bunny Chest", ["Progressive Swap:2"]),
+    LocationData(Forest.DEFAULT, "Bunny Chest", ["Progressive Swap:2"], (88, 88)),
     LocationData(Go.bottom, "Swap Upgrade Chest"),
     LocationData(Go.bottom, "Secret Color Puzzle Chest", ["Progressive Swap:2"]),
     # 6C8870D4-7600-6FFD-B425-2D951E65E160
@@ -158,7 +160,7 @@ all_locations: List[LocationData] = [
     LocationData(Hotel.floor_1, "Boss Chest", ["Defeat Manager"]),
     LocationData(Hotel.roof, "Roof Chest", ["Combat", "Progressive Swap:2"], outside_of_dungeon=True),
     LocationData(Nexus.top, "Isolated Chest", ["Progressive Swap:2"]),
-    LocationData(Overworld.DEFAULT, "Near Gate Chest"),
+    LocationData(Overworld.DEFAULT, "Near Gate Chest", []),
     LocationData(Overworld.post_windmill, "After Temple Chest", ["Combat"]),
     LocationData(Red_Cave.top, "Top Cave Slasher Chest", ["Combat"]),
     # 72BAD10E-598F-F238-0103-60E1B36F6240
@@ -193,14 +195,14 @@ all_locations: List[LocationData] = [
     LocationData(Terminal.DEFAULT, "Broken Bridge Chest"),
     LocationData(Windmill.DEFAULT, "Chest", []),
     LocationData(Windmill.DEFAULT, "Activation", [], type=LocationType.AreaEvent),
-    LocationData(Boss_Rush.DEFAULT, "Reward Chest"),
+    LocationData(Boss_Rush.DEFAULT, "Reward Chest", [], (376, 104)),
     # Health Cicadas
-    LocationData(Apartment.floor_3, "Health Cicada", ["Defeat Watcher"], type=LocationType.Cicada),
-    LocationData(Beach.gauntlet, "Health Cicada", [], type=LocationType.Cicada),
+    LocationData(Apartment.floor_3, "Health Cicada", ["Defeat Watcher"], (1192, 1032), type=LocationType.Cicada),
+    LocationData(Beach.gauntlet, "Health Cicada", [], (232, 408), type=LocationType.Cicada),
     LocationData(Bedroom.exit, "Health Cicada", ["Defeat Seer"], type=LocationType.Cicada),
     # Has to be frame 4
-    LocationData(Cell.past_gate, "Health Cicada", ["Jump Shoes"], type=LocationType.Cicada),
-    LocationData(Circus.boss_gauntlet, "Health Cicada", ["Defeat Servants"], type=LocationType.Cicada),
+    LocationData(Cell.past_gate, "Health Cicada", ["Jump Shoes"], (1000, 1000), type=LocationType.Cicada),
+    LocationData(Circus.boss_gauntlet, "Health Cicada", ["Defeat Servants"], (712, 184), type=LocationType.Cicada),
     LocationData(Crowd.floor_1, "Health Cicada", ["Defeat The Wall"], type=LocationType.Cicada),
     LocationData(Hotel.floor_1, "Health Cicada", ["Defeat Manager"], type=LocationType.Cicada),
     LocationData(Overworld.Gauntlet, "Health Cicada", [], type=LocationType.Cicada),
@@ -213,34 +215,36 @@ all_locations: List[LocationData] = [
     LocationData(Red_Cave.center, "Middle Cave Left Tentacle", ["Combat"], type=LocationType.Tentacle),
     LocationData(Red_Cave.left, "Left Cave Tentacle", ["Small Key (Red Grotto):6"], type=LocationType.Tentacle),
     LocationData(Red_Cave.right, "Right Cave Tentacle", ["Small Key (Red Grotto):6"], type=LocationType.Tentacle),
-    LocationData(Go.top, "Defeat Briar", ["Combat", "Jump Shoes"], type=LocationType.AreaEvent),
+    LocationData(Go.top, "Defeat Briar", ["Combat", "Jump Shoes"], (400, 240), type=LocationType.AreaEvent),
     # Nexus portals
-    LocationData(Apartment.floor_1, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Beach.DEFAULT, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Bedroom.exit, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Blue.DEFAULT, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Cell.DEFAULT, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Cliff.DEFAULT, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Circus.DEFAULT, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Crowd.exit, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Fields.DEFAULT, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Forest.DEFAULT, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Go.bottom, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Happy.DEFAULT, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Hotel.floor_4, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Overworld.DEFAULT, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Red_Cave.exit, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Red_Sea.DEFAULT, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Suburb.DEFAULT, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Space.DEFAULT, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Terminal.DEFAULT, "Warp Pad", type=LocationType.Nexus),
-    LocationData(Windmill.entrance, "Warp Pad", type=LocationType.Nexus),
+    LocationData(Apartment.floor_1, "Warp Pad", [], (368, 768), type=LocationType.Nexus),
+    LocationData(Beach.DEFAULT, "Warp Pad", [], (1039, 400), type=LocationType.Nexus),
+    LocationData(Bedroom.exit, "Warp Pad", [], (672, 32), type=LocationType.Nexus),
+    LocationData(Blue.DEFAULT, "Warp Pad", [], (128, 128), type=LocationType.Nexus),
+    LocationData(Cell.DEFAULT, "Warp Pad", [], (560, 528), type=LocationType.Nexus),
+    LocationData(Cliff.DEFAULT, "Warp Pad", [], (554, 688), type=LocationType.Nexus),
+    LocationData(Circus.DEFAULT, "Warp Pad", [], (752, 1376), type=LocationType.Nexus),
+    LocationData(Crowd.exit, "Warp Pad", [], (1520, 745), type=LocationType.Nexus),
+    LocationData(Fields.DEFAULT, "Warp Pad", [], (1040, 576), type=LocationType.Nexus),
+    LocationData(Forest.DEFAULT, "Warp Pad", [], (240, 1040), type=LocationType.Nexus),
+    LocationData(Go.bottom, "Warp Pad", [], (400, 720), type=LocationType.Nexus),
+    LocationData(Happy.DEFAULT, "Warp Pad", [], (264, 400), type=LocationType.Nexus),
+    LocationData(Hotel.floor_4, "Warp Pad", [], (448, 880), type=LocationType.Nexus),
+    LocationData(Overworld.DEFAULT, "Warp Pad", [], (832, 1056), type=LocationType.Nexus),
+    LocationData(Red_Cave.exit, "Warp Pad", [], (1040, 368), type=LocationType.Nexus),
+    LocationData(Red_Sea.DEFAULT, "Warp Pad", [], (560, 384), type=LocationType.Nexus),
+    LocationData(Suburb.DEFAULT, "Warp Pad", [], (400, 544), type=LocationType.Nexus),
+    LocationData(Space.DEFAULT, "Warp Pad", [], (880, 400), type=LocationType.Nexus),
+    LocationData(Terminal.DEFAULT, "Warp Pad", [], (448, 736), type=LocationType.Nexus),
+    LocationData(Windmill.entrance, "Warp Pad", [], (272, 1040), type=LocationType.Nexus),
     LocationData(Blue.DEFAULT, "Completion Reward", type=LocationType.AreaEvent),
     LocationData(Happy.gauntlet, "Completion Reward", type=LocationType.AreaEvent),
     # Dust locations
     LocationData(Apartment.floor_1, "1F Shortcut Room Dust 1", ["Jump Shoes"], type=LocationType.Dust),
-    LocationData(Apartment.floor_2, "2F Switch Pillar Rat Maze Dust", ["Jump Shoes", "Small Key (Apartment):3"], type=LocationType.Dust),
-    LocationData(Apartment.floor_2, "2F Dash Trap Rat Maze Dust", ["Jump Shoes", "Small Key (Apartment):3"], type=LocationType.Dust),
+    LocationData(Apartment.floor_2, "2F Switch Pillar Rat Maze Dust", ["Jump Shoes", "Small Key (Apartment):3"],
+                 type=LocationType.Dust),
+    LocationData(Apartment.floor_2, "2F Dash Trap Rat Maze Dust", ["Jump Shoes", "Small Key (Apartment):3"],
+                 type=LocationType.Dust),
     LocationData(Apartment.floor_2, "2F Flooded Room Dust", ["Jump Shoes"], type=LocationType.Dust),
     LocationData(Apartment.floor_1_top_left, "1F Couches Dust", ["Jump Shoes"], type=LocationType.Dust),
     LocationData(Apartment.floor_1, "1F Shortcut Room Dust 2", type=LocationType.Dust),
@@ -343,24 +347,36 @@ all_locations: List[LocationData] = [
     LocationData(Forest.DEFAULT, "Before Inlet Chest Dust", type=LocationType.Dust),
     LocationData(Happy.gauntlet, "Final Room Dust", [], type=LocationType.Dust),
     LocationData(Happy.gauntlet, "Dustmaid Dust", [], type=LocationType.Dust),
-    LocationData(Hotel.floor_1, "1F Floating Dustmaid Dust", ["Small Key (Hotel):4", "Jump Shoes"], type=LocationType.Dust),
-    LocationData(Hotel.floor_3, "3F Hallway Dustmaid Dust 2", ["Small Key (Hotel):1", "Jump Shoes"], type=LocationType.Dust),
-    LocationData(Hotel.floor_3, "3F Hallway Dustmaid Dust 1", ["Small Key (Hotel):1", "Jump Shoes"], type=LocationType.Dust),
+    LocationData(Hotel.floor_1, "1F Floating Dustmaid Dust", ["Small Key (Hotel):4", "Jump Shoes"],
+                 type=LocationType.Dust),
+    LocationData(Hotel.floor_3, "3F Hallway Dustmaid Dust 2", ["Small Key (Hotel):1", "Jump Shoes"],
+                 type=LocationType.Dust),
+    LocationData(Hotel.floor_3, "3F Hallway Dustmaid Dust 1", ["Small Key (Hotel):1", "Jump Shoes"],
+                 type=LocationType.Dust),
     LocationData(Hotel.floor_4, "4F Moving Platform Crossroad 1", ["Jump Shoes"], type=LocationType.Dust),
-    LocationData(Hotel.floor_1, "1F Boss Dust", ["Small Key (Hotel):6","Jump Shoes"], type=LocationType.Dust),
+    LocationData(Hotel.floor_1, "1F Boss Dust", ["Small Key (Hotel):6", "Jump Shoes"], type=LocationType.Dust),
     LocationData(Hotel.floor_1, "1F Gasguy Dust", ["Small Key (Hotel):6", "Jump Shoes"], type=LocationType.Dust),
-    LocationData(Hotel.floor_1, "1F Dustmaid and Steampipe Dust 3", ["Small Key (Hotel):6", "Jump Shoes"], type=LocationType.Dust),
-    LocationData(Hotel.floor_1, "1F Dustmaid and Steampipe Dust 2", ["Small Key (Hotel):6", "Jump Shoes"], type=LocationType.Dust),
-    LocationData(Hotel.floor_1, "1F Dustmaid and Steampipe Dust 1", ["Small Key (Hotel):6", "Jump Shoes"], type=LocationType.Dust),
-    LocationData(Hotel.floor_1, "1F Dustmaid and Steampipe Dust 4", ["Small Key (Hotel):6", "Jump Shoes"], type=LocationType.Dust),
+    LocationData(Hotel.floor_1, "1F Dustmaid and Steampipe Dust 3", ["Small Key (Hotel):6", "Jump Shoes"],
+                 type=LocationType.Dust),
+    LocationData(Hotel.floor_1, "1F Dustmaid and Steampipe Dust 2", ["Small Key (Hotel):6", "Jump Shoes"],
+                 type=LocationType.Dust),
+    LocationData(Hotel.floor_1, "1F Dustmaid and Steampipe Dust 1", ["Small Key (Hotel):6", "Jump Shoes"],
+                 type=LocationType.Dust),
+    LocationData(Hotel.floor_1, "1F Dustmaid and Steampipe Dust 4", ["Small Key (Hotel):6", "Jump Shoes"],
+                 type=LocationType.Dust),
     LocationData(Hotel.floor_2, "2F Steampipe Dust 2", ["Jump Shoes"], type=LocationType.Dust),
     LocationData(Hotel.floor_2, "2F Steampipe Dust 1", ["Jump Shoes"], type=LocationType.Dust),
     LocationData(Hotel.floor_1, "1F Locked Dust", ["Small Key (Hotel):6", "Jump Shoes"], type=LocationType.Dust),
-    LocationData(Hotel.floor_2, "2F Dustmaid and Steampipe Dust 3", ["Small Key (Hotel):4", "Jump Shoes"], type=LocationType.Dust),
-    LocationData(Hotel.floor_2, "2F Dustmaid and Steampipe Dust 1", ["Small Key (Hotel):4", "Jump Shoes"], type=LocationType.Dust),
-    LocationData(Hotel.floor_2, "2F Dustmaid and Steampipe Dust 2", ["Small Key (Hotel):4", "Jump Shoes"], type=LocationType.Dust),
-    LocationData(Hotel.floor_2, "2F Dustmaid Hallway Dust", ["Small Key (Hotel):4", "Jump Shoes"], type=LocationType.Dust),
-    LocationData(Hotel.floor_3, "3F Stream Dustmaid Dust", ["Small Key (Hotel):4", "Jump Shoes"], type=LocationType.Dust),
+    LocationData(Hotel.floor_2, "2F Dustmaid and Steampipe Dust 3", ["Small Key (Hotel):4", "Jump Shoes"],
+                 type=LocationType.Dust),
+    LocationData(Hotel.floor_2, "2F Dustmaid and Steampipe Dust 1", ["Small Key (Hotel):4", "Jump Shoes"],
+                 type=LocationType.Dust),
+    LocationData(Hotel.floor_2, "2F Dustmaid and Steampipe Dust 2", ["Small Key (Hotel):4", "Jump Shoes"],
+                 type=LocationType.Dust),
+    LocationData(Hotel.floor_2, "2F Dustmaid Hallway Dust", ["Small Key (Hotel):4", "Jump Shoes"],
+                 type=LocationType.Dust),
+    LocationData(Hotel.floor_3, "3F Stream Dustmaid Dust", ["Small Key (Hotel):4", "Jump Shoes"],
+                 type=LocationType.Dust),
     LocationData(Hotel.floor_3, "3F Bedroom Dust", ["Small Key (Hotel):4", "Jump Shoes"], type=LocationType.Dust),
     LocationData(Hotel.floor_4, "4F Slime Dust 2", ["Jump Shoes"], type=LocationType.Dust),
     LocationData(Hotel.floor_4, "4F Slime Dust 1", ["Jump Shoes"], type=LocationType.Dust),
@@ -368,7 +384,8 @@ all_locations: List[LocationData] = [
     LocationData(Hotel.floor_4, "4F Dustmaid Dust", ["Jump Shoes"], type=LocationType.Dust),
     LocationData(Hotel.floor_4, "4F Near Elevator Dust", ["Jump Shoes"], type=LocationType.Dust),
     LocationData(Hotel.floor_4, "4F Spring Puzzle Dust", ["Small Key (Hotel):1", "Jump Shoes"], type=LocationType.Dust),
-    LocationData(Hotel.floor_4, "4F Moving Platform Puzzle Dust", ["Small Key (Hotel):1", "Jump Shoes"], type=LocationType.Dust),
+    LocationData(Hotel.floor_4, "4F Moving Platform Puzzle Dust", ["Small Key (Hotel):1", "Jump Shoes"],
+                 type=LocationType.Dust),
     LocationData(Red_Cave.top, "Top Cave Boss Dust 1", type=LocationType.Dust),
     LocationData(Red_Cave.top, "Top Cave Boss Dust 2", type=LocationType.Dust),
     LocationData(Red_Cave.top, "Top Cave Before Boss Dust", type=LocationType.Dust),
@@ -399,6 +416,7 @@ all_locations: List[LocationData] = [
 ]
 
 locations_by_name: Dict[str, LocationData] = {location.name: location for location in all_locations}
+
 
 def build_locations_by_region_dict():
     result: Dict[RegionEnum, List[LocationData]] = {}

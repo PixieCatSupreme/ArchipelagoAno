@@ -19,6 +19,7 @@ class LocationData(NamedTuple):
     region: RegionEnum
     base_name: str
     reqs: List[str] = []
+    tracker_loc: tuple[int,int] = (0,0)
     type:LocationType = LocationType.Chest
     has_key:bool = False
     outside_of_dungeon:bool = False
@@ -131,7 +132,6 @@ all_locations: List[LocationData] = [
     # Hidden path
     LocationData(Fields.DEFAULT, "Secluded Glen Chest", ["SwapOrSecret"]),
     # Hidden path
-    # Logically, this is in Terminal, because it is separated from the rest of Fields in the same way Terminal is.
     LocationData(Fields.Terminal_Entrance, f"Near {Terminal.area_name()} Secret Chest", ["SwapOrSecret"]),
     LocationData(Forest.DEFAULT, "Inlet Chest", ["Combat"]),
     # This is the one that takes 2 hours

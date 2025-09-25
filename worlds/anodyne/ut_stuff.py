@@ -1,7 +1,9 @@
 import json
 import os.path
 
-from .Data.Regions import all_areas
+from . import RegionEnum
+from .Data.Locations import all_locations
+from .Data.Regions import all_areas, Nexus
 
 UTTrackerData = {
     "map_page_folder": "tracker",
@@ -10,33 +12,32 @@ UTTrackerData = {
 }
 
 def make_map():
-    return [{
+    return sorted([{
         "name": area.area_name(),
         "img": f"images/maps/{area.__name__.upper()}.png",
-        "location_size": 30
-    } for area in all_areas]
+        "location_size": 20,
+        "location_border_thickness": 1
+    } for area in all_areas],key=lambda d:0 if d["name"] == "Nexus" else 1)
 
 def location_data():
+    all_locs:dict[type[RegionEnum],dict[tuple[int,int],list[str]]] = {}
+
+    for location in all_locations:
+        all_locs.setdefault(location.region.__class__,{}).setdefault(location.tracker_loc,[]).append(location.name)
+        if location.region.__class__ is not Nexus:
+            all_locs.setdefault(Nexus,{}).setdefault(location.region.nexus_ut_loc(),[]).append(location.name)
+
     return [{
-    "name": "Nexus",
-    "children": [
-      {
-        "name": "Apartment",
-        "sections": [
-          {"name": "Apartment - 1F Ledge Chest"},
-          {"name": "Apartment - 1F Rat Maze Chest"}
-        ],
-        "map_locations": [{"map": "Nexus", "x": 592, "y": 833}]
-      },
-      {
-        "name": "Street",
-        "sections": [
-          {"name": "Street - Broom Chest"}
-        ],
-        "map_locations": [{"map": "Nexus","x": 256,"y": 897}]
-      }
-    ]
-  }]
+        "name":  region.area_name(),
+        "children": [
+            {
+                "name": region.area_name(),
+                "map_locations": [{"map":region.area_name(), "x": map_loc[0], "y": map_loc[1]}],
+                "sections": [{"name":name} for name in names]
+            }
+            for map_loc,names in map_locs.items()
+        ]
+    } for region,map_locs in all_locs.items()]
 
 if '.apworld' not in os.path.abspath(__file__):
     base_dir = os.path.dirname(os.path.abspath(__file__))

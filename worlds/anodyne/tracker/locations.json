@@ -1,37 +1,3156 @@
 [
     {
-        "name": "Nexus",
+        "name": "Apartment",
         "children": [
             {
                 "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 24,
+                        "y": 504
+                    }
+                ],
                 "sections": [
                     {
                         "name": "Apartment - 1F Ledge Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 536,
+                        "y": 216
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Apartment - 1F Rat Maze Chest"
                     }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 600,
+                        "y": 920
+                    }
                 ],
+                "sections": [
+                    {
+                        "name": "Apartment - 1F Exterior Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 136,
+                        "y": 72
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Apartment - 1F Couches Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 1320,
+                        "y": 504
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Apartment - 2F Rat Maze Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 1096,
+                        "y": 984
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Apartment - 3F Gauntlet Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 1384,
+                        "y": 1176
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Apartment - Boss Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 1192,
+                        "y": 1032
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Apartment - Health Cicada"
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 368,
+                        "y": 768
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Apartment - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Apartment - 1F Shortcut Room Dust 1"
+                    },
+                    {
+                        "name": "Apartment - 2F Switch Pillar Rat Maze Dust"
+                    },
+                    {
+                        "name": "Apartment - 2F Dash Trap Rat Maze Dust"
+                    },
+                    {
+                        "name": "Apartment - 2F Flooded Room Dust"
+                    },
+                    {
+                        "name": "Apartment - 1F Couches Dust"
+                    },
+                    {
+                        "name": "Apartment - 1F Shortcut Room Dust 2"
+                    },
+                    {
+                        "name": "Apartment - 1F Rat Maze Chest Dust 1"
+                    },
+                    {
+                        "name": "Apartment - 1F Rat Maze Chest Dust 2"
+                    },
+                    {
+                        "name": "Apartment - 1F Rat Maze Chest Dust 3"
+                    },
+                    {
+                        "name": "Apartment - 1F Entrance Dust"
+                    },
+                    {
+                        "name": "Apartment - 1F Flooded Room Dust"
+                    },
+                    {
+                        "name": "Apartment - 1F Flooded Library Dust"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Nexus",
+        "children": [
+            {
+                "name": "Nexus",
                 "map_locations": [
                     {
                         "map": "Nexus",
                         "x": 592,
                         "y": 833
                     }
+                ],
+                "sections": [
+                    {
+                        "name": "Apartment - 1F Ledge Chest"
+                    },
+                    {
+                        "name": "Apartment - 1F Rat Maze Chest"
+                    },
+                    {
+                        "name": "Apartment - 1F Exterior Chest"
+                    },
+                    {
+                        "name": "Apartment - 1F Couches Chest"
+                    },
+                    {
+                        "name": "Apartment - 2F Rat Maze Chest"
+                    },
+                    {
+                        "name": "Apartment - 3F Gauntlet Chest"
+                    },
+                    {
+                        "name": "Apartment - Boss Chest"
+                    },
+                    {
+                        "name": "Apartment - Health Cicada"
+                    },
+                    {
+                        "name": "Apartment - Warp Pad"
+                    },
+                    {
+                        "name": "Apartment - 1F Shortcut Room Dust 1"
+                    },
+                    {
+                        "name": "Apartment - 2F Switch Pillar Rat Maze Dust"
+                    },
+                    {
+                        "name": "Apartment - 2F Dash Trap Rat Maze Dust"
+                    },
+                    {
+                        "name": "Apartment - 2F Flooded Room Dust"
+                    },
+                    {
+                        "name": "Apartment - 1F Couches Dust"
+                    },
+                    {
+                        "name": "Apartment - 1F Shortcut Room Dust 2"
+                    },
+                    {
+                        "name": "Apartment - 1F Rat Maze Chest Dust 1"
+                    },
+                    {
+                        "name": "Apartment - 1F Rat Maze Chest Dust 2"
+                    },
+                    {
+                        "name": "Apartment - 1F Rat Maze Chest Dust 3"
+                    },
+                    {
+                        "name": "Apartment - 1F Entrance Dust"
+                    },
+                    {
+                        "name": "Apartment - 1F Flooded Room Dust"
+                    },
+                    {
+                        "name": "Apartment - 1F Flooded Library Dust"
+                    }
                 ]
             },
             {
-                "name": "Street",
-                "sections": [
+                "name": "Nexus",
+                "map_locations": [
                     {
-                        "name": "Street - Broom Chest"
+                        "map": "Nexus",
+                        "x": 288,
+                        "y": 721
                     }
                 ],
+                "sections": [
+                    {
+                        "name": "Beach - Dock Chest"
+                    },
+                    {
+                        "name": "Beach - Secret Chest"
+                    },
+                    {
+                        "name": "Beach - Out-of-bounds Chest"
+                    },
+                    {
+                        "name": "Beach - Health Cicada"
+                    },
+                    {
+                        "name": "Beach - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 592,
+                        "y": 897
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Temple of the Seeing One - Entrance Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Shieldy Room Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Rock-Surrounded Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Boss Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - After Statue Left Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - After Statue Right Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Dark Room Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Health Cicada"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Green Key"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Warp Pad"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Laser Room Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Laser Room Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Room With Holes Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Room With Holes Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Past Shieldy Puzzle Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Before Boss Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Past Shieldy Puzzle Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Shieldy Room Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Shieldy Room Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Laser Room Dust 3"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Entrance Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Entrance Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Before Boss Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Laser Room Dust 4"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 80,
+                        "y": 400
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blank - Card Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 272,
+                        "y": 497
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cell - Top Left Chest"
+                    },
+                    {
+                        "name": "Cell - Chaser Gauntlet Chest"
+                    },
+                    {
+                        "name": "Cell - Health Cicada"
+                    },
+                    {
+                        "name": "Cell - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 192,
+                        "y": 497
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Rat Maze Chest"
+                    },
+                    {
+                        "name": "Circus - Clowns Chest"
+                    },
+                    {
+                        "name": "Circus - Fire Pillar Chest"
+                    },
+                    {
+                        "name": "Circus - Arthur Chest"
+                    },
+                    {
+                        "name": "Circus - Javiera Chest"
+                    },
+                    {
+                        "name": "Circus - Lion Chest"
+                    },
+                    {
+                        "name": "Circus - Double Clowns Chest"
+                    },
+                    {
+                        "name": "Circus - Boss Chest"
+                    },
+                    {
+                        "name": "Circus - Health Cicada"
+                    },
+                    {
+                        "name": "Circus - Warp Pad"
+                    },
+                    {
+                        "name": "Circus - Dash Trap Dust"
+                    },
+                    {
+                        "name": "Circus - Fire Pillars in Water Dust 3"
+                    },
+                    {
+                        "name": "Circus - Lion Dust 1"
+                    },
+                    {
+                        "name": "Circus - Lion Dust 2"
+                    },
+                    {
+                        "name": "Circus - Fire Pillars in Water Dust 2"
+                    },
+                    {
+                        "name": "Circus - Fire Pillars in Water Dust 1"
+                    },
+                    {
+                        "name": "Circus - Fire Pillars in Water Dust 4"
+                    },
+                    {
+                        "name": "Circus - Dog Room Dust"
+                    },
+                    {
+                        "name": "Circus - Javiera Dust 2"
+                    },
+                    {
+                        "name": "Circus - Javiera Dust 1"
+                    },
+                    {
+                        "name": "Circus - Slime and Fire Pillar Dust"
+                    },
+                    {
+                        "name": "Circus - Small Contort Room Dust"
+                    },
+                    {
+                        "name": "Circus - Save Point Dust"
+                    },
+                    {
+                        "name": "Circus - Clown Dust 1"
+                    },
+                    {
+                        "name": "Circus - Clown Dust 2"
+                    },
+                    {
+                        "name": "Circus - Spike Dust"
+                    },
+                    {
+                        "name": "Circus - Dash Pad over Hole Dust"
+                    },
+                    {
+                        "name": "Circus - Lion and Dash Pad Dust"
+                    },
+                    {
+                        "name": "Circus - Spike Roller in Water Dust"
+                    },
+                    {
+                        "name": "Circus - Entrance Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 512,
+                        "y": 561
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cliffs - Upper Chest"
+                    },
+                    {
+                        "name": "Cliffs - Lower Chest"
+                    },
+                    {
+                        "name": "Cliffs - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 592,
+                        "y": 561
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Mountain Cavern - 2F Crowded Ledge Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Four Enemies Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Entrance Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Frogs and Dog Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 3F Roller Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - Boss Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - Extend Upgrade Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Frogs and Rotators Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - Health Cicada"
+                    },
+                    {
+                        "name": "Mountain Cavern - Blue Key"
+                    },
+                    {
+                        "name": "Mountain Cavern - Warp Pad"
+                    },
+                    {
+                        "name": "Mountain Cavern - 3F Top Center Moving Platform Dust"
+                    },
+                    {
+                        "name": "Mountain Cavern - 3F Top Right Moving Platform Dust"
+                    },
+                    {
+                        "name": "Mountain Cavern - 3F Roller Dust"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Frogs and Annoyers Dust"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Rotators and Annoyers Dust 1"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Rotators and Annoyers Dust 2"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Circular Hole Dust 1"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Circular Hole Dust 2"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Crossing Moving Platforms Dust 1"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Crossing Moving Platforms Dust 2"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 1"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 2"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 3"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 256,
+                        "y": 240
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Debug - River Puzzles Chest"
+                    },
+                    {
+                        "name": "Debug - Upper Prison Chest"
+                    },
+                    {
+                        "name": "Debug - Lower Prison Chest"
+                    },
+                    {
+                        "name": "Debug - Jumping Chest"
+                    },
+                    {
+                        "name": "Debug - Maze Chest"
+                    },
+                    {
+                        "name": "Debug - Moving Platform Dust"
+                    },
+                    {
+                        "name": "Debug - Whirlpool Room Dust 1"
+                    },
+                    {
+                        "name": "Debug - Whirlpool Room Dust 2"
+                    },
+                    {
+                        "name": "Debug - Sound Test Console Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 401,
+                        "y": 244
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Drawer - Game Over Chest"
+                    },
+                    {
+                        "name": "Drawer - Brown Area Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 400,
+                        "y": 721
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Fields - Island Chest"
+                    },
+                    {
+                        "name": "Fields - Gauntlet Chest"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Chest"
+                    },
+                    {
+                        "name": "Fields - Blocked River Chest"
+                    },
+                    {
+                        "name": "Fields - Cardboard Box"
+                    },
+                    {
+                        "name": "Fields - Shopkeeper Trade"
+                    },
+                    {
+                        "name": "Fields - Mitra Trade"
+                    },
+                    {
+                        "name": "Fields - Near Woods Secret Chest"
+                    },
+                    {
+                        "name": "Fields - Secluded Glen Chest"
+                    },
+                    {
+                        "name": "Fields - Near Crossing Secret Chest"
+                    },
+                    {
+                        "name": "Fields - Warp Pad"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 1"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 2"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 3"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 4"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 5"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 6"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 7"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 8"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 9"
+                    },
+                    {
+                        "name": "Fields - Lake After Spikes Dust"
+                    },
+                    {
+                        "name": "Fields - North River Dust"
+                    },
+                    {
+                        "name": "Fields - Lake After Holes Floating Dust"
+                    },
+                    {
+                        "name": "Fields - South East of Lake Dust"
+                    },
+                    {
+                        "name": "Fields - Lake Near Windmill Dust"
+                    },
+                    {
+                        "name": "Fields - North of Lake Rapids Dust"
+                    },
+                    {
+                        "name": "Fields - North East of Lake Dust"
+                    },
+                    {
+                        "name": "Fields - Before Annoyer Maze Dust"
+                    },
+                    {
+                        "name": "Fields - Mitra House Dust"
+                    },
+                    {
+                        "name": "Fields - Near Red Gate Dust"
+                    },
+                    {
+                        "name": "Fields - After Red Gate Dust"
+                    },
+                    {
+                        "name": "Fields - Near Terminal Dust"
+                    },
+                    {
+                        "name": "Fields - North West of Lake Dust"
+                    },
+                    {
+                        "name": "Fields - Near Beach Dust"
+                    },
+                    {
+                        "name": "Fields - South West Corner Dust"
+                    },
+                    {
+                        "name": "Fields - South East of Gauntlet Dust"
+                    },
+                    {
+                        "name": "Fields - Before Gauntlet Dust"
+                    },
+                    {
+                        "name": "Fields - Island Chest Dust"
+                    },
+                    {
+                        "name": "Fields - Island Start Dust"
+                    },
+                    {
+                        "name": "Fields - Post Whirlpool Dust"
+                    },
+                    {
+                        "name": "Fields - Olive Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 512,
+                        "y": 721
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Deep Forest - Inlet Chest"
+                    },
+                    {
+                        "name": "Deep Forest - Bunny Chest"
+                    },
+                    {
+                        "name": "Deep Forest - Warp Pad"
+                    },
+                    {
+                        "name": "Deep Forest - Relaxation Pond Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Near Cliff Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Floating Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Thorax Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Carved Rock Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Tiny Island Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Inlet Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Before Inlet Chest Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 352,
+                        "y": 577
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Garden - Swap Upgrade Chest"
+                    },
+                    {
+                        "name": "Garden - Secret Color Puzzle Chest"
+                    },
+                    {
+                        "name": "Garden - Defeat Briar"
+                    },
+                    {
+                        "name": "Garden - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 592,
+                        "y": 497
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Hotel - 4F Annoyers Chest"
+                    },
+                    {
+                        "name": "Hotel - 4F Dust Blower Maze Chest"
+                    },
+                    {
+                        "name": "Hotel - 3F Dashers Chest"
+                    },
+                    {
+                        "name": "Hotel - 3F Gasguy Chest"
+                    },
+                    {
+                        "name": "Hotel - 3F Rotators Chest"
+                    },
+                    {
+                        "name": "Hotel - 2F Dog Chest"
+                    },
+                    {
+                        "name": "Hotel - 2F Crevice Right Chest"
+                    },
+                    {
+                        "name": "Hotel - 2F Backrooms Chest"
+                    },
+                    {
+                        "name": "Hotel - 1F Burst Flowers Chest"
+                    },
+                    {
+                        "name": "Hotel - 2F Crevice Left Chest"
+                    },
+                    {
+                        "name": "Hotel - Boss Chest"
+                    },
+                    {
+                        "name": "Hotel - Roof Chest"
+                    },
+                    {
+                        "name": "Hotel - Health Cicada"
+                    },
+                    {
+                        "name": "Hotel - Warp Pad"
+                    },
+                    {
+                        "name": "Hotel - 1F Floating Dustmaid Dust"
+                    },
+                    {
+                        "name": "Hotel - 3F Hallway Dustmaid Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 3F Hallway Dustmaid Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 4F Moving Platform Crossroad 1"
+                    },
+                    {
+                        "name": "Hotel - 1F Boss Dust"
+                    },
+                    {
+                        "name": "Hotel - 1F Gasguy Dust"
+                    },
+                    {
+                        "name": "Hotel - 1F Dustmaid and Steampipe Dust 3"
+                    },
+                    {
+                        "name": "Hotel - 1F Dustmaid and Steampipe Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 1F Dustmaid and Steampipe Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 1F Dustmaid and Steampipe Dust 4"
+                    },
+                    {
+                        "name": "Hotel - 2F Steampipe Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 2F Steampipe Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 1F Locked Dust"
+                    },
+                    {
+                        "name": "Hotel - 2F Dustmaid and Steampipe Dust 3"
+                    },
+                    {
+                        "name": "Hotel - 2F Dustmaid and Steampipe Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 2F Dustmaid and Steampipe Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 2F Dustmaid Hallway Dust"
+                    },
+                    {
+                        "name": "Hotel - 3F Stream Dustmaid Dust"
+                    },
+                    {
+                        "name": "Hotel - 3F Bedroom Dust"
+                    },
+                    {
+                        "name": "Hotel - 4F Slime Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 4F Slime Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 4F Moving Platform Crossroad 2"
+                    },
+                    {
+                        "name": "Hotel - 4F Dustmaid Dust"
+                    },
+                    {
+                        "name": "Hotel - 4F Near Elevator Dust"
+                    },
+                    {
+                        "name": "Hotel - 4F Spring Puzzle Dust"
+                    },
+                    {
+                        "name": "Hotel - 4F Moving Platform Puzzle Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Nexus - Isolated Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 512,
+                        "y": 897
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Woods - Near Gate Chest"
+                    },
+                    {
+                        "name": "Woods - After Temple Chest"
+                    },
+                    {
+                        "name": "Woods - Health Cicada"
+                    },
+                    {
+                        "name": "Woods - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 192,
+                        "y": 562
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Grotto - Top Cave Slasher Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Right Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Left Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Middle Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Boss Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Rapids Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Slasher Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Four Shooter Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Sticky Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Widen Upgrade Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Isaac Dungeon Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Health Cicada"
+                    },
+                    {
+                        "name": "Red Grotto - Red Key"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Right Tentacle"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Left Tentacle"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Tentacle"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Tentacle"
+                    },
+                    {
+                        "name": "Red Grotto - Warp Pad"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Boss Dust 1"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Boss Dust 2"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Before Boss Dust"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Slasher Dust"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Before Slasher Dust"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Boss Dust 3"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Boss Dust 4"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Rapids Dust 1"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Rapids Dust 2"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Before Slasher Dust"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Whirlpool Dust 1"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Whirlpool Dust 1"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Whirlpool Dust 2"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Whirlpool Dust 2"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 272,
+                        "y": 562
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Sea - Lonely Chest"
+                    },
+                    {
+                        "name": "Red Sea - Out-of-bounds Chest"
+                    },
+                    {
+                        "name": "Red Sea - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 512,
+                        "y": 833
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Young Town - Stab Reward Chest"
+                    },
+                    {
+                        "name": "Young Town - Killers Chest"
+                    },
+                    {
+                        "name": "Young Town - Health Cicada"
+                    },
+                    {
+                        "name": "Young Town - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 512,
+                        "y": 497
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Space - Left Chest"
+                    },
+                    {
+                        "name": "Space - Right Chest"
+                    },
+                    {
+                        "name": "Space - Challenge Area Chest"
+                    },
+                    {
+                        "name": "Space - Hidden Chest"
+                    },
+                    {
+                        "name": "Space - Warp Pad"
+                    },
+                    {
+                        "name": "Space - Challenge Area Dustmaid Dust 1"
+                    },
+                    {
+                        "name": "Space - Challenge Area Dustmaid Dust 2"
+                    },
+                    {
+                        "name": "Space - Challenge Area Lion Dust 1"
+                    },
+                    {
+                        "name": "Space - Challenge Area Lion Dust 2"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
                 "map_locations": [
                     {
                         "map": "Nexus",
                         "x": 256,
                         "y": 897
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Street - Key Chest"
+                    },
+                    {
+                        "name": "Street - Broom Chest"
+                    },
+                    {
+                        "name": "Street - Secret Chest"
+                    },
+                    {
+                        "name": "Street - After Bridge Dust 1"
+                    },
+                    {
+                        "name": "Street - After Bridge Dust 2"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 352,
+                        "y": 657
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Crossing - Broken Bridge Chest"
+                    },
+                    {
+                        "name": "Crossing - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 448,
+                        "y": 657
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Windmill - Chest"
+                    },
+                    {
+                        "name": "Windmill - Activation"
+                    },
+                    {
+                        "name": "Windmill - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 512,
+                        "y": 240
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Boss Rush - Reward Chest"
+                    },
+                    {
+                        "name": "Boss Rush - Before Red Boss Dust"
+                    },
+                    {
+                        "name": "Boss Rush - Red Boss Dust 1"
+                    },
+                    {
+                        "name": "Boss Rush - Red Boss Dust 2"
+                    },
+                    {
+                        "name": "Boss Rush - Red Boss Dust 3"
+                    },
+                    {
+                        "name": "Boss Rush - Red Boss Dust 4"
+                    },
+                    {
+                        "name": "Boss Rush - Manager Phase 1 Dust"
+                    },
+                    {
+                        "name": "Boss Rush - Manager Phase 2 Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 352,
+                        "y": 513
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blue - Warp Pad"
+                    },
+                    {
+                        "name": "Blue - Completion Reward"
+                    },
+                    {
+                        "name": "Blue - Laser Room Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 445,
+                        "y": 513
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red - Warp Pad"
+                    },
+                    {
+                        "name": "Red - Completion Reward"
+                    },
+                    {
+                        "name": "Red - Final Room Dust"
+                    },
+                    {
+                        "name": "Red - Dustmaid Dust"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Beach",
+        "children": [
+            {
+                "name": "Beach",
+                "map_locations": [
+                    {
+                        "map": "Beach",
+                        "x": 711,
+                        "y": 504
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Beach - Dock Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Beach",
+                "map_locations": [
+                    {
+                        "map": "Beach",
+                        "x": 376,
+                        "y": 56
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Beach - Secret Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Beach",
+                "map_locations": [
+                    {
+                        "map": "Beach",
+                        "x": 712,
+                        "y": 1080
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Beach - Out-of-bounds Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Beach",
+                "map_locations": [
+                    {
+                        "map": "Beach",
+                        "x": 232,
+                        "y": 408
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Beach - Health Cicada"
+                    }
+                ]
+            },
+            {
+                "name": "Beach",
+                "map_locations": [
+                    {
+                        "map": "Beach",
+                        "x": 1039,
+                        "y": 400
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Beach - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Temple of the Seeing One",
+        "children": [
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Temple of the Seeing One - Entrance Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Shieldy Room Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Rock-Surrounded Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Boss Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - After Statue Left Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - After Statue Right Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Dark Room Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Health Cicada"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Green Key"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Laser Room Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Laser Room Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Room With Holes Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Room With Holes Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Past Shieldy Puzzle Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Before Boss Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Past Shieldy Puzzle Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Shieldy Room Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Shieldy Room Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Laser Room Dust 3"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Entrance Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Entrance Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Before Boss Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Laser Room Dust 4"
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 672,
+                        "y": 32
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Temple of the Seeing One - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Blank",
+        "children": [
+            {
+                "name": "Blank",
+                "map_locations": [
+                    {
+                        "map": "Blank",
+                        "x": 920,
+                        "y": 264
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blank - Card Chest"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Cell",
+        "children": [
+            {
+                "name": "Cell",
+                "map_locations": [
+                    {
+                        "map": "Cell",
+                        "x": 104,
+                        "y": 56
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cell - Top Left Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Cell",
+                "map_locations": [
+                    {
+                        "map": "Cell",
+                        "x": 904,
+                        "y": 1352
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cell - Chaser Gauntlet Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Cell",
+                "map_locations": [
+                    {
+                        "map": "Cell",
+                        "x": 1000,
+                        "y": 1000
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cell - Health Cicada"
+                    }
+                ]
+            },
+            {
+                "name": "Cell",
+                "map_locations": [
+                    {
+                        "map": "Cell",
+                        "x": 560,
+                        "y": 528
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cell - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Circus",
+        "children": [
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 360,
+                        "y": 824
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Rat Maze Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 88,
+                        "y": 504
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Clowns Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 536,
+                        "y": 1080
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Fire Pillar Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 1208,
+                        "y": 824
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Arthur Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 1208,
+                        "y": 334
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Javiera Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 232,
+                        "y": 344
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Lion Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 616,
+                        "y": 424
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Double Clowns Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 1192,
+                        "y": 24
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Boss Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 712,
+                        "y": 184
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Health Cicada"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 752,
+                        "y": 1376
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Dash Trap Dust"
+                    },
+                    {
+                        "name": "Circus - Fire Pillars in Water Dust 3"
+                    },
+                    {
+                        "name": "Circus - Lion Dust 1"
+                    },
+                    {
+                        "name": "Circus - Lion Dust 2"
+                    },
+                    {
+                        "name": "Circus - Fire Pillars in Water Dust 2"
+                    },
+                    {
+                        "name": "Circus - Fire Pillars in Water Dust 1"
+                    },
+                    {
+                        "name": "Circus - Fire Pillars in Water Dust 4"
+                    },
+                    {
+                        "name": "Circus - Dog Room Dust"
+                    },
+                    {
+                        "name": "Circus - Javiera Dust 2"
+                    },
+                    {
+                        "name": "Circus - Javiera Dust 1"
+                    },
+                    {
+                        "name": "Circus - Slime and Fire Pillar Dust"
+                    },
+                    {
+                        "name": "Circus - Small Contort Room Dust"
+                    },
+                    {
+                        "name": "Circus - Save Point Dust"
+                    },
+                    {
+                        "name": "Circus - Clown Dust 1"
+                    },
+                    {
+                        "name": "Circus - Clown Dust 2"
+                    },
+                    {
+                        "name": "Circus - Spike Dust"
+                    },
+                    {
+                        "name": "Circus - Dash Pad over Hole Dust"
+                    },
+                    {
+                        "name": "Circus - Lion and Dash Pad Dust"
+                    },
+                    {
+                        "name": "Circus - Spike Roller in Water Dust"
+                    },
+                    {
+                        "name": "Circus - Entrance Dust"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Cliffs",
+        "children": [
+            {
+                "name": "Cliffs",
+                "map_locations": [
+                    {
+                        "map": "Cliffs",
+                        "x": 744,
+                        "y": 932
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cliffs - Upper Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Cliffs",
+                "map_locations": [
+                    {
+                        "map": "Cliffs",
+                        "x": 440,
+                        "y": 1224
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cliffs - Lower Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Cliffs",
+                "map_locations": [
+                    {
+                        "map": "Cliffs",
+                        "x": 554,
+                        "y": 688
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cliffs - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Mountain Cavern",
+        "children": [
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Mountain Cavern - 2F Crowded Ledge Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Four Enemies Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Entrance Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Frogs and Dog Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 3F Roller Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - Boss Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - Extend Upgrade Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Frogs and Rotators Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - Health Cicada"
+                    },
+                    {
+                        "name": "Mountain Cavern - Blue Key"
+                    },
+                    {
+                        "name": "Mountain Cavern - 3F Top Center Moving Platform Dust"
+                    },
+                    {
+                        "name": "Mountain Cavern - 3F Top Right Moving Platform Dust"
+                    },
+                    {
+                        "name": "Mountain Cavern - 3F Roller Dust"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Frogs and Annoyers Dust"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Rotators and Annoyers Dust 1"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Rotators and Annoyers Dust 2"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Circular Hole Dust 1"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Circular Hole Dust 2"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Crossing Moving Platforms Dust 1"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Crossing Moving Platforms Dust 2"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 1"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 2"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 3"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 1520,
+                        "y": 745
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Mountain Cavern - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Debug",
+        "children": [
+            {
+                "name": "Debug",
+                "map_locations": [
+                    {
+                        "map": "Debug",
+                        "x": 728,
+                        "y": 600
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Debug - River Puzzles Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Debug",
+                "map_locations": [
+                    {
+                        "map": "Debug",
+                        "x": 72,
+                        "y": 664
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Debug - Upper Prison Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Debug",
+                "map_locations": [
+                    {
+                        "map": "Debug",
+                        "x": 136,
+                        "y": 1080
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Debug - Lower Prison Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Debug",
+                "map_locations": [
+                    {
+                        "map": "Debug",
+                        "x": 872,
+                        "y": 56
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Debug - Jumping Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Debug",
+                "map_locations": [
+                    {
+                        "map": "Debug",
+                        "x": 888,
+                        "y": 1496
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Debug - Maze Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Debug",
+                "map_locations": [
+                    {
+                        "map": "Debug",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Debug - Moving Platform Dust"
+                    },
+                    {
+                        "name": "Debug - Whirlpool Room Dust 1"
+                    },
+                    {
+                        "name": "Debug - Whirlpool Room Dust 2"
+                    },
+                    {
+                        "name": "Debug - Sound Test Console Dust"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Drawer",
+        "children": [
+            {
+                "name": "Drawer",
+                "map_locations": [
+                    {
+                        "map": "Drawer",
+                        "x": 440,
+                        "y": 200
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Drawer - Game Over Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Drawer",
+                "map_locations": [
+                    {
+                        "map": "Drawer",
+                        "x": 776,
+                        "y": 1240
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Drawer - Brown Area Chest"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Fields",
+        "children": [
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Fields - Island Chest"
+                    },
+                    {
+                        "name": "Fields - Gauntlet Chest"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Chest"
+                    },
+                    {
+                        "name": "Fields - Blocked River Chest"
+                    },
+                    {
+                        "name": "Fields - Cardboard Box"
+                    },
+                    {
+                        "name": "Fields - Shopkeeper Trade"
+                    },
+                    {
+                        "name": "Fields - Mitra Trade"
+                    },
+                    {
+                        "name": "Fields - Near Woods Secret Chest"
+                    },
+                    {
+                        "name": "Fields - Secluded Glen Chest"
+                    },
+                    {
+                        "name": "Fields - Near Crossing Secret Chest"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 1"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 2"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 3"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 4"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 5"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 6"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 7"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 8"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 9"
+                    },
+                    {
+                        "name": "Fields - Lake After Spikes Dust"
+                    },
+                    {
+                        "name": "Fields - North River Dust"
+                    },
+                    {
+                        "name": "Fields - Lake After Holes Floating Dust"
+                    },
+                    {
+                        "name": "Fields - South East of Lake Dust"
+                    },
+                    {
+                        "name": "Fields - Lake Near Windmill Dust"
+                    },
+                    {
+                        "name": "Fields - North of Lake Rapids Dust"
+                    },
+                    {
+                        "name": "Fields - North East of Lake Dust"
+                    },
+                    {
+                        "name": "Fields - Before Annoyer Maze Dust"
+                    },
+                    {
+                        "name": "Fields - Mitra House Dust"
+                    },
+                    {
+                        "name": "Fields - Near Red Gate Dust"
+                    },
+                    {
+                        "name": "Fields - After Red Gate Dust"
+                    },
+                    {
+                        "name": "Fields - Near Terminal Dust"
+                    },
+                    {
+                        "name": "Fields - North West of Lake Dust"
+                    },
+                    {
+                        "name": "Fields - Near Beach Dust"
+                    },
+                    {
+                        "name": "Fields - South West Corner Dust"
+                    },
+                    {
+                        "name": "Fields - South East of Gauntlet Dust"
+                    },
+                    {
+                        "name": "Fields - Before Gauntlet Dust"
+                    },
+                    {
+                        "name": "Fields - Island Chest Dust"
+                    },
+                    {
+                        "name": "Fields - Island Start Dust"
+                    },
+                    {
+                        "name": "Fields - Post Whirlpool Dust"
+                    },
+                    {
+                        "name": "Fields - Olive Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1040,
+                        "y": 576
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Fields - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Deep Forest",
+        "children": [
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 536,
+                        "y": 392
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Deep Forest - Inlet Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 88,
+                        "y": 88
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Deep Forest - Bunny Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 240,
+                        "y": 1040
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Deep Forest - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Deep Forest - Relaxation Pond Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Near Cliff Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Floating Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Thorax Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Carved Rock Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Tiny Island Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Inlet Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Before Inlet Chest Dust"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Garden",
+        "children": [
+            {
+                "name": "Garden",
+                "map_locations": [
+                    {
+                        "map": "Garden",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Garden - Swap Upgrade Chest"
+                    },
+                    {
+                        "name": "Garden - Secret Color Puzzle Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Garden",
+                "map_locations": [
+                    {
+                        "map": "Garden",
+                        "x": 400,
+                        "y": 240
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Garden - Defeat Briar"
+                    }
+                ]
+            },
+            {
+                "name": "Garden",
+                "map_locations": [
+                    {
+                        "map": "Garden",
+                        "x": 400,
+                        "y": 720
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Garden - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Hotel",
+        "children": [
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Hotel - 4F Annoyers Chest"
+                    },
+                    {
+                        "name": "Hotel - 4F Dust Blower Maze Chest"
+                    },
+                    {
+                        "name": "Hotel - 3F Dashers Chest"
+                    },
+                    {
+                        "name": "Hotel - 3F Gasguy Chest"
+                    },
+                    {
+                        "name": "Hotel - 3F Rotators Chest"
+                    },
+                    {
+                        "name": "Hotel - 2F Dog Chest"
+                    },
+                    {
+                        "name": "Hotel - 2F Crevice Right Chest"
+                    },
+                    {
+                        "name": "Hotel - 2F Backrooms Chest"
+                    },
+                    {
+                        "name": "Hotel - 1F Burst Flowers Chest"
+                    },
+                    {
+                        "name": "Hotel - 2F Crevice Left Chest"
+                    },
+                    {
+                        "name": "Hotel - Boss Chest"
+                    },
+                    {
+                        "name": "Hotel - Roof Chest"
+                    },
+                    {
+                        "name": "Hotel - Health Cicada"
+                    },
+                    {
+                        "name": "Hotel - 1F Floating Dustmaid Dust"
+                    },
+                    {
+                        "name": "Hotel - 3F Hallway Dustmaid Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 3F Hallway Dustmaid Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 4F Moving Platform Crossroad 1"
+                    },
+                    {
+                        "name": "Hotel - 1F Boss Dust"
+                    },
+                    {
+                        "name": "Hotel - 1F Gasguy Dust"
+                    },
+                    {
+                        "name": "Hotel - 1F Dustmaid and Steampipe Dust 3"
+                    },
+                    {
+                        "name": "Hotel - 1F Dustmaid and Steampipe Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 1F Dustmaid and Steampipe Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 1F Dustmaid and Steampipe Dust 4"
+                    },
+                    {
+                        "name": "Hotel - 2F Steampipe Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 2F Steampipe Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 1F Locked Dust"
+                    },
+                    {
+                        "name": "Hotel - 2F Dustmaid and Steampipe Dust 3"
+                    },
+                    {
+                        "name": "Hotel - 2F Dustmaid and Steampipe Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 2F Dustmaid and Steampipe Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 2F Dustmaid Hallway Dust"
+                    },
+                    {
+                        "name": "Hotel - 3F Stream Dustmaid Dust"
+                    },
+                    {
+                        "name": "Hotel - 3F Bedroom Dust"
+                    },
+                    {
+                        "name": "Hotel - 4F Slime Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 4F Slime Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 4F Moving Platform Crossroad 2"
+                    },
+                    {
+                        "name": "Hotel - 4F Dustmaid Dust"
+                    },
+                    {
+                        "name": "Hotel - 4F Near Elevator Dust"
+                    },
+                    {
+                        "name": "Hotel - 4F Spring Puzzle Dust"
+                    },
+                    {
+                        "name": "Hotel - 4F Moving Platform Puzzle Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 448,
+                        "y": 880
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Hotel - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Woods",
+        "children": [
+            {
+                "name": "Woods",
+                "map_locations": [
+                    {
+                        "map": "Woods",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Woods - Near Gate Chest"
+                    },
+                    {
+                        "name": "Woods - After Temple Chest"
+                    },
+                    {
+                        "name": "Woods - Health Cicada"
+                    }
+                ]
+            },
+            {
+                "name": "Woods",
+                "map_locations": [
+                    {
+                        "map": "Woods",
+                        "x": 832,
+                        "y": 1056
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Woods - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Red Grotto",
+        "children": [
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Grotto - Top Cave Slasher Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Right Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Left Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Middle Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Boss Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Rapids Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Slasher Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Four Shooter Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Sticky Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Widen Upgrade Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Isaac Dungeon Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Health Cicada"
+                    },
+                    {
+                        "name": "Red Grotto - Red Key"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Right Tentacle"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Left Tentacle"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Tentacle"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Tentacle"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Boss Dust 1"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Boss Dust 2"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Before Boss Dust"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Slasher Dust"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Before Slasher Dust"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Boss Dust 3"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Boss Dust 4"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Rapids Dust 1"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Rapids Dust 2"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Before Slasher Dust"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Whirlpool Dust 1"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Whirlpool Dust 1"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Whirlpool Dust 2"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Whirlpool Dust 2"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 1040,
+                        "y": 368
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Grotto - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Red Sea",
+        "children": [
+            {
+                "name": "Red Sea",
+                "map_locations": [
+                    {
+                        "map": "Red Sea",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Sea - Lonely Chest"
+                    },
+                    {
+                        "name": "Red Sea - Out-of-bounds Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Red Sea",
+                "map_locations": [
+                    {
+                        "map": "Red Sea",
+                        "x": 560,
+                        "y": 384
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Sea - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Young Town",
+        "children": [
+            {
+                "name": "Young Town",
+                "map_locations": [
+                    {
+                        "map": "Young Town",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Young Town - Stab Reward Chest"
+                    },
+                    {
+                        "name": "Young Town - Killers Chest"
+                    },
+                    {
+                        "name": "Young Town - Health Cicada"
+                    }
+                ]
+            },
+            {
+                "name": "Young Town",
+                "map_locations": [
+                    {
+                        "map": "Young Town",
+                        "x": 400,
+                        "y": 544
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Young Town - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Space",
+        "children": [
+            {
+                "name": "Space",
+                "map_locations": [
+                    {
+                        "map": "Space",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Space - Left Chest"
+                    },
+                    {
+                        "name": "Space - Right Chest"
+                    },
+                    {
+                        "name": "Space - Challenge Area Chest"
+                    },
+                    {
+                        "name": "Space - Hidden Chest"
+                    },
+                    {
+                        "name": "Space - Challenge Area Dustmaid Dust 1"
+                    },
+                    {
+                        "name": "Space - Challenge Area Dustmaid Dust 2"
+                    },
+                    {
+                        "name": "Space - Challenge Area Lion Dust 1"
+                    },
+                    {
+                        "name": "Space - Challenge Area Lion Dust 2"
+                    }
+                ]
+            },
+            {
+                "name": "Space",
+                "map_locations": [
+                    {
+                        "map": "Space",
+                        "x": 880,
+                        "y": 400
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Space - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Street",
+        "children": [
+            {
+                "name": "Street",
+                "map_locations": [
+                    {
+                        "map": "Street",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Street - Key Chest"
+                    },
+                    {
+                        "name": "Street - Broom Chest"
+                    },
+                    {
+                        "name": "Street - Secret Chest"
+                    },
+                    {
+                        "name": "Street - After Bridge Dust 1"
+                    },
+                    {
+                        "name": "Street - After Bridge Dust 2"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Crossing",
+        "children": [
+            {
+                "name": "Crossing",
+                "map_locations": [
+                    {
+                        "map": "Crossing",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Crossing - Broken Bridge Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Crossing",
+                "map_locations": [
+                    {
+                        "map": "Crossing",
+                        "x": 448,
+                        "y": 736
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Crossing - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Windmill",
+        "children": [
+            {
+                "name": "Windmill",
+                "map_locations": [
+                    {
+                        "map": "Windmill",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Windmill - Chest"
+                    },
+                    {
+                        "name": "Windmill - Activation"
+                    }
+                ]
+            },
+            {
+                "name": "Windmill",
+                "map_locations": [
+                    {
+                        "map": "Windmill",
+                        "x": 272,
+                        "y": 1040
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Windmill - Warp Pad"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Boss Rush",
+        "children": [
+            {
+                "name": "Boss Rush",
+                "map_locations": [
+                    {
+                        "map": "Boss Rush",
+                        "x": 376,
+                        "y": 104
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Boss Rush - Reward Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Boss Rush",
+                "map_locations": [
+                    {
+                        "map": "Boss Rush",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Boss Rush - Before Red Boss Dust"
+                    },
+                    {
+                        "name": "Boss Rush - Red Boss Dust 1"
+                    },
+                    {
+                        "name": "Boss Rush - Red Boss Dust 2"
+                    },
+                    {
+                        "name": "Boss Rush - Red Boss Dust 3"
+                    },
+                    {
+                        "name": "Boss Rush - Red Boss Dust 4"
+                    },
+                    {
+                        "name": "Boss Rush - Manager Phase 1 Dust"
+                    },
+                    {
+                        "name": "Boss Rush - Manager Phase 2 Dust"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Blue",
+        "children": [
+            {
+                "name": "Blue",
+                "map_locations": [
+                    {
+                        "map": "Blue",
+                        "x": 128,
+                        "y": 128
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blue - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Blue",
+                "map_locations": [
+                    {
+                        "map": "Blue",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blue - Completion Reward"
+                    },
+                    {
+                        "name": "Blue - Laser Room Dust"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Red",
+        "children": [
+            {
+                "name": "Red",
+                "map_locations": [
+                    {
+                        "map": "Red",
+                        "x": 264,
+                        "y": 400
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Red",
+                "map_locations": [
+                    {
+                        "map": "Red",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red - Completion Reward"
+                    },
+                    {
+                        "name": "Red - Final Room Dust"
+                    },
+                    {
+                        "name": "Red - Dustmaid Dust"
                     }
                 ]
             }

@@ -277,9 +277,6 @@
                     },
                     {
                         "name": "Apartment - 1F Flooded Library Dust"
-                    },
-                    {
-                        "name": "Defeat Watcher"
                     }
                 ]
             },
@@ -391,12 +388,6 @@
                     },
                     {
                         "name": "Temple of the Seeing One - Laser Room Dust 4"
-                    },
-                    {
-                        "name": "Defeat Seer"
-                    },
-                    {
-                        "name": "Grab Green Key"
                     }
                 ]
             },
@@ -538,9 +529,6 @@
                     },
                     {
                         "name": "Circus - Entrance Dust"
-                    },
-                    {
-                        "name": "Defeat Servants"
                     }
                 ]
             },
@@ -646,12 +634,6 @@
                     },
                     {
                         "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 3"
-                    },
-                    {
-                        "name": "Defeat The Wall"
-                    },
-                    {
-                        "name": "Grab Blue Key"
                     }
                 ]
             },
@@ -913,9 +895,6 @@
                     },
                     {
                         "name": "Garden - Warp Pad"
-                    },
-                    {
-                        "name": "Defeat Briar"
                     }
                 ]
             },
@@ -1048,9 +1027,6 @@
                     },
                     {
                         "name": "Hotel - 4F Moving Platform Puzzle Dust"
-                    },
-                    {
-                        "name": "Defeat Manager"
                     }
                 ]
             },
@@ -1198,24 +1174,6 @@
                     },
                     {
                         "name": "Red Grotto - Right Cave Whirlpool Dust 2"
-                    },
-                    {
-                        "name": "Center left tentacle hit"
-                    },
-                    {
-                        "name": "Center right tentacle hit"
-                    },
-                    {
-                        "name": "Left tentacle hit"
-                    },
-                    {
-                        "name": "Right tentacle hit"
-                    },
-                    {
-                        "name": "Defeat Rogue"
-                    },
-                    {
-                        "name": "Grab Red Key"
                     }
                 ]
             },
@@ -1345,9 +1303,6 @@
                     },
                     {
                         "name": "Crossing - Warp Pad"
-                    },
-                    {
-                        "name": "Defeat Sage"
                     }
                 ]
             },
@@ -1369,9 +1324,6 @@
                     },
                     {
                         "name": "Windmill - Warp Pad"
-                    },
-                    {
-                        "name": "Windmill activated"
                     }
                 ]
             },
@@ -1429,9 +1381,6 @@
                     },
                     {
                         "name": "Blue - Laser Room Dust"
-                    },
-                    {
-                        "name": "Blue Completion"
                     }
                 ]
             },
@@ -1440,7 +1389,7 @@
                 "map_locations": [
                     {
                         "map": "Nexus",
-                        "x": 445,
+                        "x": 448,
                         "y": 513
                     }
                 ],
@@ -1456,7 +1405,160 @@
                     },
                     {
                         "name": "Red - Dustmaid Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 567,
+                        "y": 897
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Seer"
                     },
+                    {
+                        "name": "Grab Green Key"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 567,
+                        "y": 561
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat The Wall"
+                    },
+                    {
+                        "name": "Grab Blue Key"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 423,
+                        "y": 657
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Windmill activated"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 567,
+                        "y": 497
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Manager"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 167,
+                        "y": 497
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Servants"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 567,
+                        "y": 833
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Watcher"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 327,
+                        "y": 657
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Sage"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 327,
+                        "y": 577
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Briar"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 327,
+                        "y": 513
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blue Completion"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 423,
+                        "y": 513
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Happy Completion"
                     }
@@ -1474,6 +1576,36 @@
                 "sections": [
                     {
                         "name": "Open final gate"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 167,
+                        "y": 562
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Center left tentacle hit"
+                    },
+                    {
+                        "name": "Center right tentacle hit"
+                    },
+                    {
+                        "name": "Left tentacle hit"
+                    },
+                    {
+                        "name": "Right tentacle hit"
+                    },
+                    {
+                        "name": "Defeat Rogue"
+                    },
+                    {
+                        "name": "Grab Red Key"
                     }
                 ]
             }

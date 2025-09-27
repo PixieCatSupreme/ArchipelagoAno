@@ -1,10 +1,9 @@
 import json
 import os.path
 
-from . import RegionEnum
-from .Data.Events import all_events
-from .Data.Locations import all_locations
-from .Data.Regions import all_areas, Nexus
+from .Data.Events import all_events, EventData
+from .Data.Locations import all_locations, LocationData
+from .Data.Regions import RegionEnum, all_areas, Nexus
 
 UTTrackerData = {
     "map_page_folder": "tracker",
@@ -23,10 +22,18 @@ def make_map():
 def location_data():
     all_locs:dict[type[RegionEnum],dict[tuple[int,int],list[str]]] = {}
 
-    for location in all_locations + all_events:
+    for location in all_locations:
         all_locs.setdefault(location.region.__class__,{}).setdefault(location.tracker_loc,[]).append(location.name)
         if location.region.__class__ is not Nexus:
             all_locs.setdefault(Nexus,{}).setdefault(location.region.nexus_ut_loc(),[]).append(location.name)
+
+    for event in all_events:
+        all_locs.setdefault(event.region.__class__,{}).setdefault(event.tracker_loc,[]).append(event.name)
+        if event.region.__class__ is not Nexus:
+            # Move event overviews a bit to the left in the nexus overview so they don't overlap
+            loc = event.region.nexus_ut_loc()
+            loc = (loc[0] - 25, loc[1])
+            all_locs.setdefault(Nexus,{}).setdefault(loc,[]).append(event.name)
 
     return [{
         "name":  region.area_name(),

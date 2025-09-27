@@ -200,7 +200,7 @@ class Go(RegionEnum):
 class Happy(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 445,513
+        return 448,513
 
     DEFAULT = auto()
     gauntlet = auto()

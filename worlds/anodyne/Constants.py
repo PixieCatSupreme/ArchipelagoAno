@@ -62,12 +62,12 @@ def check_access(state: CollectionState, world: "AnodyneWorld", rule: str, map_n
         if item in groups:
             return state.has_from_list(groups[item], world.player, count)
 
-        if item not in Items.all_items and item not in Events.all_events:
+        if item not in Items.all_items and item not in Events.all_event_names:
             logging.warning(f"Rule {rule} does not exist")
         return state.has(item, world.player, count)
     else:
         logging.debug(f"Item {rule} check in {map_name} ({world.player})")
-        if rule not in Items.all_items and rule not in Events.all_events:
+        if rule not in Items.all_items and rule not in Events.all_event_names:
             logging.warning(f"Rule {rule} does not exist")
         return state.has(item=rule, player=world.player)
 

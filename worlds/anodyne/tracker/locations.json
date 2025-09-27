@@ -184,6 +184,21 @@
                         "name": "Apartment - 1F Flooded Library Dust"
                     }
                 ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 1196,
+                        "y": 993
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Watcher"
+                    }
+                ]
             }
         ]
     },
@@ -262,6 +277,9 @@
                     },
                     {
                         "name": "Apartment - 1F Flooded Library Dust"
+                    },
+                    {
+                        "name": "Defeat Watcher"
                     }
                 ]
             },
@@ -373,6 +391,12 @@
                     },
                     {
                         "name": "Temple of the Seeing One - Laser Room Dust 4"
+                    },
+                    {
+                        "name": "Defeat Seer"
+                    },
+                    {
+                        "name": "Grab Green Key"
                     }
                 ]
             },
@@ -514,6 +538,9 @@
                     },
                     {
                         "name": "Circus - Entrance Dust"
+                    },
+                    {
+                        "name": "Defeat Servants"
                     }
                 ]
             },
@@ -619,6 +646,12 @@
                     },
                     {
                         "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 3"
+                    },
+                    {
+                        "name": "Defeat The Wall"
+                    },
+                    {
+                        "name": "Grab Blue Key"
                     }
                 ]
             },
@@ -880,6 +913,9 @@
                     },
                     {
                         "name": "Garden - Warp Pad"
+                    },
+                    {
+                        "name": "Defeat Briar"
                     }
                 ]
             },
@@ -1012,6 +1048,9 @@
                     },
                     {
                         "name": "Hotel - 4F Moving Platform Puzzle Dust"
+                    },
+                    {
+                        "name": "Defeat Manager"
                     }
                 ]
             },
@@ -1159,6 +1198,24 @@
                     },
                     {
                         "name": "Red Grotto - Right Cave Whirlpool Dust 2"
+                    },
+                    {
+                        "name": "Center left tentacle hit"
+                    },
+                    {
+                        "name": "Center right tentacle hit"
+                    },
+                    {
+                        "name": "Left tentacle hit"
+                    },
+                    {
+                        "name": "Right tentacle hit"
+                    },
+                    {
+                        "name": "Defeat Rogue"
+                    },
+                    {
+                        "name": "Grab Red Key"
                     }
                 ]
             },
@@ -1288,6 +1345,9 @@
                     },
                     {
                         "name": "Crossing - Warp Pad"
+                    },
+                    {
+                        "name": "Defeat Sage"
                     }
                 ]
             },
@@ -1309,6 +1369,9 @@
                     },
                     {
                         "name": "Windmill - Warp Pad"
+                    },
+                    {
+                        "name": "Windmill activated"
                     }
                 ]
             },
@@ -1366,6 +1429,9 @@
                     },
                     {
                         "name": "Blue - Laser Room Dust"
+                    },
+                    {
+                        "name": "Blue Completion"
                     }
                 ]
             },
@@ -1390,6 +1456,24 @@
                     },
                     {
                         "name": "Red - Dustmaid Dust"
+                    },
+                    {
+                        "name": "Happy Completion"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 400,
+                        "y": 32
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Open final gate"
                     }
                 ]
             }
@@ -1571,6 +1655,36 @@
                 "sections": [
                     {
                         "name": "Temple of the Seeing One - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 392,
+                        "y": 59
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Seer"
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 600,
+                        "y": 104
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Grab Green Key"
                     }
                 ]
             }
@@ -1885,6 +1999,21 @@
                         "name": "Circus - Entrance Dust"
                     }
                 ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 734,
+                        "y": 184
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Servants"
+                    }
+                ]
             }
         ]
     },
@@ -2034,6 +2163,36 @@
                 "sections": [
                     {
                         "name": "Mountain Cavern - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 1519,
+                        "y": 984
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat The Wall"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 1544,
+                        "y": 872
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Grab Blue Key"
                     }
                 ]
             }
@@ -2449,6 +2608,9 @@
                 "sections": [
                     {
                         "name": "Garden - Defeat Briar"
+                    },
+                    {
+                        "name": "Defeat Briar"
                     }
                 ]
             },
@@ -2615,6 +2777,21 @@
                         "name": "Hotel - Warp Pad"
                     }
                 ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1356,
+                        "y": 1661
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Manager"
+                    }
+                ]
             }
         ]
     },
@@ -2779,6 +2956,96 @@
                 "sections": [
                     {
                         "name": "Red Grotto - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 232,
+                        "y": 216
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Center left tentacle hit"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 840,
+                        "y": 200
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Center right tentacle hit"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 200,
+                        "y": 664
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Left tentacle hit"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 872,
+                        "y": 680
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Right tentacle hit"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 1056,
+                        "y": 80
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Rogue"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 1096,
+                        "y": 296
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Grab Red Key"
                     }
                 ]
             }
@@ -2983,6 +3250,21 @@
                         "name": "Crossing - Warp Pad"
                     }
                 ]
+            },
+            {
+                "name": "Crossing",
+                "map_locations": [
+                    {
+                        "map": "Crossing",
+                        "x": 400,
+                        "y": 522
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Sage"
+                    }
+                ]
             }
         ]
     },
@@ -3019,6 +3301,21 @@
                 "sections": [
                     {
                         "name": "Windmill - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Windmill",
+                "map_locations": [
+                    {
+                        "map": "Windmill",
+                        "x": 216,
+                        "y": 376
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Windmill activated"
                     }
                 ]
             }
@@ -3112,6 +3409,21 @@
                         "name": "Blue - Laser Room Dust"
                     }
                 ]
+            },
+            {
+                "name": "Blue",
+                "map_locations": [
+                    {
+                        "map": "Blue",
+                        "x": 80,
+                        "y": 32
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blue Completion"
+                    }
+                ]
             }
         ]
     },
@@ -3151,6 +3463,21 @@
                     },
                     {
                         "name": "Red - Dustmaid Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Red",
+                "map_locations": [
+                    {
+                        "map": "Red",
+                        "x": 656,
+                        "y": 176
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Happy Completion"
                     }
                 ]
             }

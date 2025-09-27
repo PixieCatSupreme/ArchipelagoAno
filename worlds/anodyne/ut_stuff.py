@@ -2,6 +2,7 @@ import json
 import os.path
 
 from . import RegionEnum
+from .Data.Events import all_events
 from .Data.Locations import all_locations
 from .Data.Regions import all_areas, Nexus
 
@@ -22,7 +23,7 @@ def make_map():
 def location_data():
     all_locs:dict[type[RegionEnum],dict[tuple[int,int],list[str]]] = {}
 
-    for location in all_locations:
+    for location in all_locations + all_events:
         all_locs.setdefault(location.region.__class__,{}).setdefault(location.tracker_loc,[]).append(location.name)
         if location.region.__class__ is not Nexus:
             all_locs.setdefault(Nexus,{}).setdefault(location.region.nexus_ut_loc(),[]).append(location.name)

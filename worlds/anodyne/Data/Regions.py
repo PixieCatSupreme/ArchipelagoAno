@@ -84,7 +84,6 @@ class Blank(RegionEnum):
         return 80,400
 
     windmill = auto()
-    ending = auto()
 
 
 class Blue(RegionEnum):
@@ -227,6 +226,7 @@ class Nexus(RegionEnum):
 
     bottom = auto()
     top = auto()
+    ending = auto()
 
 
 class Overworld(RegionEnum):
@@ -341,6 +341,7 @@ postgame_regions: list[RegionEnum] = [
     *Debug,
     *Boss_Rush,
     Nexus.top,
+    Nexus.ending,
     Space.Gauntlet
 ]
 

@@ -530,18 +530,12 @@ class AnodyneWorld(World):
                     e.access_rule = Constants.get_access_rule([Items.Nexus.GATE[location.region.__class__].full_name],
                                                               "Nexus bottom", self)
 
-        for region, events in Events.events_by_region.items():
-            if not include_postgame and region in postgame_regions:
+        for event in Events.all_events:
+            if not event.is_active(self.options):
                 continue
 
-            for event_name in events:
-                if include_big_keys != BigKeyShuffle.option_vanilla and event_name in Items.BigKey.names():
-                    continue
-
-                requirements: list[str] = Events.events_by_region[region][event_name]
-
-                self.create_event(all_regions[region], event_name, Constants.get_access_rule(requirements,
-                                                                                             str(region), self))
+            self.create_event(all_regions[event.region], event.name, Constants.get_access_rule(event.reqs,
+                                                                                         str(event.region), self))
 
         self.multiworld.regions += all_regions.values()
 
@@ -762,7 +756,7 @@ class AnodyneWorld(World):
                     self.requirements[item] = count
 
         def is_event_locked(self):
-            return any(req in Events.all_events for req in self.requirements)
+            return any(req in Events.all_event_names for req in self.requirements)
 
         def is_gate_locked(self):
             return len(self.gates) > 0

@@ -1,6 +1,6 @@
 from . import AnodyneTestBase
 from ..Data.Regions import Apartment, Red_Cave, Beach, Windmill, Bedroom, Blue, Cell, Circus, Fields, Red_Sea, Street, \
-    Overworld, Space, Cliff, Crowd, Hotel, Suburb
+    Overworld, Space, Cliffs, Crowd, Hotel, Suburb
 
 
 class TestCustomNexusGates1(AnodyneTestBase):
@@ -72,8 +72,8 @@ class TestCustomNexusGates3(AnodyneTestBase):
         self.assertTrue(self.can_reach_region(Overworld.DEFAULT))
         self.assertTrue(self.can_reach_region(Overworld.post_windmill))
         self.assertTrue(self.can_reach_region(Space.DEFAULT))
-        self.assertTrue(self.can_reach_region(Cliff.DEFAULT))
-        self.assertTrue(self.can_reach_region(Cliff.post_windmill))
+        self.assertTrue(self.can_reach_region(Cliffs.DEFAULT))
+        self.assertTrue(self.can_reach_region(Cliffs.post_windmill))
         self.assertFalse(self.can_reach_region(Crowd.floor_1))
         self.assertTrue(self.can_reach_region(Hotel.roof))
         self.assertFalse(self.can_reach_region(Hotel.floor_1))

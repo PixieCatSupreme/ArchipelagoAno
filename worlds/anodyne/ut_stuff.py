@@ -1,8 +1,8 @@
 import json
 import os.path
 
-from .Data.Events import all_events, EventData
-from .Data.Locations import all_locations, LocationData
+from .Data.Events import all_events
+from .Data.Locations import all_locations
 from .Data.Regions import RegionEnum, all_areas, Nexus
 
 UTTrackerData = {

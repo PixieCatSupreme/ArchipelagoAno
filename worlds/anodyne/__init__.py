@@ -15,6 +15,7 @@ from . import Constants, Options
 from .Constants import AccessRule
 
 from .Data import Items, Locations, Regions, Exits, Events
+from .Data.Events import EventData, EventFlags
 from .Data.Regions import RegionEnum, Nexus, Red_Cave, Blue, Happy, Forest, Windmill, Bedroom, Street, Hotel, Fields
 from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCondition, BigKeyShuffle, \
     HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode, \
@@ -94,6 +95,9 @@ class AnodyneWorld(World):
 
     ut_can_gen_without_yaml = True
     tracker_world = UTTrackerData
+    using_ut: bool
+    found_entrances_datastorage_key = "Slot:{player}:EventMap"
+    tracked_events: EventFlags
 
     version = "0.3.2"
 
@@ -116,11 +120,14 @@ class AnodyneWorld(World):
         self.dungeon_items = dict()
         self.proxy_rules = dict()
         self.shuffled_gates = set()
+        self.using_ut = False
+        self.tracked_events = EventFlags(0)
 
         nexus_gate_open = self.options.nexus_gates_open
 
         # Street is always unlocked
         if hasattr(self.multiworld, "re_gen_passthrough") and "Anodyne" in self.multiworld.re_gen_passthrough:
+            self.using_ut = True
             # Universal tracker; ignored during normal gen.
             slot_data = self.multiworld.re_gen_passthrough["Anodyne"]
 
@@ -534,7 +541,17 @@ class AnodyneWorld(World):
             if not event.is_active(self.options):
                 continue
 
-            self.create_event(all_regions[event.region], event.name, Constants.get_access_rule(event.reqs,
+            if self.using_ut and bool(self.multiworld.__getattribute__("enforce_deferred_connections")):
+                event_region = Region(f"Event Region: {event.name}",self.player,self.multiworld)
+                entry = all_regions[event.region].create_exit(f"Get event: {event.name}")
+                entry.access_rule = Constants.get_access_rule(event.reqs,str(event.region),self)
+                entry.connect(event_region)
+
+                self.create_event(event_region, event.name, self.ut_event_check(event))
+
+                self.multiworld.regions.append(event_region)
+            else:
+                self.create_event(all_regions[event.region], event.name, Constants.get_access_rule(event.reqs,
                                                                                          str(event.region), self))
 
         self.multiworld.regions += all_regions.values()
@@ -543,6 +560,13 @@ class AnodyneWorld(World):
             from Utils import visualize_regions
 
             visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
+
+    def ut_event_check(self, event:EventData):
+        return lambda _: event.flag in self.tracked_events
+
+    def reconnect_found_entrances(self, key:str, value:Any):
+        if key.endswith("EventMap") and isinstance(value,int):
+            self.tracked_events = EventFlags(value)
 
     def create_gate_proxy_rule(self, cls: typing.Type[GateRequirements]):
         rules = []
@@ -652,7 +676,7 @@ class AnodyneWorld(World):
         self.multiworld.completion_condition[self.player] = (
             Constants.get_access_rule(requirements, "Event", self))
 
-        if not hasattr(self.multiworld, "generation_is_fake"):
+        if not self.using_ut:
             self.test_gate_requirements()
 
     def test_gate_requirements(self):

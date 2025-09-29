@@ -2740,9 +2740,6 @@
                 "sections": [
                     {
                         "name": "Garden - Defeat Briar"
-                    },
-                    {
-                        "name": "Defeat Briar"
                     }
                 ]
             },
@@ -2758,6 +2755,21 @@
                 "sections": [
                     {
                         "name": "Garden - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Garden",
+                "map_locations": [
+                    {
+                        "map": "Garden",
+                        "x": 400,
+                        "y": 216
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Briar"
                     }
                 ]
             }

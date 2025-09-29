@@ -90,7 +90,7 @@ all_events: list[EventData] = [
     EventData(Apartment.floor_3, "Defeat Watcher", ["Combat", "Small Key (Apartment):4"], (1196, 993),
               EventFlags.Watcher),
     EventData(Terminal.top, "Defeat Sage", ["Combat", "Jump Shoes"], (400, 522), EventFlags.Sage),
-    EventData(Go.top, "Defeat Briar", ["Combat", "Complete Blue", "Complete Happy"], (400, 240), EventFlags.Briar),
+    EventData(Go.top, "Defeat Briar", ["Combat", "Complete Blue", "Complete Happy"], (400, 216), EventFlags.Briar),
     EventData(Blue.DEFAULT, "Blue Completion", ["Combat", "Jump Shoes"], (5 * 16, 2 * 16), EventFlags.Activate_Blue,
               blue_happy_vanilla),
     EventData(Happy.gauntlet, "Happy Completion", [], (41 * 16, 11 * 16), EventFlags.Activate_Happy,

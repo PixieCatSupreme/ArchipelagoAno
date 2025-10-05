@@ -1035,8 +1035,8 @@
                 "map_locations": [
                     {
                         "map": "Nexus",
-                        "x": 0,
-                        "y": 0
+                        "x": 520,
+                        "y": 88
                     }
                 ],
                 "sections": [
@@ -1239,7 +1239,7 @@
                         "name": "Space - Right Chest"
                     },
                     {
-                        "name": "Space - Challenge Area Chest"
+                        "name": "Space - Gauntlet Chest"
                     },
                     {
                         "name": "Space - Hidden Chest"
@@ -1317,7 +1317,7 @@
                 ],
                 "sections": [
                     {
-                        "name": "Windmill - Chest"
+                        "name": "Windmill - Post Activation Chest"
                     },
                     {
                         "name": "Windmill - Activation"
@@ -1699,38 +1699,164 @@
                 "map_locations": [
                     {
                         "map": "Temple of the Seeing One",
-                        "x": 0,
-                        "y": 0
+                        "x": 24,
+                        "y": 664
                     }
                 ],
                 "sections": [
                     {
                         "name": "Temple of the Seeing One - Entrance Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 184,
+                        "y": 24
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Shieldy Room Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 456,
+                        "y": 600
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Rock-Surrounded Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 552,
+                        "y": 40
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Boss Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 920,
+                        "y": 24
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - After Statue Left Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 936,
+                        "y": 24
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - After Statue Right Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 184,
+                        "y": 504
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Dark Room Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 360,
+                        "y": 24
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Health Cicada"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 600,
+                        "y": 104
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Green Key"
                     },
+                    {
+                        "name": "Grab Green Key"
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 672,
+                        "y": 32
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Temple of the Seeing One - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Laser Room Dust 1"
                     },
@@ -1780,21 +1906,6 @@
                 "map_locations": [
                     {
                         "map": "Temple of the Seeing One",
-                        "x": 672,
-                        "y": 32
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Temple of the Seeing One - Warp Pad"
-                    }
-                ]
-            },
-            {
-                "name": "Temple of the Seeing One",
-                "map_locations": [
-                    {
-                        "map": "Temple of the Seeing One",
                         "x": 392,
                         "y": 59
                     }
@@ -1802,21 +1913,6 @@
                 "sections": [
                     {
                         "name": "Defeat Seer"
-                    }
-                ]
-            },
-            {
-                "name": "Temple of the Seeing One",
-                "map_locations": [
-                    {
-                        "map": "Temple of the Seeing One",
-                        "x": 600,
-                        "y": 104
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Grab Green Key"
                     }
                 ]
             }
@@ -2207,41 +2303,179 @@
                 "map_locations": [
                     {
                         "map": "Mountain Cavern",
-                        "x": 0,
-                        "y": 0
+                        "x": 360,
+                        "y": 344
                     }
                 ],
                 "sections": [
                     {
                         "name": "Mountain Cavern - 2F Crowded Ledge Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 344,
+                        "y": 600
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 2F Four Enemies Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 504,
+                        "y": 984
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 2F Entrance Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 616,
+                        "y": 344
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 2F Frogs and Dog Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 1416,
+                        "y": 440
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 3F Roller Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 1496,
+                        "y": 840
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - Boss Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 1208,
+                        "y": 984
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - Extend Upgrade Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 904,
+                        "y": 712
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 2F Frogs and Rotators Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 1512,
+                        "y": 1016
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - Health Cicada"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 1544,
+                        "y": 872
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - Blue Key"
                     },
+                    {
+                        "name": "Grab Blue Key"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 1520,
+                        "y": 745
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Mountain Cavern - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 3F Top Center Moving Platform Dust"
                     },
@@ -2288,21 +2522,6 @@
                 "map_locations": [
                     {
                         "map": "Mountain Cavern",
-                        "x": 1520,
-                        "y": 745
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Mountain Cavern - Warp Pad"
-                    }
-                ]
-            },
-            {
-                "name": "Mountain Cavern",
-                "map_locations": [
-                    {
-                        "map": "Mountain Cavern",
                         "x": 1519,
                         "y": 984
                     }
@@ -2310,21 +2529,6 @@
                 "sections": [
                     {
                         "name": "Defeat The Wall"
-                    }
-                ]
-            },
-            {
-                "name": "Mountain Cavern",
-                "map_locations": [
-                    {
-                        "map": "Mountain Cavern",
-                        "x": 1544,
-                        "y": 872
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Grab Blue Key"
                     }
                 ]
             }
@@ -2477,41 +2681,176 @@
                 "map_locations": [
                     {
                         "map": "Fields",
-                        "x": 0,
-                        "y": 0
+                        "x": 1032,
+                        "y": 1464
                     }
                 ],
                 "sections": [
                     {
                         "name": "Fields - Island Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 536,
+                        "y": 1352
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Gauntlet Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1368,
+                        "y": 24
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Goldman's Cave Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1864,
+                        "y": 1512
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Blocked River Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1160,
+                        "y": 440
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Cardboard Box"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1192,
+                        "y": 712
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Shopkeeper Trade"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 904,
+                        "y": 712
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Mitra Trade"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 744,
+                        "y": 264
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Near Woods Secret Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1736,
+                        "y": 1176
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Secluded Glen Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 536,
+                        "y": 232
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Near Crossing Secret Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1040,
+                        "y": 576
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Fields - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Goldman's Cave Dust 1"
                     },
@@ -2601,21 +2940,6 @@
                     },
                     {
                         "name": "Fields - Olive Dust"
-                    }
-                ]
-            },
-            {
-                "name": "Fields",
-                "map_locations": [
-                    {
-                        "map": "Fields",
-                        "x": 1040,
-                        "y": 576
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Fields - Warp Pad"
                     }
                 ]
             }
@@ -2715,14 +3039,26 @@
                 "map_locations": [
                     {
                         "map": "Garden",
-                        "x": 0,
-                        "y": 0
+                        "x": 401,
+                        "y": 760
                     }
                 ],
                 "sections": [
                     {
                         "name": "Garden - Swap Upgrade Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Garden",
+                "map_locations": [
+                    {
+                        "map": "Garden",
+                        "x": 139,
+                        "y": 664
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Garden - Secret Color Puzzle Chest"
                     }
@@ -2783,50 +3119,221 @@
                 "map_locations": [
                     {
                         "map": "Hotel",
-                        "x": 0,
-                        "y": 0
+                        "x": 776,
+                        "y": 504
                     }
                 ],
                 "sections": [
                     {
                         "name": "Hotel - 4F Annoyers Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 616,
+                        "y": 984
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 4F Dust Blower Maze Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 296,
+                        "y": 1304
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 3F Dashers Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 616,
+                        "y": 1784
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 3F Gasguy Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 616,
+                        "y": 1624
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 3F Rotators Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1576,
+                        "y": 504
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 2F Dog Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1416,
+                        "y": 344
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 2F Crevice Right Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1032,
+                        "y": 552
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 2F Backrooms Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1144,
+                        "y": 984
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 1F Burst Flowers Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1336,
+                        "y": 376
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 2F Crevice Left Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1352,
+                        "y": 1832
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - Boss Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 936,
+                        "y": 88
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - Roof Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1352,
+                        "y": 1688
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - Health Cicada"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 448,
+                        "y": 880
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Hotel - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 1F Floating Dustmaid Dust"
                     },
@@ -2912,21 +3419,6 @@
                 "map_locations": [
                     {
                         "map": "Hotel",
-                        "x": 448,
-                        "y": 880
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Hotel - Warp Pad"
-                    }
-                ]
-            },
-            {
-                "name": "Hotel",
-                "map_locations": [
-                    {
-                        "map": "Hotel",
                         "x": 1356,
                         "y": 1661
                     }
@@ -2947,17 +3439,41 @@
                 "map_locations": [
                     {
                         "map": "Woods",
-                        "x": 0,
-                        "y": 0
+                        "x": 184,
+                        "y": 1544
                     }
                 ],
                 "sections": [
                     {
                         "name": "Woods - Near Gate Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Woods",
+                "map_locations": [
+                    {
+                        "map": "Woods",
+                        "x": 920,
+                        "y": 1240
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Woods - After Temple Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Woods",
+                "map_locations": [
+                    {
+                        "map": "Woods",
+                        "x": 264,
+                        "y": 904
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Woods - Health Cicada"
                     }
@@ -2988,62 +3504,284 @@
                 "map_locations": [
                     {
                         "map": "Red Grotto",
-                        "x": 0,
-                        "y": 0
+                        "x": 24,
+                        "y": 24
                     }
                 ],
                 "sections": [
                     {
                         "name": "Red Grotto - Top Cave Slasher Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 552,
+                        "y": 184
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Middle Cave Right Chest"
                     },
                     {
-                        "name": "Red Grotto - Middle Cave Left Chest"
-                    },
-                    {
                         "name": "Red Grotto - Middle Cave Middle Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 520,
+                        "y": 184
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Grotto - Middle Cave Left Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 984,
+                        "y": 264
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Boss Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 40,
+                        "y": 504
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Left Cave Rapids Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 1032,
+                        "y": 504
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Right Cave Slasher Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 936,
+                        "y": 504
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Right Cave Four Shooter Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 280,
+                        "y": 520
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Left Cave Sticky Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 776,
+                        "y": 984
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Widen Upgrade Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 392,
+                        "y": 1464
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Isaac Dungeon Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 1032,
+                        "y": 24
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Health Cicada"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 1096,
+                        "y": 296
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Red Key"
                     },
                     {
+                        "name": "Grab Red Key"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 840,
+                        "y": 200
+                    }
+                ],
+                "sections": [
+                    {
                         "name": "Red Grotto - Middle Cave Right Tentacle"
                     },
+                    {
+                        "name": "Center right tentacle hit"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 232,
+                        "y": 216
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Middle Cave Left Tentacle"
                     },
                     {
+                        "name": "Center left tentacle hit"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 200,
+                        "y": 664
+                    }
+                ],
+                "sections": [
+                    {
                         "name": "Red Grotto - Left Cave Tentacle"
                     },
                     {
+                        "name": "Left tentacle hit"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 872,
+                        "y": 680
+                    }
+                ],
+                "sections": [
+                    {
                         "name": "Red Grotto - Right Cave Tentacle"
                     },
+                    {
+                        "name": "Right tentacle hit"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 1040,
+                        "y": 368
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Grotto - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Top Cave Boss Dust 1"
                     },
@@ -3093,81 +3831,6 @@
                 "map_locations": [
                     {
                         "map": "Red Grotto",
-                        "x": 1040,
-                        "y": 368
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Red Grotto - Warp Pad"
-                    }
-                ]
-            },
-            {
-                "name": "Red Grotto",
-                "map_locations": [
-                    {
-                        "map": "Red Grotto",
-                        "x": 232,
-                        "y": 216
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Center left tentacle hit"
-                    }
-                ]
-            },
-            {
-                "name": "Red Grotto",
-                "map_locations": [
-                    {
-                        "map": "Red Grotto",
-                        "x": 840,
-                        "y": 200
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Center right tentacle hit"
-                    }
-                ]
-            },
-            {
-                "name": "Red Grotto",
-                "map_locations": [
-                    {
-                        "map": "Red Grotto",
-                        "x": 200,
-                        "y": 664
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Left tentacle hit"
-                    }
-                ]
-            },
-            {
-                "name": "Red Grotto",
-                "map_locations": [
-                    {
-                        "map": "Red Grotto",
-                        "x": 872,
-                        "y": 680
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Right tentacle hit"
-                    }
-                ]
-            },
-            {
-                "name": "Red Grotto",
-                "map_locations": [
-                    {
-                        "map": "Red Grotto",
                         "x": 1056,
                         "y": 80
                     }
@@ -3175,21 +3838,6 @@
                 "sections": [
                     {
                         "name": "Defeat Rogue"
-                    }
-                ]
-            },
-            {
-                "name": "Red Grotto",
-                "map_locations": [
-                    {
-                        "map": "Red Grotto",
-                        "x": 1096,
-                        "y": 296
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Grab Red Key"
                     }
                 ]
             }
@@ -3203,14 +3851,26 @@
                 "map_locations": [
                     {
                         "map": "Red Sea",
-                        "x": 0,
-                        "y": 0
+                        "x": 392,
+                        "y": 440
                     }
                 ],
                 "sections": [
                     {
                         "name": "Red Sea - Lonely Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Sea",
+                "map_locations": [
+                    {
+                        "map": "Red Sea",
+                        "x": 40,
+                        "y": 1032
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Sea - Out-of-bounds Chest"
                     }
@@ -3241,17 +3901,41 @@
                 "map_locations": [
                     {
                         "map": "Young Town",
-                        "x": 0,
-                        "y": 0
+                        "x": 264,
+                        "y": 1192
                     }
                 ],
                 "sections": [
                     {
                         "name": "Young Town - Stab Reward Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Young Town",
+                "map_locations": [
+                    {
+                        "map": "Young Town",
+                        "x": 392,
+                        "y": 1240
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Young Town - Killers Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Young Town",
+                "map_locations": [
+                    {
+                        "map": "Young Town",
+                        "x": 680,
+                        "y": 408
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Young Town - Health Cicada"
                     }
@@ -3282,34 +3966,58 @@
                 "map_locations": [
                     {
                         "map": "Space",
-                        "x": 0,
-                        "y": 0
+                        "x": 88,
+                        "y": 56
                     }
                 ],
                 "sections": [
                     {
                         "name": "Space - Left Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Space",
+                "map_locations": [
+                    {
+                        "map": "Space",
+                        "x": 1528,
+                        "y": 40
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Space - Right Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Space",
+                "map_locations": [
                     {
-                        "name": "Space - Challenge Area Chest"
-                    },
+                        "map": "Space",
+                        "x": 880,
+                        "y": 1210
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Space - Gauntlet Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Space",
+                "map_locations": [
+                    {
+                        "map": "Space",
+                        "x": 504,
+                        "y": 24
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Space - Hidden Chest"
-                    },
-                    {
-                        "name": "Space - Challenge Area Dustmaid Dust 1"
-                    },
-                    {
-                        "name": "Space - Challenge Area Dustmaid Dust 2"
-                    },
-                    {
-                        "name": "Space - Challenge Area Lion Dust 1"
-                    },
-                    {
-                        "name": "Space - Challenge Area Lion Dust 2"
                     }
                 ]
             },
@@ -3327,6 +4035,30 @@
                         "name": "Space - Warp Pad"
                     }
                 ]
+            },
+            {
+                "name": "Space",
+                "map_locations": [
+                    {
+                        "map": "Space",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Space - Challenge Area Dustmaid Dust 1"
+                    },
+                    {
+                        "name": "Space - Challenge Area Dustmaid Dust 2"
+                    },
+                    {
+                        "name": "Space - Challenge Area Lion Dust 1"
+                    },
+                    {
+                        "name": "Space - Challenge Area Lion Dust 2"
+                    }
+                ]
             }
         ]
     },
@@ -3338,20 +4070,56 @@
                 "map_locations": [
                     {
                         "map": "Street",
-                        "x": 0,
-                        "y": 0
+                        "x": 24,
+                        "y": 664
                     }
                 ],
                 "sections": [
                     {
                         "name": "Street - Key Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Street",
+                "map_locations": [
+                    {
+                        "map": "Street",
+                        "x": 776,
+                        "y": 680
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Street - Broom Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Street",
+                "map_locations": [
+                    {
+                        "map": "Street",
+                        "x": 280,
+                        "y": 1016
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Street - Secret Chest"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Street",
+                "map_locations": [
+                    {
+                        "map": "Street",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Street - After Bridge Dust 1"
                     },
@@ -3370,8 +4138,8 @@
                 "map_locations": [
                     {
                         "map": "Crossing",
-                        "x": 0,
-                        "y": 0
+                        "x": 744,
+                        "y": 392
                     }
                 ],
                 "sections": [
@@ -3420,16 +4188,19 @@
                 "map_locations": [
                     {
                         "map": "Windmill",
-                        "x": 0,
-                        "y": 0
+                        "x": 216,
+                        "y": 376
                     }
                 ],
                 "sections": [
                     {
-                        "name": "Windmill - Chest"
+                        "name": "Windmill - Post Activation Chest"
                     },
                     {
                         "name": "Windmill - Activation"
+                    },
+                    {
+                        "name": "Windmill activated"
                     }
                 ]
             },
@@ -3445,21 +4216,6 @@
                 "sections": [
                     {
                         "name": "Windmill - Warp Pad"
-                    }
-                ]
-            },
-            {
-                "name": "Windmill",
-                "map_locations": [
-                    {
-                        "map": "Windmill",
-                        "x": 216,
-                        "y": 376
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Windmill activated"
                     }
                 ]
             }
@@ -3541,14 +4297,26 @@
                 "map_locations": [
                     {
                         "map": "Blue",
-                        "x": 0,
-                        "y": 0
+                        "x": 88,
+                        "y": 40
                     }
                 ],
                 "sections": [
                     {
                         "name": "Blue - Completion Reward"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Blue",
+                "map_locations": [
+                    {
+                        "map": "Blue",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Blue - Laser Room Dust"
                     }
@@ -3594,14 +4362,26 @@
                 "map_locations": [
                     {
                         "map": "Red",
-                        "x": 0,
-                        "y": 0
+                        "x": 662,
+                        "y": 186
                     }
                 ],
                 "sections": [
                     {
                         "name": "Red - Completion Reward"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red",
+                "map_locations": [
+                    {
+                        "map": "Red",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red - Final Room Dust"
                     },

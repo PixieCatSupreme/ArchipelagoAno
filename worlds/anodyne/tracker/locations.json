@@ -142,44 +142,176 @@
                 "map_locations": [
                     {
                         "map": "Apartment",
-                        "x": 0,
-                        "y": 0
+                        "x": 456,
+                        "y": 360
                     }
                 ],
                 "sections": [
                     {
                         "name": "Apartment - 1F Shortcut Room Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 904,
+                        "y": 392
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Apartment - 2F Switch Pillar Rat Maze Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 1080,
+                        "y": 392
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Apartment - 2F Dash Trap Rat Maze Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 1144,
+                        "y": 552
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Apartment - 2F Flooded Room Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 72,
+                        "y": 24
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Apartment - 1F Couches Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 424,
+                        "y": 424
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Apartment - 1F Shortcut Room Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 88,
+                        "y": 392
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Apartment - 1F Rat Maze Chest Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 72,
+                        "y": 424
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Apartment - 1F Rat Maze Chest Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 24,
+                        "y": 376
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Apartment - 1F Rat Maze Chest Dust 3"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 392,
+                        "y": 840
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Apartment - 1F Entrance Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 280,
+                        "y": 536
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Apartment - 1F Flooded Room Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Apartment",
+                "map_locations": [
+                    {
+                        "map": "Apartment",
+                        "x": 360,
+                        "y": 296
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Apartment - 1F Flooded Library Dust"
                     }
@@ -1852,50 +1984,206 @@
                 "map_locations": [
                     {
                         "map": "Temple of the Seeing One",
-                        "x": 0,
-                        "y": 0
+                        "x": 408,
+                        "y": 536
                     }
                 ],
                 "sections": [
                     {
                         "name": "Temple of the Seeing One - Laser Room Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 392,
+                        "y": 568
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Laser Room Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 200,
+                        "y": 344
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Room With Holes Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 296,
+                        "y": 360
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Room With Holes Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 264,
+                        "y": 280
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Past Shieldy Puzzle Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 392,
+                        "y": 216
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Before Boss Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 188,
+                        "y": 294
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Past Shieldy Puzzle Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 286,
+                        "y": 137
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Shieldy Room Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 295,
+                        "y": 76
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Shieldy Room Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 402,
+                        "y": 569
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Laser Room Dust 3"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 360,
+                        "y": 680
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Entrance Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 440,
+                        "y": 680
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Entrance Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 373,
+                        "y": 297
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Before Boss Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 454,
+                        "y": 508
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Temple of the Seeing One - Laser Room Dust 4"
                     }
@@ -2161,68 +2449,284 @@
                 "map_locations": [
                     {
                         "map": "Circus",
-                        "x": 0,
-                        "y": 0
+                        "x": 1000,
+                        "y": 1192
                     }
                 ],
                 "sections": [
                     {
                         "name": "Circus - Dash Trap Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 344,
+                        "y": 536
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Fire Pillars in Water Dust 3"
                     },
                     {
+                        "name": "Circus - Fire Pillars in Water Dust 4"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 280,
+                        "y": 440
+                    }
+                ],
+                "sections": [
+                    {
                         "name": "Circus - Lion Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 200,
+                        "y": 456
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Lion Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 440,
+                        "y": 584
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Fire Pillars in Water Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 456,
+                        "y": 536
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Fire Pillars in Water Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
                     {
-                        "name": "Circus - Fire Pillars in Water Dust 4"
-                    },
+                        "map": "Circus",
+                        "x": 824,
+                        "y": 104
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Dog Room Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 1160,
+                        "y": 392
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Javiera Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 1224,
+                        "y": 424
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Javiera Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 696,
+                        "y": 1080
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Slime and Fire Pillar Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 536,
+                        "y": 520
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Small Contort Room Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 664,
+                        "y": 520
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Save Point Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 136,
+                        "y": 552
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Clown Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 120,
+                        "y": 504
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Clown Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 920,
+                        "y": 408
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Spike Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 600,
+                        "y": 1208
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Dash Pad over Hole Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 760,
+                        "y": 840
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Lion and Dash Pad Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 824,
+                        "y": 1240
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Spike Roller in Water Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 776,
+                        "y": 1320
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Circus - Entrance Dust"
                     }
@@ -2471,47 +2975,191 @@
                 "map_locations": [
                     {
                         "map": "Mountain Cavern",
-                        "x": 0,
-                        "y": 0
+                        "x": 1304,
+                        "y": 104
                     }
                 ],
                 "sections": [
                     {
                         "name": "Mountain Cavern - 3F Top Center Moving Platform Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 1544,
+                        "y": 72
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 3F Top Right Moving Platform Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 1368,
+                        "y": 360
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 3F Roller Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 24,
+                        "y": 680
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 2F Frogs and Annoyers Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 216,
+                        "y": 664
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 2F Rotators and Annoyers Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 184,
+                        "y": 680
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 2F Rotators and Annoyers Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 184,
+                        "y": 1080
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 2F Circular Hole Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 216,
+                        "y": 1096
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 2F Circular Hole Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 408,
+                        "y": 1144
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 2F Crossing Moving Platforms Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 456,
+                        "y": 1224
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 2F Crossing Moving Platforms Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 360,
+                        "y": 1048
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 472,
+                        "y": 1032
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 376,
+                        "y": 1096
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 3"
                     }
@@ -2617,20 +3265,56 @@
                 "map_locations": [
                     {
                         "map": "Debug",
-                        "x": 0,
-                        "y": 0
+                        "x": 40,
+                        "y": 360
                     }
                 ],
                 "sections": [
                     {
                         "name": "Debug - Moving Platform Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Debug",
+                "map_locations": [
+                    {
+                        "map": "Debug",
+                        "x": 232,
+                        "y": 264
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Debug - Whirlpool Room Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Debug",
+                "map_locations": [
+                    {
+                        "map": "Debug",
+                        "x": 264,
+                        "y": 216
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Debug - Whirlpool Room Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Debug",
+                "map_locations": [
+                    {
+                        "map": "Debug",
+                        "x": 120,
+                        "y": 200
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Debug - Sound Test Console Dust"
                     }
@@ -2846,98 +3530,446 @@
                 "map_locations": [
                     {
                         "map": "Fields",
-                        "x": 0,
-                        "y": 0
+                        "x": 1304,
+                        "y": 104
                     }
                 ],
                 "sections": [
                     {
                         "name": "Fields - Goldman's Cave Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1320,
+                        "y": 120
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Goldman's Cave Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1336,
+                        "y": 72
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Goldman's Cave Dust 3"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1384,
+                        "y": 72
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Goldman's Cave Dust 4"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1400,
+                        "y": 72
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Goldman's Cave Dust 5"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1400,
+                        "y": 88
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Goldman's Cave Dust 6"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1304,
+                        "y": 120
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Goldman's Cave Dust 7"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1368,
+                        "y": 104
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Goldman's Cave Dust 8"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1400,
+                        "y": 120
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Goldman's Cave Dust 9"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1208,
+                        "y": 1032
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Lake After Spikes Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1032,
+                        "y": 248
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - North River Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1160,
+                        "y": 1704
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Lake After Holes Floating Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1416,
+                        "y": 1528
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - South East of Lake Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1352,
+                        "y": 1320
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Lake Near Windmill Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 936,
+                        "y": 824
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - North of Lake Rapids Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1176,
+                        "y": 840
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - North East of Lake Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1304,
+                        "y": 568
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Before Annoyer Maze Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 872,
+                        "y": 664
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Mitra House Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 680,
+                        "y": 824
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Near Red Gate Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 504,
+                        "y": 616
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - After Red Gate Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 184,
+                        "y": 280
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Near Terminal Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 424,
+                        "y": 840
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - North West of Lake Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 248,
+                        "y": 920
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Near Beach Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 216,
+                        "y": 1688
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - South West Corner Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 568,
+                        "y": 1480
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - South East of Gauntlet Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 216,
+                        "y": 1320
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Before Gauntlet Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1000,
+                        "y": 1512
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Island Chest Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 856,
+                        "y": 1496
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Island Start Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1096,
+                        "y": 1224
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Post Whirlpool Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 1048,
+                        "y": 1256
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Fields - Olive Dust"
                     }
@@ -2998,32 +4030,116 @@
                 "map_locations": [
                     {
                         "map": "Deep Forest",
-                        "x": 0,
-                        "y": 0
+                        "x": 360,
+                        "y": 696
                     }
                 ],
                 "sections": [
                     {
                         "name": "Deep Forest - Relaxation Pond Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 696,
+                        "y": 1144
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Deep Forest - Near Cliff Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 200,
+                        "y": 1176
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Deep Forest - Floating Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 88,
+                        "y": 1144
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Deep Forest - Thorax Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 72,
+                        "y": 1416
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Deep Forest - Carved Rock Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 296,
+                        "y": 1416
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Deep Forest - Tiny Island Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 568,
+                        "y": 440
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Deep Forest - Inlet Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 600,
+                        "y": 792
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Deep Forest - Before Inlet Chest Dust"
                     }
@@ -3329,86 +4445,386 @@
                 "map_locations": [
                     {
                         "map": "Hotel",
-                        "x": 0,
-                        "y": 0
+                        "x": 1368,
+                        "y": 872
                     }
                 ],
                 "sections": [
                     {
                         "name": "Hotel - 1F Floating Dustmaid Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 360,
+                        "y": 1368
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 3F Hallway Dustmaid Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 440,
+                        "y": 1400
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 3F Hallway Dustmaid Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 424,
+                        "y": 632
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 4F Moving Platform Crossroad 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1320,
+                        "y": 1464
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 1F Boss Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1368,
+                        "y": 1032
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 1F Gasguy Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1512,
+                        "y": 1032
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 1F Dustmaid and Steampipe Dust 3"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1464,
+                        "y": 1016
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 1F Dustmaid and Steampipe Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1496,
+                        "y": 984
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 1F Dustmaid and Steampipe Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1464,
+                        "y": 1048
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 1F Dustmaid and Steampipe Dust 4"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1032,
+                        "y": 40
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 2F Steampipe Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1080,
+                        "y": 40
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 2F Steampipe Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1096,
+                        "y": 1144
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 1F Locked Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1048,
+                        "y": 456
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 2F Dustmaid and Steampipe Dust 3"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1032,
+                        "y": 344
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 2F Dustmaid and Steampipe Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1048,
+                        "y": 376
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 2F Dustmaid and Steampipe Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 1480,
+                        "y": 584
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 2F Dustmaid Hallway Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 248,
+                        "y": 1640
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 3F Stream Dustmaid Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 616,
+                        "y": 1576
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 3F Bedroom Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 776,
+                        "y": 936
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 4F Slime Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 680,
+                        "y": 824
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 4F Slime Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 456,
+                        "y": 504
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 4F Moving Platform Crossroad 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 616,
+                        "y": 664
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 4F Dustmaid Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 376,
+                        "y": 776
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 4F Near Elevator Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 568,
+                        "y": 1064
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 4F Spring Puzzle Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Hotel",
+                "map_locations": [
+                    {
+                        "map": "Hotel",
+                        "x": 264,
+                        "y": 984
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Hotel - 4F Moving Platform Puzzle Dust"
                     }
@@ -3777,50 +5193,206 @@
                 "map_locations": [
                     {
                         "map": "Red Grotto",
-                        "x": 0,
-                        "y": 0
+                        "x": 984,
+                        "y": 24
                     }
                 ],
                 "sections": [
                     {
                         "name": "Red Grotto - Top Cave Boss Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 1096,
+                        "y": 24
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Top Cave Boss Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 888,
+                        "y": 24
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Top Cave Before Boss Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 72,
+                        "y": 24
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Top Cave Slasher Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 344,
+                        "y": 72
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Top Cave Before Slasher Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 1096,
+                        "y": 136
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Top Cave Boss Dust 3"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 984,
+                        "y": 136
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Top Cave Boss Dust 4"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 40,
+                        "y": 568
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Left Cave Rapids Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 40,
+                        "y": 616
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Left Cave Rapids Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 1032,
+                        "y": 712
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Right Cave Before Slasher Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 1080,
+                        "y": 808
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Right Cave Whirlpool Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 392,
+                        "y": 856
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Left Cave Whirlpool Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 344,
+                        "y": 888
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Left Cave Whirlpool Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 984,
+                        "y": 920
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red Grotto - Right Cave Whirlpool Dust 2"
                     }
@@ -4041,20 +5613,56 @@
                 "map_locations": [
                     {
                         "map": "Space",
-                        "x": 0,
-                        "y": 0
+                        "x": 552,
+                        "y": 872
                     }
                 ],
                 "sections": [
                     {
                         "name": "Space - Challenge Area Dustmaid Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Space",
+                "map_locations": [
+                    {
+                        "map": "Space",
+                        "x": 568,
+                        "y": 872
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Space - Challenge Area Dustmaid Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Space",
+                "map_locations": [
+                    {
+                        "map": "Space",
+                        "x": 1144,
+                        "y": 856
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Space - Challenge Area Lion Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Space",
+                "map_locations": [
+                    {
+                        "map": "Space",
+                        "x": 1144,
+                        "y": 888
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Space - Challenge Area Lion Dust 2"
                     }
@@ -4115,14 +5723,26 @@
                 "map_locations": [
                     {
                         "map": "Street",
-                        "x": 0,
-                        "y": 0
+                        "x": 442,
+                        "y": 216
                     }
                 ],
                 "sections": [
                     {
                         "name": "Street - After Bridge Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Street",
+                "map_locations": [
+                    {
+                        "map": "Street",
+                        "x": 410,
+                        "y": 232
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Street - After Bridge Dust 2"
                     }
@@ -4244,29 +5864,101 @@
                 "map_locations": [
                     {
                         "map": "Boss Rush",
-                        "x": 0,
-                        "y": 0
+                        "x": 568,
+                        "y": 1048
                     }
                 ],
                 "sections": [
                     {
                         "name": "Boss Rush - Before Red Boss Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Boss Rush",
+                "map_locations": [
+                    {
+                        "map": "Boss Rush",
+                        "x": 664,
+                        "y": 984
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Boss Rush - Red Boss Dust 1"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Boss Rush",
+                "map_locations": [
+                    {
+                        "map": "Boss Rush",
+                        "x": 664,
+                        "y": 1096
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Boss Rush - Red Boss Dust 2"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Boss Rush",
+                "map_locations": [
+                    {
+                        "map": "Boss Rush",
+                        "x": 776,
+                        "y": 1096
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Boss Rush - Red Boss Dust 3"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Boss Rush",
+                "map_locations": [
+                    {
+                        "map": "Boss Rush",
+                        "x": 776,
+                        "y": 984
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Boss Rush - Red Boss Dust 4"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Boss Rush",
+                "map_locations": [
+                    {
+                        "map": "Boss Rush",
+                        "x": 40,
+                        "y": 824
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Boss Rush - Manager Phase 1 Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Boss Rush",
+                "map_locations": [
+                    {
+                        "map": "Boss Rush",
+                        "x": 40,
+                        "y": 1000
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Boss Rush - Manager Phase 2 Dust"
                     }
@@ -4312,8 +6004,8 @@
                 "map_locations": [
                     {
                         "map": "Blue",
-                        "x": 0,
-                        "y": 0
+                        "x": 440,
+                        "y": 136
                     }
                 ],
                 "sections": [
@@ -4377,14 +6069,26 @@
                 "map_locations": [
                     {
                         "map": "Red",
-                        "x": 0,
-                        "y": 0
+                        "x": 616,
+                        "y": 216
                     }
                 ],
                 "sections": [
                     {
                         "name": "Red - Final Room Dust"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "Red",
+                "map_locations": [
+                    {
+                        "map": "Red",
+                        "x": 184,
+                        "y": 120
+                    }
+                ],
+                "sections": [
                     {
                         "name": "Red - Dustmaid Dust"
                     }

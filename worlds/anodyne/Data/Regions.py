@@ -37,7 +37,7 @@ class RegionEnum(Enum):
 
     @classmethod
     @abstractmethod
-    def nexus_ut_loc(cls) -> tuple[int,int]:
+    def nexus_ut_loc(cls) -> tuple[int, int]:
         pass
 
     def __str__(self):
@@ -47,7 +47,7 @@ class RegionEnum(Enum):
 class Apartment(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 592,833
+        return 592, 833
 
     floor_1 = auto()
     floor_1_top_left = auto()
@@ -59,7 +59,7 @@ class Apartment(RegionEnum):
 class Beach(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 288,721
+        return 288, 721
 
     DEFAULT = auto()
     gauntlet = auto()
@@ -68,7 +68,7 @@ class Beach(RegionEnum):
 class Bedroom(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 592,897
+        return 592, 897
 
     entrance = auto()
     core = auto()
@@ -81,7 +81,7 @@ class Bedroom(RegionEnum):
 class Blank(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 80,400
+        return 80, 400
 
     windmill = auto()
 
@@ -89,7 +89,7 @@ class Blank(RegionEnum):
 class Blue(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 352,513
+        return 352, 513
 
     DEFAULT = auto()
 
@@ -97,7 +97,7 @@ class Blue(RegionEnum):
 class Boss_Rush(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 512,240
+        return 512, 240
 
     DEFAULT = auto()
 
@@ -105,7 +105,7 @@ class Boss_Rush(RegionEnum):
 class Cell(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 272,497
+        return 272, 497
 
     DEFAULT = auto()
     past_gate = auto()
@@ -114,7 +114,7 @@ class Cell(RegionEnum):
 class Circus(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 192,497
+        return 192, 497
 
     DEFAULT = auto()
     entrance_lake = auto()
@@ -129,7 +129,7 @@ class Circus(RegionEnum):
 class Cliffs(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 512,561
+        return 512, 561
 
     DEFAULT = auto()
     post_windmill = auto()
@@ -138,7 +138,7 @@ class Cliffs(RegionEnum):
 class Crowd(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 592,561
+        return 592, 561
 
     floor_1 = auto()
     floor_2 = auto()
@@ -152,7 +152,7 @@ class Crowd(RegionEnum):
 class Debug(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 256,240
+        return 256, 240
 
     DEFAULT = auto()
 
@@ -160,7 +160,7 @@ class Debug(RegionEnum):
 class Drawer(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 401,244
+        return 401, 244
 
     DEFAULT = auto()
     dark = auto()
@@ -169,7 +169,7 @@ class Drawer(RegionEnum):
 class Fields(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 400,721
+        return 400, 721
 
     DEFAULT = auto()
     Lake = auto()
@@ -183,7 +183,7 @@ class Fields(RegionEnum):
 class Forest(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 512,721
+        return 512, 721
 
     DEFAULT = auto()
 
@@ -191,7 +191,7 @@ class Forest(RegionEnum):
 class Go(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 352,577
+        return 352, 577
 
     bottom = auto()
     top = auto()
@@ -200,7 +200,7 @@ class Go(RegionEnum):
 class Happy(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 448,513
+        return 448, 513
 
     DEFAULT = auto()
     gauntlet = auto()
@@ -209,10 +209,11 @@ class Happy(RegionEnum):
 class Hotel(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 592,497
+        return 592, 497
 
     roof = auto()
     floor_4 = auto()
+    floor_4_pad = auto()
     floor_3 = auto()
     floor_2 = auto()
     floor_2_right = auto()
@@ -222,7 +223,7 @@ class Hotel(RegionEnum):
 class Nexus(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 0,0
+        return 0, 0
 
     bottom = auto()
     top = auto()
@@ -232,7 +233,7 @@ class Nexus(RegionEnum):
 class Overworld(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 512,897
+        return 512, 897
 
     DEFAULT = auto()
     west = auto()
@@ -243,7 +244,7 @@ class Overworld(RegionEnum):
 class Red_Cave(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 192,562
+        return 192, 562
 
     top = auto()
     left = auto()
@@ -257,7 +258,7 @@ class Red_Cave(RegionEnum):
 class Red_Sea(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 272,562
+        return 272, 562
 
     DEFAULT = auto()
 
@@ -265,7 +266,7 @@ class Red_Sea(RegionEnum):
 class Space(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 512,497
+        return 512, 497
 
     DEFAULT = auto()
     Gauntlet = auto()
@@ -274,7 +275,7 @@ class Space(RegionEnum):
 class Street(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 256,897
+        return 256, 897
 
     DEFAULT = auto()
 
@@ -282,7 +283,7 @@ class Street(RegionEnum):
 class Suburb(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 512,833
+        return 512, 833
 
     DEFAULT = auto()
     card_house = auto()
@@ -292,7 +293,7 @@ class Suburb(RegionEnum):
 class Terminal(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 352,657
+        return 352, 657
 
     DEFAULT = auto()
     top = auto()
@@ -301,7 +302,7 @@ class Terminal(RegionEnum):
 class Windmill(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 448,657
+        return 448, 657
 
     DEFAULT = auto()
     entrance = auto()

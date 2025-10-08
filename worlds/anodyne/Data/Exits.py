@@ -1,12 +1,12 @@
 from typing import TypeAlias
 
-from ..Options import BeachGauntletGate, OverworldGauntletGate, PostgameBlank, OverworldFieldsGate, \
-    WindmillEntranceGate, WindmillMiddleGate, WindmillTopGate, PostgameEnd, FieldsGate, EndgameRequirement, CellGate, \
-    SuburbGate
+from ..Options import (BeachGauntletGate, OverworldGauntletGate, PostgameBlank, OverworldFieldsGate,
+                       WindmillEntranceGate, WindmillMiddleGate, WindmillTopGate, PostgameEnd, FieldsGate,
+                       EndgameRequirement, CellGate, SuburbGate)
 
 from .Regions import (Apartment, Beach, Bedroom, Blank, Cell, Circus, Debug, Boss_Rush, Street, Space, Red_Cave, Drawer,
-                      Cliffs, Crowd, Fields, Terminal, Forest, Happy, Red_Sea, Overworld, Blue, Go, Hotel, Nexus, Suburb,
-                      Windmill, RegionEnum)
+                      Cliffs, Crowd, Fields, Terminal, Forest, Happy, Red_Sea, Overworld, Blue, Go, Hotel, Nexus,
+                      Suburb, Windmill, RegionEnum)
 
 Connection: TypeAlias = tuple[RegionEnum, RegionEnum, list[str]]
 
@@ -133,9 +133,11 @@ all_exits: list[Connection] = [
     (Space.DEFAULT, Hotel.roof, []),
     (Space.DEFAULT, Space.Gauntlet, ["Progressive Swap:2", "Combat", "Jump Shoes"]),
     (Space.Gauntlet, Space.DEFAULT, ["Progressive Swap:2"]),
-    (Hotel.roof, Hotel.floor_4, ["Jump Shoes"]),
+    (Hotel.roof, Hotel.floor_4, ["Jump Shoes", "Combat"]),
     # Return to entrance
     (Hotel.floor_4, Hotel.roof, []),
+    (Hotel.floor_4, Hotel.floor_4_pad, []),
+    (Hotel.floor_4_pad, Hotel.roof, []),
     (Hotel.floor_4, Hotel.floor_3, ["Combat", "Jump Shoes", "Small Key (Hotel):1"]),
     (Hotel.floor_3, Hotel.floor_4, ["Combat", "Jump Shoes"]),
     (Hotel.floor_3, Hotel.floor_2, ["Small Key (Hotel):4"]),

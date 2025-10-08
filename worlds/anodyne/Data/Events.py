@@ -5,19 +5,24 @@ from ..Options import AnodyneGameOptions, BigKeyShuffle, VictoryCondition, RedCa
 from .Regions import Bedroom, Crowd, Windmill, Hotel, Circus, Apartment, Terminal, Go, Blue, \
     Happy, Red_Cave, RegionEnum, Nexus
 
-def big_keys_vanilla(options:AnodyneGameOptions):
+
+def big_keys_vanilla(options: AnodyneGameOptions):
     return options.big_key_shuffle == BigKeyShuffle.option_vanilla
 
-def windmill_vanilla(options:AnodyneGameOptions):
+
+def windmill_vanilla(options: AnodyneGameOptions):
     return options.split_windmill.value == False
 
-def blue_happy_vanilla(options:AnodyneGameOptions):
+
+def blue_happy_vanilla(options: AnodyneGameOptions):
     return options.include_blue_happy.value == False
 
-def final_gate_ending(options:AnodyneGameOptions):
+
+def final_gate_ending(options: AnodyneGameOptions):
     return options.victory_condition == VictoryCondition.option_final_gate
 
-def tentacles_vanilla(options:AnodyneGameOptions):
+
+def tentacles_vanilla(options: AnodyneGameOptions):
     return options.red_grotto_access == RedCaveAccess.option_vanilla
 
 
@@ -69,15 +74,17 @@ class EventFlags(Flag):
     NBlue = auto()
     Activate_Blue = auto()
     Activate_Happy = auto()
-    Victory = auto() #not real, I'll figure it out if ppl ask
+    Victory = auto()  # not real, I'll figure it out if ppl ask
+
 
 class EventData(NamedTuple):
     region: RegionEnum
     name: str
     reqs: list[str]
-    tracker_loc: tuple[int,int]
+    tracker_loc: tuple[int, int]
     flag: EventFlags
-    is_active: Callable[[AnodyneGameOptions],bool] = lambda _: True
+    is_active: Callable[[AnodyneGameOptions], bool] = lambda _: True
+
 
 all_events: list[EventData] = [
     EventData(Bedroom.exit, "Defeat Seer", ["Combat"], (392, 59), EventFlags.Seer),

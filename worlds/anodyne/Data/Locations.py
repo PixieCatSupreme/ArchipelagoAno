@@ -241,7 +241,7 @@ all_locations: List[LocationData] = [
     LocationData(Space.DEFAULT, "Warp Pad", [], (880, 400), type=LocationType.Nexus),
     LocationData(Terminal.DEFAULT, "Warp Pad", [], (448, 736), type=LocationType.Nexus),
     LocationData(Windmill.entrance, "Warp Pad", [], (272, 1040), type=LocationType.Nexus),
-    LocationData(Blue.DEFAULT, "Completion Reward", [], (88, 40), type=LocationType.AreaEvent),
+    LocationData(Blue.DEFAULT, "Completion Reward", ["Jump Shoes", "Combat"], (88, 40), type=LocationType.AreaEvent),
     LocationData(Happy.gauntlet, "Completion Reward", [], (662, 186), type=LocationType.AreaEvent),
     # Dust locations
     LocationData(Apartment.floor_1, "1F Shortcut Room Dust 1", ["Jump Shoes"], (456, 360), type=LocationType.Dust),

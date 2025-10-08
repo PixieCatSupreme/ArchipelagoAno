@@ -99,7 +99,7 @@ class AnodyneWorld(World):
     found_entrances_datastorage_key = "Slot:{player}:EventMap"
     tracked_events: EventFlags
 
-    version = "0.3.2"
+    version = "0.4.0"
 
     item_name_to_id = Constants.item_name_to_id
     location_name_to_id = Constants.location_name_to_id

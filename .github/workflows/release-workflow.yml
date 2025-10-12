@@ -31,7 +31,7 @@ jobs:
     steps:
       - name: Package apworld tracker
         id: package
-        uses: ./.github/package-tracker
+        uses: PixieCatSupreme/ArchipelagoAno/.github/package-tracker@anodyne
         with:
           path: ${{ inputs.apworld-path }}
           apworld-name: ${{ inputs.apworld-name }}

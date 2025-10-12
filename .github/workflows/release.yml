@@ -5,7 +5,7 @@ on:
       - '**'
 jobs:
   release:
-    uses: Eijebong/ap-actions/.github/workflows/release-apworld.yml@main
+    uses: ./.github/workflows/release-workflow.yml
     with:
       apworld-path: worlds/anodyne
       ap-version: '0.6.3'

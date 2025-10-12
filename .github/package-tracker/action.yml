@@ -1,0 +1,40 @@
+name: Package tracker
+description: Package an embedded tracker for distribution
+inputs:
+  path:
+    description: The path to the apworld's folder in the repo
+    required: true
+  checkout:
+    description: Whether or not to run the checkout step. Can be useful to disable if you want to package the apworld with a dirty repo
+    default: true
+    required: true
+  apworld-name:
+    description: The name of the apworld. This should only be set if the folder storing your apworld in the repository isn't the same
+    type: string
+    default: ""
+outputs:
+  tracker:
+    description: The path of the resulting tracker file
+    value: ${{ steps.package.outputs.tracker }}
+runs:
+  using: composite
+  steps:
+    - name: Clone the repo
+      uses: actions/checkout@master
+      if: ${{ inputs.checkout != 'false' }}
+
+    - name: Package tracker
+      id: package
+      shell: bash
+      run: |
+        if [[ "${APWORLD_NAME}" == "" ]]; then
+            export APWORLD_NAME=$(basename "${APWORLD_PATH}")
+        fi
+
+        mkdir -p /tmp/ap-output/${APWORLD_NAME}-tracker
+        echo "tracker=/tmp/ap-output/${APWORLD_NAME}-UniversalTracker.zip" >> ${GITHUB_OUTPUT}
+        cd "${APWORLD_PATH}" && rsync -ap tracker/* /tmp/ap-output/${APWORLD_NAME}-tracker/
+        cd /tmp/ap-output/${APWORLD_NAME}-tracker && zip -r "../${APWORLD_NAME}-UniversalTracker.zip" *
+      env:
+        APWORLD_PATH: ${{ inputs.path }}
+        APWORLD_NAME: ${{ inputs.apworld-name }}

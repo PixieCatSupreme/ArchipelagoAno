@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 from BaseClasses import Region, Location, Item, ItemClassification, CollectionState, Tutorial
 from Fill import fill_restrictive, FillError
-from settings import Group, Bool, FilePath
+from settings import Group, UserFilePath
 from Options import Accessibility, OptionGroup
 from worlds.AutoWorld import WebWorld, World
 from typing import ClassVar, List, Callable, Dict, Any, Set, Iterable, Type, Tuple, Optional
@@ -34,7 +34,7 @@ class AnodyneItem(Item):
 
 
 class AnodyneSettings(Group):
-    class UTTrackerPath(FilePath):
+    class UTTrackerPath(UserFilePath):
         """Path to the user's Anodyne UT map pack."""
         description = "Anodyne's Universal Tracker zip file"
         required = False
@@ -105,11 +105,6 @@ class AnodyneWorld(UTStuff, World):
     settings: ClassVar[AnodyneSettings]
     topology_present = False  # show path to required location checks in spoiler
 
-    ut_can_gen_without_yaml = True
-    using_ut: bool
-    found_entrances_datastorage_key = "Slot:{player}:EventMap"
-    tracked_events: EventFlags
-
     version = "0.4.2"
 
     item_name_to_id = Constants.item_name_to_id
@@ -124,6 +119,7 @@ class AnodyneWorld(UTStuff, World):
     dungeon_items: Dict[type[RegionEnum], List[Item]]
     proxy_rules: Dict[str, List[str]]
     shuffled_gates: Set[type[RegionEnum]]
+    using_ut: bool
 
     def generate_early(self):
         self.gates_unlocked = []
@@ -577,13 +573,6 @@ class AnodyneWorld(UTStuff, World):
             from Utils import visualize_regions
 
             visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
-
-    def ut_event_check(self, event: EventData):
-        return lambda _: event.flag in self.tracked_events
-
-    def reconnect_found_entrances(self, key: str, value: Any):
-        if key.endswith("EventMap") and isinstance(value, int):
-            self.tracked_events = EventFlags(value)
 
     def create_gate_proxy_rule(self, cls: typing.Type[GateRequirements]):
         rules = []

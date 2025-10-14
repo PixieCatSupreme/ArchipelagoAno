@@ -40,6 +40,10 @@ class RegionEnum(Enum):
     def nexus_ut_loc(cls) -> tuple[int, int]:
         pass
 
+    @classmethod
+    def ut_map_offset(cls) -> tuple[int,int]:
+        return 0,0
+
     def __str__(self):
         return self.area_name() + (' ' + self.value).rstrip()
 
@@ -308,6 +312,10 @@ class Windmill(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 448, 657
+
+    @classmethod
+    def ut_map_offset(cls) -> tuple[int,int]:
+        return 160,0
 
     entrance = auto()
     first_gate = auto()

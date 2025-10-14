@@ -22,7 +22,7 @@ from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCon
     HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode, \
     Dustsanity, GateType, gatereq_classes, CardAmount, EndgameRequirement, GateRequirements, MitraHints, gate_lookup, \
     OverworldFieldsGate, RockSanity
-from .ut_stuff import UTTrackerData
+from .ut_stuff import UTStuff
 
 
 class AnodyneLocation(Location):
@@ -91,7 +91,7 @@ class AnodyneWebWorld(WebWorld):
     )]
 
 
-class AnodyneWorld(World):
+class AnodyneWorld(UTStuff, World):
     """
     Anodyne is a unique Zelda-like game, influenced by games such as Yume Nikki and Link's Awakening. 
     In Anodyne, you'll visit areas urban, natural, and bizarre, fighting your way through dungeons 
@@ -106,12 +106,11 @@ class AnodyneWorld(World):
     topology_present = False  # show path to required location checks in spoiler
 
     ut_can_gen_without_yaml = True
-    tracker_world = UTTrackerData
     using_ut: bool
     found_entrances_datastorage_key = "Slot:{player}:EventMap"
     tracked_events: EventFlags
 
-    version = "0.4.0"
+    version = "0.4.2"
 
     item_name_to_id = Constants.item_name_to_id
     location_name_to_id = Constants.location_name_to_id

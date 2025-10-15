@@ -353,6 +353,7 @@ postgame_regions: list[RegionEnum] = [
     Nexus.top,
     Nexus.ending,
     Space.Gauntlet,
+    Overworld.station,
     Overworld.out_of_bounds_south,
     Overworld.color_puzzle_hint,
     Windmill.blank

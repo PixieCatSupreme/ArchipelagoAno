@@ -520,6 +520,15 @@
                     },
                     {
                         "name": "Temple of the Seeing One - Laser Room Dust 4"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Dark Room Rock"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Near Entrance Hidden Rock"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Near Drawer Hidden Rock"
                     }
                 ]
             },
@@ -535,6 +544,21 @@
                 "sections": [
                     {
                         "name": "Blank - Card Chest"
+                    },
+                    {
+                        "name": "Blank - Unclaimed Rock"
+                    },
+                    {
+                        "name": "Blank - Circles Rock"
+                    },
+                    {
+                        "name": "Blank - Platforms Rock"
+                    },
+                    {
+                        "name": "Blank - Love Rock"
+                    },
+                    {
+                        "name": "Blank - Portal Rock"
                     }
                 ]
             },
@@ -559,6 +583,18 @@
                     },
                     {
                         "name": "Cell - Warp Pad"
+                    },
+                    {
+                        "name": "Cell - Nexus Pad Rock"
+                    },
+                    {
+                        "name": "Cell - Health Cicada Rock"
+                    },
+                    {
+                        "name": "Cell - Spikes Rock"
+                    },
+                    {
+                        "name": "Cell - Near Red Grotto Rock"
                     }
                 ]
             },
@@ -661,6 +697,24 @@
                     },
                     {
                         "name": "Circus - Entrance Dust"
+                    },
+                    {
+                        "name": "Circus - Trapeze Rock"
+                    },
+                    {
+                        "name": "Circus - Clown Makeup Rock"
+                    },
+                    {
+                        "name": "Circus - Arthur Rock"
+                    },
+                    {
+                        "name": "Circus - Shining Eyed Rock"
+                    },
+                    {
+                        "name": "Circus - Javiera Rock"
+                    },
+                    {
+                        "name": "Circus - Followers Rock"
                     }
                 ]
             },
@@ -682,6 +736,18 @@
                     },
                     {
                         "name": "Cliffs - Warp Pad"
+                    },
+                    {
+                        "name": "Cliffs - Indecipherable Rock"
+                    },
+                    {
+                        "name": "Cliffs - Stupid Rock"
+                    },
+                    {
+                        "name": "Cliffs - Warning Rock"
+                    },
+                    {
+                        "name": "Cliffs - Ladder Rock"
                     }
                 ]
             },
@@ -766,6 +832,12 @@
                     },
                     {
                         "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 3"
+                    },
+                    {
+                        "name": "Mountain Cavern - How? Rock"
+                    },
+                    {
+                        "name": "Mountain Cavern - Vertical Drop Rock"
                     }
                 ]
             },
@@ -805,6 +877,21 @@
                     },
                     {
                         "name": "Debug - Sound Test Console Dust"
+                    },
+                    {
+                        "name": "Debug - Placeholder Card Gate Rock"
+                    },
+                    {
+                        "name": "Debug - One Way Tiles Rock"
+                    },
+                    {
+                        "name": "Debug - Dropped Keys Rock"
+                    },
+                    {
+                        "name": "Debug - Prison Rock"
+                    },
+                    {
+                        "name": "Debug - Welcoming Rock"
                     }
                 ]
             },
@@ -823,6 +910,15 @@
                     },
                     {
                         "name": "Drawer - Brown Area Chest"
+                    },
+                    {
+                        "name": "Drawer - Archives Rock"
+                    },
+                    {
+                        "name": "Drawer - Hurricane Islands Rock"
+                    },
+                    {
+                        "name": "Drawer - Brown Area Rock"
                     }
                 ]
             },
@@ -958,6 +1054,9 @@
                     },
                     {
                         "name": "Fields - Olive Dust"
+                    },
+                    {
+                        "name": "Fields - Mitra's House Rock"
                     }
                 ]
             },
@@ -1003,6 +1102,18 @@
                     },
                     {
                         "name": "Deep Forest - Before Inlet Chest Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Relaxation Pond Rock"
+                    },
+                    {
+                        "name": "Deep Forest - Carved Rock"
+                    },
+                    {
+                        "name": "Deep Forest - Nexus Pad Rock"
+                    },
+                    {
+                        "name": "Deep Forest - Near Cliffs Rock"
                     }
                 ]
             },
@@ -1027,6 +1138,18 @@
                     },
                     {
                         "name": "Garden - Warp Pad"
+                    },
+                    {
+                        "name": "Garden - Swap Puzzle Rock"
+                    },
+                    {
+                        "name": "Garden - Strange Dimensional Guardian Rock"
+                    },
+                    {
+                        "name": "Garden - Suburban Guardian Rock"
+                    },
+                    {
+                        "name": "Garden - Labyrinthine Dungeon's Guardian Rock"
                     }
                 ]
             },
@@ -1198,6 +1321,21 @@
                     },
                     {
                         "name": "Woods - Warp Pad"
+                    },
+                    {
+                        "name": "Woods - Mean Rock"
+                    },
+                    {
+                        "name": "Woods - Out of Bounds Rock"
+                    },
+                    {
+                        "name": "Woods - Secret Treasure Rock"
+                    },
+                    {
+                        "name": "Woods - Gotcha Rock"
+                    },
+                    {
+                        "name": "Woods - Overworld Station Rock"
                     }
                 ]
             },
@@ -1306,6 +1444,15 @@
                     },
                     {
                         "name": "Red Grotto - Right Cave Whirlpool Dust 2"
+                    },
+                    {
+                        "name": "Red Grotto - Center Grotto Rock"
+                    },
+                    {
+                        "name": "Red Grotto - Right Grotto Rock"
+                    },
+                    {
+                        "name": "Red Grotto - Left Grotto Rock"
                     }
                 ]
             },
@@ -1327,6 +1474,18 @@
                     },
                     {
                         "name": "Red Sea - Warp Pad"
+                    },
+                    {
+                        "name": "Red Sea - Treasure Rock"
+                    },
+                    {
+                        "name": "Red Sea - Near Portal Rock"
+                    },
+                    {
+                        "name": "Red Sea - Far Edge Rock"
+                    },
+                    {
+                        "name": "Red Sea - Red Walker Rock"
                     }
                 ]
             },
@@ -1351,6 +1510,18 @@
                     },
                     {
                         "name": "Young Town - Warp Pad"
+                    },
+                    {
+                        "name": "Young Town - Fragmented Rock"
+                    },
+                    {
+                        "name": "Young Town - Parking Lot Rock"
+                    },
+                    {
+                        "name": "Young Town - Ying's Apartment Rock"
+                    },
+                    {
+                        "name": "Young Town - Near Forest Rock"
                     }
                 ]
             },
@@ -1390,6 +1561,24 @@
                     },
                     {
                         "name": "Space - Challenge Area Lion Dust 2"
+                    },
+                    {
+                        "name": "Space - Space Time Tablet"
+                    },
+                    {
+                        "name": "Space - Unreadable Grave"
+                    },
+                    {
+                        "name": "Space - Burd's Grave"
+                    },
+                    {
+                        "name": "Space - Bag's Grave"
+                    },
+                    {
+                        "name": "Space - Savitch's Grave"
+                    },
+                    {
+                        "name": "Space - Dave's Grave"
                     }
                 ]
             },
@@ -1456,6 +1645,12 @@
                     },
                     {
                         "name": "Windmill - Warp Pad"
+                    },
+                    {
+                        "name": "Windmill - Repurposed Tower Rock"
+                    },
+                    {
+                        "name": "Windmill - Dimensional Rift Tower Rock"
                     }
                 ]
             },
@@ -1464,8 +1659,8 @@
                 "map_locations": [
                     {
                         "map": "Nexus",
-                        "x": 512,
-                        "y": 240
+                        "x": 560,
+                        "y": 248
                     }
                 ],
                 "sections": [
@@ -1537,6 +1732,66 @@
                     },
                     {
                         "name": "Red - Dustmaid Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 458,
+                        "y": 1064
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Nexus - Rock of Beginnings"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 408,
+                        "y": 120
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Nexus - Before Gate Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 408,
+                        "y": 58
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Nexus - Post Gate Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Nexus",
+                "map_locations": [
+                    {
+                        "map": "Nexus",
+                        "x": 520,
+                        "y": 230
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Nexus - Wiggle Rock"
                     }
                 ]
             },
@@ -1891,26 +2146,14 @@
                 "map_locations": [
                     {
                         "map": "Temple of the Seeing One",
-                        "x": 920,
+                        "x": 924,
                         "y": 24
                     }
                 ],
                 "sections": [
                     {
                         "name": "Temple of the Seeing One - After Statue Left Chest"
-                    }
-                ]
-            },
-            {
-                "name": "Temple of the Seeing One",
-                "map_locations": [
-                    {
-                        "map": "Temple of the Seeing One",
-                        "x": 936,
-                        "y": 24
-                    }
-                ],
-                "sections": [
+                    },
                     {
                         "name": "Temple of the Seeing One - After Statue Right Chest"
                     }
@@ -1999,13 +2242,16 @@
                 "map_locations": [
                     {
                         "map": "Temple of the Seeing One",
-                        "x": 392,
-                        "y": 568
+                        "x": 402,
+                        "y": 569
                     }
                 ],
                 "sections": [
                     {
                         "name": "Temple of the Seeing One - Laser Room Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Laser Room Dust 3"
                     }
                 ]
             },
@@ -2119,21 +2365,6 @@
                 "map_locations": [
                     {
                         "map": "Temple of the Seeing One",
-                        "x": 402,
-                        "y": 569
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Temple of the Seeing One - Laser Room Dust 3"
-                    }
-                ]
-            },
-            {
-                "name": "Temple of the Seeing One",
-                "map_locations": [
-                    {
-                        "map": "Temple of the Seeing One",
                         "x": 360,
                         "y": 680
                     }
@@ -2194,6 +2425,51 @@
                 "map_locations": [
                     {
                         "map": "Temple of the Seeing One",
+                        "x": 248,
+                        "y": 504
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Temple of the Seeing One - Dark Room Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 552,
+                        "y": 696
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Temple of the Seeing One - Near Entrance Hidden Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
+                        "x": 1080,
+                        "y": 392
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Temple of the Seeing One - Near Drawer Hidden Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Temple of the Seeing One",
+                "map_locations": [
+                    {
+                        "map": "Temple of the Seeing One",
                         "x": 392,
                         "y": 59
                     }
@@ -2221,6 +2497,81 @@
                 "sections": [
                     {
                         "name": "Blank - Card Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Blank",
+                "map_locations": [
+                    {
+                        "map": "Blank",
+                        "x": 664,
+                        "y": 824
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blank - Unclaimed Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Blank",
+                "map_locations": [
+                    {
+                        "map": "Blank",
+                        "x": 776,
+                        "y": 664
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blank - Circles Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Blank",
+                "map_locations": [
+                    {
+                        "map": "Blank",
+                        "x": 680,
+                        "y": 40
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blank - Platforms Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Blank",
+                "map_locations": [
+                    {
+                        "map": "Blank",
+                        "x": 184,
+                        "y": 712
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blank - Love Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Blank",
+                "map_locations": [
+                    {
+                        "map": "Blank",
+                        "x": 24,
+                        "y": 872
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blank - Portal Rock"
                     }
                 ]
             }
@@ -2286,6 +2637,66 @@
                 "sections": [
                     {
                         "name": "Cell - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Cell",
+                "map_locations": [
+                    {
+                        "map": "Cell",
+                        "x": 500,
+                        "y": 504
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cell - Nexus Pad Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Cell",
+                "map_locations": [
+                    {
+                        "map": "Cell",
+                        "x": 1000,
+                        "y": 1032
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cell - Health Cicada Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Cell",
+                "map_locations": [
+                    {
+                        "map": "Cell",
+                        "x": 1176,
+                        "y": 1176
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cell - Spikes Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Cell",
+                "map_locations": [
+                    {
+                        "map": "Cell",
+                        "x": 56,
+                        "y": 1224
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cell - Near Red Grotto Rock"
                     }
                 ]
             }
@@ -2737,6 +3148,96 @@
                 "map_locations": [
                     {
                         "map": "Circus",
+                        "x": 376,
+                        "y": 920
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Trapeze Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 136,
+                        "y": 504
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Clown Makeup Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 1208,
+                        "y": 904
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Arthur Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 232,
+                        "y": 392
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Shining Eyed Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 1208,
+                        "y": 408
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Javiera Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
+                        "x": 1192,
+                        "y": 72
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Followers Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Circus",
+                "map_locations": [
+                    {
+                        "map": "Circus",
                         "x": 734,
                         "y": 184
                     }
@@ -2794,6 +3295,66 @@
                 "sections": [
                     {
                         "name": "Cliffs - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Cliffs",
+                "map_locations": [
+                    {
+                        "map": "Cliffs",
+                        "x": 1176,
+                        "y": 216
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cliffs - Indecipherable Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Cliffs",
+                "map_locations": [
+                    {
+                        "map": "Cliffs",
+                        "x": 920,
+                        "y": 379
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cliffs - Stupid Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Cliffs",
+                "map_locations": [
+                    {
+                        "map": "Cliffs",
+                        "x": 536,
+                        "y": 856
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cliffs - Warning Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Cliffs",
+                "map_locations": [
+                    {
+                        "map": "Cliffs",
+                        "x": 1096,
+                        "y": 1000
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cliffs - Ladder Rock"
                     }
                 ]
             }
@@ -3170,6 +3731,36 @@
                 "map_locations": [
                     {
                         "map": "Mountain Cavern",
+                        "x": 1416,
+                        "y": 696
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Mountain Cavern - How? Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
+                        "x": 1576,
+                        "y": 344
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Mountain Cavern - Vertical Drop Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern",
                         "x": 1519,
                         "y": 984
                     }
@@ -3319,6 +3910,81 @@
                         "name": "Debug - Sound Test Console Dust"
                     }
                 ]
+            },
+            {
+                "name": "Debug",
+                "map_locations": [
+                    {
+                        "map": "Debug",
+                        "x": 680,
+                        "y": 104
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Debug - Placeholder Card Gate Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Debug",
+                "map_locations": [
+                    {
+                        "map": "Debug",
+                        "x": 232,
+                        "y": 120
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Debug - One Way Tiles Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Debug",
+                "map_locations": [
+                    {
+                        "map": "Debug",
+                        "x": 72,
+                        "y": 104
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Debug - Dropped Keys Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Debug",
+                "map_locations": [
+                    {
+                        "map": "Debug",
+                        "x": 680,
+                        "y": 840
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Debug - Prison Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Debug",
+                "map_locations": [
+                    {
+                        "map": "Debug",
+                        "x": 552,
+                        "y": 344
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Debug - Welcoming Rock"
+                    }
+                ]
             }
         ]
     },
@@ -3352,6 +4018,51 @@
                 "sections": [
                     {
                         "name": "Drawer - Brown Area Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Drawer",
+                "map_locations": [
+                    {
+                        "map": "Drawer",
+                        "x": 72,
+                        "y": 104
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Drawer - Archives Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Drawer",
+                "map_locations": [
+                    {
+                        "map": "Drawer",
+                        "x": 840,
+                        "y": 200
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Drawer - Hurricane Islands Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Drawer",
+                "map_locations": [
+                    {
+                        "map": "Drawer",
+                        "x": 392,
+                        "y": 1192
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Drawer - Brown Area Rock"
                     }
                 ]
             }
@@ -3530,131 +4241,35 @@
                 "map_locations": [
                     {
                         "map": "Fields",
-                        "x": 1304,
-                        "y": 104
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Fields - Goldman's Cave Dust 1"
-                    }
-                ]
-            },
-            {
-                "name": "Fields",
-                "map_locations": [
-                    {
-                        "map": "Fields",
-                        "x": 1320,
-                        "y": 120
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Fields - Goldman's Cave Dust 2"
-                    }
-                ]
-            },
-            {
-                "name": "Fields",
-                "map_locations": [
-                    {
-                        "map": "Fields",
-                        "x": 1336,
-                        "y": 72
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Fields - Goldman's Cave Dust 3"
-                    }
-                ]
-            },
-            {
-                "name": "Fields",
-                "map_locations": [
-                    {
-                        "map": "Fields",
-                        "x": 1384,
-                        "y": 72
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Fields - Goldman's Cave Dust 4"
-                    }
-                ]
-            },
-            {
-                "name": "Fields",
-                "map_locations": [
-                    {
-                        "map": "Fields",
-                        "x": 1400,
-                        "y": 72
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Fields - Goldman's Cave Dust 5"
-                    }
-                ]
-            },
-            {
-                "name": "Fields",
-                "map_locations": [
-                    {
-                        "map": "Fields",
-                        "x": 1400,
-                        "y": 88
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Fields - Goldman's Cave Dust 6"
-                    }
-                ]
-            },
-            {
-                "name": "Fields",
-                "map_locations": [
-                    {
-                        "map": "Fields",
-                        "x": 1304,
-                        "y": 120
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Fields - Goldman's Cave Dust 7"
-                    }
-                ]
-            },
-            {
-                "name": "Fields",
-                "map_locations": [
-                    {
-                        "map": "Fields",
                         "x": 1368,
                         "y": 104
                     }
                 ],
                 "sections": [
                     {
-                        "name": "Fields - Goldman's Cave Dust 8"
-                    }
-                ]
-            },
-            {
-                "name": "Fields",
-                "map_locations": [
+                        "name": "Fields - Goldman's Cave Dust 1"
+                    },
                     {
-                        "map": "Fields",
-                        "x": 1400,
-                        "y": 120
-                    }
-                ],
-                "sections": [
+                        "name": "Fields - Goldman's Cave Dust 2"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 3"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 4"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 5"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 6"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 7"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 8"
+                    },
                     {
                         "name": "Fields - Goldman's Cave Dust 9"
                     }
@@ -3974,6 +4589,21 @@
                         "name": "Fields - Olive Dust"
                     }
                 ]
+            },
+            {
+                "name": "Fields",
+                "map_locations": [
+                    {
+                        "map": "Fields",
+                        "x": 936,
+                        "y": 696
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Fields - Mitra's House Rock"
+                    }
+                ]
             }
         ]
     },
@@ -4144,6 +4774,66 @@
                         "name": "Deep Forest - Before Inlet Chest Dust"
                     }
                 ]
+            },
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 392,
+                        "y": 776
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Deep Forest - Relaxation Pond Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 40,
+                        "y": 1400
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Deep Forest - Carved Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 264,
+                        "y": 1000
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Deep Forest - Nexus Pad Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Deep Forest",
+                "map_locations": [
+                    {
+                        "map": "Deep Forest",
+                        "x": 744,
+                        "y": 1160
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Deep Forest - Near Cliffs Rock"
+                    }
+                ]
             }
         ]
     },
@@ -4207,6 +4897,66 @@
                 "sections": [
                     {
                         "name": "Garden - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Garden",
+                "map_locations": [
+                    {
+                        "map": "Garden",
+                        "x": 360,
+                        "y": 504
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Garden - Swap Puzzle Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Garden",
+                "map_locations": [
+                    {
+                        "map": "Garden",
+                        "x": 200,
+                        "y": 520
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Garden - Strange Dimensional Guardian Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Garden",
+                "map_locations": [
+                    {
+                        "map": "Garden",
+                        "x": 600,
+                        "y": 856
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Garden - Suburban Guardian Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Garden",
+                "map_locations": [
+                    {
+                        "map": "Garden",
+                        "x": 200,
+                        "y": 856
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Garden - Labyrinthine Dungeon's Guardian Rock"
                     }
                 ]
             },
@@ -4909,6 +5659,81 @@
                         "name": "Woods - Warp Pad"
                     }
                 ]
+            },
+            {
+                "name": "Woods",
+                "map_locations": [
+                    {
+                        "map": "Woods",
+                        "x": 376,
+                        "y": 1192
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Woods - Mean Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Woods",
+                "map_locations": [
+                    {
+                        "map": "Woods",
+                        "x": 692,
+                        "y": 1496
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Woods - Out of Bounds Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Woods",
+                "map_locations": [
+                    {
+                        "map": "Woods",
+                        "x": 536,
+                        "y": 264
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Woods - Secret Treasure Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Woods",
+                "map_locations": [
+                    {
+                        "map": "Woods",
+                        "x": 1334,
+                        "y": 664
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Woods - Gotcha Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Woods",
+                "map_locations": [
+                    {
+                        "map": "Woods",
+                        "x": 216,
+                        "y": 152
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Woods - Overworld Station Rock"
+                    }
+                ]
             }
         ]
     },
@@ -5403,6 +6228,51 @@
                 "map_locations": [
                     {
                         "map": "Red Grotto",
+                        "x": 504,
+                        "y": 664
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Grotto - Center Grotto Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 824,
+                        "y": 984
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Grotto - Right Grotto Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 296,
+                        "y": 984
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Grotto - Left Grotto Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
                         "x": 1056,
                         "y": 80
                     }
@@ -5460,6 +6330,66 @@
                 "sections": [
                     {
                         "name": "Red Sea - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Red Sea",
+                "map_locations": [
+                    {
+                        "map": "Red Sea",
+                        "x": 360,
+                        "y": 424
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Sea - Treasure Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Red Sea",
+                "map_locations": [
+                    {
+                        "map": "Red Sea",
+                        "x": 568,
+                        "y": 104
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Sea - Near Portal Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Red Sea",
+                "map_locations": [
+                    {
+                        "map": "Red Sea",
+                        "x": 1016,
+                        "y": 104
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Sea - Far Edge Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Red Sea",
+                "map_locations": [
+                    {
+                        "map": "Red Sea",
+                        "x": 504,
+                        "y": 984
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Sea - Red Walker Rock"
                     }
                 ]
             }
@@ -5525,6 +6455,66 @@
                 "sections": [
                     {
                         "name": "Young Town - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Young Town",
+                "map_locations": [
+                    {
+                        "map": "Young Town",
+                        "x": 760,
+                        "y": 696
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Young Town - Fragmented Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Young Town",
+                "map_locations": [
+                    {
+                        "map": "Young Town",
+                        "x": 24,
+                        "y": 728
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Young Town - Parking Lot Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Young Town",
+                "map_locations": [
+                    {
+                        "map": "Young Town",
+                        "x": 360,
+                        "y": 104
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Young Town - Ying's Apartment Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Young Town",
+                "map_locations": [
+                    {
+                        "map": "Young Town",
+                        "x": 72,
+                        "y": 72
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Young Town - Near Forest Rock"
                     }
                 ]
             }
@@ -5665,6 +6655,96 @@
                 "sections": [
                     {
                         "name": "Space - Challenge Area Lion Dust 2"
+                    }
+                ]
+            },
+            {
+                "name": "Space",
+                "map_locations": [
+                    {
+                        "map": "Space",
+                        "x": 840,
+                        "y": 392
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Space - Space Time Tablet"
+                    }
+                ]
+            },
+            {
+                "name": "Space",
+                "map_locations": [
+                    {
+                        "map": "Space",
+                        "x": 1464,
+                        "y": 344
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Space - Unreadable Grave"
+                    }
+                ]
+            },
+            {
+                "name": "Space",
+                "map_locations": [
+                    {
+                        "map": "Space",
+                        "x": 376,
+                        "y": 248
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Space - Burd's Grave"
+                    }
+                ]
+            },
+            {
+                "name": "Space",
+                "map_locations": [
+                    {
+                        "map": "Space",
+                        "x": 440,
+                        "y": 232
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Space - Bag's Grave"
+                    }
+                ]
+            },
+            {
+                "name": "Space",
+                "map_locations": [
+                    {
+                        "map": "Space",
+                        "x": 1336,
+                        "y": 216
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Space - Savitch's Grave"
+                    }
+                ]
+            },
+            {
+                "name": "Space",
+                "map_locations": [
+                    {
+                        "map": "Space",
+                        "x": 1624,
+                        "y": 184
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Space - Dave's Grave"
                     }
                 ]
             }
@@ -5836,6 +6916,36 @@
                 "sections": [
                     {
                         "name": "Windmill - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Windmill",
+                "map_locations": [
+                    {
+                        "map": "Windmill",
+                        "x": 264,
+                        "y": 824
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Windmill - Repurposed Tower Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Windmill",
+                "map_locations": [
+                    {
+                        "map": "Windmill",
+                        "x": 376,
+                        "y": 840
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Windmill - Dimensional Rift Tower Rock"
                     }
                 ]
             }

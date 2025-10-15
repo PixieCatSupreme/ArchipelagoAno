@@ -76,6 +76,7 @@ class Bedroom(RegionEnum):
     after_statue = auto()
     exit = auto()
     drawer = auto()
+    swapper_entrance = auto()
 
 
 class Blank(RegionEnum):
@@ -97,7 +98,7 @@ class Blue(RegionEnum):
 class Boss_Rush(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
-        return 512, 240
+        return 560, 248
 
     DEFAULT = auto()
 
@@ -186,6 +187,7 @@ class Forest(RegionEnum):
         return 512, 721
 
     DEFAULT = auto()
+    island = auto()
 
 
 class Go(RegionEnum):
@@ -237,8 +239,11 @@ class Overworld(RegionEnum):
 
     DEFAULT = auto()
     west = auto()
-    Gauntlet = auto()
+    gauntlet = auto()
     post_windmill = auto()
+    out_of_bounds_south = auto()
+    station = auto()
+    color_puzzle_hint = auto()
 
 
 class Red_Cave(RegionEnum):
@@ -304,8 +309,11 @@ class Windmill(RegionEnum):
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 448, 657
 
-    DEFAULT = auto()
     entrance = auto()
+    first_gate = auto()
+    second_gate = auto()
+    third_gate = auto()
+    blank = auto()
 
 
 early_nexus_gates = [
@@ -337,13 +345,17 @@ wrong_big_key_early_locked_nexus_gates = [
 
 postgame_regions: list[RegionEnum] = [
     Bedroom.drawer,
+    Bedroom.swapper_entrance,
     *Drawer,
     *Blank,
     *Debug,
     *Boss_Rush,
     Nexus.top,
     Nexus.ending,
-    Space.Gauntlet
+    Space.Gauntlet,
+    Overworld.out_of_bounds_south,
+    Overworld.color_puzzle_hint,
+    Windmill.blank
 ]
 
 postgame_without_secret_paths: list[RegionEnum] = [

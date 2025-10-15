@@ -91,7 +91,7 @@ all_events: list[EventData] = [
     EventData(Bedroom.exit, "Grab Green Key", [], (600, 104), EventFlags.GreenKey, big_keys_vanilla),
     EventData(Crowd.floor_1, "Defeat The Wall", ["Combat", "Jump Shoes"], (1519, 984), EventFlags.Wall),
     EventData(Crowd.exit, "Grab Blue Key", [], (1544, 872), EventFlags.BlueKey, big_keys_vanilla),
-    EventData(Windmill.DEFAULT, "Windmill activated", [], (216, 376), EventFlags.Windmill, windmill_vanilla),
+    EventData(Windmill.third_gate, "Windmill activated", [], (216, 376), EventFlags.Windmill, windmill_vanilla),
     EventData(Hotel.floor_1, "Defeat Manager", ["Small Key (Hotel):6", "Combat"], (1356, 1661), EventFlags.Manager),
     EventData(Circus.boss_gauntlet, "Defeat Servants", ["Combat", "Jump Shoes"], (734, 184), EventFlags.Servants),
     EventData(Apartment.floor_3, "Defeat Watcher", ["Combat", "Small Key (Apartment):4"], (1196, 993),

@@ -84,6 +84,15 @@ class Dustsanity(Toggle):
     display_name = "Dustsanity"
 
 
+class RockSanity(Toggle):
+    """
+    Select if interacting with rocks counts as a check.
+    [Off] Rocks behave as in the normal game.
+    [On] Interacting with rocks sends out a check.
+    """
+    display_name = "Rocksanity"
+
+
 class RedCaveAccess(Choice):
     """
     Select how progression through the Red Grotto dungeon should be handled.
@@ -491,6 +500,7 @@ class AnodyneGameOptions(PerGameCommonOptions):
     custom_nexus_gates_open: CustomNexusGatesOpen
     # Extra Locations
     dustsanity: Dustsanity
+    rocksanity: RockSanity
     health_cicada_shuffle: HealthCicadaShuffle
     forest_bunny_chest: IncludeForestBunnyChest
     # Filler Items

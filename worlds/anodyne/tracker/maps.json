@@ -304,5 +304,9 @@
         "img": "images/maps/generated/WINDMILL_Split.png",
         "location_size": 20,
         "location_border_thickness": 1
+    },
+    {
+        "name": "Toggle Split View",
+        "img": "images/maps/generated/split_view.png"
     }
 ]

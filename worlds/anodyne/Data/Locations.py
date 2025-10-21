@@ -105,7 +105,7 @@ all_locations: List[LocationData] = [
     LocationData(Circus.third_key_gauntlet, "Lion Chest", [], (232, 344), has_key=True),
     LocationData(Circus.north_gauntlet, "Double Clowns Chest", [], (616, 424)),
     LocationData(Circus.boss_gauntlet, "Boss Chest", ["Defeat Servants"], (1192, 24)),
-    LocationData(Cliffs.post_windmill, "Upper Chest", [], (744, 932)),
+    LocationData(Cliffs.post_windmill, "Upper Chest", [], (744, 392)),
     LocationData(Cliffs.post_windmill, "Lower Chest", [], (440, 1224)),
     LocationData(Crowd.floor_2_gauntlets, "2F Crowded Ledge Chest", ["Small Key (Mountain Cavern):4"], (360, 344)),
     # BE2FB96B-1D5F-FCD1-3F58-D158DB982C21

@@ -238,8 +238,9 @@ def location_data(offset_data:dict[type[RegionEnum],ImageOffsetData]):
 
 if not IsFrozen:
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    with open(os.path.join(base_dir, 'tracker/maps.json'), 'w', encoding='utf-8') as f:
-        json.dump(make_map(), f, ensure_ascii=True, indent=4)
-    offsets = gen_images(os.path.join(base_dir,'tracker'))
-    with open(os.path.join(base_dir, 'tracker/locations.json'), 'w', encoding='utf-8') as f:
-        json.dump(location_data(offsets), f, ensure_ascii=True, indent=4)
+    if os.path.exists(os.path.join(base_dir,"tracker")):
+        with open(os.path.join(base_dir, 'tracker/maps.json'), 'w', encoding='utf-8') as f:
+            json.dump(make_map(), f, ensure_ascii=True, indent=4)
+        offsets = gen_images(os.path.join(base_dir,'tracker'))
+        with open(os.path.join(base_dir, 'tracker/locations.json'), 'w', encoding='utf-8') as f:
+            json.dump(location_data(offsets), f, ensure_ascii=True, indent=4)

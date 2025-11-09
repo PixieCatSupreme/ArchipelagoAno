@@ -23,7 +23,7 @@ class UTStuff:
 
     def __init__(self, *args, **kwargs):
         super(UTStuff, self).__init__(*args, **kwargs)
-        self.maps = ("Maps", [(area.area_name(),variant.mapName) for area,variant in all_variants])
+        self.maps = ("Maps", [(area.area_name(),all_mapdata[area].get_variant_name(variant)) for area,variant in all_variants])
         self.tracker_world = {
             "map_page_folder": "tracker",
             "map_page_maps": "maps.json",
@@ -51,7 +51,7 @@ class UTStuff:
             self.tracked_events = EventFlags(value)
 
     def map_index(self,region:type[RegionEnum]):
-        return mapname_to_mapid[all_mapdata[region].get_variant_name(region,self.is_split)]
+        return mapname_to_mapid[all_mapdata[region].get_variant_name(MapVariant(self.is_split,False))]
 
     def map_page_index(self,coords: dict[str, int] | Literal[""] | None):
         if not isinstance(coords, dict):
@@ -61,7 +61,7 @@ class UTStuff:
 
     def set_maps(self):
         self.maps[1].clear()
-        self.maps[1].extend((region.area_name(), mapdata.get_variant_name(region, self.is_split)) for region, mapdata in
+        self.maps[1].extend((region.area_name(), mapdata.get_variant_name(MapVariant(self.is_split,False))) for region, mapdata in
                             all_mapdata.items())
 
     def location_icon_coords(self, index: int, coords: dict[str, int] | Literal[""] | None) -> tuple[int, int, str] | None:
@@ -103,44 +103,60 @@ class UTStuff:
         return coords.get("X", 0) * 160 + 80 + game_region.ut_map_offset()[0], coords.get("Y", 0) * 160 + 80 + game_region.ut_map_offset()[1], f"images/icons/young_player.png"
 
 class MapVariant(NamedTuple):
-    mapName: str
-    image_path:str
     is_split:bool
     is_swap:bool
 
-class MapData(NamedTuple):
+    @property
+    def is_generated(self):
+        return self.is_split or self.is_swap
+
+class MapData:
+    region: type[RegionEnum]
     has_split:bool
 
-    def variants(self,region:type[RegionEnum]):
-        ret = [MapVariant(region.area_name(),f"images/maps/{region.__name__.upper()}.png",False,False)]
+    def __init__(self, region:type[RegionEnum]):
+        self.region = region
+        self.has_split = region is not Nexus
+
+    def variants(self) -> list[MapVariant]:
+        ret = [MapVariant(False,False)]
         if self.has_split:
-            ret.append(MapVariant(f"{region.area_name()}:Split",f"images/maps/generated/{region.__name__.upper()}_Split.png",True,False))
+            ret.append(MapVariant(True,False))
         return ret
 
-    def get_variant_name(self,region:type[RegionEnum],is_split:bool):
-        if not self.has_split:
-            is_split = False
-        return f"{region.area_name()}{':Split' if is_split else ''}"
+    def _match_variant(self,variant:MapVariant):
+        """
+        Returns a new map variant that matches the request to what this map actually has
+        """
+        return MapVariant(variant.is_split if self.has_split else False,variant.is_swap)
+
+    def get_variant_name(self,variant:MapVariant):
+        variant = self._match_variant(variant)
+        return f"{self.region.area_name()}{':Split' if variant.is_split else ''}"
+
+    def get_variant_path(self,variant:MapVariant):
+        variant = self._match_variant(variant)
+        return f"images/maps/{'generated/' if variant.is_generated else ''}{self.region.__name__.upper()}{'_Split' if variant.is_split else ''}.png"
 
 def map_images():
     ret: dict[type[RegionEnum], MapData] = {}
     for region in all_areas:
-        ret[region] = MapData(region is not Nexus)
+        ret[region] = MapData(region)
     return ret
 
 all_mapdata = map_images()
 
-all_variants = [(region,variant) for region,mapdata in all_mapdata.items() for variant in mapdata.variants(region)]
+all_variants = [(region,variant) for region,mapdata in all_mapdata.items() for variant in mapdata.variants()]
 all_variants.sort(key=lambda d: 0 if d[0] is Nexus else 1) #Put Nexus first
 
 mapname_to_mapid = {
-    variant[1].mapName: i for i,variant in enumerate(all_variants)
+    all_mapdata[variant[0]].get_variant_name(variant[1]): i for i,variant in enumerate(all_variants)
 }
 
 def make_map():
     return [{
-        "name": variant.mapName,
-        "img": variant.image_path,
+        "name": all_mapdata[area].get_variant_name(variant),
+        "img": all_mapdata[area].get_variant_path(variant),
         "location_size": 20,
         "location_border_thickness": 1
     } for area,variant in all_variants] + [{
@@ -163,7 +179,7 @@ def gen_images(img_dir:str) -> dict[type[RegionEnum],ImageOffsetData]:
     for area,mapdata in all_mapdata.items():
         if area is Nexus:
             continue
-        base_image = Image.open(os.path.join(img_dir,f'images/maps/{area.__name__.upper()}.png'))
+        base_image = Image.open(os.path.join(img_dir,mapdata.get_variant_path(MapVariant(False,False))))
         image_width,image_height = base_image.size
         if image_height > nexus.height:
             image_offset = 0
@@ -172,14 +188,14 @@ def gen_images(img_dir:str) -> dict[type[RegionEnum],ImageOffsetData]:
             image_offset = (nexus.height - image_height)//2
             nexus_offset = 0
         ret[area] = ImageOffsetData((0,image_offset),(image_width,nexus_offset))
-        for variant in mapdata.variants(area):
+        for variant in mapdata.variants():
             if not variant.is_swap and not variant.is_split:
                 continue
             if variant.is_split:
                 combined = Image.new('RGBA',(image_width+nexus.width,max(image_height,nexus.height)))
                 combined.paste(base_image,(0,image_offset))
                 combined.paste(nexus,(image_width,nexus_offset))
-                combined.save(os.path.join(img_dir,variant.image_path))
+                combined.save(os.path.join(img_dir,mapdata.get_variant_path(variant)))
     return ret
 
 def location_data(offset_data:dict[type[RegionEnum],ImageOffsetData]):
@@ -198,17 +214,17 @@ def location_data(offset_data:dict[type[RegionEnum],ImageOffsetData]):
             loc = (loc[0] - 25, loc[1])
             all_locs.setdefault(Nexus, {}).setdefault(loc, []).append(event.name)
 
-    def variant_loc(map_loc:tuple[int,int],variant:MapVariant, offset:ImageOffsetData):
+    def variant_loc(map_loc:tuple[int,int], variant:MapVariant, map_name:str, offset:ImageOffsetData):
         if variant.is_split:
-            return {"map":variant.mapName,"x":offset.map_offset[0]+map_loc[0], "y": offset.map_offset[1]+map_loc[1]}
-        return {"map":variant.mapName,"x":map_loc[0], "y": map_loc[1]}
+            return {"map":map_name, "x": offset.map_offset[0] + map_loc[0], "y": offset.map_offset[1] + map_loc[1]}
+        return {"map":map_name, "x":map_loc[0], "y": map_loc[1]}
 
     base = [{
         "name": region.area_name(),
         "children": [
             {
                 "name": region.area_name(),
-                "map_locations": [variant_loc(map_loc,variant,offset_data[region] if region is not Nexus else None) for variant in all_mapdata[region].variants(region)],
+                "map_locations": [variant_loc(map_loc,variant,all_mapdata[region].get_variant_name(variant),offset_data[region] if region is not Nexus else None) for variant in all_mapdata[region].variants()],
                 "sections": [{"name": name} for name in names]
             }
             for map_loc, names in map_locs.items()
@@ -218,8 +234,8 @@ def location_data(offset_data:dict[type[RegionEnum],ImageOffsetData]):
     for region, mapdata in all_mapdata.items():
         if region is Nexus:
             continue
-        offset = offset_data[region].nexus_offset
-        for variant in mapdata.variants(region):
+        nexus_offset = offset_data[region].nexus_offset
+        for variant in mapdata.variants():
             if not variant.is_split:
                 continue
             base.append({
@@ -227,7 +243,7 @@ def location_data(offset_data:dict[type[RegionEnum],ImageOffsetData]):
                 "children": [
                     {
                         "name": region.area_name(),
-                        "map_locations": [{"map":variant.mapName,"x":map_loc[0]+offset[0],"y":map_loc[1]+offset[1]}],
+                        "map_locations": [{"map":mapdata.get_variant_name(variant),"x":map_loc[0]+nexus_offset[0],"y":map_loc[1]+nexus_offset[1]}],
                         "sections": [{"name": name} for name in names]
                     }
                     for map_loc,names in all_locs[Nexus].items()

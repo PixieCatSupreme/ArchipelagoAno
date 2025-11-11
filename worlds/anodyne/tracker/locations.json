@@ -1647,10 +1647,10 @@
                         "name": "Windmill - Warp Pad"
                     },
                     {
-                        "name": "Windmill - Repurposed Tower Rock"
+                        "name": "Windmill - Dimensional Rift Tower Rock"
                     },
                     {
-                        "name": "Windmill - Dimensional Rift Tower Rock"
+                        "name": "Windmill - Repurposed Tower Rock"
                     }
                 ]
             },
@@ -3259,7 +3259,7 @@
                     {
                         "map": "Cliffs",
                         "x": 744,
-                        "y": 932
+                        "y": 392
                     }
                 ],
                 "sections": [
@@ -6924,13 +6924,13 @@
                 "map_locations": [
                     {
                         "map": "Windmill",
-                        "x": 264,
-                        "y": 824
+                        "x": 376,
+                        "y": 840
                     }
                 ],
                 "sections": [
                     {
-                        "name": "Windmill - Repurposed Tower Rock"
+                        "name": "Windmill - Dimensional Rift Tower Rock"
                     }
                 ]
             },
@@ -6939,13 +6939,13 @@
                 "map_locations": [
                     {
                         "map": "Windmill",
-                        "x": 376,
-                        "y": 840
+                        "x": 264,
+                        "y": 824
                     }
                 ],
                 "sections": [
                     {
-                        "name": "Windmill - Dimensional Rift Tower Rock"
+                        "name": "Windmill - Repurposed Tower Rock"
                     }
                 ]
             }

@@ -64,7 +64,6 @@ class LocationData(NamedTuple):
                         not secret_paths and self.region in postgame_without_secret_paths))
 
 
-# This array must maintain a consistent order because the IDs are generated from it.
 all_locations: List[LocationData] = [
     # 0AC41F72-EE1D-0D32-8F5D-8F25796B6396
     LocationData(Apartment.floor_1, "1F Ledge Chest", ["Combat"], (24, 504), has_key=True),
@@ -121,8 +120,8 @@ all_locations: List[LocationData] = [
     # 868736EF-EC8B-74C9-ACAB-B7BC56A44394
     LocationData(Crowd.floor_2_gauntlets, "2F Frogs and Rotators Chest", [], (904, 712), has_key=True),
     LocationData(Debug.DEFAULT, "River Puzzles Chest", ["Combat", "Jump Shoes"], (728, 600)),
-    LocationData(Debug.DEFAULT, "Upper Prison Chest", [], (72, 664)),
     LocationData(Debug.DEFAULT, "Lower Prison Chest", [], (136, 1080)),
+    LocationData(Debug.DEFAULT, "Upper Prison Chest", [], (72, 664)),
     LocationData(Debug.DEFAULT, "Jumping Chest", [], (872, 56)),
     LocationData(Debug.DEFAULT, "Maze Chest", ["Jump Shoes"], (888, 1496)),
     LocationData(Drawer.DEFAULT, "Game Over Chest", ["Progressive Swap:2"], (440, 200)),
@@ -500,9 +499,10 @@ all_locations: List[LocationData] = [
     LocationData(Space.DEFAULT, "Bag's Grave", [], (440, 232), LocationType.Rock),
     LocationData(Space.DEFAULT, "Savitch's Grave", [], (1336, 216), LocationType.Rock),
     LocationData(Space.DEFAULT, "Dave's Grave", [], (1624, 184), LocationType.Rock),
-    LocationData(Windmill.third_gate, "Repurposed Tower Rock", [], (264, 824), LocationType.Rock),
     LocationData(Windmill.blank, "Dimensional Rift Tower Rock", [], (376, 840), LocationType.Rock),
+    LocationData(Windmill.third_gate, "Repurposed Tower Rock", [], (264, 824), LocationType.Rock),
 ]
+# This array must maintain a consistent order because the IDs are generated from it.
 
 locations_by_name: Dict[str, LocationData] = {location.name: location for location in all_locations}
 

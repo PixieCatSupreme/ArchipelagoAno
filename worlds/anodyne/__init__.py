@@ -952,6 +952,7 @@ class AnodyneWorld(UTStuff, World):
                             self.get_mitra_hints(0 if self.options.mitra_hints == MitraHints.option_none else 8 + 1)],
             "mitra_hint_type": int(self.options.mitra_hints),
             "include_blue_happy": bool(self.options.include_blue_happy),
+            "swap_areas": [area.swap_areas() for area in Regions.all_areas],
             "version": self.version,
             **{c.typename(): c.shorthand(self.options) for c in gatereq_classes}
         }

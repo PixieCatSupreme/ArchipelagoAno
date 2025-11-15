@@ -12,8 +12,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Apartment:Swap1",
+        "img": "images/maps/generated/APARTMENT_Swap1.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Apartment:Split",
         "img": "images/maps/generated/APARTMENT_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Apartment:Split:Swap1",
+        "img": "images/maps/generated/APARTMENT_Split_Swap1.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -308,5 +320,9 @@
     {
         "name": "Toggle Split View",
         "img": "images/maps/generated/split_view.png"
+    },
+    {
+        "name": "Toggle Swap View",
+        "img": "images/maps/generated/swap_view.png"
     }
 ]

@@ -19,7 +19,7 @@ class UTStuff:
 
     player_map: type[RegionEnum]
     last_map: type[RegionEnum]
-    is_split: bool
+    variant: 'MapVariant'
 
     def __init__(self, *args, **kwargs):
         super(UTStuff, self).__init__(*args, **kwargs)
@@ -32,11 +32,12 @@ class UTStuff:
             "map_page_index": self.map_page_index,
             "location_setting_key": "Slot:{player}:MapLocation",
             "location_icon_coords": self.location_icon_coords,
-            "map_page_groups": [self.maps, ("Settings", [("Toggle Split View", "Toggle Split View")])]
+            "map_page_groups": [self.maps, ("Settings", [("Toggle Split View", "Toggle Split View"), ("Toggle Swap View", "Toggle Swap View")])]
         }
+        self.tracked_events = EventFlags(0)
         self.player_map = Nexus
         self.last_map = Nexus
-        self.is_split = False
+        self.variant = MapVariant(False,self.swap_level)
         if IsFrozen:
             self.tracker_world.update({
                 "external_pack_key": "ut_tracker_path",
@@ -49,9 +50,20 @@ class UTStuff:
     def reconnect_found_entrances(self, key:str, value:Any):
         if key.endswith("EventMap") and isinstance(value,int):
             self.tracked_events = EventFlags(value)
+            if self.variant.swap_level == 1 and self.swap_level == 2:
+                self.variant = MapVariant(self.variant.is_split,2)
+                self.set_maps()
+
+                if len(self.last_map.swap_areas()[1]) > 0:
+                    #Reload the map if
+                    s = stack()
+                    parent_frame = s[1][0]
+                    if 'self' in parent_frame.f_locals:
+                        tracker = parent_frame.f_locals['self']
+                        tracker.load_map(self.map_index(self.last_map))  # re-entrant hack
 
     def map_index(self,region:type[RegionEnum]):
-        return mapname_to_mapid[all_mapdata[region].get_variant_name(MapVariant(self.is_split,False))]
+        return mapname_to_mapid[all_mapdata[region].get_variant_name(self.variant)]
 
     def map_page_index(self,coords: dict[str, int] | Literal[""] | None):
         if not isinstance(coords, dict):
@@ -59,20 +71,28 @@ class UTStuff:
         self.player_map = all_areas[coords.get("Map",0)]
         return self.map_index(self.player_map)
 
+    @property
+    def swap_level(self):
+        return 2 if EventFlags.SwapExtended in self.tracked_events else 1
+
     def set_maps(self):
         self.maps[1].clear()
-        self.maps[1].extend((region.area_name(), mapdata.get_variant_name(MapVariant(self.is_split,False))) for region, mapdata in
+        self.maps[1].extend((region.area_name(), mapdata.get_variant_name(self.variant)) for region, mapdata in
                             all_mapdata.items())
 
     def location_icon_coords(self, index: int, coords: dict[str, int] | Literal[""] | None) -> tuple[int, int, str] | None:
         """Converts player coordinates provided by the game mod into image coordinates for the map page."""
-        print("location called")
 
         if len(self.maps[1]) == len(all_variants):
+            #Set maps when the maps are still the full list used to initialize the UI list.
             self.set_maps()
 
         if index >= len(all_variants):
-            self.is_split = not self.is_split
+            index -= len(all_variants)
+            if index == 0:
+                self.variant = MapVariant(not self.variant.is_split,self.variant.swap_level)
+            elif index == 1:
+                self.variant = MapVariant(self.variant.is_split,0 if self.variant.swap_level > 0 else self.swap_level)
             self.set_maps()
 
             s = stack()
@@ -104,11 +124,11 @@ class UTStuff:
 
 class MapVariant(NamedTuple):
     is_split:bool
-    is_swap:bool
+    swap_level:int
 
     @property
     def is_generated(self):
-        return self.is_split or self.is_swap
+        return self.is_split or self.swap_level > 0
 
 class MapData:
     region: type[RegionEnum]
@@ -118,25 +138,35 @@ class MapData:
         self.region = region
         self.has_split = region is not Nexus
 
+    @property
+    def has_swap(self):
+        return any(len(l)>0 for l in self.region.swap_areas())
+
+    def swap_mapping(self):
+        # noinspection PyListCreation
+        ret = [0, 0 if len(self.region.swap_areas()[0]) == 0 else 1] #self-reference makes literal impossible
+        ret.append(ret[1] if len(self.region.swap_areas()[1]) == 0 else 2)
+        return ret
+
     def variants(self) -> list[MapVariant]:
-        ret = [MapVariant(False,False)]
+        ret = [MapVariant(False,swap) for swap in sorted(set(self.swap_mapping()))]
         if self.has_split:
-            ret.append(MapVariant(True,False))
+            ret.extend([MapVariant(True,variant.swap_level) for variant in ret])
         return ret
 
     def _match_variant(self,variant:MapVariant):
         """
         Returns a new map variant that matches the request to what this map actually has
         """
-        return MapVariant(variant.is_split if self.has_split else False,variant.is_swap)
+        return MapVariant(variant.is_split if self.has_split else False,self.swap_mapping()[variant.swap_level])
 
     def get_variant_name(self,variant:MapVariant):
         variant = self._match_variant(variant)
-        return f"{self.region.area_name()}{':Split' if variant.is_split else ''}"
+        return f"{self.region.area_name()}{':Split' if variant.is_split else ''}{f':Swap{variant.swap_level}' if variant.swap_level > 0 else ''}"
 
     def get_variant_path(self,variant:MapVariant):
         variant = self._match_variant(variant)
-        return f"images/maps/{'generated/' if variant.is_generated else ''}{self.region.__name__.upper()}{'_Split' if variant.is_split else ''}.png"
+        return f"images/maps/{'generated/' if variant.is_generated else ''}{self.region.__name__.upper()}{'_Split' if variant.is_split else ''}{f'_Swap{variant.swap_level}' if variant.swap_level > 0 else ''}.png"
 
 def map_images():
     ret: dict[type[RegionEnum], MapData] = {}
@@ -162,6 +192,9 @@ def make_map():
     } for area,variant in all_variants] + [{
         "name": "Toggle Split View",
         "img": "images/maps/generated/split_view.png"
+    }, {
+        "name": "Toggle Swap View",
+        "img": "images/maps/generated/swap_view.png"
     }]
 
 #####
@@ -172,30 +205,62 @@ class ImageOffsetData(NamedTuple):
     map_offset: tuple[int,int]
     nexus_offset: tuple[int,int]
 
+    @classmethod
+    def from_sizes(cls,image_size:tuple[int,int],nexus_size:tuple[int,int]):
+        image_width, image_height = image_size
+        nexus_width, nexus_height = nexus_size
+        if image_height > nexus_height:
+            image_offset = 0
+            nexus_offset = (image_height - nexus_height) // 2
+        else:
+            image_offset = (nexus_height - image_height) // 2
+            nexus_offset = 0
+        return cls((0,image_offset),(image_width,nexus_offset))
+
 def gen_images(img_dir:str) -> dict[type[RegionEnum],ImageOffsetData]:
-    from PIL import Image
+    from PIL import Image, ImageDraw, ImageColor
+
+    def make_partial_transparent(im:Image):
+        im2 = im.copy()
+        im2.putalpha(180)
+        im.paste(im2, mask=im)
+
     nexus = Image.open(os.path.join(img_dir,'images/maps/NEXUS.png'))
+
     ret = {}
     for area,mapdata in all_mapdata.items():
         if area is Nexus:
             continue
-        base_image = Image.open(os.path.join(img_dir,mapdata.get_variant_path(MapVariant(False,False))))
-        image_width,image_height = base_image.size
-        if image_height > nexus.height:
-            image_offset = 0
-            nexus_offset = (image_height - nexus.height)//2
-        else:
-            image_offset = (nexus.height - image_height)//2
-            nexus_offset = 0
-        ret[area] = ImageOffsetData((0,image_offset),(image_width,nexus_offset))
+        swap_level_images = [Image.open(os.path.join(img_dir,mapdata.get_variant_path(MapVariant(False,0)))),None,None]
+        offset = ImageOffsetData.from_sizes(swap_level_images[0].size,nexus.size)
+        ret[area] = offset
+
         for variant in mapdata.variants():
-            if not variant.is_swap and not variant.is_split:
+            if not variant.is_generated:
                 continue
+            image = swap_level_images[variant.swap_level]
+            if image is None:
+                base_image = swap_level_images[0]
+                overlay = Image.new('RGBA',base_image.size)
+                draw = ImageDraw.Draw(overlay)
+                for swap in range(variant.swap_level):
+                    color = [ImageColor.getrgb('#00800080'),ImageColor.getrgb('#80800080')][swap]
+                    rects = mapdata.region.swap_areas()[swap]
+                    for r in rects:
+                        draw.rectangle([r[0],r[1],r[0]+r[2],r[1]+r[3]],color)
+                make_partial_transparent(overlay)
+                image = base_image.copy()
+                image = image.convert("RGBA")
+                image.alpha_composite(overlay)
+                swap_level_images[variant.swap_level] = image
+
             if variant.is_split:
-                combined = Image.new('RGBA',(image_width+nexus.width,max(image_height,nexus.height)))
-                combined.paste(base_image,(0,image_offset))
-                combined.paste(nexus,(image_width,nexus_offset))
-                combined.save(os.path.join(img_dir,mapdata.get_variant_path(variant)))
+                combined = Image.new('RGBA',(image.width+nexus.width,max(image.height,nexus.height)))
+                combined.paste(image,offset.map_offset)
+                combined.paste(nexus,offset.nexus_offset)
+                image = combined
+
+            image.save(os.path.join(img_dir,mapdata.get_variant_path(variant)))
     return ret
 
 def location_data(offset_data:dict[type[RegionEnum],ImageOffsetData]):

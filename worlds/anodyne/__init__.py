@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 from BaseClasses import Region, Location, Item, ItemClassification, CollectionState, Tutorial
 from Fill import fill_restrictive, FillError
-from settings import Group, Bool, FilePath
+from settings import Group, UserFilePath
 from Options import Accessibility, OptionGroup
 from worlds.AutoWorld import WebWorld, World
 from typing import ClassVar, List, Callable, Dict, Any, Set, Iterable, Type, Tuple, Optional
@@ -22,7 +22,7 @@ from .Options import AnodyneGameOptions, SmallKeyShuffle, StartBroom, VictoryCon
     HealthCicadaShuffle, NexusGatesOpen, RedCaveAccess, PostgameMode, NexusGateShuffle, TrapPercentage, SmallKeyMode, \
     Dustsanity, GateType, gatereq_classes, CardAmount, EndgameRequirement, GateRequirements, MitraHints, gate_lookup, \
     OverworldFieldsGate, RockSanity
-from .ut_stuff import UTTrackerData
+from .ut_stuff import UTStuff
 
 
 class AnodyneLocation(Location):
@@ -34,7 +34,7 @@ class AnodyneItem(Item):
 
 
 class AnodyneSettings(Group):
-    class UTTrackerPath(FilePath):
+    class UTTrackerPath(UserFilePath):
         """Path to the user's Anodyne UT map pack."""
         description = "Anodyne's Universal Tracker zip file"
         required = False
@@ -91,7 +91,7 @@ class AnodyneWebWorld(WebWorld):
     )]
 
 
-class AnodyneWorld(World):
+class AnodyneWorld(UTStuff, World):
     """
     Anodyne is a unique Zelda-like game, influenced by games such as Yume Nikki and Link's Awakening. 
     In Anodyne, you'll visit areas urban, natural, and bizarre, fighting your way through dungeons 
@@ -105,13 +105,7 @@ class AnodyneWorld(World):
     settings: ClassVar[AnodyneSettings]
     topology_present = False  # show path to required location checks in spoiler
 
-    ut_can_gen_without_yaml = True
-    tracker_world = UTTrackerData
-    using_ut: bool
-    found_entrances_datastorage_key = "Slot:{player}:EventMap"
-    tracked_events: EventFlags
-
-    version = "0.4.0"
+    version = "0.4.2"
 
     item_name_to_id = Constants.item_name_to_id
     location_name_to_id = Constants.location_name_to_id
@@ -125,6 +119,7 @@ class AnodyneWorld(World):
     dungeon_items: Dict[type[RegionEnum], List[Item]]
     proxy_rules: Dict[str, List[str]]
     shuffled_gates: Set[type[RegionEnum]]
+    using_ut: bool
 
     def generate_early(self):
         self.gates_unlocked = []
@@ -579,13 +574,6 @@ class AnodyneWorld(World):
 
             visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
 
-    def ut_event_check(self, event: EventData):
-        return lambda _: event.flag in self.tracked_events
-
-    def reconnect_found_entrances(self, key: str, value: Any):
-        if key.endswith("EventMap") and isinstance(value, int):
-            self.tracked_events = EventFlags(value)
-
     def create_gate_proxy_rule(self, cls: typing.Type[GateRequirements]):
         rules = []
 
@@ -964,6 +952,7 @@ class AnodyneWorld(World):
                             self.get_mitra_hints(0 if self.options.mitra_hints == MitraHints.option_none else 8 + 1)],
             "mitra_hint_type": int(self.options.mitra_hints),
             "include_blue_happy": bool(self.options.include_blue_happy),
+            "swap_areas": [area.swap_areas() for area in Regions.all_areas],
             "version": self.version,
             **{c.typename(): c.shorthand(self.options) for c in gatereq_classes}
         }

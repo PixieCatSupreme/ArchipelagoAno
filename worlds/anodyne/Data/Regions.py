@@ -38,7 +38,24 @@ class RegionEnum(Enum):
     @classmethod
     @abstractmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
+        """
+        Coordinate of this map in the nexus overview
+        """
         pass
+
+    @classmethod
+    def ut_map_offset(cls) -> tuple[int,int]:
+        """
+        Offset of coordinates in the map image for this region(windmill has an extra screen in its image)
+        """
+        return 0,0
+
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int,int,int,int]],list[tuple[int,int,int,int]]]:
+        """
+        Areas for swap(base swap and extras for extended swap), defined as x,y,w,h rectangles
+        """
+        return [],[]
 
     def __str__(self):
         return self.area_name() + (' ' + self.value).rstrip()
@@ -48,6 +65,12 @@ class Apartment(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 592, 833
+
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int,int,int,int]],list[tuple[int,int,int,int]]]:
+        return [
+            (1280, 1120, 161, 161)
+        ],[]
 
     floor_1 = auto()
     floor_1_top_left = auto()
@@ -308,6 +331,10 @@ class Windmill(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 448, 657
+
+    @classmethod
+    def ut_map_offset(cls) -> tuple[int,int]:
+        return 160,0
 
     entrance = auto()
     first_gate = auto()

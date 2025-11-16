@@ -76,22 +76,24 @@ class EventFlags(Flag):
     Activate_Happy = auto()
     Victory = auto()  # not real, I'll figure it out if ppl ask
 
-
 class EventData(NamedTuple):
     region: RegionEnum
     name: str
     reqs: list[str]
-    tracker_loc: tuple[int, int]
+    tracker_loc_: tuple[int, int]
     flag: EventFlags
     is_active: Callable[[AnodyneGameOptions], bool] = lambda _: True
 
+    @property
+    def tracker_loc(self):
+        return self.tracker_loc_[0] + self.region.ut_map_offset()[0], self.tracker_loc_[1] + self.region.ut_map_offset()[1]
 
 all_events: list[EventData] = [
     EventData(Bedroom.exit, "Defeat Seer", ["Combat"], (392, 59), EventFlags.Seer),
     EventData(Bedroom.exit, "Grab Green Key", [], (600, 104), EventFlags.GreenKey, big_keys_vanilla),
     EventData(Crowd.floor_1, "Defeat The Wall", ["Combat", "Jump Shoes"], (1519, 984), EventFlags.Wall),
     EventData(Crowd.exit, "Grab Blue Key", [], (1544, 872), EventFlags.BlueKey, big_keys_vanilla),
-    EventData(Windmill.third_gate, "Windmill activated", [], (216, 376), EventFlags.Windmill, windmill_vanilla),
+    EventData(Windmill.third_gate, "Windmill activated", [], (56, 376), EventFlags.Windmill, windmill_vanilla),
     EventData(Hotel.floor_1, "Defeat Manager", ["Small Key (Hotel):6", "Combat"], (1356, 1661), EventFlags.Manager),
     EventData(Circus.boss_gauntlet, "Defeat Servants", ["Combat", "Jump Shoes"], (734, 184), EventFlags.Servants),
     EventData(Apartment.floor_3, "Defeat Watcher", ["Combat", "Small Key (Apartment):4"], (1196, 993),

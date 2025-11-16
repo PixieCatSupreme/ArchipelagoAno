@@ -12,8 +12,32 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Apartment:Swap1",
+        "img": "images/maps/generated/APARTMENT_Swap1.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Apartment:Split",
+        "img": "images/maps/generated/APARTMENT_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Apartment:Split:Swap1",
+        "img": "images/maps/generated/APARTMENT_Split_Swap1.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Beach",
         "img": "images/maps/BEACH.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Beach:Split",
+        "img": "images/maps/generated/BEACH_Split.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -24,8 +48,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Temple of the Seeing One:Split",
+        "img": "images/maps/generated/BEDROOM_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Blank",
         "img": "images/maps/BLANK.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Blank:Split",
+        "img": "images/maps/generated/BLANK_Split.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -36,8 +72,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Blue:Split",
+        "img": "images/maps/generated/BLUE_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Boss Rush",
         "img": "images/maps/BOSS_RUSH.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Boss Rush:Split",
+        "img": "images/maps/generated/BOSS_RUSH_Split.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -48,8 +96,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Cell:Split",
+        "img": "images/maps/generated/CELL_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Circus",
         "img": "images/maps/CIRCUS.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Circus:Split",
+        "img": "images/maps/generated/CIRCUS_Split.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -60,8 +120,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Cliffs:Split",
+        "img": "images/maps/generated/CLIFFS_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Mountain Cavern",
         "img": "images/maps/CROWD.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Mountain Cavern:Split",
+        "img": "images/maps/generated/CROWD_Split.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -72,8 +144,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Debug:Split",
+        "img": "images/maps/generated/DEBUG_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Drawer",
         "img": "images/maps/DRAWER.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Drawer:Split",
+        "img": "images/maps/generated/DRAWER_Split.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -84,8 +168,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Fields:Split",
+        "img": "images/maps/generated/FIELDS_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Deep Forest",
         "img": "images/maps/FOREST.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Deep Forest:Split",
+        "img": "images/maps/generated/FOREST_Split.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -96,8 +192,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Garden:Split",
+        "img": "images/maps/generated/GO_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Red",
         "img": "images/maps/HAPPY.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Red:Split",
+        "img": "images/maps/generated/HAPPY_Split.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -108,8 +216,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Hotel:Split",
+        "img": "images/maps/generated/HOTEL_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Woods",
         "img": "images/maps/OVERWORLD.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Woods:Split",
+        "img": "images/maps/generated/OVERWORLD_Split.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -120,8 +240,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Red Grotto:Split",
+        "img": "images/maps/generated/RED_CAVE_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Red Sea",
         "img": "images/maps/RED_SEA.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Red Sea:Split",
+        "img": "images/maps/generated/RED_SEA_Split.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -132,8 +264,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Space:Split",
+        "img": "images/maps/generated/SPACE_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Street",
         "img": "images/maps/STREET.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Street:Split",
+        "img": "images/maps/generated/STREET_Split.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -144,8 +288,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Young Town:Split",
+        "img": "images/maps/generated/SUBURB_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Crossing",
         "img": "images/maps/TERMINAL.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Crossing:Split",
+        "img": "images/maps/generated/TERMINAL_Split.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -154,5 +310,19 @@
         "img": "images/maps/WINDMILL.png",
         "location_size": 20,
         "location_border_thickness": 1
+    },
+    {
+        "name": "Windmill:Split",
+        "img": "images/maps/generated/WINDMILL_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Toggle Split View",
+        "img": "images/maps/generated/split_view.png"
+    },
+    {
+        "name": "Toggle Swap View",
+        "img": "images/maps/generated/swap_view.png"
     }
 ]

@@ -21,10 +21,14 @@ class LocationData(NamedTuple):
     region: RegionEnum
     base_name: str
     reqs: List[str]
-    tracker_loc: tuple[int, int]
+    tracker_loc_: tuple[int, int]
     type: LocationType = LocationType.Chest
     has_key: bool = False
     outside_of_dungeon: bool = False
+
+    @property
+    def tracker_loc(self):
+        return self.tracker_loc_[0] + self.region.ut_map_offset()[0], self.tracker_loc_[1] + self.region.ut_map_offset()[1]
 
     @property
     def name(self):
@@ -199,8 +203,8 @@ all_locations: List[LocationData] = [
     LocationData(Street.DEFAULT, "Broom Chest", [], (776, 680)),
     LocationData(Street.DEFAULT, "Secret Chest", ["Progressive Swap:2"], (280, 1016)),
     LocationData(Terminal.DEFAULT, "Broken Bridge Chest", [], (744, 392)),
-    LocationData(Windmill.third_gate, "Post Activation Chest", [], (216, 376)),
-    LocationData(Windmill.third_gate, "Activation", [], (216, 376), type=LocationType.AreaEvent),
+    LocationData(Windmill.third_gate, "Post Activation Chest", [], (24, 840)),
+    LocationData(Windmill.third_gate, "Activation", [], (56, 376), type=LocationType.AreaEvent),
     LocationData(Boss_Rush.DEFAULT, "Reward Chest", [], (376, 104)),
     # Health Cicadas
     LocationData(Apartment.floor_3, "Health Cicada", ["Defeat Watcher"], (1192, 1032), type=LocationType.Cicada),
@@ -244,7 +248,7 @@ all_locations: List[LocationData] = [
     LocationData(Suburb.DEFAULT, "Warp Pad", [], (400, 544), type=LocationType.Nexus),
     LocationData(Space.DEFAULT, "Warp Pad", [], (880, 400), type=LocationType.Nexus),
     LocationData(Terminal.DEFAULT, "Warp Pad", [], (448, 736), type=LocationType.Nexus),
-    LocationData(Windmill.first_gate, "Warp Pad", [], (272, 1040), type=LocationType.Nexus),
+    LocationData(Windmill.first_gate, "Warp Pad", [], (112, 1040), type=LocationType.Nexus),
     LocationData(Blue.DEFAULT, "Completion Reward", ["Jump Shoes", "Combat"], (88, 40), type=LocationType.AreaEvent),
     LocationData(Happy.gauntlet, "Completion Reward", [], (662, 186), type=LocationType.AreaEvent),
     # Dust locations

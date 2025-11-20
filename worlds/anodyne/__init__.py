@@ -994,7 +994,7 @@ class AnodyneWorld(UTStuff, World):
         hints: List[AnodyneWorld.ItemHint] = []
 
         for item in items:
-            location = self.multiworld.find_item(item.name, self.player)
+            location = item.location
             hints.append(AnodyneWorld.ItemHint(item.code, location.address, location.player))
 
         return hints

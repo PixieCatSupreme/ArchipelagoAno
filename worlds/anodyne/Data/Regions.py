@@ -44,18 +44,18 @@ class RegionEnum(Enum):
         pass
 
     @classmethod
-    def ut_map_offset(cls) -> tuple[int,int]:
+    def ut_map_offset(cls) -> tuple[int, int]:
         """
         Offset of coordinates in the map image for this region(windmill has an extra screen in its image)
         """
-        return 0,0
+        return 0, 0
 
     @classmethod
-    def swap_areas(cls) -> tuple[list[tuple[int,int,int,int]],list[tuple[int,int,int,int]]]:
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
         """
         Areas for swap(base swap and extras for extended swap), defined as x,y,w,h rectangles
         """
-        return [],[]
+        return [], []
 
     def __str__(self):
         return self.area_name() + (' ' + self.value).rstrip()
@@ -67,10 +67,10 @@ class Apartment(RegionEnum):
         return 592, 833
 
     @classmethod
-    def swap_areas(cls) -> tuple[list[tuple[int,int,int,int]],list[tuple[int,int,int,int]]]:
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
         return [
             (1280, 1120, 161, 161)
-        ],[]
+        ], []
 
     floor_1 = auto()
     floor_1_top_left = auto()
@@ -84,6 +84,14 @@ class Beach(RegionEnum):
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 288, 721
 
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [], [
+            (336, 160, 48, 48),
+            (0, 736, 160, 160),
+            (688, 1072, 48, 64),
+        ]
+
     DEFAULT = auto()
     gauntlet = auto()
 
@@ -92,6 +100,12 @@ class Bedroom(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 592, 897
+
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [], [
+            (832, 368, 256, 416)
+        ]
 
     entrance = auto()
     core = auto()
@@ -106,6 +120,13 @@ class Blank(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 80, 400
+
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [], [
+            (0, 0, 480, 960),
+            (640, 0, 320, 1120)
+        ]
 
     windmill = auto()
 
@@ -131,6 +152,14 @@ class Cell(RegionEnum):
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 272, 497
 
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [], [
+            (16, 16, 1248, 304 - 16),
+            (16, 352, 768, 912),
+            (48, 304, 1216, 416),
+        ]
+
     DEFAULT = auto()
     past_gate = auto()
 
@@ -139,6 +168,12 @@ class Circus(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 192, 497
+
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [
+            (1120, 0, 161, 161)
+        ], []
 
     DEFAULT = auto()
     entrance_lake = auto()
@@ -186,6 +221,12 @@ class Drawer(RegionEnum):
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 401, 244
 
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [], [
+            (0, 0, 960, 1440)
+        ]
+
     DEFAULT = auto()
     dark = auto()
 
@@ -194,6 +235,16 @@ class Fields(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 400, 721
+
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [], [
+            (208, 192, 176, 112),
+            (736, 336, 208, 144),
+            (1488, 1120, 256, 160),
+            (1296, 1600, 128, 160),
+            (1648, 1488, 112, 96),
+        ]
 
     DEFAULT = auto()
     Lake = auto()
@@ -209,6 +260,12 @@ class Forest(RegionEnum):
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 512, 721
 
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [], [
+            (0, 0, 800, 1440)
+        ]
+
     DEFAULT = auto()
     island = auto()
 
@@ -217,6 +274,14 @@ class Go(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 352, 577
+
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [
+            (352, 496, 96, 112)
+        ], [
+            (32, 656, 208, 128)
+        ]
 
     bottom = auto()
     top = auto()
@@ -235,6 +300,14 @@ class Hotel(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 592, 497
+
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [
+            (1280, 1760, 161, 161)
+        ], [
+            (480, 72, 320, 72)
+        ]
 
     roof = auto()
     floor_4 = auto()
@@ -259,6 +332,12 @@ class Overworld(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 512, 897
+
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [], [
+            (16, 480, 272, 176)
+        ]
 
     DEFAULT = auto()
     west = auto()
@@ -288,6 +367,12 @@ class Red_Sea(RegionEnum):
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 272, 562
 
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [], [
+            (480, 976, 160, 112)
+        ]
+
     DEFAULT = auto()
 
 
@@ -295,6 +380,12 @@ class Space(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 512, 497
+
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [], [
+            (800, 640, 160, 160)
+        ]
 
     DEFAULT = auto()
     Gauntlet = auto()
@@ -305,6 +396,12 @@ class Street(RegionEnum):
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 256, 897
 
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [], [
+            (160, 864, 160, 160)
+        ]
+
     DEFAULT = auto()
 
 
@@ -312,6 +409,12 @@ class Suburb(RegionEnum):
     @classmethod
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 512, 833
+
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [], [
+            (320, 640, 160, 160)
+        ]
 
     DEFAULT = auto()
     card_house = auto()
@@ -333,8 +436,14 @@ class Windmill(RegionEnum):
         return 448, 657
 
     @classmethod
-    def ut_map_offset(cls) -> tuple[int,int]:
-        return 160,0
+    def ut_map_offset(cls) -> tuple[int, int]:
+        return 160, 0
+
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [], [
+            (224, 1216, 96, 48)
+        ]
 
     entrance = auto()
     first_gate = auto()

@@ -36,8 +36,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Beach:Swap2",
+        "img": "images/maps/generated/BEACH_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Beach:Split",
         "img": "images/maps/generated/BEACH_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Beach:Split:Swap2",
+        "img": "images/maps/generated/BEACH_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -48,8 +60,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Temple of the Seeing One:Swap2",
+        "img": "images/maps/generated/BEDROOM_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Temple of the Seeing One:Split",
         "img": "images/maps/generated/BEDROOM_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Temple of the Seeing One:Split:Swap2",
+        "img": "images/maps/generated/BEDROOM_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -60,8 +84,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Blank:Swap2",
+        "img": "images/maps/generated/BLANK_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Blank:Split",
         "img": "images/maps/generated/BLANK_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Blank:Split:Swap2",
+        "img": "images/maps/generated/BLANK_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -96,8 +132,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Cell:Swap2",
+        "img": "images/maps/generated/CELL_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Cell:Split",
         "img": "images/maps/generated/CELL_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Cell:Split:Swap2",
+        "img": "images/maps/generated/CELL_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -108,8 +156,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Circus:Swap1",
+        "img": "images/maps/generated/CIRCUS_Swap1.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Circus:Split",
         "img": "images/maps/generated/CIRCUS_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Circus:Split:Swap1",
+        "img": "images/maps/generated/CIRCUS_Split_Swap1.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -156,8 +216,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Drawer:Swap2",
+        "img": "images/maps/generated/DRAWER_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Drawer:Split",
         "img": "images/maps/generated/DRAWER_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Drawer:Split:Swap2",
+        "img": "images/maps/generated/DRAWER_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -168,8 +240,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Fields:Swap2",
+        "img": "images/maps/generated/FIELDS_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Fields:Split",
         "img": "images/maps/generated/FIELDS_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Fields:Split:Swap2",
+        "img": "images/maps/generated/FIELDS_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -180,8 +264,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Deep Forest:Swap2",
+        "img": "images/maps/generated/FOREST_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Deep Forest:Split",
         "img": "images/maps/generated/FOREST_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Deep Forest:Split:Swap2",
+        "img": "images/maps/generated/FOREST_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -192,8 +288,32 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Garden:Swap1",
+        "img": "images/maps/generated/GO_Swap1.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Garden:Swap2",
+        "img": "images/maps/generated/GO_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Garden:Split",
         "img": "images/maps/generated/GO_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Garden:Split:Swap1",
+        "img": "images/maps/generated/GO_Split_Swap1.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Garden:Split:Swap2",
+        "img": "images/maps/generated/GO_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -216,8 +336,32 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Hotel:Swap1",
+        "img": "images/maps/generated/HOTEL_Swap1.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Hotel:Swap2",
+        "img": "images/maps/generated/HOTEL_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Hotel:Split",
         "img": "images/maps/generated/HOTEL_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Hotel:Split:Swap1",
+        "img": "images/maps/generated/HOTEL_Split_Swap1.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Hotel:Split:Swap2",
+        "img": "images/maps/generated/HOTEL_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -228,8 +372,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Woods:Swap2",
+        "img": "images/maps/generated/OVERWORLD_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Woods:Split",
         "img": "images/maps/generated/OVERWORLD_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Woods:Split:Swap2",
+        "img": "images/maps/generated/OVERWORLD_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -252,8 +408,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Red Sea:Swap2",
+        "img": "images/maps/generated/RED_SEA_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Red Sea:Split",
         "img": "images/maps/generated/RED_SEA_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Red Sea:Split:Swap2",
+        "img": "images/maps/generated/RED_SEA_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -264,8 +432,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Space:Swap2",
+        "img": "images/maps/generated/SPACE_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Space:Split",
         "img": "images/maps/generated/SPACE_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Space:Split:Swap2",
+        "img": "images/maps/generated/SPACE_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -276,8 +456,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Street:Swap2",
+        "img": "images/maps/generated/STREET_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Street:Split",
         "img": "images/maps/generated/STREET_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Street:Split:Swap2",
+        "img": "images/maps/generated/STREET_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -288,8 +480,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Young Town:Swap2",
+        "img": "images/maps/generated/SUBURB_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Young Town:Split",
         "img": "images/maps/generated/SUBURB_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Young Town:Split:Swap2",
+        "img": "images/maps/generated/SUBURB_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },
@@ -312,8 +516,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Windmill:Swap2",
+        "img": "images/maps/generated/WINDMILL_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Windmill:Split",
         "img": "images/maps/generated/WINDMILL_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Windmill:Split:Swap2",
+        "img": "images/maps/generated/WINDMILL_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },

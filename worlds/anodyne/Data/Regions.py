@@ -105,7 +105,7 @@ class Bedroom(RegionEnum):
     def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
         return [], [
             (832, 368, 256, 416),
-            (448, 672, 64, 80)
+            (448, 672, 64, 96)
         ]
 
     entrance = auto()

@@ -227,7 +227,7 @@ all_locations: List[LocationData] = [
                  type=LocationType.Tentacle),
     LocationData(Red_Cave.right, "Right Cave Tentacle", ["Small Key (Red Grotto):6"], (872, 680),
                  type=LocationType.Tentacle),
-    LocationData(Go.top, "Defeat Briar", ["Combat", "Jump Shoes"], (400, 240), type=LocationType.AreaEvent),
+    LocationData(Go.top, "Defeat Briar", ["Combat", "Jump Shoes", "Complete Blue", "Complete Happy"], (400, 240), type=LocationType.AreaEvent),
     # Nexus portals
     LocationData(Apartment.floor_1, "Warp Pad", [], (368, 768), type=LocationType.Nexus),
     LocationData(Beach.DEFAULT, "Warp Pad", [], (1039, 400), type=LocationType.Nexus),

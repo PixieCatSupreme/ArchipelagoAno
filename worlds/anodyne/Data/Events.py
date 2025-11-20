@@ -76,6 +76,7 @@ class EventFlags(Flag):
     Activate_Happy = auto()
     Victory = auto()  # not real, I'll figure it out if ppl ask
 
+
 class EventData(NamedTuple):
     region: RegionEnum
     name: str
@@ -86,7 +87,9 @@ class EventData(NamedTuple):
 
     @property
     def tracker_loc(self):
-        return self.tracker_loc_[0] + self.region.ut_map_offset()[0], self.tracker_loc_[1] + self.region.ut_map_offset()[1]
+        return self.tracker_loc_[0] + self.region.ut_map_offset()[0], self.tracker_loc_[1] + \
+               self.region.ut_map_offset()[1]
+
 
 all_events: list[EventData] = [
     EventData(Bedroom.exit, "Defeat Seer", ["Combat"], (392, 59), EventFlags.Seer),
@@ -99,7 +102,8 @@ all_events: list[EventData] = [
     EventData(Apartment.floor_3, "Defeat Watcher", ["Combat", "Small Key (Apartment):4"], (1196, 993),
               EventFlags.Watcher),
     EventData(Terminal.top, "Defeat Sage", ["Combat", "Jump Shoes"], (400, 522), EventFlags.Sage),
-    EventData(Go.top, "Defeat Briar", ["Combat", "Complete Blue", "Complete Happy"], (400, 216), EventFlags.Briar),
+    EventData(Go.top, "Defeat Briar", ["Combat", "Jump Shoes", "Complete Blue", "Complete Happy"], (400, 216),
+              EventFlags.Briar),
     EventData(Blue.DEFAULT, "Blue Completion", ["Combat", "Jump Shoes"], (5 * 16, 2 * 16), EventFlags.Activate_Blue,
               blue_happy_vanilla),
     EventData(Happy.gauntlet, "Happy Completion", [], (41 * 16, 11 * 16), EventFlags.Activate_Happy,

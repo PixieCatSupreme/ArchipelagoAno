@@ -104,7 +104,8 @@ class Bedroom(RegionEnum):
     @classmethod
     def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
         return [], [
-            (832, 368, 256, 416)
+            (832, 368, 256, 416),
+            (448, 672, 64, 80)
         ]
 
     entrance = auto()
@@ -336,7 +337,9 @@ class Overworld(RegionEnum):
     @classmethod
     def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
         return [], [
-            (16, 480, 272, 176)
+            (16, 480, 272, 176),
+            (448, 192, 64, 112),
+            (720, 1472, 80, 80)
         ]
 
     DEFAULT = auto()

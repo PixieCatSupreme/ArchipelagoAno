@@ -105,8 +105,6 @@ class AnodyneWorld(UTStuff, World):
     settings: ClassVar[AnodyneSettings]
     topology_present = False  # show path to required location checks in spoiler
 
-    version = "0.4.2"
-
     item_name_to_id = Constants.item_name_to_id
     location_name_to_id = Constants.location_name_to_id
     item_name_groups = Items.item_groups
@@ -956,7 +954,7 @@ class AnodyneWorld(UTStuff, World):
             "mitra_hint_type": int(self.options.mitra_hints),
             "include_blue_happy": bool(self.options.include_blue_happy),
             "swap_areas": [area.swap_areas() for area in Regions.all_areas],
-            "version": self.version,
+            "version": self.world_version.as_simple_string(),
             **{c.typename(): c.shorthand(self.options) for c in gatereq_classes}
         }
 

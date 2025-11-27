@@ -200,6 +200,12 @@ class Crowd(RegionEnum):
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 592, 561
 
+    @classmethod
+    def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
+        return [], [
+            (1424, 704, 112, 64)
+        ]
+
     floor_1 = auto()
     floor_2 = auto()
     floor_2_gauntlets = auto()
@@ -264,7 +270,7 @@ class Forest(RegionEnum):
     @classmethod
     def swap_areas(cls) -> tuple[list[tuple[int, int, int, int]], list[tuple[int, int, int, int]]]:
         return [], [
-            (0, 0, 800, 1440)
+            (80, 128, 48, 112)
         ]
 
     DEFAULT = auto()

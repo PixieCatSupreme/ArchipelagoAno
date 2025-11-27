@@ -255,7 +255,10 @@ class AnodyneWorld(UTStuff, World):
             *Items.RedCaveUnlock.all(),
             Items.Inventory.Progressive_Swap.item,
             *Items.Nexus.all(),
-            *Items.Card.all()
+            *Items.Card.all(),
+            *Items.Secret.all(),
+            *Items.Trap.all(),
+            *Items.Heal.all()
         ]
 
         if small_key_mode == SmallKeyMode.option_small_keys:

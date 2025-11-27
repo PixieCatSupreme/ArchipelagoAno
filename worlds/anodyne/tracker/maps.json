@@ -192,8 +192,20 @@
         "location_border_thickness": 1
     },
     {
+        "name": "Mountain Cavern:Swap2",
+        "img": "images/maps/generated/CROWD_Swap2.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
         "name": "Mountain Cavern:Split",
         "img": "images/maps/generated/CROWD_Split.png",
+        "location_size": 20,
+        "location_border_thickness": 1
+    },
+    {
+        "name": "Mountain Cavern:Split:Swap2",
+        "img": "images/maps/generated/CROWD_Split_Swap2.png",
         "location_size": 20,
         "location_border_thickness": 1
     },

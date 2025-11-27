@@ -4952,7 +4952,17 @@
                         "y": 344
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 360,
+                        "y": 344
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 360,
+                        "y": 344
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 360,
                         "y": 344
                     }
@@ -4972,7 +4982,17 @@
                         "y": 600
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 344,
+                        "y": 600
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 344,
+                        "y": 600
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 344,
                         "y": 600
                     }
@@ -4992,7 +5012,17 @@
                         "y": 984
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 504,
+                        "y": 984
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 504,
+                        "y": 984
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 504,
                         "y": 984
                     }
@@ -5012,7 +5042,17 @@
                         "y": 344
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 616,
+                        "y": 344
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 616,
+                        "y": 344
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 616,
                         "y": 344
                     }
@@ -5032,7 +5072,17 @@
                         "y": 440
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 1416,
+                        "y": 440
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 1416,
+                        "y": 440
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 1416,
                         "y": 440
                     }
@@ -5052,7 +5102,17 @@
                         "y": 840
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 1496,
+                        "y": 840
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 1496,
+                        "y": 840
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 1496,
                         "y": 840
                     }
@@ -5072,7 +5132,17 @@
                         "y": 984
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 1208,
+                        "y": 984
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 1208,
+                        "y": 984
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 1208,
                         "y": 984
                     }
@@ -5092,7 +5162,17 @@
                         "y": 712
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 904,
+                        "y": 712
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 904,
+                        "y": 712
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 904,
                         "y": 712
                     }
@@ -5112,7 +5192,17 @@
                         "y": 1016
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 1512,
+                        "y": 1016
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 1512,
+                        "y": 1016
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 1512,
                         "y": 1016
                     }
@@ -5132,7 +5222,17 @@
                         "y": 872
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 1544,
+                        "y": 872
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 1544,
+                        "y": 872
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 1544,
                         "y": 872
                     }
@@ -5155,7 +5255,17 @@
                         "y": 745
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 1520,
+                        "y": 745
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 1520,
+                        "y": 745
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 1520,
                         "y": 745
                     }
@@ -5175,7 +5285,17 @@
                         "y": 104
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 1304,
+                        "y": 104
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 1304,
+                        "y": 104
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 1304,
                         "y": 104
                     }
@@ -5195,7 +5315,17 @@
                         "y": 72
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 1544,
+                        "y": 72
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 1544,
+                        "y": 72
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 1544,
                         "y": 72
                     }
@@ -5215,7 +5345,17 @@
                         "y": 360
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 1368,
+                        "y": 360
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 1368,
+                        "y": 360
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 1368,
                         "y": 360
                     }
@@ -5235,7 +5375,17 @@
                         "y": 680
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 24,
+                        "y": 680
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 24,
+                        "y": 680
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 24,
                         "y": 680
                     }
@@ -5255,7 +5405,17 @@
                         "y": 664
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 216,
+                        "y": 664
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 216,
+                        "y": 664
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 216,
                         "y": 664
                     }
@@ -5275,7 +5435,17 @@
                         "y": 680
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 184,
+                        "y": 680
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 184,
+                        "y": 680
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 184,
                         "y": 680
                     }
@@ -5295,7 +5465,17 @@
                         "y": 1080
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 184,
+                        "y": 1080
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 184,
+                        "y": 1080
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 184,
                         "y": 1080
                     }
@@ -5315,7 +5495,17 @@
                         "y": 1096
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 216,
+                        "y": 1096
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 216,
+                        "y": 1096
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 216,
                         "y": 1096
                     }
@@ -5335,7 +5525,17 @@
                         "y": 1144
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 408,
+                        "y": 1144
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 408,
+                        "y": 1144
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 408,
                         "y": 1144
                     }
@@ -5355,7 +5555,17 @@
                         "y": 1224
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 456,
+                        "y": 1224
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 456,
+                        "y": 1224
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 456,
                         "y": 1224
                     }
@@ -5375,7 +5585,17 @@
                         "y": 1048
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 360,
+                        "y": 1048
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 360,
+                        "y": 1048
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 360,
                         "y": 1048
                     }
@@ -5395,7 +5615,17 @@
                         "y": 1032
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 472,
+                        "y": 1032
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 472,
+                        "y": 1032
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 472,
                         "y": 1032
                     }
@@ -5415,7 +5645,17 @@
                         "y": 1096
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 376,
+                        "y": 1096
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 376,
+                        "y": 1096
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 376,
                         "y": 1096
                     }
@@ -5435,7 +5675,17 @@
                         "y": 696
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 1416,
+                        "y": 696
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 1416,
+                        "y": 696
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 1416,
                         "y": 696
                     }
@@ -5455,7 +5705,17 @@
                         "y": 344
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 1576,
+                        "y": 344
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 1576,
+                        "y": 344
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 1576,
                         "y": 344
                     }
@@ -5475,7 +5735,17 @@
                         "y": 984
                     },
                     {
+                        "map": "Mountain Cavern:Swap2",
+                        "x": 1519,
+                        "y": 984
+                    },
+                    {
                         "map": "Mountain Cavern:Split",
+                        "x": 1519,
+                        "y": 984
+                    },
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 1519,
                         "y": 984
                     }
@@ -38685,6 +38955,1670 @@
                 "map_locations": [
                     {
                         "map": "Mountain Cavern:Split",
+                        "x": 1767,
+                        "y": 642
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Center left tentacle hit"
+                    },
+                    {
+                        "name": "Center right tentacle hit"
+                    },
+                    {
+                        "name": "Left tentacle hit"
+                    },
+                    {
+                        "name": "Right tentacle hit"
+                    },
+                    {
+                        "name": "Defeat Rogue"
+                    },
+                    {
+                        "name": "Grab Red Key"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Nexus-Mountain Cavern split",
+        "children": [
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2192,
+                        "y": 913
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Apartment - 1F Ledge Chest"
+                    },
+                    {
+                        "name": "Apartment - 1F Rat Maze Chest"
+                    },
+                    {
+                        "name": "Apartment - 1F Exterior Chest"
+                    },
+                    {
+                        "name": "Apartment - 1F Couches Chest"
+                    },
+                    {
+                        "name": "Apartment - 2F Rat Maze Chest"
+                    },
+                    {
+                        "name": "Apartment - 3F Gauntlet Chest"
+                    },
+                    {
+                        "name": "Apartment - Boss Chest"
+                    },
+                    {
+                        "name": "Apartment - Health Cicada"
+                    },
+                    {
+                        "name": "Apartment - Warp Pad"
+                    },
+                    {
+                        "name": "Apartment - 1F Shortcut Room Dust 1"
+                    },
+                    {
+                        "name": "Apartment - 2F Switch Pillar Rat Maze Dust"
+                    },
+                    {
+                        "name": "Apartment - 2F Dash Trap Rat Maze Dust"
+                    },
+                    {
+                        "name": "Apartment - 2F Flooded Room Dust"
+                    },
+                    {
+                        "name": "Apartment - 1F Couches Dust"
+                    },
+                    {
+                        "name": "Apartment - 1F Shortcut Room Dust 2"
+                    },
+                    {
+                        "name": "Apartment - 1F Rat Maze Chest Dust 1"
+                    },
+                    {
+                        "name": "Apartment - 1F Rat Maze Chest Dust 2"
+                    },
+                    {
+                        "name": "Apartment - 1F Rat Maze Chest Dust 3"
+                    },
+                    {
+                        "name": "Apartment - 1F Entrance Dust"
+                    },
+                    {
+                        "name": "Apartment - 1F Flooded Room Dust"
+                    },
+                    {
+                        "name": "Apartment - 1F Flooded Library Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1888,
+                        "y": 801
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Beach - Dock Chest"
+                    },
+                    {
+                        "name": "Beach - Secret Chest"
+                    },
+                    {
+                        "name": "Beach - Out-of-bounds Chest"
+                    },
+                    {
+                        "name": "Beach - Health Cicada"
+                    },
+                    {
+                        "name": "Beach - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2192,
+                        "y": 977
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Temple of the Seeing One - Entrance Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Shieldy Room Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Rock-Surrounded Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Boss Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - After Statue Left Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - After Statue Right Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Dark Room Chest"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Health Cicada"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Green Key"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Warp Pad"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Laser Room Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Laser Room Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Room With Holes Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Room With Holes Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Past Shieldy Puzzle Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Before Boss Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Past Shieldy Puzzle Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Shieldy Room Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Shieldy Room Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Laser Room Dust 3"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Entrance Dust 1"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Entrance Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Before Boss Dust 2"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Laser Room Dust 4"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Dark Room Rock"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Near Entrance Hidden Rock"
+                    },
+                    {
+                        "name": "Temple of the Seeing One - Near Drawer Hidden Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1680,
+                        "y": 480
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blank - Card Chest"
+                    },
+                    {
+                        "name": "Blank - Unclaimed Rock"
+                    },
+                    {
+                        "name": "Blank - Circles Rock"
+                    },
+                    {
+                        "name": "Blank - Platforms Rock"
+                    },
+                    {
+                        "name": "Blank - Love Rock"
+                    },
+                    {
+                        "name": "Blank - Portal Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1872,
+                        "y": 577
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cell - Top Left Chest"
+                    },
+                    {
+                        "name": "Cell - Chaser Gauntlet Chest"
+                    },
+                    {
+                        "name": "Cell - Health Cicada"
+                    },
+                    {
+                        "name": "Cell - Warp Pad"
+                    },
+                    {
+                        "name": "Cell - Nexus Pad Rock"
+                    },
+                    {
+                        "name": "Cell - Health Cicada Rock"
+                    },
+                    {
+                        "name": "Cell - Spikes Rock"
+                    },
+                    {
+                        "name": "Cell - Near Red Grotto Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1792,
+                        "y": 577
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Circus - Rat Maze Chest"
+                    },
+                    {
+                        "name": "Circus - Clowns Chest"
+                    },
+                    {
+                        "name": "Circus - Fire Pillar Chest"
+                    },
+                    {
+                        "name": "Circus - Arthur Chest"
+                    },
+                    {
+                        "name": "Circus - Javiera Chest"
+                    },
+                    {
+                        "name": "Circus - Lion Chest"
+                    },
+                    {
+                        "name": "Circus - Double Clowns Chest"
+                    },
+                    {
+                        "name": "Circus - Boss Chest"
+                    },
+                    {
+                        "name": "Circus - Health Cicada"
+                    },
+                    {
+                        "name": "Circus - Warp Pad"
+                    },
+                    {
+                        "name": "Circus - Dash Trap Dust"
+                    },
+                    {
+                        "name": "Circus - Fire Pillars in Water Dust 3"
+                    },
+                    {
+                        "name": "Circus - Lion Dust 1"
+                    },
+                    {
+                        "name": "Circus - Lion Dust 2"
+                    },
+                    {
+                        "name": "Circus - Fire Pillars in Water Dust 2"
+                    },
+                    {
+                        "name": "Circus - Fire Pillars in Water Dust 1"
+                    },
+                    {
+                        "name": "Circus - Fire Pillars in Water Dust 4"
+                    },
+                    {
+                        "name": "Circus - Dog Room Dust"
+                    },
+                    {
+                        "name": "Circus - Javiera Dust 2"
+                    },
+                    {
+                        "name": "Circus - Javiera Dust 1"
+                    },
+                    {
+                        "name": "Circus - Slime and Fire Pillar Dust"
+                    },
+                    {
+                        "name": "Circus - Small Contort Room Dust"
+                    },
+                    {
+                        "name": "Circus - Save Point Dust"
+                    },
+                    {
+                        "name": "Circus - Clown Dust 1"
+                    },
+                    {
+                        "name": "Circus - Clown Dust 2"
+                    },
+                    {
+                        "name": "Circus - Spike Dust"
+                    },
+                    {
+                        "name": "Circus - Dash Pad over Hole Dust"
+                    },
+                    {
+                        "name": "Circus - Lion and Dash Pad Dust"
+                    },
+                    {
+                        "name": "Circus - Spike Roller in Water Dust"
+                    },
+                    {
+                        "name": "Circus - Entrance Dust"
+                    },
+                    {
+                        "name": "Circus - Trapeze Rock"
+                    },
+                    {
+                        "name": "Circus - Clown Makeup Rock"
+                    },
+                    {
+                        "name": "Circus - Arthur Rock"
+                    },
+                    {
+                        "name": "Circus - Shining Eyed Rock"
+                    },
+                    {
+                        "name": "Circus - Javiera Rock"
+                    },
+                    {
+                        "name": "Circus - Followers Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2112,
+                        "y": 641
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cliffs - Upper Chest"
+                    },
+                    {
+                        "name": "Cliffs - Lower Chest"
+                    },
+                    {
+                        "name": "Cliffs - Warp Pad"
+                    },
+                    {
+                        "name": "Cliffs - Indecipherable Rock"
+                    },
+                    {
+                        "name": "Cliffs - Stupid Rock"
+                    },
+                    {
+                        "name": "Cliffs - Warning Rock"
+                    },
+                    {
+                        "name": "Cliffs - Ladder Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2192,
+                        "y": 641
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Mountain Cavern - 2F Crowded Ledge Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Four Enemies Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Entrance Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Frogs and Dog Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 3F Roller Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - Boss Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - Extend Upgrade Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Frogs and Rotators Chest"
+                    },
+                    {
+                        "name": "Mountain Cavern - Health Cicada"
+                    },
+                    {
+                        "name": "Mountain Cavern - Blue Key"
+                    },
+                    {
+                        "name": "Mountain Cavern - Warp Pad"
+                    },
+                    {
+                        "name": "Mountain Cavern - 3F Top Center Moving Platform Dust"
+                    },
+                    {
+                        "name": "Mountain Cavern - 3F Top Right Moving Platform Dust"
+                    },
+                    {
+                        "name": "Mountain Cavern - 3F Roller Dust"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Frogs and Annoyers Dust"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Rotators and Annoyers Dust 1"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Rotators and Annoyers Dust 2"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Circular Hole Dust 1"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Circular Hole Dust 2"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Crossing Moving Platforms Dust 1"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Crossing Moving Platforms Dust 2"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 1"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 2"
+                    },
+                    {
+                        "name": "Mountain Cavern - 2F Moving Platform Crossroad Dust 3"
+                    },
+                    {
+                        "name": "Mountain Cavern - How? Rock"
+                    },
+                    {
+                        "name": "Mountain Cavern - Vertical Drop Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1856,
+                        "y": 320
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Debug - River Puzzles Chest"
+                    },
+                    {
+                        "name": "Debug - Lower Prison Chest"
+                    },
+                    {
+                        "name": "Debug - Upper Prison Chest"
+                    },
+                    {
+                        "name": "Debug - Jumping Chest"
+                    },
+                    {
+                        "name": "Debug - Maze Chest"
+                    },
+                    {
+                        "name": "Debug - Moving Platform Dust"
+                    },
+                    {
+                        "name": "Debug - Whirlpool Room Dust 1"
+                    },
+                    {
+                        "name": "Debug - Whirlpool Room Dust 2"
+                    },
+                    {
+                        "name": "Debug - Sound Test Console Dust"
+                    },
+                    {
+                        "name": "Debug - Placeholder Card Gate Rock"
+                    },
+                    {
+                        "name": "Debug - One Way Tiles Rock"
+                    },
+                    {
+                        "name": "Debug - Dropped Keys Rock"
+                    },
+                    {
+                        "name": "Debug - Prison Rock"
+                    },
+                    {
+                        "name": "Debug - Welcoming Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2001,
+                        "y": 324
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Drawer - Game Over Chest"
+                    },
+                    {
+                        "name": "Drawer - Brown Area Chest"
+                    },
+                    {
+                        "name": "Drawer - Archives Rock"
+                    },
+                    {
+                        "name": "Drawer - Hurricane Islands Rock"
+                    },
+                    {
+                        "name": "Drawer - Brown Area Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2000,
+                        "y": 801
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Fields - Island Chest"
+                    },
+                    {
+                        "name": "Fields - Gauntlet Chest"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Chest"
+                    },
+                    {
+                        "name": "Fields - Blocked River Chest"
+                    },
+                    {
+                        "name": "Fields - Cardboard Box"
+                    },
+                    {
+                        "name": "Fields - Shopkeeper Trade"
+                    },
+                    {
+                        "name": "Fields - Mitra Trade"
+                    },
+                    {
+                        "name": "Fields - Near Woods Secret Chest"
+                    },
+                    {
+                        "name": "Fields - Secluded Glen Chest"
+                    },
+                    {
+                        "name": "Fields - Near Crossing Secret Chest"
+                    },
+                    {
+                        "name": "Fields - Warp Pad"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 1"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 2"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 3"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 4"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 5"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 6"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 7"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 8"
+                    },
+                    {
+                        "name": "Fields - Goldman's Cave Dust 9"
+                    },
+                    {
+                        "name": "Fields - Lake After Spikes Dust"
+                    },
+                    {
+                        "name": "Fields - North River Dust"
+                    },
+                    {
+                        "name": "Fields - Lake After Holes Floating Dust"
+                    },
+                    {
+                        "name": "Fields - South East of Lake Dust"
+                    },
+                    {
+                        "name": "Fields - Lake Near Windmill Dust"
+                    },
+                    {
+                        "name": "Fields - North of Lake Rapids Dust"
+                    },
+                    {
+                        "name": "Fields - North East of Lake Dust"
+                    },
+                    {
+                        "name": "Fields - Before Annoyer Maze Dust"
+                    },
+                    {
+                        "name": "Fields - Mitra House Dust"
+                    },
+                    {
+                        "name": "Fields - Near Red Gate Dust"
+                    },
+                    {
+                        "name": "Fields - After Red Gate Dust"
+                    },
+                    {
+                        "name": "Fields - Near Terminal Dust"
+                    },
+                    {
+                        "name": "Fields - North West of Lake Dust"
+                    },
+                    {
+                        "name": "Fields - Near Beach Dust"
+                    },
+                    {
+                        "name": "Fields - South West Corner Dust"
+                    },
+                    {
+                        "name": "Fields - South East of Gauntlet Dust"
+                    },
+                    {
+                        "name": "Fields - Before Gauntlet Dust"
+                    },
+                    {
+                        "name": "Fields - Island Chest Dust"
+                    },
+                    {
+                        "name": "Fields - Island Start Dust"
+                    },
+                    {
+                        "name": "Fields - Post Whirlpool Dust"
+                    },
+                    {
+                        "name": "Fields - Olive Dust"
+                    },
+                    {
+                        "name": "Fields - Mitra's House Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2112,
+                        "y": 801
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Deep Forest - Inlet Chest"
+                    },
+                    {
+                        "name": "Deep Forest - Bunny Chest"
+                    },
+                    {
+                        "name": "Deep Forest - Warp Pad"
+                    },
+                    {
+                        "name": "Deep Forest - Relaxation Pond Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Near Cliff Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Floating Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Thorax Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Carved Rock Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Tiny Island Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Inlet Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Before Inlet Chest Dust"
+                    },
+                    {
+                        "name": "Deep Forest - Relaxation Pond Rock"
+                    },
+                    {
+                        "name": "Deep Forest - Carved Rock"
+                    },
+                    {
+                        "name": "Deep Forest - Nexus Pad Rock"
+                    },
+                    {
+                        "name": "Deep Forest - Near Cliffs Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1952,
+                        "y": 657
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Garden - Swap Upgrade Chest"
+                    },
+                    {
+                        "name": "Garden - Secret Color Puzzle Chest"
+                    },
+                    {
+                        "name": "Garden - Defeat Briar"
+                    },
+                    {
+                        "name": "Garden - Warp Pad"
+                    },
+                    {
+                        "name": "Garden - Swap Puzzle Rock"
+                    },
+                    {
+                        "name": "Garden - Strange Dimensional Guardian Rock"
+                    },
+                    {
+                        "name": "Garden - Suburban Guardian Rock"
+                    },
+                    {
+                        "name": "Garden - Labyrinthine Dungeon's Guardian Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2192,
+                        "y": 577
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Hotel - 4F Annoyers Chest"
+                    },
+                    {
+                        "name": "Hotel - 4F Dust Blower Maze Chest"
+                    },
+                    {
+                        "name": "Hotel - 3F Dashers Chest"
+                    },
+                    {
+                        "name": "Hotel - 3F Gasguy Chest"
+                    },
+                    {
+                        "name": "Hotel - 3F Rotators Chest"
+                    },
+                    {
+                        "name": "Hotel - 2F Dog Chest"
+                    },
+                    {
+                        "name": "Hotel - 2F Crevice Right Chest"
+                    },
+                    {
+                        "name": "Hotel - 2F Backrooms Chest"
+                    },
+                    {
+                        "name": "Hotel - 1F Burst Flowers Chest"
+                    },
+                    {
+                        "name": "Hotel - 2F Crevice Left Chest"
+                    },
+                    {
+                        "name": "Hotel - Boss Chest"
+                    },
+                    {
+                        "name": "Hotel - Roof Chest"
+                    },
+                    {
+                        "name": "Hotel - Health Cicada"
+                    },
+                    {
+                        "name": "Hotel - Warp Pad"
+                    },
+                    {
+                        "name": "Hotel - 1F Floating Dustmaid Dust"
+                    },
+                    {
+                        "name": "Hotel - 3F Hallway Dustmaid Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 3F Hallway Dustmaid Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 4F Moving Platform Crossroad 1"
+                    },
+                    {
+                        "name": "Hotel - 1F Boss Dust"
+                    },
+                    {
+                        "name": "Hotel - 1F Gasguy Dust"
+                    },
+                    {
+                        "name": "Hotel - 1F Dustmaid and Steampipe Dust 3"
+                    },
+                    {
+                        "name": "Hotel - 1F Dustmaid and Steampipe Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 1F Dustmaid and Steampipe Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 1F Dustmaid and Steampipe Dust 4"
+                    },
+                    {
+                        "name": "Hotel - 2F Steampipe Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 2F Steampipe Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 1F Locked Dust"
+                    },
+                    {
+                        "name": "Hotel - 2F Dustmaid and Steampipe Dust 3"
+                    },
+                    {
+                        "name": "Hotel - 2F Dustmaid and Steampipe Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 2F Dustmaid and Steampipe Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 2F Dustmaid Hallway Dust"
+                    },
+                    {
+                        "name": "Hotel - 3F Stream Dustmaid Dust"
+                    },
+                    {
+                        "name": "Hotel - 3F Bedroom Dust"
+                    },
+                    {
+                        "name": "Hotel - 4F Slime Dust 2"
+                    },
+                    {
+                        "name": "Hotel - 4F Slime Dust 1"
+                    },
+                    {
+                        "name": "Hotel - 4F Moving Platform Crossroad 2"
+                    },
+                    {
+                        "name": "Hotel - 4F Dustmaid Dust"
+                    },
+                    {
+                        "name": "Hotel - 4F Near Elevator Dust"
+                    },
+                    {
+                        "name": "Hotel - 4F Spring Puzzle Dust"
+                    },
+                    {
+                        "name": "Hotel - 4F Moving Platform Puzzle Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2120,
+                        "y": 168
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Nexus - Isolated Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2112,
+                        "y": 977
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Woods - Near Gate Chest"
+                    },
+                    {
+                        "name": "Woods - After Temple Chest"
+                    },
+                    {
+                        "name": "Woods - Health Cicada"
+                    },
+                    {
+                        "name": "Woods - Warp Pad"
+                    },
+                    {
+                        "name": "Woods - Mean Rock"
+                    },
+                    {
+                        "name": "Woods - Out of Bounds Rock"
+                    },
+                    {
+                        "name": "Woods - Secret Treasure Rock"
+                    },
+                    {
+                        "name": "Woods - Gotcha Rock"
+                    },
+                    {
+                        "name": "Woods - Overworld Station Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1792,
+                        "y": 642
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Grotto - Top Cave Slasher Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Right Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Left Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Middle Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Boss Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Rapids Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Slasher Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Four Shooter Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Sticky Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Widen Upgrade Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Isaac Dungeon Chest"
+                    },
+                    {
+                        "name": "Red Grotto - Health Cicada"
+                    },
+                    {
+                        "name": "Red Grotto - Red Key"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Right Tentacle"
+                    },
+                    {
+                        "name": "Red Grotto - Middle Cave Left Tentacle"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Tentacle"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Tentacle"
+                    },
+                    {
+                        "name": "Red Grotto - Warp Pad"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Boss Dust 1"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Boss Dust 2"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Before Boss Dust"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Slasher Dust"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Before Slasher Dust"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Boss Dust 3"
+                    },
+                    {
+                        "name": "Red Grotto - Top Cave Boss Dust 4"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Rapids Dust 1"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Rapids Dust 2"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Before Slasher Dust"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Whirlpool Dust 1"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Whirlpool Dust 1"
+                    },
+                    {
+                        "name": "Red Grotto - Left Cave Whirlpool Dust 2"
+                    },
+                    {
+                        "name": "Red Grotto - Right Cave Whirlpool Dust 2"
+                    },
+                    {
+                        "name": "Red Grotto - Center Grotto Rock"
+                    },
+                    {
+                        "name": "Red Grotto - Right Grotto Rock"
+                    },
+                    {
+                        "name": "Red Grotto - Left Grotto Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1872,
+                        "y": 642
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Sea - Lonely Chest"
+                    },
+                    {
+                        "name": "Red Sea - Out-of-bounds Chest"
+                    },
+                    {
+                        "name": "Red Sea - Warp Pad"
+                    },
+                    {
+                        "name": "Red Sea - Treasure Rock"
+                    },
+                    {
+                        "name": "Red Sea - Near Portal Rock"
+                    },
+                    {
+                        "name": "Red Sea - Far Edge Rock"
+                    },
+                    {
+                        "name": "Red Sea - Red Walker Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2112,
+                        "y": 913
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Young Town - Stab Reward Chest"
+                    },
+                    {
+                        "name": "Young Town - Killers Chest"
+                    },
+                    {
+                        "name": "Young Town - Health Cicada"
+                    },
+                    {
+                        "name": "Young Town - Warp Pad"
+                    },
+                    {
+                        "name": "Young Town - Fragmented Rock"
+                    },
+                    {
+                        "name": "Young Town - Parking Lot Rock"
+                    },
+                    {
+                        "name": "Young Town - Ying's Apartment Rock"
+                    },
+                    {
+                        "name": "Young Town - Near Forest Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2112,
+                        "y": 577
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Space - Left Chest"
+                    },
+                    {
+                        "name": "Space - Right Chest"
+                    },
+                    {
+                        "name": "Space - Gauntlet Chest"
+                    },
+                    {
+                        "name": "Space - Hidden Chest"
+                    },
+                    {
+                        "name": "Space - Warp Pad"
+                    },
+                    {
+                        "name": "Space - Challenge Area Dustmaid Dust 1"
+                    },
+                    {
+                        "name": "Space - Challenge Area Dustmaid Dust 2"
+                    },
+                    {
+                        "name": "Space - Challenge Area Lion Dust 1"
+                    },
+                    {
+                        "name": "Space - Challenge Area Lion Dust 2"
+                    },
+                    {
+                        "name": "Space - Space Time Tablet"
+                    },
+                    {
+                        "name": "Space - Unreadable Grave"
+                    },
+                    {
+                        "name": "Space - Burd's Grave"
+                    },
+                    {
+                        "name": "Space - Bag's Grave"
+                    },
+                    {
+                        "name": "Space - Savitch's Grave"
+                    },
+                    {
+                        "name": "Space - Dave's Grave"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1856,
+                        "y": 977
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Street - Key Chest"
+                    },
+                    {
+                        "name": "Street - Broom Chest"
+                    },
+                    {
+                        "name": "Street - Secret Chest"
+                    },
+                    {
+                        "name": "Street - After Bridge Dust 1"
+                    },
+                    {
+                        "name": "Street - After Bridge Dust 2"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1952,
+                        "y": 737
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Crossing - Broken Bridge Chest"
+                    },
+                    {
+                        "name": "Crossing - Warp Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2048,
+                        "y": 737
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Windmill - Post Activation Chest"
+                    },
+                    {
+                        "name": "Windmill - Activation"
+                    },
+                    {
+                        "name": "Windmill - Warp Pad"
+                    },
+                    {
+                        "name": "Windmill - Dimensional Rift Tower Rock"
+                    },
+                    {
+                        "name": "Windmill - Repurposed Tower Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2160,
+                        "y": 328
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Boss Rush - Reward Chest"
+                    },
+                    {
+                        "name": "Boss Rush - Before Red Boss Dust"
+                    },
+                    {
+                        "name": "Boss Rush - Red Boss Dust 1"
+                    },
+                    {
+                        "name": "Boss Rush - Red Boss Dust 2"
+                    },
+                    {
+                        "name": "Boss Rush - Red Boss Dust 3"
+                    },
+                    {
+                        "name": "Boss Rush - Red Boss Dust 4"
+                    },
+                    {
+                        "name": "Boss Rush - Manager Phase 1 Dust"
+                    },
+                    {
+                        "name": "Boss Rush - Manager Phase 2 Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1952,
+                        "y": 593
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blue - Warp Pad"
+                    },
+                    {
+                        "name": "Blue - Completion Reward"
+                    },
+                    {
+                        "name": "Blue - Laser Room Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2048,
+                        "y": 593
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red - Warp Pad"
+                    },
+                    {
+                        "name": "Red - Completion Reward"
+                    },
+                    {
+                        "name": "Red - Final Room Dust"
+                    },
+                    {
+                        "name": "Red - Dustmaid Dust"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2058,
+                        "y": 1144
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Nexus - Rock of Beginnings"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2008,
+                        "y": 200
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Nexus - Before Gate Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2008,
+                        "y": 138
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Nexus - Post Gate Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2120,
+                        "y": 310
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Nexus - Wiggle Rock"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2167,
+                        "y": 977
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Seer"
+                    },
+                    {
+                        "name": "Grab Green Key"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2167,
+                        "y": 641
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat The Wall"
+                    },
+                    {
+                        "name": "Grab Blue Key"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2023,
+                        "y": 737
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Windmill activated"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2167,
+                        "y": 577
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Manager"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1767,
+                        "y": 577
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Servants"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2167,
+                        "y": 913
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Watcher"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1927,
+                        "y": 737
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Sage"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1927,
+                        "y": 657
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Defeat Briar"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 1927,
+                        "y": 593
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Blue Completion"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2023,
+                        "y": 593
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Happy Completion"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
+                        "x": 2000,
+                        "y": 112
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Open final gate"
+                    }
+                ]
+            },
+            {
+                "name": "Mountain Cavern",
+                "map_locations": [
+                    {
+                        "map": "Mountain Cavern:Split:Swap2",
                         "x": 1767,
                         "y": 642
                     }

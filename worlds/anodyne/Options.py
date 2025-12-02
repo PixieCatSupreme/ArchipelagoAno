@@ -4,8 +4,8 @@ from enum import IntEnum
 from typing import Type, List, Dict
 
 from Options import (Choice, DeathLink, PerGameCommonOptions, StartInventoryPool, Toggle, Range, OptionSet,
-                     DefaultOnToggle, NamedRange)
-from .Data import Locations
+                     DefaultOnToggle, NamedRange, OptionCounter)
+from .Data import Locations, Items
 from .Data.Regions import Red_Cave
 
 
@@ -417,10 +417,21 @@ class IncludeForestBunnyChest(Toggle):
 
 
 class TrapPercentage(Range):
-    """Determines how many traps will be generated."""
+    """Determines how many filler items will be traps."""
     display_name = "Traps Percentage"
     range_end = 100
     default = 25
+
+
+class TrapWeights(OptionCounter):
+    """Specify the distribution of traps that should be placed into the pool.
+
+    If you don't want a specific type of trap, set the weight to zero.
+    """
+    display_name = "Trap Weights"
+    valid_keys = Items.Trap.names()
+    min = 0
+    default = {full_name: 1 for full_name in Items.Trap.names()}
 
 
 class CardAmount(NamedRange):
@@ -505,3 +516,4 @@ class AnodyneGameOptions(PerGameCommonOptions):
     forest_bunny_chest: IncludeForestBunnyChest
     # Filler Items
     traps_percentage: TrapPercentage
+    trap_weights: TrapWeights

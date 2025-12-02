@@ -74,7 +74,8 @@ class AnodyneWebWorld(WebWorld):
             Options.IncludeForestBunnyChest
         ]),
         OptionGroup("Filler Items", [
-            Options.TrapPercentage
+            Options.TrapPercentage,
+            Options.TrapWeights
         ]),
         OptionGroup("Big Gate Logic", [option for gatereqs in [
             [gatereq.Gate, gatereq.GateCardReq, gatereq.GateBossReq]
@@ -422,8 +423,14 @@ class AnodyneWorld(UTStuff, World):
             num_traps = int(self.options.traps_percentage / 100 * remaining_items)
             remaining_items -= num_traps
 
-            for i in range(num_traps):
-                new_items.append(self.random.choice(Items.Trap.all()))
+            total_trap_weight = sum(self.options.trap_weights.values())
+
+            if total_trap_weight > 0:
+                trap_counts = {name: int(weight * num_traps / total_trap_weight)
+                               for name, weight in self.options.trap_weights.items()}
+                for name, count in trap_counts.items():
+                    for i in range(0, count):
+                        new_items.append(Items.all_items[name])
 
             secret_items = Items.early_secret_items if self.options.postgame_mode == PostgameMode.option_disabled \
                 else Items.Secret.all()

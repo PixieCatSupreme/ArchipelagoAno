@@ -561,7 +561,7 @@ class AnodyneWorld(UTStuff, World):
             if not event.is_active(self.options):
                 continue
 
-            if self.using_ut and bool(self.multiworld.__getattribute__("enforce_deferred_connections")):
+            if self.using_ut and str(self.multiworld.__getattribute__("enforce_deferred_connections")) != "off":
                 event_region = Region(f"Event Region: {event.name}", self.player, self.multiworld)
                 entry = all_regions[event.region].create_exit(f"Get event: {event.name}")
                 entry.access_rule = Constants.get_access_rule(event.reqs, str(event.region), self)

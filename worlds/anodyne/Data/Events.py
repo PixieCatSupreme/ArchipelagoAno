@@ -108,7 +108,7 @@ all_events: list[EventData] = [
               blue_happy_vanilla),
     EventData(Happy.gauntlet, "Happy Completion", [], (41 * 16, 11 * 16), EventFlags.Activate_Happy,
               blue_happy_vanilla),
-    EventData(Nexus.ending, "Open final gate", [], (400, 32), EventFlags.Victory, final_gate_ending),
+    EventData(Nexus.ending, "Open final gate", [], (720, 352), EventFlags.Victory, final_gate_ending),
     EventData(Red_Cave.center, "Center left tentacle hit", ["Combat"], (232, 216), EventFlags.Tentacle_CL,
               tentacles_vanilla),
     EventData(Red_Cave.center, "Center right tentacle hit", ["Combat"], (840, 200), EventFlags.Tentacle_CR,

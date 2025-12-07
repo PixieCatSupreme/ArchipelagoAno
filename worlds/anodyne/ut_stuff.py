@@ -1,5 +1,6 @@
 import json
 import os.path
+import pkgutil
 from typing import Any, Literal, NamedTuple
 from inspect import stack
 
@@ -20,6 +21,7 @@ class UTStuff:
     player_map: type[RegionEnum]
     last_map: type[RegionEnum]
     variant: 'MapVariant'
+    offsets: dict[str,tuple[int,int]]
 
     def __init__(self, *args, **kwargs):
         super(UTStuff, self).__init__(*args, **kwargs)
@@ -45,6 +47,7 @@ class UTStuff:
                 "external_pack_key": "ut_tracker_path",
                 "ut_dialog_name": "Select Anodyne's Universal Tracker Pack"
             })
+        self.offsets = json.loads(pkgutil.get_data(__name__,"Data/offsets.json"))
 
     def ut_event_check(self, event: EventData):
         return lambda _: event.flag in self.tracked_events
@@ -68,6 +71,7 @@ class UTStuff:
         return mapname_to_mapid[all_mapdata[region].get_variant_name(self.variant)]
 
     def map_page_index(self, coords: dict[str, int] | Literal[""] | None):
+        print("map page:",coords)
         if not isinstance(coords, dict):
             return 0
         self.player_map = all_areas[coords.get("Map", 0)]
@@ -85,7 +89,7 @@ class UTStuff:
     def location_icon_coords(self, index: int, coords: dict[str, int] | Literal[""] | None) -> tuple[
                                                                                                    int, int, str] | None:
         """Converts player coordinates provided by the game mod into image coordinates for the map page."""
-
+        print("location coords:",index,coords)
         if len(self.maps[1]) == len(all_variants):
             #Set maps when the maps are still the full list used to initialize the UI list.
             self.set_maps()
@@ -120,11 +124,20 @@ class UTStuff:
             # Nexus
             return game_region.nexus_ut_loc()[0], game_region.nexus_ut_loc()[1], f"images/icons/young_player.png"
 
-        if ut_map != game_region.area_name():
+        if ut_map != game_region:
             return None
 
-        return coords.get("X", 0) * 160 + 80 + game_region.ut_map_offset()[0], coords.get("Y", 0) * 160 + 80 + \
-               game_region.ut_map_offset()[1], f"images/icons/young_player.png"
+        res = coords.get("X",0) * 160 + 80, coords.get("Y",0)*160 + 80
+
+        ut_offset = game_region.ut_map_offset()
+
+        res = res[0]+ut_offset[0], res[1]+ut_offset[1]
+
+        if all_variants[index][1].is_split:
+            split_offset = self.offsets[game_region.area_name()]
+            res = res[0]+split_offset[0], res[1]+split_offset[1]
+
+        return res[0], res[1], f"images/icons/young_player.png"
 
 
 class MapVariant(NamedTuple):
@@ -339,5 +352,7 @@ if not IsFrozen:
         with open(os.path.join(base_dir, 'tracker/maps.json'), 'w', encoding='utf-8') as f:
             json.dump(make_map(), f, ensure_ascii=True, indent=4)
         offsets = gen_images(os.path.join(base_dir, 'tracker'))
+        with open(os.path.join(base_dir, 'Data/offsets.json'), 'w', encoding='utf-8') as f:
+            json.dump({region.area_name(): offset.map_offset for region,offset in offsets.items()},f)
         with open(os.path.join(base_dir, 'tracker/locations.json'), 'w', encoding='utf-8') as f:
             json.dump(location_data(offsets), f, ensure_ascii=True, indent=4)

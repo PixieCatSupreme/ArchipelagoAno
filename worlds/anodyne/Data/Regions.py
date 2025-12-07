@@ -330,6 +330,10 @@ class Nexus(RegionEnum):
     def nexus_ut_loc(cls) -> tuple[int, int]:
         return 0, 0
 
+    @classmethod
+    def ut_map_offset(cls) -> tuple[int, int]:
+        return -320,-320 #Nexus has a bunch of blank space we removed in the image
+
     bottom = auto()
     top = auto()
     ending = auto()

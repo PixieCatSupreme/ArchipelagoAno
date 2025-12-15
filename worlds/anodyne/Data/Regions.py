@@ -184,6 +184,7 @@ class Circus(RegionEnum):
     third_key_gauntlet = auto()
     boss_gauntlet = auto()
     north_gauntlet = auto()
+    post_boss = auto()
 
 
 class Cliffs(RegionEnum):

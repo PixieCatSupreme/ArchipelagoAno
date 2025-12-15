@@ -69,6 +69,7 @@ all_exits: list[Connection] = [
     (Circus.circlejump_gauntlets, Circus.third_key_gauntlet, ["Small Key (Circus):2"]),
     (Circus.third_key_gauntlet, Circus.boss_gauntlet, ["Small Key (Circus):3"]),
     (Circus.boss_gauntlet, Circus.north_gauntlet, ["Small Key (Circus):4"]),
+    (Circus.boss_gauntlet, Circus.post_boss, ["Defeat Servants"]),
     (Cell.DEFAULT, Red_Cave.exit, ["Red Grotto Statue"]),
     (Red_Cave.exit, Cell.DEFAULT, ["Red Grotto Statue"]),
     (Cliffs.DEFAULT, Forest.DEFAULT, []),

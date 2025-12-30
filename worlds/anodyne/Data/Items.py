@@ -272,6 +272,9 @@ class Trap(ItemEnum):
 
     Person = auto()
     Gas = auto()
+    Chaos = auto()
+    Extreme_Chaos = auto()
+    Grayscale = auto()
 
 
 class RedCaveUnlock(ItemEnum):

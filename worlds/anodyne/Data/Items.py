@@ -275,7 +275,7 @@ class Trap(ItemEnum):
     Chaos = auto()
     Extreme_Chaos = auto()
     Grayscale = auto()
-
+    Phone = auto()
 
 class RedCaveUnlock(ItemEnum):
     @staticmethod

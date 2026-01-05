@@ -957,7 +957,7 @@ class AnodyneWorld(UTStuff, World):
             "shop_items": [dataclasses.asdict(item) for item in self.get_shop_items()],
             "randomize_color_puzzle": bool(self.options.randomize_color_puzzle),
             "mitra_hints": [dataclasses.asdict(hint) for hint in
-                            self.get_mitra_hints(0 if self.options.mitra_hints == MitraHints.option_none else 8 + 1)],
+                            self.get_mitra_hints(0 if self.options.mitra_hints == MitraHints.option_none else 8 + 2)],
             "mitra_hint_type": int(self.options.mitra_hints),
             "include_blue_happy": bool(self.options.include_blue_happy),
             "swap_areas": [area.swap_areas() for area in Regions.all_areas],

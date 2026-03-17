@@ -437,8 +437,21 @@ class TrapWeights(OptionCounter):
         Items.Trap.Chaos.item.full_name: 1,
         Items.Trap.Extreme_Chaos.item.full_name: 0,
         Items.Trap.Grayscale.item.full_name: 1,
-        Items.Trap.Phone.item.full_name: 1
+        Items.Trap.Phone.item.full_name: 1,
+        Items.Trap.Pixelate.item.full_name: 1,
+        Items.Trap.Stun.item.full_name: 0.5,
+        Items.Trap.Damage.item.full_name: 0.5,
+        Items.Trap.One_Hit_KO.item.full_name: 0.1,
+        Items.Trap.Invisible.item.full_name: 0.5
     }
+
+class TrapLink(DefaultOnToggle):
+    """
+    If enabled, when you receive a trap, it will send a similar trap out to other players. In a similar vain, other players receiving a trap will send one to you as well.
+
+    You will only receive traps with a weight higher than 0.
+    """
+    display_name = "Trap Link"
 
 
 class CardAmount(NamedRange):
@@ -524,3 +537,4 @@ class AnodyneGameOptions(PerGameCommonOptions):
     # Filler Items
     traps_percentage: TrapPercentage
     trap_weights: TrapWeights
+    trap_link : TrapLink

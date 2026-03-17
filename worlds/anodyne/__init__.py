@@ -13,7 +13,7 @@ from worlds.AutoWorld import WebWorld, World
 from typing import ClassVar, List, Callable, Dict, Any, Set, Iterable, Type, Tuple, Optional
 
 from . import Constants, Options
-from .Constants import AccessRule
+from .Constants import AccessRule, item_name_to_id
 
 from .Data import Items, Locations, Regions, Exits, Events
 from .Data.Events import EventData, EventFlags
@@ -963,6 +963,8 @@ class AnodyneWorld(UTStuff, World):
             "include_blue_happy": bool(self.options.include_blue_happy),
             "swap_areas": [area.swap_areas() for area in Regions.all_areas],
             "version": self.world_version.as_simple_string(),
+            "trap_link": bool(self.options.trap_link.value),
+            "traps_enabled" : [self.item_name_to_id[trap] for trap, weight in self.options.trap_weights.items() if weight > 0],
             **{c.typename(): c.shorthand(self.options) for c in gatereq_classes}
         }
 

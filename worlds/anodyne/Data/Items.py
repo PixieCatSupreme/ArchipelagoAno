@@ -276,6 +276,11 @@ class Trap(ItemEnum):
     Extreme_Chaos = auto()
     Grayscale = auto()
     Phone = auto()
+    Pixelate = auto()
+    Stun = auto()
+    Damage = auto()
+    One_Hit_KO = auto()
+    Invisible = auto()
 
 class RedCaveUnlock(ItemEnum):
     @staticmethod

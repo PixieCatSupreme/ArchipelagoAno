@@ -281,6 +281,11 @@ class Trap(ItemEnum):
     Damage = auto()
     One_Hit_KO = auto()
     Invisible = auto()
+    Flip_Horizontal = auto()
+    Flip_Vertical = auto()
+    Disarm = auto()
+    Tool_Swap = auto()
+    Home = auto()
 
 class RedCaveUnlock(ItemEnum):
     @staticmethod

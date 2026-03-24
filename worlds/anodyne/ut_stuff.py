@@ -127,9 +127,10 @@ class UTStuff:
 
         res = coords.get("X",0) * 160 + 80, coords.get("Y",0)*160 + 80
 
-        ut_offset = game_region.ut_map_offset()
+        if game_region is Nexus:
+            ut_offset = game_region.ut_map_offset()
 
-        res = res[0]+ut_offset[0], res[1]+ut_offset[1]
+            res = res[0]+ut_offset[0], res[1]+ut_offset[1]
 
         if all_variants[index][1].is_split:
             split_offset = self.offsets[game_region.area_name()]

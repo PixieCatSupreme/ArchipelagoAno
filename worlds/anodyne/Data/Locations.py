@@ -503,8 +503,8 @@ all_locations: List[LocationData] = [
     LocationData(Space.DEFAULT, "Bag's Grave", [], (440, 232), LocationType.Rock),
     LocationData(Space.DEFAULT, "Savitch's Grave", [], (1336, 216), LocationType.Rock),
     LocationData(Space.DEFAULT, "Dave's Grave", [], (1624, 184), LocationType.Rock),
-    LocationData(Windmill.blank, "Dimensional Rift Tower Rock", [], (376, 840), LocationType.Rock),
-    LocationData(Windmill.third_gate, "Repurposed Tower Rock", [], (264, 824), LocationType.Rock),
+    LocationData(Windmill.blank, "Dimensional Rift Tower Rock", [], (216, 840), LocationType.Rock),
+    LocationData(Windmill.third_gate, "Repurposed Tower Rock", [], (104, 824), LocationType.Rock),
 ]
 # This array must maintain a consistent order because the IDs are generated from it.
 

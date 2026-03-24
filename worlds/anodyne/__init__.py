@@ -78,6 +78,10 @@ class AnodyneWebWorld(WebWorld):
             Options.TrapPercentage,
             Options.TrapWeights
         ]),
+        OptionGroup("Links", [
+            Options.DeathLink,
+            Options.TrapLink
+        ]),
         OptionGroup("Big Gate Logic", [option for gatereqs in [
             [gatereq.Gate, gatereq.GateCardReq, gatereq.GateBossReq]
             for gatereq in Options.gatereq_classes] for option in gatereqs]

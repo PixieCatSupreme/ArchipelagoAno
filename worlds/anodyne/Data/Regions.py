@@ -74,7 +74,9 @@ class Apartment(RegionEnum):
 
     floor_1 = auto()
     floor_1_top_left = auto()
+    floor_1_shortcut = auto()
     floor_2 = auto()
+    floor_2_rat_maze = auto()
     floor_2_top_left = auto()
     floor_3 = auto()
 

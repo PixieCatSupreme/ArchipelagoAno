@@ -76,7 +76,7 @@ all_locations: List[LocationData] = [
     LocationData(Apartment.floor_1, "1F Exterior Chest", ["Combat", "Jump Shoes"], (600, 920)),
     LocationData(Apartment.floor_1_top_left, "1F Couches Chest", ["Combat", "Jump Shoes"], (136, 72)),
     # 5B55A264-3FCD-CF38-175C-141B2D093029
-    LocationData(Apartment.floor_2, "2F Rat Maze Chest", ["Combat", "Jump Shoes"], (1320, 504), has_key=True),
+    LocationData(Apartment.floor_2_rat_maze, "2F Rat Maze Chest", ["Combat", "Jump Shoes"], (1320, 504), has_key=True),
     # 2BBF01C8-8267-7E71-5BD4-325001DBC0BA
     LocationData(Apartment.floor_3, "3F Gauntlet Chest", ["Combat"], (1096, 984), has_key=True),
     LocationData(Apartment.floor_3, "Boss Chest", ["Defeat Watcher"], (1384, 1176)),
@@ -252,14 +252,14 @@ all_locations: List[LocationData] = [
     LocationData(Blue.DEFAULT, "Completion Reward", ["Jump Shoes", "Combat"], (88, 40), type=LocationType.AreaEvent),
     LocationData(Happy.gauntlet, "Completion Reward", [], (662, 186), type=LocationType.AreaEvent),
     # Dust locations
-    LocationData(Apartment.floor_1, "1F Shortcut Room Dust 1", ["Jump Shoes"], (456, 360), type=LocationType.Dust),
+    LocationData(Apartment.floor_1_shortcut, "1F Shortcut Room Dust 1", ["Jump Shoes"], (456, 360), type=LocationType.Dust),
     LocationData(Apartment.floor_2, "2F Switch Pillar Rat Maze Dust", ["Jump Shoes", "Small Key (Apartment):3"],
                  (904, 392), type=LocationType.Dust),
     LocationData(Apartment.floor_2, "2F Dash Trap Rat Maze Dust", ["Jump Shoes", "Small Key (Apartment):3"],
                  (1080, 392), type=LocationType.Dust),
     LocationData(Apartment.floor_2, "2F Flooded Room Dust", ["Jump Shoes"], (1144, 552), type=LocationType.Dust),
     LocationData(Apartment.floor_1_top_left, "1F Couches Dust", ["Jump Shoes"], (72, 24), type=LocationType.Dust),
-    LocationData(Apartment.floor_1, "1F Shortcut Room Dust 2", ["Jump Shoes"], (424, 424), type=LocationType.Dust),
+    LocationData(Apartment.floor_1_shortcut, "1F Shortcut Room Dust 2", [], (424, 424), type=LocationType.Dust),
     LocationData(Apartment.floor_1, "1F Rat Maze Chest Dust 1", [], (88, 392), type=LocationType.Dust),
     LocationData(Apartment.floor_1, "1F Rat Maze Chest Dust 2", [], (72, 424), type=LocationType.Dust),
     LocationData(Apartment.floor_1, "1F Rat Maze Chest Dust 3", [], (24, 376), type=LocationType.Dust),

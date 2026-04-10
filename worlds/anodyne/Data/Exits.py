@@ -19,7 +19,7 @@ all_exits: list[Connection] = [
     (Apartment.floor_2_rat_maze, Apartment.floor_1, []),
     (Apartment.floor_2_rat_maze, Apartment.floor_2, []),
     (Apartment.floor_2, Apartment.floor_2_rat_maze, []),
-    (Apartment.floor_1_shortcut, Apartment.floor_1, ["Jump Shoes"]),
+    (Apartment.floor_1_shortcut, Apartment.floor_1, []),
     (Apartment.floor_1_shortcut, Apartment.floor_2, []),
     (Apartment.floor_2, Apartment.floor_1_shortcut, []),
     (Apartment.floor_1, Apartment.floor_2_top_left, ["Small Key (Apartment):4"]),

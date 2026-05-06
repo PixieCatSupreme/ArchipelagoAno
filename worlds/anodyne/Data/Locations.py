@@ -134,7 +134,7 @@ all_locations: List[LocationData] = [
     LocationData(Fields.Lake, "Gauntlet Chest", ["Combat", "Jump Shoes"], (536, 1352)),
     # Cleaning up his cave
     LocationData(Fields.Goldman, "Goldman's Cave Chest", ["Combat"], (1368, 24)),
-    LocationData(Fields.DEFAULT, "Blocked River Chest", ["Progressive Swap:2", "Jump Shoes"], (1864, 1512)),
+    LocationData(Fields.Lake, "Blocked River Chest", ["Progressive Swap:2"], (1864, 1512)),
     LocationData(Fields.DEFAULT, "Cardboard Box", ["Miao"], (1160, 440), type=LocationType.AreaEvent),
     LocationData(Fields.DEFAULT, "Shopkeeper Trade", ["Cardboard Box"], (1192, 712), type=LocationType.AreaEvent),
     LocationData(Fields.DEFAULT, "Mitra Trade", ["Biking Shoes"], (904, 712), type=LocationType.AreaEvent),

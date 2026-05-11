@@ -224,6 +224,7 @@ class Debug(RegionEnum):
         return 256, 240
 
     DEFAULT = auto()
+    prison = auto()
 
 
 class Drawer(RegionEnum):

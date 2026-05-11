@@ -111,6 +111,8 @@ all_exits: list[Connection] = [
     (Crowd.floor_1, Crowd.floor_2, []),
     (Debug.DEFAULT, Nexus.top, []),
     (Nexus.top, Debug.DEFAULT, []),
+    (Debug.DEFAULT, Debug.prison, ["Combat", "Jump Shoes"]),
+    (Debug.prison, Debug.DEFAULT, []),
     (Drawer.dark, Nexus.top, []),
     (Nexus.top, Drawer.dark, []),
     (Fields.DEFAULT, Overworld.west, [OverworldFieldsGate.typename()]),

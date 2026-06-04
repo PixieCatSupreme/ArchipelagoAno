@@ -445,7 +445,7 @@ all_locations: List[LocationData] = [
     LocationData(Blank.windmill, "Love Rock", [], (184, 712), LocationType.Rock),
     LocationData(Blank.windmill, "Portal Rock", [], (24, 872), LocationType.Rock),
     LocationData(Cell.DEFAULT, "Nexus Pad Rock", [], (500, 504), LocationType.Rock),
-    LocationData(Cell.past_gate, "Health Cicada Rock", [], (1000, 1032), LocationType.Rock),
+    LocationData(Cell.past_gate, "Health Cicada Rock", ["Jump Shoes"], (1000, 1032), LocationType.Rock),
     LocationData(Cell.DEFAULT, "Spikes Rock", ["Progressive Swap:2", "Jump Shoes"], (1176, 1176), LocationType.Rock),
     LocationData(Cell.DEFAULT, "Near Red Grotto Rock", [], (56, 1224), LocationType.Rock),
     LocationData(Circus.entry_gauntlets, "Trapeze Rock", [], (376, 920), LocationType.Rock),

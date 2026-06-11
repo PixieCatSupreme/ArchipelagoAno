@@ -2,5 +2,5 @@
     "game": "Anodyne",
 	"authors": [ "SephDB", "PixieCatSupreme" ],
     "minimum_ap_version": "0.6.4",
-    "world_version": "0.6.2"
+    "world_version": "0.6.3"
 }

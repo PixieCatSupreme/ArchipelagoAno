@@ -432,22 +432,22 @@ class TrapWeights(OptionCounter):
     valid_keys = Items.Trap.names()
     min = 0
     default = {
-        Items.Trap.Person.item.full_name: 1,
-        Items.Trap.Gas.item.full_name: 1,
-        Items.Trap.Chaos.item.full_name: 1,
+        Items.Trap.Person.item.full_name: 10,
+        Items.Trap.Gas.item.full_name: 10,
+        Items.Trap.Chaos.item.full_name: 10,
         Items.Trap.Extreme_Chaos.item.full_name: 0,
-        Items.Trap.Grayscale.item.full_name: 1,
-        Items.Trap.Phone.item.full_name: 1,
-        Items.Trap.Pixelate.item.full_name: 1,
-        Items.Trap.Stun.item.full_name: 0.5,
-        Items.Trap.Damage.item.full_name: 0.5,
-        Items.Trap.One_Hit_KO.item.full_name: 0.1,
-        Items.Trap.Invisible.item.full_name: 0.5,
-        Items.Trap.Flip_Horizontal.item.full_name: 0.5,
-        Items.Trap.Flip_Vertical.item.full_name: 0.5,
-        Items.Trap.Disarm.item.full_name: 0.8,
-        Items.Trap.Tool_Swap.item.full_name: 0.8,
-        Items.Trap.Home.item.full_name: 0.2,
+        Items.Trap.Grayscale.item.full_name: 10,
+        Items.Trap.Phone.item.full_name: 10,
+        Items.Trap.Pixelate.item.full_name: 10,
+        Items.Trap.Stun.item.full_name: 5,
+        Items.Trap.Damage.item.full_name: 5,
+        Items.Trap.One_Hit_KO.item.full_name: 1,
+        Items.Trap.Invisible.item.full_name: 5,
+        Items.Trap.Flip_Horizontal.item.full_name: 5,
+        Items.Trap.Flip_Vertical.item.full_name: 5,
+        Items.Trap.Disarm.item.full_name: 8,
+        Items.Trap.Tool_Swap.item.full_name: 8,
+        Items.Trap.Home.item.full_name: 2,
     }
 
 class TrapLink(DefaultOnToggle):

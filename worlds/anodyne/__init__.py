@@ -1,6 +1,7 @@
 import dataclasses
 import itertools
 import logging
+import math
 import typing
 from collections import defaultdict
 from dataclasses import dataclass
@@ -431,7 +432,7 @@ class AnodyneWorld(UTStuff, World):
             total_trap_weight = sum(self.options.trap_weights.values())
 
             if total_trap_weight > 0:
-                trap_counts = {name: int(weight * num_traps / total_trap_weight)
+                trap_counts = {name: math.ceil(weight * num_traps / total_trap_weight)
                                for name, weight in self.options.trap_weights.items()}
                 for name, count in trap_counts.items():
                     for i in range(0, count):

@@ -10015,21 +10015,18 @@
                 "map_locations": [
                     {
                         "map": "Red Grotto",
-                        "x": 552,
+                        "x": 600,
                         "y": 184
                     },
                     {
                         "map": "Red Grotto:Split",
-                        "x": 552,
+                        "x": 600,
                         "y": 184
                     }
                 ],
                 "sections": [
                     {
                         "name": "Red Grotto - Middle Cave Right Chest"
-                    },
-                    {
-                        "name": "Red Grotto - Middle Cave Middle Chest"
                     }
                 ]
             },
@@ -10050,6 +10047,26 @@
                 "sections": [
                     {
                         "name": "Red Grotto - Middle Cave Left Chest"
+                    }
+                ]
+            },
+            {
+                "name": "Red Grotto",
+                "map_locations": [
+                    {
+                        "map": "Red Grotto",
+                        "x": 552,
+                        "y": 184
+                    },
+                    {
+                        "map": "Red Grotto:Split",
+                        "x": 552,
+                        "y": 184
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Red Grotto - Middle Cave Middle Chest"
                     }
                 ]
             },

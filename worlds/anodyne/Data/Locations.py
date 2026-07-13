@@ -174,7 +174,7 @@ all_locations: List[LocationData] = [
     LocationData(Overworld.post_windmill, "After Temple Chest", ["Combat"], (920, 1240)),
     LocationData(Red_Cave.top, "Top Cave Slasher Chest", ["Combat"], (24, 24)),
     # 72BAD10E-598F-F238-0103-60E1B36F6240
-    LocationData(Red_Cave.center, "Middle Cave Right Chest", [], (552, 184), has_key=True),
+    LocationData(Red_Cave.center, "Middle Cave Right Chest", [], (600, 184), has_key=True),
     # AE87F1D5-57E0-1749-7E1E-1D0BCC1BCAB4
     LocationData(Red_Cave.center, "Middle Cave Left Chest", ["Combat"], (520, 184), has_key=True),
     LocationData(Red_Cave.center, "Middle Cave Middle Chest", ["Small Key (Red Grotto):6"], (552, 184)),
